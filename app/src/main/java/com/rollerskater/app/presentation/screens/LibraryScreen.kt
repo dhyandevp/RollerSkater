@@ -174,7 +174,6 @@ import com.rollerskater.app.presentation.components.GenreMultiSelectionOptionShe
 import com.rollerskater.app.presentation.components.MultiSelectionBottomSheet
 import com.rollerskater.app.presentation.components.PlaylistMultiSelectionBottomSheet
 import com.rollerskater.app.presentation.components.DeletePlaylistsConfirmationDialog
-import com.rollerskater.app.presentation.components.PlaylistCreationTypeDialog
 import com.rollerskater.app.presentation.components.subcomps.SelectionActionRow
 import com.rollerskater.app.presentation.components.subcomps.SelectionCountPill
 import com.rollerskater.app.presentation.viewmodel.ColorSchemePair
@@ -185,8 +184,6 @@ import com.rollerskater.app.presentation.viewmodel.sharedPlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.PlaylistUiState
 import com.rollerskater.app.presentation.viewmodel.PlaylistViewModel
 import com.rollerskater.app.presentation.viewmodel.SongInfoBottomSheetViewModel
-import com.rollerskater.app.presentation.viewmodel.SmartMixTarget
-import com.rollerskater.app.presentation.viewmodel.SmartMixViewModel
 import com.rollerskater.app.data.model.LibraryTabId
 import com.rollerskater.app.data.model.toLibraryTabIdOrNull
 import com.rollerskater.app.data.preferences.LibraryNavigationMode
@@ -355,8 +352,7 @@ fun LibraryScreen(
     playlistViewModel: PlaylistViewModel = hiltViewModel(),
     libraryViewModel: LibraryViewModel = hiltViewModel(),
     songInfoBottomSheetViewModel: SongInfoBottomSheetViewModel = hiltViewModel(),
-    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel(),
-    smartMixViewModel: SmartMixViewModel = hiltViewModel()
+    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val haptic = LocalHapticFeedback.current
@@ -407,7 +403,6 @@ fun LibraryScreen(
             .distinctUntilChanged()
     }.collectAsStateWithLifecycle(initialValue = false)
     var showCreatePlaylistDialog by remember { mutableStateOf(false) }
-    var showPlaylistCreationTypeDialog by remember { mutableStateOf(false) }
 
     val m3uImportLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
@@ -1232,7 +1227,7 @@ fun LibraryScreen(
                                         .padding(end = 4.dp),
                                     onMainActionClick = {
                                         when (visibleCurrentTabId) {
-                                            LibraryTabId.PLAYLISTS -> showPlaylistCreationTypeDialog = true
+                                            LibraryTabId.PLAYLISTS -> showCreatePlaylistDialog = true
                                             LibraryTabId.LIKED -> playerViewModel.shuffleFavoriteSongs()
                                             LibraryTabId.ALBUMS -> playerViewModel.playRandomAlbum()
                                             LibraryTabId.ARTISTS -> playerViewModel.shuffleRandomArtist()
@@ -1816,23 +1811,10 @@ fun LibraryScreen(
 
 
 
-    PlaylistCreationTypeDialog(
-        visible = showPlaylistCreationTypeDialog,
-        onDismiss = { showPlaylistCreationTypeDialog = false },
-        onManualSelected = {
-            showPlaylistCreationTypeDialog = false
-            showCreatePlaylistDialog = true
-        },
-        onSmartMixSelected = {
-            showPlaylistCreationTypeDialog = false
-            smartMixViewModel.open(SmartMixTarget.Library)
-        }
-    )
-
     CreatePlaylistDialog(
         visible = showCreatePlaylistDialog,
         onDismiss = { showCreatePlaylistDialog = false },
-        onCreate = { name, imageUri, color, icon, songIds, cropScale, cropPanX, cropPanY, shapeType, d1, d2, d3, d4, smartRuleKey ->
+        onCreate = { name, imageUri, color, icon, songIds, cropScale, cropPanX, cropPanY, shapeType, d1, d2, d3, d4 ->
             playlistViewModel.createPlaylist(
                 name = name,
                 coverImageUri = imageUri,
@@ -1847,8 +1829,7 @@ fun LibraryScreen(
                 coverShapeDetail1 = d1,
                 coverShapeDetail2 = d2,
                 coverShapeDetail3 = d3,
-                coverShapeDetail4 = d4,
-                smartRuleKey = smartRuleKey
+                coverShapeDetail4 = d4
             )
         }
     )

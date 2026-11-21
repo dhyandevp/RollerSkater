@@ -161,7 +161,6 @@ import sh.calvin.reorderable.rememberReorderableLazyListState
 import com.rollerskater.app.presentation.components.LibrarySortBottomSheet
 import com.rollerskater.app.data.model.SortOption
 import com.rollerskater.app.data.model.PlaylistShapeType
-import com.rollerskater.app.data.model.isSmartPlaylist
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
@@ -225,8 +224,7 @@ fun PlaylistDetailScreen(
     val toastPlayingNext = stringResource(R.string.toast_playing_next)
     val currentPlaylist = uiState.currentPlaylistDetails
     val isFolderPlaylist = currentPlaylist?.id?.startsWith(FOLDER_PLAYLIST_PREFIX) == true
-    val isSmartPlaylist = currentPlaylist?.isSmartPlaylist == true
-    val isEditablePlaylist = !isFolderPlaylist && !isSmartPlaylist
+    val isEditablePlaylist = !isFolderPlaylist
     val songsInPlaylist = uiState.currentPlaylistSongs
     val cloudSongsInPlaylist = remember(songsInPlaylist) {
         CloudOfflineRepository.downloadCandidates(songsInPlaylist)
@@ -778,7 +776,6 @@ fun PlaylistDetailScreen(
                             Text(playlistEmptyTitle, style = MaterialTheme.typography.titleMedium)
                             val emptyMessage = when {
                                 isFolderPlaylist -> playlistEmptyFolder
-                                isSmartPlaylist -> stringResource(R.string.presentation_batch_b_playlist_empty_smart_body)
                                 else -> playlistEmptyAddHint
                             }
                             Text(emptyMessage, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)

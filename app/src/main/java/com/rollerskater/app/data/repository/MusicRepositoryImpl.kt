@@ -824,7 +824,7 @@ class MusicRepositoryImpl @Inject constructor(
     }
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    override fun getHomeMixPreviewSongs(limit: Int): Flow<List<Song>> {
+    override fun getRecentlyAddedPreviewSongs(limit: Int): Flow<List<Song>> {
         return combine(
             userPreferencesRepository.allowedDirectoriesFlow,
             userPreferencesRepository.blockedDirectoriesFlow
@@ -835,7 +835,7 @@ class MusicRepositoryImpl @Inject constructor(
                 val (allowedParentDirs, applyDirectoryFilter) =
                     computeAllowedDirs(allowedDirs, blockedDirs)
                 emit(
-                    musicDao.getHomeMixPreviewSongs(
+                    musicDao.getRecentlyAddedPreviewSongs(
                         limit = limit,
                         allowedParentDirs = allowedParentDirs,
                         applyDirectoryFilter = applyDirectoryFilter

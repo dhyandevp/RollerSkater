@@ -133,7 +133,6 @@ import com.rollerskater.app.presentation.components.MiniPlayerBottomSpacer
 import com.rollerskater.app.presentation.components.MiniPlayerHeight
 import com.rollerskater.app.presentation.components.PlayerInternalNavigationBar
 import com.rollerskater.app.presentation.components.PlayerNavigationRail
-import com.rollerskater.app.presentation.components.SmartMixHost
 import com.rollerskater.app.presentation.components.UnifiedPlayerSheetV2
 import com.rollerskater.app.presentation.components.calculatePlayerSheetCollapsedTargetY
 import com.rollerskater.app.presentation.components.resolveNavBarOccupiedHeight
@@ -709,7 +708,6 @@ class MainActivity : ComponentActivity() {
                 Screen.Settings.route,
                 Screen.Accounts.route,
                 Screen.PlaylistDetail.route,
-                Screen.DailyMixScreen.route,
                 Screen.RecentlyPlayed.route,
                 Screen.GenreDetail.route,
                 Screen.AlbumDetail.route,
@@ -1037,14 +1035,6 @@ class MainActivity : ComponentActivity() {
                                 durationMillis = dismissUndoBarSlice.durationMillis
                             )
                         }
-
-                        SmartMixHost(
-                            playerViewModel = playerViewModel,
-                            modifier = Modifier
-                                .align(Alignment.BottomCenter)
-                                .padding(bottom = innerPadding.calculateBottomPadding() + MiniPlayerHeight)
-                                .padding(horizontal = horizontalPadding)
-                        )
                     }
                 }
                 }

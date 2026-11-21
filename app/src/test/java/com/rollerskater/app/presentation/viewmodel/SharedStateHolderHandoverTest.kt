@@ -240,29 +240,6 @@ class SharedStateHolderHandoverTest {
         }
     }
 
-    @Nested
-    inner class DailyMix {
-        @Test
-        fun `current owner clearing keeps Daily Mix saves on the surviving owner`() = runTest {
-            val preferences = mockk<UserPreferencesRepository>(relaxed = true)
-            val holder = DailyMixStateHolder(
-                dailyMixManager = mockk(relaxed = true),
-                userPreferencesRepository = preferences,
-                musicRepository = mockk(relaxed = true),
-            )
-            val mainActivityOwner = ownerScope()
-            val externalPlayerOwner = ownerScope()
-            holder.initialize(mainActivityOwner)
-            holder.initialize(externalPlayerOwner)
-
-            clear(externalPlayerOwner) { holder.onCleared(it) }
-            holder.setDailyMixSongs(listOf(song("mix-song")))
-            runCurrent()
-
-            coVerify(exactly = 1) { preferences.saveDailyMixSongIds(listOf("mix-song")) }
-            mainActivityOwner.cancel()
-        }
-    }
 
     @Nested
     inner class Connectivity {

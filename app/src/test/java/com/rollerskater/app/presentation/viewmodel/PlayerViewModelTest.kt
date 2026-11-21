@@ -83,7 +83,6 @@ class PlayerViewModelTest {
     private val mockDualPlayerEngine: DualPlayerEngine = mockk(relaxed = true)
     private val mockAppShortcutManager: AppShortcutManager = mockk(relaxed = true)
     private val mockListeningStatsTracker: ListeningStatsTracker = mockk(relaxed = true)
-    private val mockDailyMixStateHolder: DailyMixStateHolder = mockk(relaxed = true)
     private val mockLyricsStateHolder: LyricsStateHolder = mockk(relaxed = true)
     private val mockQueueStateHolder: QueueStateHolder = mockk(relaxed = true)
     private val mockQueueUndoStateHolder: QueueUndoStateHolder = mockk(relaxed = true)
@@ -238,7 +237,6 @@ class PlayerViewModelTest {
             mockDualPlayerEngine,
             mockAppShortcutManager,
             mockListeningStatsTracker,
-            mockDailyMixStateHolder,
             mockLyricsStateHolder,
             mockQueueStateHolder,
             mockQueueUndoStateHolder,
@@ -911,23 +909,6 @@ class PlayerViewModelTest {
     }
 
     @Nested
-    @DisplayName("Daily Mix refresh")
-    inner class DailyMixRefreshTests {
-
-        @Test
-        fun `a finished sync only regenerates the Daily Mix when it is due`() = runTest {
-            advanceUntilIdle()
-
-            isSyncingFlow.value = false
-            advanceUntilIdle()
-
-            // Generating reads the whole library; the holder decides whether today's mix is stale.
-            verify { mockDailyMixStateHolder.checkAndUpdateIfNeeded(any()) }
-            verify(exactly = 0) { mockDailyMixStateHolder.updateDailyMix(any()) }
-        }
-    }
-
-    @Nested
     @DisplayName("Clearing the view model")
     inner class ClearingTests {
 
@@ -956,7 +937,6 @@ class PlayerViewModelTest {
             val boundScope = slot<CoroutineScope>()
             verify { mockThemeStateHolder.initialize(capture(boundScope)) }
             val owner = boundScope.captured
-            verify { mockDailyMixStateHolder.initialize(owner) }
             verify { mockLyricsStateHolder.initialize(owner, any(), any()) }
             verify { mockSearchStateHolder.initialize(owner) }
             verify { mockLibraryStateHolder.initialize(owner) }
@@ -970,7 +950,6 @@ class PlayerViewModelTest {
             // Each holder falls back to whichever PlayerViewModel is still bound, so a cleared
             // view model has to say which binding it is giving up.
             verify(exactly = 1) { mockPlaybackStateHolder.onCleared(owner) }
-            verify(exactly = 1) { mockDailyMixStateHolder.onCleared(owner) }
             verify(exactly = 1) { mockLyricsStateHolder.onCleared(owner) }
             verify(exactly = 1) { mockThemeStateHolder.onCleared(owner) }
             verify(exactly = 1) { mockSearchStateHolder.onCleared(owner) }

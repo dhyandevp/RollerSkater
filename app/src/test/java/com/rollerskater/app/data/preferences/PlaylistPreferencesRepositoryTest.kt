@@ -6,7 +6,6 @@ import com.rollerskater.app.data.database.PlaylistSongEntity
 import com.rollerskater.app.data.database.PlaylistWithSongsEntity
 import com.rollerskater.app.data.database.TransitionDao
 import com.rollerskater.app.data.model.Playlist
-import com.rollerskater.app.data.model.SMART_PLAYLIST_SOURCE_LEGACY
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -104,15 +103,6 @@ class PlaylistPreferencesRepositoryTest {
         coVerify(exactly = 0) { playlistDao.replacePlaylistSongs(any(), any()) }
     }
 
-    @Test
-    fun `smart playlists cannot be reordered`() = runTest {
-        val repository = repository(storedIds = listOf("a", "b"), source = SMART_PLAYLIST_SOURCE_LEGACY)
-
-        val saved = repository.reorderSongsInPlaylist(PLAYLIST_ID, listOf("b", "a"))
-
-        assertNull(saved)
-        coVerify(exactly = 0) { playlistDao.replacePlaylistSongs(any(), any()) }
-    }
 
     @Test
     fun `deleting a playlist deletes its transition rules`() = runTest {

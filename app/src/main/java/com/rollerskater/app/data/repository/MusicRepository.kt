@@ -170,7 +170,7 @@ interface MusicRepository {
     /**
      * Returns a bounded preview sample for Home without materializing the full library in UI.
      */
-    fun getHomeMixPreviewSongs(limit: Int): Flow<List<Song>>
+    fun getRecentlyAddedPreviewSongs(limit: Int): Flow<List<Song>>
 
     /**
      * Returns the complete list of albums once.

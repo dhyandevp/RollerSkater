@@ -2,7 +2,6 @@ package com.rollerskater.app.presentation.viewmodel
 
 import android.os.SystemClock
 import androidx.media3.common.C
-import com.rollerskater.app.data.DailyMixManager
 import com.rollerskater.app.data.listenbrainz.ScrobbleManager
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.stats.PlaybackStatsRepository
@@ -31,7 +30,6 @@ import timber.log.Timber
  */
 @Singleton
 class ListeningStatsTracker @Inject constructor(
-    private val dailyMixManager: DailyMixManager,
     private val playbackStatsRepository: PlaybackStatsRepository,
     private val scrobbleManager: ScrobbleManager
 ) {
@@ -303,11 +301,6 @@ class ListeningStatsTracker @Inject constructor(
     }
 
     private suspend fun persistPlaybackInternal(songId: String, listened: Long, timestamp: Long) {
-        dailyMixManager.recordPlay(
-            songId = songId,
-            songDurationMs = listened,
-            timestamp = timestamp
-        )
         playbackStatsRepository.recordPlayback(
             songId = songId,
             durationMs = listened,

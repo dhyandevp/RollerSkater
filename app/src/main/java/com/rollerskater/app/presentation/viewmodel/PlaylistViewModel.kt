@@ -5,16 +5,10 @@ import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rollerskater.app.data.DailyMixManager
 import com.rollerskater.app.data.model.Playlist
-import com.rollerskater.app.data.model.SmartPlaylistRule
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.model.SortOption
-import com.rollerskater.app.data.model.fromPlaylistSource
-import com.rollerskater.app.data.model.isSmartPlaylist
-import com.rollerskater.app.data.model.toPlaylistSource
 import com.rollerskater.app.data.playlist.M3uManager
-import com.rollerskater.app.data.playlist.SmartPlaylistBuilder
 import com.rollerskater.app.data.preferences.PlaylistPreferencesRepository
 import com.rollerskater.app.data.repository.MusicRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -71,7 +65,6 @@ sealed class PlaylistSongsOrderMode {
 class PlaylistViewModel @Inject constructor(
     private val playlistPreferencesRepository: PlaylistPreferencesRepository,
     private val musicRepository: MusicRepository,
-    private val dailyMixManager: DailyMixManager,
     private val m3uManager: M3uManager,
     @ApplicationContext private val context: Context
 ) : ViewModel() {
@@ -88,7 +81,6 @@ class PlaylistViewModel @Inject constructor(
     companion object {
         const val FOLDER_PLAYLIST_PREFIX = "folder_playlist:"
         private const val MANUAL_ORDER_MODE = "manual"
-        private const val SMART_PLAYLIST_MAX_ITEMS = 100
 
         fun sanitizeFileName(name: String): String {
             val sanitized = name.replace(Regex("[\\\\/:*?\"<>|\\s]+"), "_").trim('_')
@@ -204,7 +196,7 @@ class PlaylistViewModel @Inject constructor(
                         .find { it.id == playlistId }
 
                     if (playlist != null) {
-                        val playlistForDisplay = refreshSmartPlaylistIfNeeded(playlist)
+                        val playlistForDisplay = playlist
                         val orderMode = _uiState.value.playlistOrderModes[playlistId]
                             ?: PlaylistSongsOrderMode.Manual
 
@@ -272,8 +264,7 @@ class PlaylistViewModel @Inject constructor(
         coverShapeDetail2: Float? = null,
         coverShapeDetail3: Float? = null,
         coverShapeDetail4: Float? = null,
-        source: String = "LOCAL",
-        smartRuleKey: String? = null
+        source: String = "LOCAL"
     ) {
         viewModelScope.launch {
             var savedCoverPath: String? = null
@@ -289,20 +280,9 @@ class PlaylistViewModel @Inject constructor(
                 )
             }
 
-            val resolvedSmartRule = SmartPlaylistRule.fromStorageKey(smartRuleKey)
-            val resolvedSongIds = if (resolvedSmartRule != null) {
-                buildSmartPlaylistSongIds(
-                    rule = resolvedSmartRule,
-                    limit = SMART_PLAYLIST_MAX_ITEMS
-                )
-            } else {
-                songIds
-            }
-            val resolvedSource = resolvedSmartRule?.toPlaylistSource() ?: source
-
             playlistPreferencesRepository.createPlaylist(
                 name = name,
-                songIds = resolvedSongIds,
+                songIds = songIds,
                 isQueueGenerated = isQueueGenerated,
                 coverImageUri = savedCoverPath,
                 coverColorArgb = coverColor,
@@ -312,44 +292,10 @@ class PlaylistViewModel @Inject constructor(
                 coverShapeDetail2 = coverShapeDetail2,
                 coverShapeDetail3 = coverShapeDetail3,
                 coverShapeDetail4 = coverShapeDetail4,
-                source = resolvedSource
+                source = source
             )
             _playlistCreationEvent.emit(true)
         }
-    }
-
-    private suspend fun buildSmartPlaylistSongIds(
-        rule: SmartPlaylistRule,
-        limit: Int
-    ): List<String> {
-        val allSongs = musicRepository.getAllSongsOnce()
-        if (allSongs.isEmpty()) return emptyList()
-
-        return SmartPlaylistBuilder.buildSongIds(
-            rule = rule,
-            allSongs = allSongs,
-            engagements = dailyMixManager.getAllEngagementStats(),
-            favoriteIds = musicRepository.getFavoriteSongIdsOnce(),
-            now = System.currentTimeMillis(),
-            limit = limit
-        )
-    }
-
-    private suspend fun refreshSmartPlaylistIfNeeded(playlist: Playlist): Playlist {
-        val smartRule = SmartPlaylistRule.fromPlaylistSource(playlist.source) ?: return playlist
-        val refreshedSongIds = buildSmartPlaylistSongIds(
-            rule = smartRule,
-            limit = SMART_PLAYLIST_MAX_ITEMS
-        )
-
-        if (refreshedSongIds == playlist.songIds) return playlist
-
-        val refreshedPlaylist = playlist.copy(
-            songIds = refreshedSongIds,
-            lastModified = System.currentTimeMillis()
-        )
-        playlistPreferencesRepository.updatePlaylist(refreshedPlaylist)
-        return refreshedPlaylist
     }
 
 
@@ -557,9 +503,6 @@ class PlaylistViewModel @Inject constructor(
     fun addSongsToPlaylist(playlistId: String, songIdsToAdd: List<String>) {
         if (isFolderPlaylistId(playlistId)) return
         viewModelScope.launch {
-            if (playlistPreferencesRepository.getPlaylistsOnce().any { it.id == playlistId && it.isSmartPlaylist }) {
-                return@launch
-            }
             playlistPreferencesRepository.addSongsToPlaylist(playlistId, songIdsToAdd)
             if (_uiState.value.currentPlaylistDetails?.id == playlistId) {
                 loadPlaylistDetails(playlistId)
@@ -576,13 +519,8 @@ class PlaylistViewModel @Inject constructor(
         currentPlaylistId: String?
     ) {
         viewModelScope.launch {
-            val smartPlaylistIds = playlistPreferencesRepository.getPlaylistsOnce()
-                .filter { it.isSmartPlaylist }
-                .map { it.id }
-                .toSet()
-            val editablePlaylistIds = playlistIds.filterNot { it in smartPlaylistIds }
             val removedFromPlaylists =
-                playlistPreferencesRepository.addOrRemoveSongFromPlaylists(songId, editablePlaylistIds)
+                playlistPreferencesRepository.addOrRemoveSongFromPlaylists(songId, playlistIds)
             if (currentPlaylistId != null && removedFromPlaylists.contains (currentPlaylistId)) {
                 removeSongFromPlaylist(currentPlaylistId, songId)
             }
@@ -591,11 +529,7 @@ class PlaylistViewModel @Inject constructor(
 
     fun addSongsToPlaylists(songIds: List<String>, playlistIds: List<String>) {
         viewModelScope.launch {
-            val smartPlaylistIds = playlistPreferencesRepository.getPlaylistsOnce()
-                .filter { it.isSmartPlaylist }
-                .map { it.id }
-                .toSet()
-            playlistIds.filterNot { it in smartPlaylistIds }.forEach { playlistId ->
+            playlistIds.forEach { playlistId ->
                 playlistPreferencesRepository.addSongsToPlaylist(playlistId, songIds)
             }
         }
@@ -604,9 +538,6 @@ class PlaylistViewModel @Inject constructor(
     fun removeSongFromPlaylist(playlistId: String, songIdToRemove: String) {
         if (isFolderPlaylistId(playlistId)) return
         viewModelScope.launch {
-            if (playlistPreferencesRepository.getPlaylistsOnce().any { it.id == playlistId && it.isSmartPlaylist }) {
-                return@launch
-            }
             playlistPreferencesRepository.removeSongFromPlaylist(playlistId, songIdToRemove)
             if (_uiState.value.currentPlaylistDetails?.id == playlistId) {
                 _uiState.update {
@@ -624,7 +555,7 @@ class PlaylistViewModel @Inject constructor(
     fun reorderSongsInPlaylist(playlistId: String, fromIndex: Int, toIndex: Int) {
         if (isFolderPlaylistId(playlistId)) return
         val currentPlaylist = _uiState.value.currentPlaylistDetails ?: return
-        if (currentPlaylist.id != playlistId || currentPlaylist.isSmartPlaylist) return
+        if (currentPlaylist.id != playlistId) return
         viewModelScope.launch {
             val currentSongs = _uiState.value.currentPlaylistSongs.toMutableList()
             if (fromIndex in currentSongs.indices && toIndex in currentSongs.indices) {

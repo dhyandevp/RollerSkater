@@ -720,7 +720,7 @@ interface MusicDao {
         ORDER BY date_added DESC, id DESC
         LIMIT :limit
     """)
-    fun getHomeMixPreviewSongs(
+    fun getRecentlyAddedPreviewSongs(
         limit: Int,
         allowedParentDirs: List<String>,
         applyDirectoryFilter: Boolean

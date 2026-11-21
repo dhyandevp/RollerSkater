@@ -42,7 +42,6 @@ import com.rollerskater.app.presentation.model.SettingsCategory
 import com.rollerskater.app.presentation.screens.AccountsScreen
 import com.rollerskater.app.presentation.screens.ArtistDetailScreen
 import com.rollerskater.app.presentation.screens.ArtistSettingsScreen
-import com.rollerskater.app.presentation.screens.DailyMixScreen
 import com.rollerskater.app.presentation.screens.EditTransitionScreen
 import com.rollerskater.app.presentation.screens.EasterEggScreen
 import com.rollerskater.app.presentation.screens.ExperimentalSettingsScreen
@@ -327,20 +326,6 @@ fun AppNavigation(
                             highlightKey = highlightKey
                         )
                     }
-                }
-            }
-            composable(
-                Screen.DailyMixScreen.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    DailyMixScreen(
-                        playerViewModel = playerViewModel,
-                        navController = navController
-                    )
                 }
             }
             composable(

@@ -178,16 +178,6 @@ object SettingsRegistry {
                 keywordsStatic = listOf("m3u", "playlist", "sync now", "reconcile")
             ),
             SettingSpec(
-                id = "library_smart_mix_history",
-                itemKey = "item_library_smart_mix_history",
-                titleRes = R.string.setcat_smart_mix_history_title,
-                subtitleRes = R.string.setcat_smart_mix_history_subtitle,
-                category = SettingsCategory.LIBRARY,
-                subscreenRoute = Screen.SettingsCategory.createRoute("library"),
-                type = SettingType.ACTION,
-                keywordsStatic = listOf("smart mix", "mix", "history", "clear", "recent requests", "historial", "borrar")
-            ),
-            SettingSpec(
                 id = "library_auto_scan_lrc",
                 itemKey = "item_library_auto_scan_lrc",
                 titleRes = R.string.setcat_auto_scan_lrc_title,
@@ -885,16 +875,6 @@ object SettingsRegistry {
                 subscreenRoute = Screen.Experimental.createRoute(),
                 type = SettingType.NAVIGABLE_CARD,
                 keywordsStatic = listOf("experimental", "labs", "tweaks", "beta")
-            ),
-            SettingSpec(
-                id = "developer_daily_mix",
-                itemKey = "item_developer_daily_mix",
-                titleRes = R.string.setcat_force_daily_mix_title,
-                subtitleRes = R.string.setcat_force_daily_mix_subtitle,
-                category = SettingsCategory.DEVELOPER,
-                subscreenRoute = Screen.SettingsCategory.createRoute("developer"),
-                type = SettingType.NAVIGABLE_CARD,
-                keywordsStatic = listOf("daily mix", "regenerate", "playlist")
             ),
             SettingSpec(
                 id = "developer_stats_regen",

@@ -10,7 +10,6 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import com.rollerskater.app.data.model.isSmartPlaylist
 import com.rollerskater.app.data.preferences.M3uSyncPreferences
 import com.rollerskater.app.data.preferences.PlaylistPreferencesRepository
 import com.rollerskater.app.di.AppScope
@@ -90,7 +89,7 @@ class M3uSyncCoordinator @Inject constructor(
                 playlistRepository.userPlaylistsFlow.map { playlists ->
                     playlists
                         .filter {
-                            !it.isQueueGenerated && !it.isSmartPlaylist && it.source == "LOCAL"
+                            !it.isQueueGenerated && it.source == "LOCAL"
                         }
                         // The songs too: some writes, such as filling in a restored playlist,
                         // change them and keep lastModified.

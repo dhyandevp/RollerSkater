@@ -194,7 +194,6 @@ import com.rollerskater.app.presentation.viewmodel.LyricsRefreshProgress
 import com.rollerskater.app.presentation.viewmodel.M3uSyncViewModel
 import com.rollerskater.app.presentation.viewmodel.PlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.SettingsViewModel
-import com.rollerskater.app.presentation.viewmodel.SmartMixViewModel
 import com.rollerskater.app.ui.theme.RoundedSans
 import com.rollerskater.app.presentation.components.rememberModalSheetState
 import kotlinx.collections.immutable.ImmutableList
@@ -215,7 +214,6 @@ fun SettingsCategoryScreen(
     settingsViewModel: SettingsViewModel = hiltViewModel(),
     m3uSyncViewModel: M3uSyncViewModel = hiltViewModel(),
     statsViewModel: com.rollerskater.app.presentation.viewmodel.StatsViewModel = hiltViewModel(),
-    smartMixViewModel: SmartMixViewModel = hiltViewModel(),
     onBackClick: () -> Unit
 ) {
     val category = SettingsCategory.fromId(categoryId) ?: return
@@ -232,7 +230,6 @@ fun SettingsCategoryScreen(
     var syncRequestObservedRunning by remember { mutableStateOf(false) }
     var syncIndicatorLabel by remember { mutableStateOf<String?>(null) }
     var showRebuildDatabaseWarning by remember { mutableStateOf(false) }
-    var showRegenerateDailyMixDialog by remember { mutableStateOf(false) }
     var showRegenerateStatsDialog by remember { mutableStateOf(false) }
     var showRegenerateAllPalettesDialog by remember { mutableStateOf(false) }
     var showExportDataDialog by remember { mutableStateOf(false) }
@@ -669,21 +666,6 @@ fun SettingsCategoryScreen(
                                 }
                             }
 
-                            SettingsSubsection(title = stringResource(R.string.mix_title)) {
-                                val smartMixHistoryCleared = stringResource(R.string.setcat_smart_mix_history_cleared)
-                                ActionSettingsItem(
-                                    title = stringResource(R.string.setcat_smart_mix_history_title),
-                                    subtitle = stringResource(R.string.setcat_smart_mix_history_subtitle),
-                                    icon = { Icon(Icons.Rounded.History, null, tint = MaterialTheme.colorScheme.secondary) },
-                                    primaryActionLabel = stringResource(R.string.setcat_smart_mix_history_action),
-                                    onPrimaryAction = {
-                                        smartMixViewModel.clearHistory {
-                                            Toast.makeText(context, smartMixHistoryCleared, Toast.LENGTH_SHORT).show()
-                                        }
-                                    },
-                                    modifier = Modifier.settingHighlight("item_library_smart_mix_history", highlightKey)
-                                )
-                            }
 
                             SettingsSubsection(
                                 title = stringResource(R.string.setcat_online_services),
@@ -1340,14 +1322,6 @@ fun SettingsCategoryScreen(
 
                             SettingsSubsection(title = stringResource(R.string.setcat_maintenance)) {
                                 ActionSettingsItem(
-                                    title = stringResource(R.string.setcat_force_daily_mix_title),
-                                    subtitle = stringResource(R.string.setcat_force_daily_mix_subtitle),
-                                    icon = { Icon(painterResource(R.drawable.rounded_instant_mix_24), null, tint = MaterialTheme.colorScheme.secondary) },
-                                    primaryActionLabel = stringResource(R.string.setcat_regenerate_daily_mix_action),
-                                    onPrimaryAction = { showRegenerateDailyMixDialog = true },
-                                    modifier = Modifier.settingHighlight("item_developer_daily_mix", highlightKey)
-                                )
-                                ActionSettingsItem(
                                     title = stringResource(R.string.setcat_force_stats_title),
                                     subtitle = stringResource(R.string.setcat_force_stats_subtitle),
                                     icon = { Icon(painterResource(R.drawable.rounded_monitoring_24), null, tint = MaterialTheme.colorScheme.secondary) },
@@ -1641,26 +1615,6 @@ fun SettingsCategoryScreen(
         )
     }
 
-    if (showRegenerateDailyMixDialog) {
-        AlertDialog(
-            icon = { Icon(painterResource(R.drawable.rounded_instant_mix_24), null, tint = MaterialTheme.colorScheme.primary) },
-            title = { Text(stringResource(R.string.dialog_regenerate_daily_mix_title)) },
-            text = { Text(stringResource(R.string.dialog_regenerate_daily_mix_body)) },
-            onDismissRequest = { showRegenerateDailyMixDialog = false },
-            confirmButton = {
-                TextButton(
-                    onClick = {
-                        showRegenerateDailyMixDialog = false
-                        playerViewModel.forceUpdateDailyMix()
-                        Toast.makeText(context, context.getString(R.string.toast_daily_mix_regeneration_started), Toast.LENGTH_SHORT).show()
-                    }
-                ) {
-                    Text(stringResource(R.string.dialog_regenerate), maxLines = 1, overflow = TextOverflow.Ellipsis)
-                }
-            },
-            dismissButton = { TextButton(onClick = { showRegenerateDailyMixDialog = false }) { Text(stringResource(R.string.cancel), maxLines = 1, overflow = TextOverflow.Ellipsis) } }
-        )
-    }
 
     if (showRegenerateStatsDialog) {
         AlertDialog(

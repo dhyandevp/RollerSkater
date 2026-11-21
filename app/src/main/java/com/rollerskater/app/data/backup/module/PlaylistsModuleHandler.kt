@@ -6,10 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
 import com.rollerskater.app.data.model.Playlist
-import com.rollerskater.app.data.model.SmartPlaylistRule
 import com.rollerskater.app.data.model.SortOption
-import com.rollerskater.app.data.model.fromPlaylistSource
-import com.rollerskater.app.data.model.isSmartPlaylistSource
 import com.rollerskater.app.data.backup.model.BackupSection
 import com.rollerskater.app.data.database.MusicDao
 import com.rollerskater.app.data.preferences.PlaylistPreferencesRepository
@@ -294,11 +291,10 @@ class PlaylistsModuleHandler @Inject constructor(
         val newlyResolved = unresolvedSongIds.filterTo(HashSet()) { resolution.resolvedSongIds[it] != null }
 
         val currentById = playlistPreferencesRepository.getPlaylistsOnce().associateBy { it.id }
-        // Playlists deleted since the restore are left out, and so are smart playlists with a
-        // rule, which rebuild their songs from it.
+        // Playlists deleted since the restore are left out.
         val waiting = backupPlaylists.filter { backup ->
             val current = currentById[backup.id]
-            current != null && SmartPlaylistRule.fromPlaylistSource(current.source) == null
+            current != null
         }
         var grownCount = 0
         if (newlyResolved.isNotEmpty()) {
@@ -544,7 +540,7 @@ class PlaylistsModuleHandler @Inject constructor(
 
         /** Playlist sources that are backed up. Cloud-sourced playlists are excluded. */
         private fun isBackedUpPlaylistSource(source: String): Boolean =
-            source == "LOCAL" || isSmartPlaylistSource(source)
+            source == "LOCAL"
 
         const val LEGACY_USER_PLAYLISTS_KEY = "user_playlists_json_v1"
         const val LEGACY_PLAYLIST_ORDER_MODES_KEY = "playlist_song_order_modes"

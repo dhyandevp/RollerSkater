@@ -6,9 +6,6 @@ import com.google.gson.JsonParser
 import com.rollerskater.app.data.database.MusicDao
 import com.rollerskater.app.data.database.SongSummary
 import com.rollerskater.app.data.model.Playlist
-import com.rollerskater.app.data.model.SMART_PLAYLIST_SOURCE_LEGACY
-import com.rollerskater.app.data.model.SmartPlaylistRule
-import com.rollerskater.app.data.model.toPlaylistSource
 import com.rollerskater.app.data.preferences.PlaylistPreferencesRepository
 import com.rollerskater.app.data.preferences.PreferenceBackupEntry
 import com.rollerskater.app.data.preferences.UserPreferencesRepository
@@ -119,8 +116,8 @@ class PlaylistsModuleHandlerTest {
     fun `playlists keep their name and order across device ids`() = runTest {
         val handler = handler(backgroundScope)
         val local = Playlist("road", "Road trip", listOf("2", "1"))
-        val smart = local.copy(id = "smart", source = SMART_PLAYLIST_SOURCE_LEGACY)
-        coEvery { playlists.getPlaylistsOnce() } returns listOf(local, smart)
+        val party = local.copy(id = "party", name = "Party")
+        coEvery { playlists.getPlaylistsOnce() } returns listOf(local, party)
         every { playlists.playlistSongOrderModesFlow } returns flowOf(mapOf("road" to "custom"))
         every { playlists.playlistsSortOptionFlow } returns flowOf("name_az")
         coEvery { musicDao.getAllLocalSongSummaries() } returns listOf(summary(1, "One"), summary(2, "Two"))
@@ -133,7 +130,7 @@ class PlaylistsModuleHandlerTest {
             playlists.replaceAllPlaylists(
                 listOf(
                     local.copy(songIds = listOf("42", "41")),
-                    smart.copy(songIds = listOf("42", "41")),
+                    party.copy(songIds = listOf("42", "41")),
                 )
             )
             playlists.setPlaylistSongOrderModes(mapOf("road" to "custom"))
@@ -303,24 +300,6 @@ class PlaylistsModuleHandlerTest {
         assertFalse(pendingFile.exists())
     }
 
-    @Test
-    fun `a smart playlist with a rule isn't filled in from the backup`() = runTest {
-        val syncProgress = MutableStateFlow(SyncProgress())
-        val handler = handler(backgroundScope, syncProgress)
-        storePlaylistsInMemory()
-        coEvery { musicDao.getAllLocalSongSummaries() } returns listOf(summary(41, "One"))
-        runCurrent()
-        handler.restore(roadTripBackup("One", "Two", source = SmartPlaylistRule.TOP_PLAYED.toPlaylistSource()))
-        assertEquals(listOf("41"), stored.single().songIds)
-
-        coEvery { musicDao.getAllLocalSongSummaries() } returns listOf(summary(41, "One"), summary(42, "Two"))
-        syncProgress.finishSync()
-        runCurrent()
-
-        // The rule rebuilds its songs; the backup's would be stale.
-        assertEquals(listOf("41"), stored.single().songIds)
-        assertFalse(pendingFile.exists())
-    }
 
     @Test
     fun `a legacy restore drops the pending restore it replaces`() = runTest {

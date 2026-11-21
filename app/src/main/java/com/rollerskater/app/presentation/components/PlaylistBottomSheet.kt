@@ -49,7 +49,6 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.media3.common.util.UnstableApi
 import com.rollerskater.app.R
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.model.isSmartPlaylist
 import com.rollerskater.app.presentation.components.subcomps.LibraryActionRow
 import com.rollerskater.app.presentation.viewmodel.PlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.PlaylistUiState
@@ -77,7 +76,7 @@ fun PlaylistBottomSheet(
     var searchQuery by remember { mutableStateOf("") }
     var isGridView by rememberSaveable { mutableStateOf(false) }
     val editablePlaylists = remember(playlistUiState.playlists) {
-        playlistUiState.playlists.filterNot { it.isSmartPlaylist }.toImmutableList()
+        playlistUiState.playlists.toImmutableList()
     }
     val filteredPlaylists = remember(searchQuery, editablePlaylists) {
         if (searchQuery.isBlank()) editablePlaylists

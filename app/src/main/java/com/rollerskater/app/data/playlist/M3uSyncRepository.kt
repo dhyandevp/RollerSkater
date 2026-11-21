@@ -7,7 +7,6 @@ import android.net.Uri
 import android.provider.DocumentsContract
 import com.rollerskater.app.data.model.Playlist
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.model.isSmartPlaylist
 import com.rollerskater.app.data.offline.CloudDownloadExports
 import com.rollerskater.app.data.preferences.M3uSyncConfig
 import com.rollerskater.app.data.preferences.M3uSyncLink
@@ -553,7 +552,7 @@ class M3uSyncRepository @Inject constructor(
     }
 
     private fun isSyncablePlaylist(playlist: Playlist): Boolean =
-        !playlist.isQueueGenerated && !playlist.isSmartPlaylist && playlist.source == "LOCAL"
+        !playlist.isQueueGenerated && playlist.source == "LOCAL"
 
     private fun appHash(playlist: Playlist, completeSongs: List<Song>): String {
         val name = desiredFileName(playlist.name)

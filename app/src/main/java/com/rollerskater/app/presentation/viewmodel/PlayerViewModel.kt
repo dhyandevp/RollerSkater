@@ -132,7 +132,7 @@ import com.rollerskater.app.data.diagnostics.AdvancedPerformanceDiagnostics
 private const val ENABLE_FOLDERS_SOURCE_SWITCHING = true
 private const val MAX_ALBUM_BATCH_SELECTION = 6
 private const val SONG_ID_QUERY_CHUNK_SIZE = 900
-private const val HOME_MIX_PREVIEW_LIMIT = 48
+private const val RECENTLY_ADDED_PREVIEW_LIMIT = 48
 private const val EXTERNAL_SONG_ID_PREFIX = "external:"
 private val LOCAL_PLAYBACK_SCHEMES = setOf("content", "file", "android.resource")
 // Shuffle All, the shuffle tile and play-random queue up to this many random songs. The queue is
@@ -281,7 +281,6 @@ class PlayerViewModel @Inject constructor(
     private val dualPlayerEngine: DualPlayerEngine,
     private val appShortcutManager: AppShortcutManager,
     private val listeningStatsTracker: ListeningStatsTracker,
-    private val dailyMixStateHolder: DailyMixStateHolder,
     private val lyricsStateHolder: LyricsStateHolder,
     private val queueStateHolder: QueueStateHolder,
     private val queueUndoStateHolder: QueueUndoStateHolder,
@@ -889,7 +888,6 @@ class PlayerViewModel @Inject constructor(
     init {
         viewModelScope.launch { offerToRestoreInterruptedSaves() }
         listeningStatsTracker.initialize(viewModelScope)
-        dailyMixStateHolder.initialize(viewModelScope)
         lyricsStateHolder.initialize(viewModelScope, lyricsLoadCallback, playbackStateHolder.stablePlayerState)
         playbackStateHolder.initialize(coroutineScope = viewModelScope)
         themeStateHolder.initialize(viewModelScope)
@@ -1144,8 +1142,8 @@ class PlayerViewModel @Inject constructor(
             initialValue = emptyList()
         )
 
-    val homeMixPreviewSongs: StateFlow<ImmutableList<Song>> = musicRepository.getHomeMixPreviewSongs(
-        limit = HOME_MIX_PREVIEW_LIMIT
+    val recentlyAddedSongs: StateFlow<ImmutableList<Song>> = musicRepository.getRecentlyAddedPreviewSongs(
+        limit = RECENTLY_ADDED_PREVIEW_LIMIT
     ).map { it.toImmutableList() }
         .stateIn(
             scope = viewModelScope,
@@ -1364,13 +1362,6 @@ class PlayerViewModel @Inject constructor(
 
     val favoritesPagingFlow = libraryStateHolder.favoritesPagingFlow
 
-    val dailyMixSongs: StateFlow<ImmutableList<Song>> = dailyMixStateHolder.dailyMixSongs
-    val yourMixSongs: StateFlow<ImmutableList<Song>> = dailyMixStateHolder.yourMixSongs
-
-    fun removeFromDailyMix(songId: String) {
-        dailyMixStateHolder.removeFromDailyMix(songId)
-    }
-
     /**
      * Observes a song by ID from Room DB, combined with the latest favorite status.
      * Uses direct Room query instead of scanning the full in-memory list.
@@ -1513,17 +1504,6 @@ class PlayerViewModel @Inject constructor(
                 }
             }
         }
-    }
-
-
-    private fun loadPersistedDailyMix() {
-        dailyMixStateHolder.loadPersistedDailyMix()
-    }
-
-    fun forceUpdateDailyMix() {
-        dailyMixStateHolder.forceUpdate(
-            favoriteSongIdsFlow = favoriteSongIds
-        )
     }
 
     private var transitionSchedulerJob: Job? = null
@@ -1750,7 +1730,6 @@ class PlayerViewModel @Inject constructor(
                 }
             }
 
-            loadPersistedDailyMix()
             loadSearchHistory()
 
             viewModelScope.launch {
@@ -1905,17 +1884,9 @@ class PlayerViewModel @Inject constructor(
         Trace.beginSection("PlayerViewModel.onMainActivityStart")
         try {
             preloadThemesAndInitialData()
-            checkAndUpdateDailyMixIfNeeded()
         } finally {
             Trace.endSection()
         }
-    }
-
-
-    private fun checkAndUpdateDailyMixIfNeeded() {
-        dailyMixStateHolder.checkAndUpdateIfNeeded(
-            favoriteSongIdsFlow = favoriteSongIds
-        )
     }
 
     private fun preloadThemesAndInitialData() {
@@ -1946,7 +1917,6 @@ class PlayerViewModel @Inject constructor(
         try {
             Timber.tag("PlayerViewModel").d("resetAndLoadInitialData called by $caller")
             loadInitialLibraryDataParallel()
-            checkAndUpdateDailyMixIfNeeded()
         } finally {
             Trace.endSection()
         }
@@ -4304,10 +4274,6 @@ class PlayerViewModel @Inject constructor(
         // The holder moves progress updates to the PlayerViewModel left bound, or stops them when
         // none is; stopping them here would freeze the seek bar of the surviving instance.
         playbackStateHolder.onCleared(ownerScope)
-        // The listening session belongs to MusicService, which finalizes it on track end,
-        // stop/unload and onDestroy. Finalizing here would split a session that keeps
-        // playing in the background after the activity finishes.
-        dailyMixStateHolder.onCleared(ownerScope)
         lyricsStateHolder.onCleared(ownerScope)
         themeStateHolder.onCleared(ownerScope)
         searchStateHolder.onCleared(ownerScope)

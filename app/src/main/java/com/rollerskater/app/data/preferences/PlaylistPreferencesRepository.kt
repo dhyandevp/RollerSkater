@@ -5,7 +5,6 @@ import com.rollerskater.app.data.database.TransitionDao
 import com.rollerskater.app.data.model.Playlist
 import com.rollerskater.app.data.database.toEntity
 import com.rollerskater.app.data.database.toPlaylist
-import com.rollerskater.app.data.model.isSmartPlaylist
 import com.rollerskater.app.data.model.SortOption
 import com.rollerskater.app.data.playlist.mergeVisiblePlaylistOrder
 import kotlinx.coroutines.flow.Flow
@@ -127,7 +126,6 @@ class PlaylistPreferencesRepository @Inject constructor(
     suspend fun addSongsToPlaylist(playlistId: String, songIdsToAdd: List<String>) {
         ensureMigratedIfNeeded()
         val existing = userPlaylistsFlow.first().find { it.id == playlistId } ?: return
-        if (existing.isSmartPlaylist) return
         val merged = (existing.songIds + songIdsToAdd).distinct()
         updatePlaylist(existing.copy(songIds = merged))
     }
@@ -138,7 +136,6 @@ class PlaylistPreferencesRepository @Inject constructor(
         val removedPlaylistIds = mutableListOf<String>()
 
         currentPlaylists.forEach { playlist ->
-            if (playlist.isSmartPlaylist) return@forEach
             val shouldContain = playlist.id in playlistIds
             val hasSong = songId in playlist.songIds
             when {
@@ -157,7 +154,6 @@ class PlaylistPreferencesRepository @Inject constructor(
     suspend fun removeSongFromPlaylist(playlistId: String, songIdToRemove: String) {
         ensureMigratedIfNeeded()
         val existing = userPlaylistsFlow.first().find { it.id == playlistId } ?: return
-        if (existing.isSmartPlaylist) return
         updatePlaylist(existing.copy(songIds = existing.songIds.filterNot { it == songIdToRemove }))
     }
 
@@ -171,7 +167,6 @@ class PlaylistPreferencesRepository @Inject constructor(
     suspend fun reorderSongsInPlaylist(playlistId: String, newSongOrderIds: List<String>): List<String>? {
         ensureMigratedIfNeeded()
         val existing = userPlaylistsFlow.first().find { it.id == playlistId } ?: return null
-        if (existing.isSmartPlaylist) return null
         val merged = mergeVisiblePlaylistOrder(existing.songIds, newSongOrderIds) ?: return null
         if (merged != existing.songIds) {
             updatePlaylist(existing.copy(songIds = merged))
