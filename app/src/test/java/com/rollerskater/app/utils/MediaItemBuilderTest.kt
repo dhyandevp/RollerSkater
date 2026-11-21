@@ -5,15 +5,6 @@ import org.junit.jupiter.api.Test
 
 class MediaItemBuilderTest {
 
-    @Test
-    fun artworkScheme_supportsNavidromeArtworkForInternalPlayback() {
-        assertThat(MediaItemBuilder.isSupportedInternalArtworkScheme("navidrome_cover")).isTrue()
-    }
-
-    @Test
-    fun artworkScheme_supportsJellyfinArtworkForInternalPlayback() {
-        assertThat(MediaItemBuilder.isSupportedInternalArtworkScheme("jellyfin_cover")).isTrue()
-    }
 
     @Test
     fun shouldPreferDirectLocalFileUri_prefersDirectFileUriForLocalM4aMediaStoreItems() {
@@ -38,9 +29,9 @@ class MediaItemBuilderTest {
     }
 
     @Test
-    fun shouldPreferDirectLocalFileUri_keepsCloudUrisUntouched() {
+    fun shouldPreferDirectLocalFileUri_keepsNonLocalUrisUntouched() {
         val shouldPreferFile = MediaItemBuilder.shouldPreferDirectLocalFileUri(
-            contentUriString = "navidrome://song-123",
+            contentUriString = "http://example.com/song-123",
             filePath = "/storage/emulated/0/Download/cached-track.m4a",
             mimeType = "audio/mp4"
         )

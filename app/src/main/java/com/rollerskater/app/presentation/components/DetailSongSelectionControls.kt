@@ -21,11 +21,9 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.rollerskater.app.R
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.offline.CloudOfflineRepository
 import com.rollerskater.app.presentation.components.subcomps.SelectionActionRow
 import com.rollerskater.app.presentation.components.subcomps.SelectionCountPill
 import com.rollerskater.app.presentation.selection.DetailSongSelection
-import com.rollerskater.app.presentation.viewmodel.CloudDownloadsViewModel
 import com.rollerskater.app.presentation.viewmodel.PlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.PlaylistViewModel
 import kotlinx.collections.immutable.ImmutableList
@@ -42,8 +40,7 @@ internal fun <K> DetailSongSelectionControls(
     playlistViewModel: PlaylistViewModel,
     bottomBarHeight: Dp,
     modifier: Modifier = Modifier,
-    currentPlaylistId: String? = null,
-    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
+    currentPlaylistId: String? = null
 ) {
     var showOptions by remember(selection) { mutableStateOf(false) }
     var showBatchEdit by remember(selection) { mutableStateOf(false) }
@@ -110,14 +107,6 @@ internal fun <K> DetailSongSelectionControls(
                         }
                     },
                     onShareAll = { playerViewModel.shareSelectedAsZip(uniqueSongs, selection.completionCallback()) },
-                    onDownloadAll = {
-                        val count = CloudOfflineRepository.downloadCandidates(uniqueSongs).size
-                        cloudDownloadsViewModel.downloadSelected(uniqueSongs)
-                        selection.clear()
-                        playerViewModel.sendToast(
-                            context.resources.getQuantityString(R.plurals.cloud_download_selected_started, count, count)
-                        )
-                    },
                     onDeleteAll = { activity, onComplete ->
                         playerViewModel.deleteSelectedFromDevice(activity, uniqueSongs, selection.completionCallback()) {
                             showOptions = false

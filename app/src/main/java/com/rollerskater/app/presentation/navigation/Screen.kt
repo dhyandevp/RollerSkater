@@ -10,10 +10,6 @@ sealed class Screen(val route: String) {
     object Search : Screen("search")
     object Library : Screen("library")
     object Settings : Screen("settings")
-    object Accounts : Screen("settings_accounts?highlightKey={highlightKey}") {
-        fun createRoute(highlightKey: String? = null) =
-            if (highlightKey != null) "settings_accounts?highlightKey=$highlightKey" else "settings_accounts"
-    }
     object SettingsCategory : Screen("settings_category/{categoryId}?highlightKey={highlightKey}") {
         fun createRoute(categoryId: String, highlightKey: String? = null) =
             if (highlightKey != null) "settings_category/$categoryId?highlightKey=$highlightKey" else "settings_category/$categoryId"
@@ -83,9 +79,6 @@ sealed class Screen(val route: String) {
         fun createRoute(highlightKey: String? = null) =
             if (highlightKey != null) "device_capabilities?highlightKey=$highlightKey" else "device_capabilities"
     }
-    object NavidromeDashboard : Screen("navidrome_dashboard")
-    object JellyfinDashboard : Screen("jellyfin_dashboard")
-    object CloudDownloads : Screen("cloud_downloads")
     object Updates : Screen("updates")
 
     object AudioBookmarks : Screen("audio_bookmarks")

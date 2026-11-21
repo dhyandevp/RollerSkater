@@ -106,13 +106,11 @@ import com.rollerskater.app.presentation.model.withUpdatedSongs
 import com.rollerskater.app.presentation.model.withoutSong
 import com.rollerskater.app.presentation.components.subcomps.PlayingEqIcon
 import com.rollerskater.app.presentation.navigation.Screen
-import com.rollerskater.app.presentation.components.StreamingProviderSheet
 import com.rollerskater.app.presentation.recap.RecapHomeCard
 import com.rollerskater.app.presentation.viewmodel.PlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.RecapEntryViewModel
 import com.rollerskater.app.presentation.viewmodel.SettingsViewModel
 import com.rollerskater.app.presentation.viewmodel.StatsViewModel
-import com.rollerskater.app.presentation.viewmodel.StreamingProviderLoginViewModel
 import com.rollerskater.app.presentation.viewmodel.sharedPlayerViewModel
 import com.rollerskater.app.ui.theme.ExpTitleTypography
 import kotlinx.collections.immutable.ImmutableList
@@ -149,7 +147,6 @@ fun HomeScreen(
     paddingValuesParent: PaddingValues,
     playerViewModel: PlayerViewModel = sharedPlayerViewModel(),
     settingsViewModel: SettingsViewModel = hiltViewModel(),
-    streamingLoginViewModel: StreamingProviderLoginViewModel = hiltViewModel(),
     onOpenSidebar: () -> Unit
 ) {
     val context = LocalContext.current
@@ -266,7 +263,6 @@ fun HomeScreen(
     var showOptionsBottomSheet by remember { mutableStateOf(false) }
     var showChangelogBottomSheet by remember { mutableStateOf(false) }
     var showBetaInfoBottomSheet by remember { mutableStateOf(false) }
-    var showStreamingProviderSheet by remember { mutableStateOf(false) }
     var songForOptions by remember { mutableStateOf<HomeSongOptions?>(null) }
     val sheetState = rememberModalSheetState()
     val betaSheetState = rememberModalSheetState()
@@ -358,9 +354,6 @@ fun HomeScreen(
                     },
                     onBetaClick = {
                         showBetaInfoBottomSheet = true
-                    },
-                    onStreamingClick = {
-                          showStreamingProviderSheet = true
                     },
                     onMenuClick = onOpenSidebar,
                     isScrolled = isScrolledPastThreshold.value
@@ -650,21 +643,6 @@ fun HomeScreen(
         ) {
             BetaInfoBottomSheet()
         }
-    }
-    if (showStreamingProviderSheet) {
-        val isNavidromeLoggedIn by streamingLoginViewModel.isNavidromeLoggedIn.collectAsStateWithLifecycle()
-        val isJellyfinLoggedIn by streamingLoginViewModel.isJellyfinLoggedIn.collectAsStateWithLifecycle()
-        StreamingProviderSheet(
-            onDismissRequest = { showStreamingProviderSheet = false },
-            isNavidromeLoggedIn = isNavidromeLoggedIn,
-            onNavigateToNavidromeDashboard = {
-                navController.navigateSafely(Screen.NavidromeDashboard.route)
-            },
-            isJellyfinLoggedIn = isJellyfinLoggedIn,
-            onNavigateToJellyfinDashboard = {
-                navController.navigateSafely(Screen.JellyfinDashboard.route)
-            }
-        )
     }
     songForOptions?.let { (song, queueSongs, queueName, playFromLibrary) ->
         RecentlyPlayedSongOptionsSheet(

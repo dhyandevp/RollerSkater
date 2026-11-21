@@ -334,7 +334,7 @@ class DeviceCapabilitiesViewModel @Inject constructor(
 
     private fun getLocalMusicStorageSummary(rows: List<DeviceCapabilitySongRow>): LocalMusicStorageSummary {
         val localRows = rows.filter { it.sourceType == SourceType.LOCAL }
-        val cloudCount = rows.count { it.sourceType != SourceType.LOCAL }
+        val cloudCount = 0
         var totalBytes = 0L
         var knownFiles = 0
         var unavailableFiles = 0

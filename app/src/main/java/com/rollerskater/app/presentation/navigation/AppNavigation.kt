@@ -36,10 +36,8 @@ import com.rollerskater.app.data.preferences.UserPreferencesRepository
 import com.rollerskater.app.presentation.screens.AlbumDetailScreen
 import com.rollerskater.app.presentation.screens.AudioBookmarkFolderScreen
 import com.rollerskater.app.presentation.screens.AudioBookmarksScreen
-import com.rollerskater.app.presentation.screens.CloudDownloadsScreen
 import com.rollerskater.app.presentation.screens.UpdatesScreen
 import com.rollerskater.app.presentation.model.SettingsCategory
-import com.rollerskater.app.presentation.screens.AccountsScreen
 import com.rollerskater.app.presentation.screens.ArtistDetailScreen
 import com.rollerskater.app.presentation.screens.ArtistSettingsScreen
 import com.rollerskater.app.presentation.screens.EditTransitionScreen
@@ -227,26 +225,6 @@ fun AppNavigation(
                         playerViewModel = playerViewModel,
                         onNavigationIconClick = {
                             navController.popBackStack()
-                        }
-                    )
-                }
-            }
-            composable(
-                route = Screen.Accounts.route,
-                arguments = listOf(navArgument("highlightKey") { type = NavType.StringType; nullable = true; defaultValue = null }),
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    AccountsScreen(
-                        onBackClick = { navController.popBackStack() },
-                        onOpenNavidromeDashboard = {
-                            navController.navigateSafely(Screen.NavidromeDashboard.route)
-                        },
-                        onOpenJellyfinDashboard = {
-                            navController.navigateSafely(Screen.JellyfinDashboard.route)
                         }
                     )
                 }
@@ -641,43 +619,6 @@ fun AppNavigation(
                         navController = navController,
                         playerViewModel = playerViewModel
                     )
-                }
-            }
-            composable(
-                Screen.NavidromeDashboard.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.rollerskater.app.presentation.navidrome.dashboard.NavidromeDashboardScreen(
-                        onBack = { navController.popBackStack() }
-                    )
-                }
-            }
-            composable(
-                Screen.JellyfinDashboard.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    com.rollerskater.app.presentation.jellyfin.dashboard.JellyfinDashboardScreen(
-                        onBack = { navController.popBackStack() }
-                    )
-                }
-            }
-            composable(
-                Screen.CloudDownloads.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    CloudDownloadsScreen(onBack = { navController.popBackStack() })
                 }
             }
             composable(

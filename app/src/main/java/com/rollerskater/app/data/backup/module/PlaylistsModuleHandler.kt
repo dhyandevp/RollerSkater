@@ -466,12 +466,7 @@ class PlaylistsModuleHandler @Inject constructor(
             get() = resolvedSongIds.filterValues { it == null }.keys
     }
 
-    private suspend fun buildCloudSongIdSet(): Set<String> {
-        val cloudIds = mutableSetOf<String>()
-        musicDao.getAllNavidromeSongIds().mapTo(cloudIds) { it.toString() }
-        musicDao.getAllJellyfinSongIds().mapTo(cloudIds) { it.toString() }
-        return cloudIds
-    }
+    private suspend fun buildCloudSongIdSet(): Set<String> = emptySet()
 
     private suspend fun restoreLegacyPreferenceEntries(payload: String) {
         val type = TypeToken.getParameterized(List::class.java, PreferenceBackupEntry::class.java).type

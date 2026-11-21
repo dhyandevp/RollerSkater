@@ -29,8 +29,8 @@ import com.rollerskater.app.data.database.MIGRATION_2_3
 import com.rollerskater.app.data.database.MIGRATION_3_4
 import com.rollerskater.app.data.database.MIGRATION_4_5
 import com.rollerskater.app.data.database.MIGRATION_5_6
+import com.rollerskater.app.data.database.MIGRATION_6_7
 import com.rollerskater.app.data.database.MusicDao
-import com.rollerskater.app.data.database.OfflineTrackDao
 import com.rollerskater.app.data.database.RollerSkaterDatabase
 import com.rollerskater.app.data.database.SearchHistoryDao
 import com.rollerskater.app.data.database.TransitionDao
@@ -139,6 +139,7 @@ object AppModule {
                 MIGRATION_3_4,
                 MIGRATION_4_5,
                 MIGRATION_5_6,
+                MIGRATION_6_7,
             )
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
 
@@ -199,18 +200,6 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideNavidromeDao(database: RollerSkaterDatabase): com.rollerskater.app.data.database.NavidromeDao {
-        return database.navidromeDao()
-    }
-    
-    @Singleton
-    @Provides
-    fun provideJellyfinDao(database: RollerSkaterDatabase): com.rollerskater.app.data.database.JellyfinDao {
-        return database.jellyfinDao()
-    }
-
-    @Singleton
-    @Provides
     fun provideListenBrainzDao(database: RollerSkaterDatabase): ListenBrainzDao {
         return database.listenBrainzDao()
     }
@@ -219,12 +208,6 @@ object AppModule {
     @Provides
     fun provideAudioBookmarkDao(database: RollerSkaterDatabase): AudioBookmarkDao {
         return database.audioBookmarkDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideOfflineTrackDao(database: RollerSkaterDatabase): OfflineTrackDao {
-        return database.offlineTrackDao()
     }
 
     @Provides
@@ -307,8 +290,7 @@ object AppModule {
         songRepository: SongRepository,
         favoritesDao: FavoritesDao,
         artistImageRepository: ArtistImageRepository,
-        folderTreeBuilder: FolderTreeBuilder,
-        jellyfinRepository: com.rollerskater.app.data.jellyfin.JellyfinRepository
+        folderTreeBuilder: FolderTreeBuilder
     ): MusicRepository {
         return MusicRepositoryImpl(
             context = context,
@@ -321,8 +303,7 @@ object AppModule {
             songRepository = songRepository,
             favoritesDao = favoritesDao,
             artistImageRepository = artistImageRepository,
-            folderTreeBuilder = folderTreeBuilder,
-            jellyfinRepository = jellyfinRepository
+            folderTreeBuilder = folderTreeBuilder
         )
 
     }
@@ -416,9 +397,6 @@ object AppModule {
             redactHeader("Proxy-Authorization")
             redactHeader("Cookie")
             redactHeader("Set-Cookie")
-            redactHeader("X-Emby-Token")
-            redactHeader("X-Emby-Authorization")
-            redactHeader("X-MediaBrowser-Token")
         }
         
         val connectionPool = okhttp3.ConnectionPool(

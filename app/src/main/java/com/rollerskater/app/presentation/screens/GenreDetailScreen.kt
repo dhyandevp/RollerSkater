@@ -58,7 +58,6 @@ import coil.request.ImageRequest
 import com.rollerskater.app.R
 import com.rollerskater.app.data.model.Artist
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.offline.CloudOfflineRepository
 import com.rollerskater.app.data.preferences.AlbumArtPaletteStyle
 import com.rollerskater.app.presentation.components.AutoScrollingTextOnDemand
 import com.rollerskater.app.presentation.components.EditMultipleSongsSheet
@@ -78,7 +77,6 @@ import com.rollerskater.app.presentation.components.subcomps.SelectionCountPill
 import com.rollerskater.app.presentation.screens.QuickFillDialog
 import com.rollerskater.app.presentation.selection.dragToSelect
 import com.rollerskater.app.presentation.selection.rememberDragToSelectState
-import com.rollerskater.app.presentation.viewmodel.CloudDownloadsViewModel
 import com.rollerskater.app.presentation.viewmodel.GenreDetailListItem
 import com.rollerskater.app.presentation.viewmodel.GenreDetailViewModel
 import com.rollerskater.app.presentation.viewmodel.SortOption
@@ -110,8 +108,7 @@ fun GenreDetailScreen(
     decodedGenreId: String = java.net.URLDecoder.decode(genreId, "UTF-8"),
     playerViewModel: PlayerViewModel,
     viewModel: GenreDetailViewModel = hiltViewModel(),
-    playlistViewModel: com.rollerskater.app.presentation.viewmodel.PlaylistViewModel = hiltViewModel(),
-    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
+    playlistViewModel: com.rollerskater.app.presentation.viewmodel.PlaylistViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val stablePlayerState by playerViewModel.stablePlayerState.collectAsStateWithLifecycle()
@@ -724,19 +721,6 @@ fun GenreDetailScreen(
                     },
                     onShareAll = {
                         playerViewModel.shareSelectedAsZip(selectedSongs)
-                        showMultiSelectionSheet = false
-                    },
-                    onDownloadAll = {
-                        val cloudSongCount = CloudOfflineRepository.downloadCandidates(selectedSongs).size
-                        cloudDownloadsViewModel.downloadSelected(selectedSongs)
-                        multiSelectionState.clearSelection()
-                        playerViewModel.sendToast(
-                            context.resources.getQuantityString(
-                                R.plurals.cloud_download_selected_started,
-                                cloudSongCount,
-                                cloudSongCount
-                            )
-                        )
                         showMultiSelectionSheet = false
                     },
                     onDeleteAll = { deleteActivity, onComplete ->

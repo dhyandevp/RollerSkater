@@ -105,11 +105,11 @@ class ThirdPartyNoticesTest {
     }
 
     @Test
-    fun `bundled notices lead with the RollerSkater contributors and every license has its text`() {
+    fun `bundled notices lead with the contributors and every license has its text`() {
         val notices = parseThirdPartyNotices(File("src/main/assets/licenses/THIRD_PARTY_NOTICES.md").readText())
 
         val first = notices.first()
-        assertEquals("RollerSkater Contributors", first.name)
+        assertEquals("PixelPlayer Contributors", first.name)
         assertEquals(LicenseCategory.CONTRIBUTORS, first.category)
         assertEquals("MIT License", first.licenseName)
         assertTrue(File("src/main/assets/$ContributorsNoticeAssetPath").readText().contains("Theo Vilardo"))

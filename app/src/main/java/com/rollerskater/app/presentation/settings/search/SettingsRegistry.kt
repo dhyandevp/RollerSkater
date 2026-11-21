@@ -326,42 +326,6 @@ object SettingsRegistry {
                 type = SettingType.NAVIGABLE_CARD,
                 keywordsStatic = listOf("reset lyrics", "imported lyrics", "clear", "remove", "delete lyrics")
             ),
-
-            // --- ACCOUNTS (grouped under Library) ---
-            SettingSpec(
-                id = "accounts_hub",
-                itemKey = "item_accounts_hub",
-                titleRes = R.string.settings_accounts_row_title,
-                subtitleRes = R.string.settings_accounts_row_subtitle,
-                category = SettingsCategory.LIBRARY,
-                subscreenRoute = Screen.Accounts.createRoute(),
-                type = SettingType.NAVIGABLE_CARD,
-                keywordsStatic = listOf(
-                    "accounts", "navidrome", "jellyfin", "subsonic", "streaming",
-                    "server", "login", "favorites", "favourites", "sync"
-                )
-            ),
-            SettingSpec(
-                id = "cloud_downloads",
-                itemKey = "item_cloud_downloads",
-                titleRes = R.string.cloud_downloads_title,
-                subtitleRes = R.string.cloud_downloads_settings_subtitle,
-                category = SettingsCategory.LIBRARY,
-                subscreenRoute = Screen.CloudDownloads.route,
-                type = SettingType.NAVIGABLE_CARD,
-                keywordsStatic = listOf("downloads", "offline", "cloud", "storage", "navidrome", "jellyfin")
-            ),
-            SettingSpec(
-                id = "accounts_listenbrainz",
-                itemKey = "item_accounts_listenbrainz",
-                titleRes = R.string.accounts_listenbrainz_title,
-                subtitleStatic = "Scrobble your listens to ListenBrainz",
-                category = SettingsCategory.LIBRARY,
-                subscreenRoute = Screen.Accounts.createRoute(),
-                type = SettingType.NAVIGABLE_CARD,
-                keywordsStatic = listOf("scrobble", "scrobbling", "listens", "maloja", "last.fm", "history")
-            ),
-
             // --- APPEARANCE CATEGORY ---
             SettingSpec(
                 id = "appearance_app_language",

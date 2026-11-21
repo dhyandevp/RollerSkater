@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.rollerskater.app.data.model.Album
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.repository.MusicRepository
-import com.rollerskater.app.data.offline.CloudOfflineRepository
 import com.rollerskater.app.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -34,15 +33,11 @@ data class AlbumDetailUiState(
 class AlbumDetailViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val musicRepository: MusicRepository,
-    private val cloudOfflineRepository: CloudOfflineRepository,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(AlbumDetailUiState())
     val uiState: StateFlow<AlbumDetailUiState> = _uiState.asStateFlow()
-    val completedOfflineUris: StateFlow<Set<String>> = cloudOfflineRepository.observeCompleted()
-        .map { downloads -> downloads.mapTo(mutableSetOf()) { it.sourceUri } }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), emptySet())
 
     private var loadedAlbumId: Long? = null
 
@@ -120,17 +115,6 @@ class AlbumDetailViewModel @Inject constructor(
                 isLoading = false,
                 songs = songs
             )
-        }
-    }
-
-    fun downloadAlbum(songs: List<Song>) {
-        viewModelScope.launch { cloudOfflineRepository.enqueueAll(songs) }
-    }
-
-    fun removeAlbumDownloads(songs: List<Song>) {
-        viewModelScope.launch {
-            songs.filter(CloudOfflineRepository::isCloudSong)
-                .forEach { cloudOfflineRepository.remove(it) }
         }
     }
 }

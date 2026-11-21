@@ -7,7 +7,6 @@ import android.net.Uri
 import android.provider.DocumentsContract
 import com.rollerskater.app.data.model.Playlist
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.offline.CloudDownloadExports
 import com.rollerskater.app.data.preferences.M3uSyncConfig
 import com.rollerskater.app.data.preferences.M3uSyncLink
 import com.rollerskater.app.data.preferences.M3uSyncPreferences
@@ -127,7 +126,6 @@ class M3uSyncRepository @Inject constructor(
     private val playlistRepository: PlaylistPreferencesRepository,
     private val musicRepository: MusicRepository,
     private val preferences: M3uSyncPreferences,
-    private val cloudDownloadExports: CloudDownloadExports,
     private val dispatchers: DispatcherProvider,
     @AppScope appScope: CoroutineScope,
 ) {
@@ -722,7 +720,6 @@ class M3uSyncRepository @Inject constructor(
             .getOrDefault(false)
 
     private suspend fun releaseTreePermission(treeUri: Uri) {
-        if (cloudDownloadExports.folder.first()?.uri == treeUri) return
         runCatching {
             resolver.releasePersistableUriPermission(treeUri, TREE_PERMISSION_FLAGS)
         }.onFailure { error ->

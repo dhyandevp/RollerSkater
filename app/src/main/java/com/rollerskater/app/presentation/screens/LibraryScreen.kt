@@ -152,7 +152,6 @@ import com.rollerskater.app.data.model.Genre
 import com.rollerskater.app.data.model.MusicFolder
 import com.rollerskater.app.data.model.FolderSource
 import com.rollerskater.app.data.model.Song
-import com.rollerskater.app.data.offline.CloudOfflineRepository
 import com.rollerskater.app.data.model.SortOption
 import com.rollerskater.app.data.model.StorageFilter
 import com.rollerskater.app.presentation.components.MiniPlayerHeight
@@ -179,7 +178,6 @@ import com.rollerskater.app.presentation.components.subcomps.SelectionCountPill
 import com.rollerskater.app.presentation.viewmodel.ColorSchemePair
 import com.rollerskater.app.presentation.viewmodel.PlayerUiState
 import com.rollerskater.app.presentation.viewmodel.PlayerViewModel
-import com.rollerskater.app.presentation.viewmodel.CloudDownloadsViewModel
 import com.rollerskater.app.presentation.viewmodel.sharedPlayerViewModel
 import com.rollerskater.app.presentation.viewmodel.PlaylistUiState
 import com.rollerskater.app.presentation.viewmodel.PlaylistViewModel
@@ -351,8 +349,7 @@ fun LibraryScreen(
     playerViewModel: PlayerViewModel = sharedPlayerViewModel(),
     playlistViewModel: PlaylistViewModel = hiltViewModel(),
     libraryViewModel: LibraryViewModel = hiltViewModel(),
-    songInfoBottomSheetViewModel: SongInfoBottomSheetViewModel = hiltViewModel(),
-    cloudDownloadsViewModel: CloudDownloadsViewModel = hiltViewModel()
+    songInfoBottomSheetViewModel: SongInfoBottomSheetViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val haptic = LocalHapticFeedback.current
@@ -2016,20 +2013,6 @@ fun LibraryScreen(
             onShareAll = {
                 playerViewModel.shareSelectedAsZip(selectedSongs)
                 clearResolvedCategorySelection()
-                showMultiSelectionSheet = false
-            },
-            onDownloadAll = {
-                val cloudSongCount = CloudOfflineRepository.downloadCandidates(selectedSongs).size
-                cloudDownloadsViewModel.downloadSelected(selectedSongs)
-                multiSelectionState.clearSelection()
-                clearResolvedCategorySelection()
-                playerViewModel.sendToast(
-                    context.resources.getQuantityString(
-                        R.plurals.cloud_download_selected_started,
-                        cloudSongCount,
-                        cloudSongCount
-                    )
-                )
                 showMultiSelectionSheet = false
             },
             onDeleteAll = { deleteActivity, onComplete ->

@@ -14,7 +14,7 @@ data class LicenseNotice(
     val category: LicenseCategory,
 )
 
-internal const val ContributorsNoticeAssetPath = "licenses/ROLLERSKATER_CONTRIBUTORS.txt"
+internal const val ContributorsNoticeAssetPath = "licenses/PIXELPLAYER_CONTRIBUTORS.txt"
 
 private val TableSeparatorCell = Regex("^:?-{3,}:?$")
 

@@ -191,7 +191,7 @@ class PlayerViewModelTest {
         every { mockMusicRepository.getPaginatedFavoriteSongs(any(), any()) } returns flowOf(androidx.paging.PagingData.empty())
         every { mockMusicRepository.getAudioFiles() } returns flowOf(emptyList())
         every { mockMusicRepository.getDistinctAlbumArtSongs() } returns flowOf(emptyList())
-        every { mockMusicRepository.getHomeMixPreviewSongs(any()) } returns flowOf(emptyList())
+        every { mockMusicRepository.getRecentlyAddedPreviewSongs(any()) } returns flowOf(emptyList())
         every { mockMusicRepository.getSongCountFlow() } returns flowOf(0)
         every { mockMusicRepository.getCloudSongCountFlow() } returns flowOf(0)
         every { mockMusicRepository.searchSongs(any()) } returns flowOf(emptyList())
