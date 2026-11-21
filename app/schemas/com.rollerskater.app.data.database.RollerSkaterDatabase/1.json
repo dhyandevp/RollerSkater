@@ -1609,8 +1609,8 @@
         ]
       },
       {
-        "tableName": "navidrome_songs",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `navidrome_id` TEXT NOT NULL, `playlist_id` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `artist_id` TEXT, `album` TEXT NOT NULL, `album_id` TEXT, `cover_art_id` TEXT, `duration` INTEGER NOT NULL, `track_number` INTEGER NOT NULL, `disc_number` INTEGER NOT NULL, `year` INTEGER NOT NULL, `genre` TEXT, `bitRate` INTEGER, `mime_type` TEXT, `suffix` TEXT, `path` TEXT NOT NULL, `date_added` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "tableName": "remote_subsonic_songs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `remote_subsonic_id` TEXT NOT NULL, `playlist_id` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `artist_id` TEXT, `album` TEXT NOT NULL, `album_id` TEXT, `cover_art_id` TEXT, `duration` INTEGER NOT NULL, `track_number` INTEGER NOT NULL, `disc_number` INTEGER NOT NULL, `year` INTEGER NOT NULL, `genre` TEXT, `bitRate` INTEGER, `mime_type` TEXT, `suffix` TEXT, `path` TEXT NOT NULL, `date_added` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -1619,8 +1619,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "navidromeId",
-            "columnName": "navidrome_id",
+            "fieldPath": "remote_subsonicId",
+            "columnName": "remote_subsonic_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -1728,37 +1728,37 @@
         },
         "indices": [
           {
-            "name": "index_navidrome_songs_navidrome_id",
+            "name": "index_remote_subsonic_songs_remote_subsonic_id",
             "unique": false,
             "columnNames": [
-              "navidrome_id"
+              "remote_subsonic_id"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_navidrome_songs_navidrome_id` ON `${TABLE_NAME}` (`navidrome_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_subsonic_songs_remote_subsonic_id` ON `${TABLE_NAME}` (`remote_subsonic_id`)"
           },
           {
-            "name": "index_navidrome_songs_playlist_id",
+            "name": "index_remote_subsonic_songs_playlist_id",
             "unique": false,
             "columnNames": [
               "playlist_id"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_navidrome_songs_playlist_id` ON `${TABLE_NAME}` (`playlist_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_subsonic_songs_playlist_id` ON `${TABLE_NAME}` (`playlist_id`)"
           },
           {
-            "name": "index_navidrome_songs_playlist_id_date_added",
+            "name": "index_remote_subsonic_songs_playlist_id_date_added",
             "unique": false,
             "columnNames": [
               "playlist_id",
               "date_added"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_navidrome_songs_playlist_id_date_added` ON `${TABLE_NAME}` (`playlist_id`, `date_added`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_subsonic_songs_playlist_id_date_added` ON `${TABLE_NAME}` (`playlist_id`, `date_added`)"
           }
         ]
       },
       {
-        "tableName": "navidrome_playlists",
+        "tableName": "remote_subsonic_playlists",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `comment` TEXT, `owner` TEXT, `cover_art_id` TEXT, `song_count` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `public` INTEGER NOT NULL, `last_sync_time` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -1821,8 +1821,8 @@
         }
       },
       {
-        "tableName": "jellyfin_songs",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `jellyfin_id` TEXT NOT NULL, `playlist_id` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `artist_id` TEXT, `album` TEXT NOT NULL, `album_id` TEXT, `duration` INTEGER NOT NULL, `track_number` INTEGER NOT NULL, `disc_number` INTEGER NOT NULL, `year` INTEGER NOT NULL, `genre` TEXT, `bitRate` INTEGER, `mime_type` TEXT, `path` TEXT NOT NULL, `date_added` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "tableName": "remote_media_songs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `remote_media_id` TEXT NOT NULL, `playlist_id` TEXT NOT NULL, `title` TEXT NOT NULL, `artist` TEXT NOT NULL, `artist_id` TEXT, `album` TEXT NOT NULL, `album_id` TEXT, `duration` INTEGER NOT NULL, `track_number` INTEGER NOT NULL, `disc_number` INTEGER NOT NULL, `year` INTEGER NOT NULL, `genre` TEXT, `bitRate` INTEGER, `mime_type` TEXT, `path` TEXT NOT NULL, `date_added` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -1831,8 +1831,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "jellyfinId",
-            "columnName": "jellyfin_id",
+            "fieldPath": "remote_mediaId",
+            "columnName": "remote_media_id",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -1930,37 +1930,37 @@
         },
         "indices": [
           {
-            "name": "index_jellyfin_songs_jellyfin_id",
+            "name": "index_remote_media_songs_remote_media_id",
             "unique": false,
             "columnNames": [
-              "jellyfin_id"
+              "remote_media_id"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_jellyfin_songs_jellyfin_id` ON `${TABLE_NAME}` (`jellyfin_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_media_songs_remote_media_id` ON `${TABLE_NAME}` (`remote_media_id`)"
           },
           {
-            "name": "index_jellyfin_songs_playlist_id",
+            "name": "index_remote_media_songs_playlist_id",
             "unique": false,
             "columnNames": [
               "playlist_id"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_jellyfin_songs_playlist_id` ON `${TABLE_NAME}` (`playlist_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_media_songs_playlist_id` ON `${TABLE_NAME}` (`playlist_id`)"
           },
           {
-            "name": "index_jellyfin_songs_playlist_id_date_added",
+            "name": "index_remote_media_songs_playlist_id_date_added",
             "unique": false,
             "columnNames": [
               "playlist_id",
               "date_added"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_jellyfin_songs_playlist_id_date_added` ON `${TABLE_NAME}` (`playlist_id`, `date_added`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_remote_media_songs_playlist_id_date_added` ON `${TABLE_NAME}` (`playlist_id`, `date_added`)"
           }
         ]
       },
       {
-        "tableName": "jellyfin_playlists",
+        "tableName": "remote_media_playlists",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT NOT NULL, `song_count` INTEGER NOT NULL, `duration` INTEGER NOT NULL, `last_sync_time` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {

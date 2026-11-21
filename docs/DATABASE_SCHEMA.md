@@ -87,6 +87,6 @@ Caches extracted Material You color palettes for instantaneous UI theme styling 
 RollerSkater strictly preserves database migration integrity:
 - **v1 to v3**: Initial schema establishment with indexed track searching and playlist support.
 - **v4 to v5**: Offline caching tables and artist associations.
-- **v6 to v7**: Removal of legacy cloud streaming tables (`navidrome_songs`, `jellyfin_songs`) to establish a clean, strictly offline-first database layout.
+- **v6 to v7**: Removal of legacy cloud streaming tables to establish a clean, strictly offline-first database layout.
 
 All migration steps are defined in `app/src/main/java/com/rollerskater/app/data/database/Migrations.kt`.

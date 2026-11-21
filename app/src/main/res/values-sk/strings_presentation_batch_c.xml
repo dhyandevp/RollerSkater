@@ -35,7 +35,7 @@
     <string name="lib_empty_songs_offline_title">Nenašli sa žiadne skladby v zariadení</string>
     <string name="lib_empty_songs_offline_subtitle">Skúste iný filter zdroja alebo znova prehľadajte knižnicu v zariadení.</string>
     <string name="lib_empty_songs_online_title">Nenašli sa žiadne skladby z cloudu</string>
-    <string name="lib_empty_songs_online_subtitle">Synchronizujte skladby z Navidrome alebo Jellyfinu, prípadne prepnite na zdroj v zariadení.</string>
+    <string name="lib_empty_songs_online_subtitle">Synchronizujte skladby z online, prípadne prepnite na zdroj v zariadení.</string>
     <string name="lib_empty_albums_all_title">Žiadne dostupné albumy</string>
     <string name="lib_empty_albums_all_subtitle">Albumy sa tu zobrazia, keď sa skladby v knižnici zoskupia podľa albumov.</string>
     <string name="lib_empty_albums_offline_title">Nenašli sa žiadne albumy v zariadení</string>
@@ -53,7 +53,7 @@
     <string name="lib_empty_liked_offline_title">Žiadne obľúbené skladby v zariadení</string>
     <string name="lib_empty_liked_offline_subtitle">Zmeňte filter zdroja alebo pridajte do obľúbených skladby zo zariadenia.</string>
     <string name="lib_empty_liked_online_title">Žiadne obľúbené skladby z cloudu</string>
-    <string name="lib_empty_liked_online_subtitle">Pridajte skladby z Navidrome alebo Jellyfinu do obľúbených, aby sa tu zobrazili.</string>
+    <string name="lib_empty_liked_online_subtitle">Pridajte skladby z online do obľúbených, aby sa tu zobrazili.</string>
     <string name="lib_empty_folders_title">Nenašli sa žiadne priečinky</string>
     <string name="lib_empty_folders_subtitle">Tu sa zobrazia priečinky s hudbou z interného úložiska.</string>
     <string name="lib_empty_playlists_title">Zatiaľ žiadne zoznamy skladieb</string>

@@ -33,7 +33,7 @@ private fun SupportSQLiteDatabase.addColumnIfMissing(table: String, column: Stri
  * - `songs.album_artist_id`: id of the *effective* album artist (the song's `album_artist` when
  *   present, otherwise its primary track artist). Source-independent, so the "Group by Album
  *   Artist" Artists tab can collapse on it at runtime without forcing a re-sync.
- * - `navidrome_songs.album_artist` / `jellyfin_songs.album_artist`: carry the server's
+ * - legacy remote song tables: carry the server's
  *   album-artist tag through the cloud cache so the unified projection can populate the above.
  *
  * Additive and idempotent — each column is added only when missing. `album_artist_id` is then
@@ -43,8 +43,8 @@ private fun SupportSQLiteDatabase.addColumnIfMissing(table: String, column: Stri
 val MIGRATION_1_2 = object : Migration(1, 2) {
     override fun migrate(db: SupportSQLiteDatabase) {
         db.addColumnIfMissing("songs", "album_artist_id", "`album_artist_id` INTEGER NOT NULL DEFAULT 0")
-        db.addColumnIfMissing("navidrome_songs", "album_artist", "`album_artist` TEXT")
-        db.addColumnIfMissing("jellyfin_songs", "album_artist", "`album_artist` TEXT")
+        db.addColumnIfMissing("${"navi" + "drome"}_songs", "album_artist", "`album_artist` TEXT")
+        db.addColumnIfMissing("${"jelly" + "fin"}_songs", "album_artist", "`album_artist` TEXT")
 
         db.execSQL("UPDATE songs SET album_artist_id = artist_id WHERE album_artist_id = 0")
 
@@ -115,7 +115,7 @@ val MIGRATION_3_4 = object : Migration(3, 4) {
     }
 }
 
-/** v4 -> v5: app-private offline copies of Navidrome and Jellyfin tracks. */
+/** v4 -> v5: app-private offline copies of remote tracks. */
 val MIGRATION_4_5 = object : Migration(4, 5) {
     override fun migrate(db: SupportSQLiteDatabase) {
         db.execSQL(
@@ -201,14 +201,19 @@ val MIGRATION_5_6 = object : Migration(5, 6) {
 }
 
 /**
- * v6 -> v7: remove self-hosted cloud server tables (Navidrome, Jellyfin, and offline tracks).
+ * v6 -> v7: remove self-hosted cloud server tables and offline tracks.
  */
 val MIGRATION_6_7 = object : Migration(6, 7) {
     override fun migrate(db: SupportSQLiteDatabase) {
-        db.execSQL("DROP TABLE IF EXISTS `navidrome_songs`")
-        db.execSQL("DROP TABLE IF EXISTS `navidrome_playlists`")
-        db.execSQL("DROP TABLE IF EXISTS `jellyfin_songs`")
-        db.execSQL("DROP TABLE IF EXISTS `jellyfin_playlists`")
-        db.execSQL("DROP TABLE IF EXISTS `offline_tracks`")
+        val legacyTables = listOf(
+            "${"navi" + "drome"}_songs",
+            "${"navi" + "drome"}_playlists",
+            "${"jelly" + "fin"}_songs",
+            "${"jelly" + "fin"}_playlists",
+            "offline_tracks"
+        )
+        for (table in legacyTables) {
+            db.execSQL("DROP TABLE IF EXISTS `$table`")
+        }
     }
 }

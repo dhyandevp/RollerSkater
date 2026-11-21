@@ -10,7 +10,6 @@
     <string name="setcat_m3u_sync_result">%1$d đã thay đổi · %2$d xung đột · %3$d mục chưa giải quyết</string>
     <string name="settings_top_bar_title">Cài đặt</string>
     <string name="settings_accounts_row_title">Tài khoản &amp; Dịch vụ</string>
-    <string name="settings_accounts_row_subtitle">Quản lý kết nối Subsonic, Jellyfin, ListenBrainz</string>
     <string name="settings_search_hint">Tìm kiếm trong cài đặt…</string>
     <string name="settings_search_no_results">Không tìm thấy kết quả cho "%1$s"</string>
     <string name="settings_search_section_top_matches">Kết quả phù hợp nhất</string>
@@ -279,7 +278,7 @@
     <string name="dialog_cannot_undo">Hành động này không thể hoàn tác.</string>
     <string name="confirm">Xác nhận</string>
     <string name="dialog_rebuild_database_title">Xây dựng lại cơ sở dữ liệu?</string>
-    <string name="dialog_rebuild_database_message">Thao tác này sẽ quét lại tệp từ MediaStore và xóa lời bài hát đã nhập, mục yêu thích cùng siêu dữ liệu tùy chỉnh của các bài hát nội bộ đó. Nhạc Navidrome và Jellyfin vẫn được giữ nguyên. Không thể hoàn tác.</string>
+    <string name="dialog_rebuild_database_message">Thao tác này sẽ quét lại tệp từ MediaStore và xóa lời bài hát đã nhập, mục yêu thích cùng siêu dữ liệu tùy chỉnh của các bài hát nội bộ đó. Không thể hoàn tác.</string>
     <string name="rebuild">Xây dựng lại</string>
     <string name="sync_indicator_rebuilding">Đang xây dựng lại…</string>
     <string name="toast_rebuilding_database">Đang xây dựng lại cơ sở dữ liệu thư viện</string>

@@ -20,8 +20,6 @@
     <string name="accounts_listenbrainz_needs_reauth">Platnost tokenu vypršela. Znovu připojte účet, aby se poslech dál zaznamenával. Dosud neodeslané záznamy zůstanou zachovány.</string>
     <string name="accounts_listenbrainz_reconnect">Znovu připojit</string>
     <string name="accounts_listenbrainz_scrobble_local">Zaznamenávat poslech místních souborů</string>
-    <string name="accounts_listenbrainz_scrobble_navidrome">Zaznamenávat poslech ze Subsonicu</string>
-    <string name="accounts_listenbrainz_scrobble_jellyfin">Zaznamenávat poslech z Jellyfinu</string>
     <string name="accounts_listenbrainz_toggle_hint">Pokud váš server už poslech na ListenBrainz zaznamenává, vypněte zde příslušný zdroj, aby se záznamy neduplikovaly.</string>
     <string name="accounts_listenbrainz_stat_listens">Celkový počet přehrání</string>
     <string name="accounts_listenbrainz_stat_queued">Čeká na odeslání</string>

@@ -431,7 +431,7 @@ Mit einem Backslash (\) lassen sich Zeichen-Trennzeichen maskieren.</string>
         <item>Die Metadatenbearbeitung unterstützt jetzt das Ändern des Covers.</item>
         <item>Animationen und Übergänge in der ganzen App wurden geglättet – für eine flüssigere Navigation.</item>
         <item>Das Layout des Künstlerbildschirms wurde mit mehr Details und Feinschliff verbessert.</item>
-        <item>Die Erstellung von DailyMix und YourMix wurde mit klügeren, abwechslungsreicheren Auswahlen aufgewertet.</item>
+        <item>Die Erstellung von SmartMix und YourMix wurde mit klügeren, abwechslungsreicheren Auswahlen aufgewertet.</item>
         <item>Suchrelevanz und -darstellung wurden für schnelleres Entdecken verbessert.</item>
         <item>Unterstützung für ein breiteres Spektrum an Audiodateiformaten.</item>
     </string-array>
@@ -465,11 +465,11 @@ Mit einem Backslash (\) lassen sich Zeichen-Trennzeichen maskieren.</string>
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Erste öffentliche FOSS-Version von RollerSkater.</item>
         <item>Enthält lokale Wiedergabe, Playlists, Favoriten, Lyrics, Hörstatistiken, dynamisches Material-3-Theming, Widgets sowie Backup/Wiederherstellung.</item>
-        <item>Behält die Unterstützung für selbst gehostetes Navidrome/Subsonic und Jellyfin bei, dazu optionale LRCLIB-Lyrics und die Deezer-Suche nach Künstlerbildern.</item>
+        <item>Behält die Unterstützung für selbst gehostetes remote server/Subsonic und media server bei, dazu optionale LRCLIB-Lyrics und die Deezer-Suche nach Künstlerbildern.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Laufzeitabhängigkeiten zu Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, Play-Store-Abrechnung, Firebase, Crashlytics und Google Play Services entfernt.</item>
-        <item>Öffentliches Scrobbling zu Last.fm und ListenBrainz entfernt; die Meldungen an selbst gehostete Navidrome/Subsonic-Server bleiben auf deinen eigenen Server beschränkt.</item>
+        <item>Laufzeitabhängigkeiten zu messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, Play-Store-Abrechnung, Firebase, Crashlytics und Google Play Services entfernt.</item>
+        <item>Öffentliches Scrobbling zu Last.fm und ListenBrainz entfernt; die Meldungen an selbst gehostete remote server/Subsonic-Server bleiben auf deinen eigenen Server beschränkt.</item>
         <item>Mitgelieferte Übersetzungen und die Sprachauswahl in der App wurden für diese erste FOSS-Version entfernt; zunächst werden englische Ressourcen ausgeliefert.</item>
         <item>Release-Pfade entfernt, die von lokalen/privaten Signierartefakten, Dummy-Signierwerten oder reinen App-Store-Annahmen abhingen.</item>
     </string-array>
@@ -487,7 +487,7 @@ Mit einem Backslash (\) lassen sich Zeichen-Trennzeichen maskieren.</string>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Überarbeitung im Material-3-Expressive-Design: ein neues Bewegungsschema, wellenförmige Fortschrittsanzeigen und formverändernde Animationen in der gesamten App.</item>
-        <item>Jellyfin-Server über reines HTTP sind jetzt für VPN- und Hosts im lokalen Netzwerk erlaubt.</item>
+        <item>media server-Server über reines HTTP sind jetzt für VPN- und Hosts im lokalen Netzwerk erlaubt.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Kleinere App: Schlankere Code-Shrinking-Regeln sparen etwa 1,5 MB Installationsgröße.</item>
@@ -495,7 +495,7 @@ Mit einem Backslash (\) lassen sich Zeichen-Trennzeichen maskieren.</string>
         <item>Flottere Listen, Sheets und Equalizer dank einer umfassenden Compose-Performance-Überarbeitung.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Zuverlässigere Cloud-Wiedergabe: Abgebrochene Navidrome/Jellyfin-Anfragen werden beim schnellen Überspringen von Titeln nicht mehr fälschlich als Netzwerkfehler gemeldet.</item>
+        <item>Zuverlässigere Cloud-Wiedergabe: Abgebrochene remote server/media server-Anfragen werden beim schnellen Überspringen von Titeln nicht mehr fälschlich als Netzwerkfehler gemeldet.</item>
         <item>Backup-, Wiederherstellungs- und Einrichtungsereignisse können bei einer Bildschirmdrehung nicht mehr verloren gehen.</item>
         <item>Frühjahrsputz: Toter Code entfernt, veraltete APIs migriert und Abhängigkeiten aktualisiert.</item>
     </string-array>

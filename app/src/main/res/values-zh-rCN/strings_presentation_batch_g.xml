@@ -463,11 +463,11 @@
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>RollerSkater首个公开开源版本。</item>
         <item>包含本地播放、歌单、收藏、歌词、收听统计、动态Material3主题、小组件、备份恢复。</item>
-        <item>保留自建Navidrome/Subsonic、Jellyfin服务支持，可选接入LRCLIB歌词与Deezer艺术家封面查询。</item>
+        <item>保留自建remote server/Subsonic、media server服务支持，可选接入LRCLIB歌词与Deezer艺术家封面查询。</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>移除Telegram、网易云、QQ音乐、Google云端、Gemini、投屏、Wear OS、应用商店付费、Firebase、崩溃收集、Google服务框架依赖。</item>
-        <item>移除公共Last.fm、ListenBrainz歌曲打卡；自建Navidrome/Subsonic上报仅限于用户私有服务器。</item>
+        <item>移除messaging、网易云、QQ音乐、Google云端、AI、投屏、Wear OS、应用商店付费、Firebase、崩溃收集、Google服务框架依赖。</item>
+        <item>移除公共Last.fm、ListenBrainz歌曲打卡；自建remote server/Subsonic上报仅限于用户私有服务器。</item>
         <item>首个开源版本移除内置多语言包与应用内语言切换，优先提供英文资源。</item>
         <item>去除依赖本地私有签名、虚拟签名值、商店专属条件的发布流程。</item>
     </string-array>
@@ -489,7 +489,7 @@
     <string name="presentation_batch_g_changelog_sec_under_the_hood">底层改动</string>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Material3表现力设计升级：全新动效体系、波浪进度条，全局形状形变动画。</item>
-        <item>允许VPN、局域网环境下使用HTTP协议连接Jellyfin服务器。</item>
+        <item>允许VPN、局域网环境下使用HTTP协议连接media server服务器。</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>安装包体积缩小：代码压缩规则优化，安装包减少约1.5MB。</item>
@@ -497,7 +497,7 @@
         <item>Compose大规模性能优化，列表、弹窗、均衡器响应更加灵敏。</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>云端播放可靠性提升：快速切歌时，被取消的Navidrome/Jellyfin请求不再误报网络错误。</item>
+        <item>云端播放可靠性提升：快速切歌时，被取消的remote server/media server请求不再误报网络错误。</item>
         <item>屏幕旋转不会丢失备份、恢复、初始化流程事件。</item>
         <item>代码清理：删除废弃代码，迁移废弃API，升级第三方依赖。</item>
     </string-array>

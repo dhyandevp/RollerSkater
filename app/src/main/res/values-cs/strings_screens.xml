@@ -218,7 +218,6 @@
     <string name="about_support_chip_streaming">Hudba z vlastního serveru</string>
     <string name="about_support_cta">Podpořit na GitHubu</string>
     <string name="cd_open_github_profile">Otevřít profil na GitHubu</string>
-    <string name="cd_open_telegram_profile">Otevřít profil na Telegramu</string>
     <string name="cd_contributor_avatar">Profilový obrázek: %1$s</string>
     <string name="cd_contributor_icon">Ikona: %1$s</string>
     <string name="dash_playlists_synced_count">Synchronizováno playlistů: %1$d</string>
@@ -227,10 +226,7 @@
     <string name="dash_action_sync">Synchronizovat</string>
     <string name="dash_playlists_empty_title">Zatím nejsou synchronizované žádné playlisty</string>
     <string name="dash_playlists_empty_hint_subsonic">Klepnutím na Synchronizovat načtete své playlisty</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Klepnutím na Synchronizovat načtete své playlisty z Jellyfinu</string>
     <string name="dash_quick_actions">Rychlé akce</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Spravujte servery Navidrome, Airsonic a další servery kompatibilní se Subsonic.</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Spravujte připojení k serveru Jellyfin.</string>
     <string name="dash_libraries_title">Knihovny</string>
     <string name="dash_libraries_all">Všechny knihovny</string>
     <string name="dash_libraries_selected_count">Vybráno: %1$d z %2$d</string>
@@ -268,10 +264,6 @@
     <string name="cd_toggle_grid_list">Přepnout zobrazení mřížky nebo seznamu</string>
     <string name="cd_genre_illustration">Ilustrace žánru</string>
     <string name="dash_last_synced_format">Poslední synchronizace: %1$s</string>
-    <string name="dash_jellyfin_sync_favorites_title">Synchronizovat oblíbené</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Obousměrná synchronizace oblíbených skladeb s Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Oblíbené synchronizovány s Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Nepodařilo se synchronizovat oblíbené s Jellyfin</string>
     <string name="home_recently_added_title">Nedávno přidané</string>
     <string name="home_recently_added_play_cd">Přehrát nedávno přidané skladby</string>
 </resources>

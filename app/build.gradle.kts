@@ -65,7 +65,6 @@ android {
             excludes += listOf(
                 "META-INF/INDEX.LIST",
                 "META-INF/DEPENDENCIES",
-                "/META-INF/io.netty.versions.properties",
                 "META-INF/CONTRIBUTORS.md",
                 "META-INF/NOTICE.txt",
                 "META-INF/NOTICE.md"
@@ -259,8 +258,6 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.snakeyaml)
     implementation(libs.kotlinx.collections.immutable)
-    implementation(libs.ktor.server.core)
-    implementation(libs.ktor.server.cio)
 
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.security.crypto)
@@ -315,10 +312,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     constraints {
-        implementation(libs.netty.common)
-        implementation(libs.netty.handler)
-        implementation(libs.netty.codec.http)
-        implementation(libs.netty.codec.http2)
         implementation(libs.bouncycastle.bcprov)
         implementation(libs.bouncycastle.bcpkix)
         implementation(libs.commons.lang3)

@@ -87,7 +87,6 @@
     <string name="cd_next_step">Avanti</string>
     <string name="cd_no_search_results">Nessun risultato</string>
     <string name="cd_open_github_profile">Apri profilo GitHub</string>
-    <string name="cd_open_telegram_profile">Apri profilo Telegram</string>
     <string name="cd_options">Opzioni</string>
     <string name="cd_play_album">Riproduci album</string>
     <string name="cd_play_artist">Riproduci artista</string>
@@ -138,13 +137,10 @@
     <string name="dash_libraries_sync_needed">Sincronizza la libreria per applicare le modifiche</string>
     <string name="dash_libraries_title">Librerie</string>
     <string name="dash_library_playlist_title">Libreria</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Tocca sincronizza per recuperare le tue playlist Jellyfin</string>
     <string name="dash_playlists_empty_hint_subsonic">Tocca sincronizza per recuperare le tue playlist</string>
     <string name="dash_playlists_empty_title">Ancora nessuna playlist sincronizzata</string>
     <string name="dash_playlists_synced_count">%1$d playlist sincronizzate</string>
     <string name="dash_quick_actions">Azioni rapide</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Gestisci la tua connessione server Jellyfin.</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Gestisci Navidrome, Airsonic e altri server compatibili Subsonic.</string>
     <string name="dash_song_count">%1$d brani</string>
     <string name="dash_status_fetching_albums">Recupero elenco album…</string>
     <string name="dash_status_fetching_playlists">Recupero playlist…</string>
@@ -288,10 +284,6 @@
     <string name="home_empty_placeholder_subtitle">Il tuo mix apparirà qui quando RollerSkater troverà dei brani o sincronizzerà una sorgente.</string>
     <string name="crash_report_share_subject">Report crash di RollerSkater</string>
     <string name="about_support_title">Sostieni RollerSkater</string>
-    <string name="dash_jellyfin_sync_favorites_title">Sincronizza preferiti</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Sincronizzazione bidirezionale dei brani preferiti con Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Preferiti sincronizzati con Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Impossibile sincronizzare i preferiti con Jellyfin</string>
     <string name="home_recently_added_title">Aggiunti di recente</string>
     <string name="home_recently_added_play_cd">Riproduci brani aggiunti di recente</string>
 </resources>

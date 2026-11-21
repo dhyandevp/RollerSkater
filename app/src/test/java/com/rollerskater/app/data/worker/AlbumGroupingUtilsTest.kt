@@ -42,7 +42,7 @@ class AlbumGroupingUtilsTest {
 
         assertThat(buildAlbumGroupingKey(first.copy(albumName = "Unknown Album"), groupByTitle = true))
             .isNotEqualTo(buildAlbumGroupingKey(second.copy(albumName = "Unknown Album"), groupByTitle = true))
-        assertThat(buildAlbumGroupingKey(first.copy(contentUriString = "navidrome://123"), groupByTitle = true))
+        assertThat(buildAlbumGroupingKey(first.copy(contentUriString = "http://example.com/123"), groupByTitle = true))
             .isNotEqualTo(buildAlbumGroupingKey(second, groupByTitle = true))
     }
 

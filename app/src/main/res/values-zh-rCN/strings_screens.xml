@@ -246,7 +246,6 @@
     <string name="about_support_chip_streaming">自建音乐流媒体支持</string>
     <string name="about_support_cta">前往 GitHub 赞助</string>
     <string name="cd_open_github_profile">打开 GitHub 主页</string>
-    <string name="cd_open_telegram_profile">打开 Telegram 主页</string>
     <string name="cd_contributor_avatar">%1$s 的头像</string>
     <string name="cd_contributor_icon">%1$s 的图标</string>
 
@@ -257,10 +256,7 @@
     <string name="dash_action_sync">同步</string>
     <string name="dash_playlists_empty_title">尚未同步歌单</string>
     <string name="dash_playlists_empty_hint_subsonic">点击同步拉取你的歌单</string>
-    <string name="dash_playlists_empty_hint_jellyfin">点击同步拉取 Jellyfin 歌单</string>
     <string name="dash_quick_actions">快捷操作</string>
-    <string name="dash_quick_actions_subsonic_subtitle">管理 Navidrome、Airsonic 以及其他兼容 Subsonic 的服务器。</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">管理你的 Jellyfin 服务器连接。</string>
     <string name="dash_libraries_title">媒体库</string>
     <string name="dash_libraries_all">全部媒体库</string>
     <string name="dash_libraries_selected_count">已选 %1$d / %2$d</string>
@@ -298,10 +294,6 @@
     <string name="cd_toggle_grid_list">切换网格/列表视图</string>
     <string name="cd_genre_illustration">流派配图</string>
     <string name="dash_last_synced_format">上次同步：%1$s</string>
-    <string name="dash_jellyfin_sync_favorites_title">同步收藏</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">将喜欢的歌曲与 Jellyfin 收藏双向同步</string>
-    <string name="dash_jellyfin_sync_favorites_synced">已与 Jellyfin 同步收藏</string>
-    <string name="dash_jellyfin_sync_favorites_failed">无法与 Jellyfin 同步收藏</string>
     <string name="home_recently_added_title">最近添加</string>
     <string name="home_recently_added_play_cd">播放最近添加的歌曲</string>
 </resources>

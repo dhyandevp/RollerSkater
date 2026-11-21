@@ -41,7 +41,7 @@
     <string name="lib_empty_songs_offline_title">Không tìm thấy bài hát cục bộ nào</string>
     <string name="lib_empty_songs_offline_subtitle">Hãy thử bộ lọc nguồn khác hoặc quét lại thư viện trên thiết bị.</string>
     <string name="lib_empty_songs_online_title">Không tìm thấy bài hát đám mây nào</string>
-    <string name="lib_empty_songs_online_subtitle">Đồng bộ bài hát từ Navidrome hoặc Jellyfin, hoặc chuyển sang nguồn cục bộ.</string>
+    <string name="lib_empty_songs_online_subtitle">Đồng bộ bài hát từ online hoặc online, hoặc chuyển sang nguồn cục bộ.</string>
     <string name="lib_empty_albums_all_title">Không có album nào</string>
     <string name="lib_empty_albums_all_subtitle">Album sẽ xuất hiện ở đây ngay khi thư viện của bạn có các bài hát được nhóm lại.</string>
     <string name="lib_empty_albums_offline_title">Không tìm thấy album cục bộ nào</string>
@@ -59,7 +59,7 @@
     <string name="lib_empty_liked_offline_title">Không có bài hát cục bộ nào được thích</string>
     <string name="lib_empty_liked_offline_subtitle">Chuyển bộ lọc nguồn hoặc nhấn thích các bài hát từ thiết bị của bạn.</string>
     <string name="lib_empty_liked_online_title">Không có bài hát đám mây nào được thích</string>
-    <string name="lib_empty_liked_online_subtitle">Thích các bài hát Navidrome hoặc Jellyfin để xem chúng ở đây.</string>
+    <string name="lib_empty_liked_online_subtitle">Thích các bài hát online hoặc online để xem chúng ở đây.</string>
     <string name="lib_empty_folders_title">Không tìm thấy thư mục nào</string>
     <string name="lib_empty_folders_subtitle">Các thư mục trong bộ nhớ trong có chứa nhạc sẽ xuất hiện ở đây.</string>
     <string name="lib_empty_playlists_title">Chưa có danh sách phát nào</string>

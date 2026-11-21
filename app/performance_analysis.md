@@ -92,7 +92,7 @@ Cada una crea un `Animatable` con su propio frame callback. Cuando cambia `curre
 
 **Dónde:** `EnhancedSongListItem.kt:97-166`, usado en:
 
-* `DailyMixSection` (Home screen, hasta 4 items)
+* `Home Sections` (Home screen, hasta 4 items)
 * `LibrarySongsTab` (potencialmente visibles en pantalla `~8-12` items)
 * `PlaylistDetailScreen`
 
@@ -137,7 +137,6 @@ Cada una crea un `Animatable` con su propio frame callback. Cuando cambia `curre
 
 * `PlayerViewModel.kt` — `9` ocurrencias directas
 * `LibraryStateHolder.kt` — `10` ocurrencias
-* `DailyMixStateHolder.kt` — `6` ocurrencias
 
 **Síntomas:** Presión de GC intermitente. En gama baja con menor heap, el GC se dispara más frecuentemente, causando micro-pausas de `2-8ms` que se acumulan con otras operaciones.
 
@@ -249,7 +248,7 @@ Ordenados de mayor a menor prioridad:
 | 6  | `LibraryStateHolder.genres`            | `O(n)` sin deduplicación                                 | Cada cambio en `allSongs`          |
 | 7  | `PlayerUiState` updates                | Monolithic state → fan-out                               | Cada `250ms` (si incluye posición) |
 | 8  | `PlaylistDetailScreen`                 | Carga completa sin paginación + sort in-memory           | Playlists con `500+` canciones     |
-| 9  | `DailyMixSection`                      | `forEach` sin `LazyColumn` (4 items con 7 anim cada uno) | Home screen render                 |
+| 9  | `Home Sections`                        | `forEach` sin `LazyColumn` (4 items con 7 anim cada uno) | Home screen render                 |
 | 10 | `MusicDao` queries sin `LIMIT`         | Datasets completos en memoria                            | Cada invalidación de tabla         |
 
 ---

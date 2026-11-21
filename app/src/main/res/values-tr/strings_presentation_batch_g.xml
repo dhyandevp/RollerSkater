@@ -431,7 +431,7 @@ Karakter sınırlayıcıları etkisiz hale getirmek için ters eğik çizgi (\) 
         <item>Meta veri düzenleme artık kapak resmi değiştirmeyi destekliyor.</item>
         <item>Daha akıcı gezinme için uygulama genelinde animasyonlar ve geçişler yumuşatıldı.</item>
         <item>Sanatçı ekranı düzeni, daha zengin ayrıntılar ve cilayla geliştirildi.</item>
-        <item>DailyMix ve YourMix oluşturma, daha akıllı ve çeşitli seçimlerle yükseltildi.</item>
+        <item>SmartMix ve YourMix oluşturma, daha akıllı ve çeşitli seçimlerle yükseltildi.</item>
         <item>Daha hızlı keşif için arama alaka düzeyi ve sunumu iyileştirildi.</item>
         <item>Daha geniş bir ses dosyası biçimi yelpazesi için destek genişletildi.</item>
     </string-array>
@@ -465,11 +465,11 @@ Karakter sınırlayıcıları etkisiz hale getirmek için ters eğik çizgi (\) 
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>RollerSkater\'in ilk herkese açık FOSS sürümü.</item>
         <item>Yerel oynatma, çalma listeleri, favoriler, şarkı sözleri, dinleme istatistikleri, dinamik Material 3 temalandırma, widget\'lar ve yedekleme/geri yükleme içerir.</item>
-        <item>Kendi barındırdığınız Navidrome/Subsonic ve Jellyfin desteğini korur; ayrıca isteğe bağlı LRCLIB şarkı sözleri ve Deezer sanatçı görseli aramasını sunar.</item>
+        <item>Kendi barındırdığınız remote server/Subsonic ve media server desteğini korur; ayrıca isteğe bağlı LRCLIB şarkı sözleri ve Deezer sanatçı görseli aramasını sunar.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, Play Store faturalandırması, Firebase, Crashlytics ve Google Play Services çalışma zamanı bağımlılıkları kaldırıldı.</item>
-        <item>Herkese açık Last.fm ve ListenBrainz dinleme bildirimi (scrobbling) kaldırıldı; kendi barındırdığınız Navidrome/Subsonic raporlaması kullanıcının kendi sunucusuyla sınırlı kalır.</item>
+        <item>messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, Play Store faturalandırması, Firebase, Crashlytics ve Google Play Services çalışma zamanı bağımlılıkları kaldırıldı.</item>
+        <item>Herkese açık Last.fm ve ListenBrainz dinleme bildirimi (scrobbling) kaldırıldı; kendi barındırdığınız remote server/Subsonic raporlaması kullanıcının kendi sunucusuyla sınırlı kalır.</item>
         <item>Bu ilk FOSS sürümü için paketlenmiş çeviriler ve uygulama içi dil seçici kaldırıldı; önce İngilizce kaynaklar sunuluyor.</item>
         <item>Yerel/özel imzalama dosyalarına, sahte imzalama değerlerine veya yalnızca uygulama mağazalarına özgü varsayımlara dayanan yayın yolları kaldırıldı.</item>
     </string-array>
@@ -487,7 +487,7 @@ Karakter sınırlayıcıları etkisiz hale getirmek için ters eğik çizgi (\) 
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Material 3 Expressive tasarım turu: uygulama genelinde yeni bir hareket şeması, dalgalı ilerleme göstergeleri ve şekil dönüştüren animasyonlar.</item>
-        <item>VPN ve yerel ağ ana makineleri için düz HTTP üzerinden Jellyfin sunucularına artık izin veriliyor.</item>
+        <item>VPN ve yerel ağ ana makineleri için düz HTTP üzerinden media server sunucularına artık izin veriliyor.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Daha küçük uygulama: daha yalın kod küçültme kuralları kurulum boyutundan yaklaşık 1,5 MB azaltıyor.</item>
@@ -495,7 +495,7 @@ Karakter sınırlayıcıları etkisiz hale getirmek için ters eğik çizgi (\) 
         <item>Kapsamlı bir Compose performans çalışması sayesinde listeler, sayfalar ve ekolayzer daha seri.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Daha güvenilir bulut oynatma: şarkılar hızlıca atlanırken iptal edilen Navidrome/Jellyfin istekleri artık yanlışlıkla ağ hatası olarak bildirilmiyor.</item>
+        <item>Daha güvenilir bulut oynatma: şarkılar hızlıca atlanırken iptal edilen remote server/media server istekleri artık yanlışlıkla ağ hatası olarak bildirilmiyor.</item>
         <item>Yedekleme, geri yükleme ve kurulum olayları artık ekran döndürme sırasında kaybolamıyor.</item>
         <item>Bahar temizliği: ölü kod kaldırıldı, kullanımdan kaldırılmış API\'ler taşındı ve bağımlılıklar güncellendi.</item>
     </string-array>

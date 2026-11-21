@@ -7,8 +7,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /**
- * Room entity for storing song engagement statistics.
- * This replaces the JSON-based storage in DailyMixManager for better performance
+ * Room entity for storing song engagement statistics for better performance
  * and structured querying.
  */
 @Entity(

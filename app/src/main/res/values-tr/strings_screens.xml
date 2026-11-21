@@ -87,7 +87,6 @@
     <string name="cd_next_step">İleri</string>
     <string name="cd_no_search_results">Sonuç yok</string>
     <string name="cd_open_github_profile">GitHub profilini aç</string>
-    <string name="cd_open_telegram_profile">Telegram profilini aç</string>
     <string name="cd_options">Seçenekler</string>
     <string name="cd_play_album">Albümü oynat</string>
     <string name="cd_play_artist">Sanatçıyı oynat</string>
@@ -138,13 +137,10 @@
     <string name="dash_libraries_sync_needed">Değişikliklerin uygulanması için kitaplığı senkronize edin</string>
     <string name="dash_libraries_title">Kitaplıklar</string>
     <string name="dash_library_playlist_title">Kitaplık</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Jellyfin çalma listelerinizi getirmek için senkronizasyona dokunun</string>
     <string name="dash_playlists_empty_hint_subsonic">Çalma listelerinizi getirmek için senkronizasyona dokunun</string>
     <string name="dash_playlists_empty_title">Henüz senkronize edilmiş çalma listesi yok</string>
     <string name="dash_playlists_synced_count">%1$d çalma listesi senkronize edildi</string>
     <string name="dash_quick_actions">Hızlı eylemler</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Jellyfin sunucu bağlantınızı yönetin.</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Navidrome, Airsonic ve diğer Subsonic uyumlu sunucuları yönetin.</string>
     <string name="dash_song_count">%1$d şarkı</string>
     <string name="dash_status_fetching_albums">Albüm listesi getiriliyor…</string>
     <string name="dash_status_fetching_playlists">Çalma listeleri getiriliyor…</string>
@@ -288,10 +284,6 @@
     <string name="home_empty_placeholder_subtitle">RollerSkater şarkı bulduğunda veya bir kaynağı senkronize ettiğinde miksiniz burada görünecek.</string>
     <string name="crash_report_share_subject">RollerSkater çökme raporu</string>
     <string name="about_support_title">RollerSkater\'e destek ol</string>
-    <string name="dash_jellyfin_sync_favorites_title">Favorileri eşitle</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Beğenilen şarkıları Jellyfin favorileriyle çift yönlü eşitle</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Favoriler Jellyfin ile eşitlendi</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Favoriler Jellyfin ile eşitlenemedi</string>
     <string name="home_recently_added_title">Son eklenenler</string>
     <string name="home_recently_added_play_cd">Son eklenen şarkıları çal</string>
 </resources>

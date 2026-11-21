@@ -10,7 +10,6 @@
     <string name="setcat_m3u_sync_result">Zmeny: %1$d · Konflikty: %2$d · Nevyriešené položky: %3$d</string>
     <string name="settings_top_bar_title">Nastavenia</string>
     <string name="settings_accounts_row_title">Účty</string>
-    <string name="settings_accounts_row_subtitle">Spravujte služby Navidrome a Jellyfin</string>
     <string name="settings_search_hint">Hľadať v nastaveniach</string>
     <string name="settings_search_no_results">Žiadne výsledky pre „%1$s“</string>
     <string name="settings_search_section_top_matches">Najlepšie zhody</string>
@@ -280,7 +279,7 @@
     <string name="dialog_cannot_undo">Túto akciu nemožno vrátiť späť.</string>
     <string name="confirm">Potvrdiť</string>
     <string name="dialog_rebuild_database_title">Vytvoriť databázu znova?</string>
-    <string name="dialog_rebuild_database_message">Databáza miestnych súborov sa znova vytvorí zo služby MediaStore. Ich importované texty, obľúbené položky a vlastné metadáta sa odstránia. Skladby z Navidrome a Jellyfinu sa zachovajú. Túto akciu nemožno vrátiť späť.</string>
+    <string name="dialog_rebuild_database_message">Databáza miestnych súborov sa znova vytvorí zo služby MediaStore. Ich importované texty, obľúbené položky a vlastné metadáta sa odstránia. Túto akciu nemožno vrátiť späť.</string>
     <string name="rebuild">Vytvoriť znova</string>
     <string name="sync_indicator_rebuilding">Databáza sa vytvára znova</string>
     <string name="toast_rebuilding_database">Databáza sa vytvára znova…</string>

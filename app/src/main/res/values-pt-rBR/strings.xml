@@ -22,8 +22,6 @@
     <string name="accounts_listenbrainz_needs_reauth">Seu token não é mais válido. Conecte-se novamente para retomar o envio dos registros de audição. As audições que estão na fila serão mantidas.</string>
     <string name="accounts_listenbrainz_reconnect">Conectar novamente</string>
     <string name="accounts_listenbrainz_scrobble_local">Registrar audições de arquivos locais</string>
-    <string name="accounts_listenbrainz_scrobble_navidrome">Registrar audições do streaming Subsonic</string>
-    <string name="accounts_listenbrainz_scrobble_jellyfin">Registrar audições do streaming do Jellyfin</string>
     <string name="accounts_listenbrainz_toggle_hint">Se o seu servidor já envia registros de audição ao ListenBrainz, desative essa origem aqui para evitar registros duplicados.</string>
     <string name="accounts_listenbrainz_stat_listens">Total de audições</string>
     <string name="accounts_listenbrainz_stat_queued">Na fila</string>
@@ -327,10 +325,6 @@
     <string name="setcat_group_local_albums_by_title">Agrupar álbuns locais por título</string>
     <string name="setcat_group_local_albums_by_title_subtitle">Combina faixas locais com o mesmo título de álbum, mesmo quando os artistas do álbum são diferentes. Isso também pode combinar álbuns diferentes com o mesmo título.</string>
     <string name="presentation_batch_d_cd_open_album_title">Abrir álbum %1$s</string>
-    <string name="dash_jellyfin_sync_favorites_title">Sincronizar favoritos</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Sincronização bidirecional de músicas curtidas com os favoritos do Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Favoritos sincronizados com o Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Não foi possível sincronizar os favoritos com o Jellyfin</string>
     <string name="home_recently_added_title">Adicionados recentemente</string>
     <string name="home_recently_added_play_cd">Reproduzir músicas adicionadas recentemente</string>
     <string name="setcat_audio_output_mode_bit_perfect_usb">USB bit-perfect (experimental)</string>

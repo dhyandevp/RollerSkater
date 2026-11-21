@@ -36,10 +36,10 @@ class MediaStorePermissionHelperTest {
     @Test
     fun canUseSongIdForMediaStoreRequest_rejectsCloudProviderUris() {
         assertThat(
-            MediaStorePermissionHelper.canUseSongIdForMediaStoreRequest("navidrome://song-9317")
+            MediaStorePermissionHelper.canUseSongIdForMediaStoreRequest("http://example.com/song-9317")
         ).isFalse()
         assertThat(
-            MediaStorePermissionHelper.canUseSongIdForMediaStoreRequest("jellyfin://item123456")
+            MediaStorePermissionHelper.canUseSongIdForMediaStoreRequest("custom://item123456")
         ).isFalse()
     }
 

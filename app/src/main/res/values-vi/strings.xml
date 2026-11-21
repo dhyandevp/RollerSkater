@@ -22,8 +22,6 @@
     <string name="accounts_listenbrainz_needs_reauth">Mã khóa không còn hợp lệ — kết nối lại để tiếp tục gửi lịch sử nghe. Các lượt nghe trong hàng đợi được giữ lại.</string>
     <string name="accounts_listenbrainz_reconnect">Kết nối lại</string>
     <string name="accounts_listenbrainz_scrobble_local">Gửi lịch sử nghe tệp cục bộ</string>
-    <string name="accounts_listenbrainz_scrobble_navidrome">Gửi lịch sử phát trực tuyến Subsonic</string>
-    <string name="accounts_listenbrainz_scrobble_jellyfin">Gửi lịch sử phát trực tuyến Jellyfin</string>
     <string name="accounts_listenbrainz_toggle_hint">Nếu máy chủ của bạn đã tự gửi lịch sử tới ListenBrainz, hãy tắt nguồn đó tại đây để tránh trùng lặp.</string>
     <string name="accounts_listenbrainz_stat_listens">Tổng lượt nghe</string>
     <string name="accounts_listenbrainz_stat_queued">Đang chờ gửi</string>

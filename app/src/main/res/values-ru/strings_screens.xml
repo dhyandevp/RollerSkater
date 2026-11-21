@@ -93,7 +93,6 @@
     <string name="cd_next_step">Далее</string>
     <string name="cd_no_search_results">Нет результатов</string>
     <string name="cd_open_github_profile">Открыть профиль GitHub</string>
-    <string name="cd_open_telegram_profile">Открыть профиль Telegram</string>
     <string name="cd_options">Опции</string>
     <string name="cd_play_album">Воспроизвести альбом</string>
     <string name="cd_play_artist">Воспроизвести исполнителя</string>
@@ -144,13 +143,10 @@
     <string name="dash_libraries_sync_needed">Синхронизируйте медиатеку, чтобы применить изменения</string>
     <string name="dash_libraries_title">Библиотеки</string>
     <string name="dash_library_playlist_title">Медиатека</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Нажмите «Синхронизировать», чтобы получить плейлисты Jellyfin</string>
     <string name="dash_playlists_empty_hint_subsonic">Нажмите «Синхронизировать», чтобы загрузить плейлисты</string>
     <string name="dash_playlists_empty_title">Плейлисты ещё не синхронизированы</string>
     <string name="dash_playlists_synced_count">%1$d плейлистов синхронизировано</string>
     <string name="dash_quick_actions">Быстрые действия</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Управление подключением к серверу Jellyfin.</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Управляйте серверами Navidrome, Airsonic и другими совместимыми с Subsonic.</string>
     <string name="dash_song_count">%1$d песен</string>
     <string name="dash_status_fetching_albums">Получение списка альбомов…</string>
     <string name="dash_status_fetching_playlists">Получение плейлистов…</string>
@@ -294,10 +290,6 @@
     <string name="home_empty_placeholder_subtitle">Ваш микс появится здесь, когда RollerSkater найдёт треки или синхронизирует источник.</string>
     <string name="crash_report_share_subject">Отчёт о сбое RollerSkater</string>
     <string name="about_support_title">Поддержите RollerSkater</string>
-    <string name="dash_jellyfin_sync_favorites_title">Синхронизация избранного</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Двусторонняя синхронизация понравившихся треков с избранным Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Избранное синхронизировано с Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Не удалось синхронизировать избранное с Jellyfin</string>
     <string name="home_recently_added_title">Недавно добавленные</string>
     <string name="home_recently_added_play_cd">Воспроизвести недавно добавленные треки</string>
 </resources>

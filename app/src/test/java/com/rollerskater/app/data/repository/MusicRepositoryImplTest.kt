@@ -198,7 +198,7 @@ class MusicRepositoryImplTest {
             boundVariables += ids.size + secondArg<List<String>>().size + 1
             flowOf(ids.map { id ->
                 val folder = when {
-                    id < 0 -> "/Cloud/Jellyfin"
+                    id < 0 -> "/Cloud/Remote"
                     id == 7L -> "/blocked"
                     else -> allowedFolders[(id % allowedFolders.size).toInt()]
                 }

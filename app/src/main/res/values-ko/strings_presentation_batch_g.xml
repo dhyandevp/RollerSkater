@@ -431,7 +431,7 @@
         <item>메타데이터 편집에서 커버 아트 변경을 지원합니다.</item>
         <item>더 부드러운 탐색을 위해 앱 전반의 애니메이션과 전환 효과를 매끄럽게 개선했습니다.</item>
         <item>더 풍부한 정보와 완성도로 아티스트 화면 레이아웃을 개선했습니다.</item>
-        <item>더 똑똑하고 다양한 선곡으로 DailyMix와 YourMix 생성을 업그레이드했습니다.</item>
+        <item>더 똑똑하고 다양한 선곡으로 SmartMix와 YourMix 생성을 업그레이드했습니다.</item>
         <item>더 빠른 탐색을 위해 검색 관련도와 표시 방식을 개선했습니다.</item>
         <item>더 다양한 오디오 파일 형식을 지원하도록 확대했습니다.</item>
     </string-array>
@@ -465,11 +465,11 @@
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>RollerSkater의 첫 공개 FOSS 릴리스입니다.</item>
         <item>로컬 재생, 플레이리스트, 즐겨찾기, 가사, 감상 통계, 다이내믹 Material 3 테마, 위젯, 백업/복구를 포함합니다.</item>
-        <item>자체 호스팅 Navidrome/Subsonic 및 Jellyfin 지원은 그대로 유지하며, 선택 사항으로 LRCLIB 가사와 Deezer 아티스트 아트워크 조회도 사용할 수 있습니다.</item>
+        <item>자체 호스팅 remote server/Subsonic 및 media server 지원은 그대로 유지하며, 선택 사항으로 LRCLIB 가사와 Deezer 아티스트 아트워크 조회도 사용할 수 있습니다.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, Play Store 결제, Firebase, Crashlytics, Google Play Services 런타임 의존성을 제거했습니다.</item>
-        <item>공개 Last.fm 및 ListenBrainz 스크로블링을 제거했습니다. 자체 호스팅 Navidrome/Subsonic 보고는 사용자 본인의 서버로 한정됩니다.</item>
+        <item>messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, Play Store 결제, Firebase, Crashlytics, Google Play Services 런타임 의존성을 제거했습니다.</item>
+        <item>공개 Last.fm 및 ListenBrainz 스크로블링을 제거했습니다. 자체 호스팅 remote server/Subsonic 보고는 사용자 본인의 서버로 한정됩니다.</item>
         <item>이번 첫 FOSS 릴리스에서는 번들 번역과 앱 내 언어 선택기를 제거했으며, 영어 리소스가 먼저 제공됩니다.</item>
         <item>로컬/비공개 서명 아티팩트, 더미 서명 값, 앱 스토어 전용 가정에 의존하던 릴리스 경로를 제거했습니다.</item>
     </string-array>
@@ -487,7 +487,7 @@
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Material 3 Expressive 디자인 개편: 새로운 모션 체계, 물결 모양 진행 표시기, 앱 전반의 모양 변형 애니메이션.</item>
-        <item>VPN 및 로컬 네트워크 호스트에서는 일반 HTTP를 사용하는 Jellyfin 서버가 이제 허용됩니다.</item>
+        <item>VPN 및 로컬 네트워크 호스트에서는 일반 HTTP를 사용하는 media server 서버가 이제 허용됩니다.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>더 작아진 앱: 더 간결해진 코드 축소 규칙으로 설치 크기가 약 1.5 MB 줄었습니다.</item>
@@ -495,7 +495,7 @@
         <item>Compose 성능 전반 개선으로 목록, 시트, 이퀄라이저가 더 민첩해졌습니다.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>더 안정적인 클라우드 재생: 곡을 빠르게 넘길 때 취소된 Navidrome/Jellyfin 요청이 더 이상 네트워크 오류로 잘못 보고되지 않습니다.</item>
+        <item>더 안정적인 클라우드 재생: 곡을 빠르게 넘길 때 취소된 remote server/media server 요청이 더 이상 네트워크 오류로 잘못 보고되지 않습니다.</item>
         <item>화면을 회전해도 백업, 복구, 설정 이벤트가 유실되지 않습니다.</item>
         <item>대청소: 사용하지 않는 코드를 제거하고, 지원 중단된 API를 마이그레이션하고, 의존성을 업데이트했습니다.</item>
     </string-array>

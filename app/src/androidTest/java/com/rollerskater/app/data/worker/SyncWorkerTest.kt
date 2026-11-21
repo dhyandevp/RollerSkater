@@ -265,7 +265,7 @@ class SyncWorkerTest {
 
         val remote = firstTrack.copy(
             id = -1L, artistName = "Cloud Artist", artistId = -101L, albumArtistId = -101L,
-            albumId = -201L, contentUriString = "jellyfin://remote", sourceType = SourceType.JELLYFIN
+            albumId = -201L, contentUriString = "custom://remote", sourceType = -1
         )
         val remoteAlbum = AlbumEntity(-201L, "Same Title", "Main Artist", -101L, null, 1, 0L, 2026)
         musicDao.incrementalSyncMusicData(

@@ -431,7 +431,7 @@ La barra rovesciata (\) può essere usata per l\'escape dei delimitatori di cara
         <item>La modifica dei metadati ora permette di cambiare la copertina.</item>
         <item>Animazioni e transizioni più fluide in tutta l\'app per una navigazione più scorrevole.</item>
         <item>Migliorato il layout della schermata artista con più dettagli e cura.</item>
-        <item>Potenziata la generazione di DailyMix e YourMix con selezioni più intelligenti e varie.</item>
+        <item>Potenziata la generazione di SmartMix e YourMix con selezioni più intelligenti e varie.</item>
         <item>Migliorate pertinenza e presentazione della ricerca per scoprire la musica più velocemente.</item>
         <item>Ampliato il supporto a una gamma più ampia di formati di file audio.</item>
     </string-array>
@@ -465,11 +465,11 @@ La barra rovesciata (\) può essere usata per l\'escape dei delimitatori di cara
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Prima release FOSS pubblica di RollerSkater.</item>
         <item>Include riproduzione locale, playlist, preferiti, testi, statistiche di ascolto, temi dinamici Material 3, widget e backup/ripristino.</item>
-        <item>Mantiene il supporto a Navidrome/Subsonic e Jellyfin self-hosted, oltre alla ricerca opzionale dei testi su LRCLIB e delle immagini artista su Deezer.</item>
+        <item>Mantiene il supporto a remote server/Subsonic e media server self-hosted, oltre alla ricerca opzionale dei testi su LRCLIB e delle immagini artista su Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Rimosse le dipendenze di runtime da Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, fatturazione Play Store, Firebase, Crashlytics e Google Play Services.</item>
-        <item>Rimosso lo scrobbling pubblico su Last.fm e ListenBrainz; l\'invio dei dati a Navidrome/Subsonic self-hosted resta limitato al server dell\'utente.</item>
+        <item>Rimosse le dipendenze di runtime da messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, fatturazione Play Store, Firebase, Crashlytics e Google Play Services.</item>
+        <item>Rimosso lo scrobbling pubblico su Last.fm e ListenBrainz; l\'invio dei dati a remote server/Subsonic self-hosted resta limitato al server dell\'utente.</item>
         <item>Rimosse le traduzioni incluse e il selettore della lingua dell\'app per questa prima release FOSS; per ora vengono distribuite le risorse in inglese.</item>
         <item>Rimossi i percorsi di rilascio che dipendevano da artefatti di firma locali o privati, valori di firma fittizi o presupposti validi solo per gli app store.</item>
     </string-array>
@@ -487,7 +487,7 @@ La barra rovesciata (\) può essere usata per l\'escape dei delimitatori di cara
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Revisione del design Material 3 Expressive: un nuovo schema di movimento, indicatori di avanzamento ondulati e animazioni di trasformazione delle forme in tutta l\'app.</item>
-        <item>Ora i server Jellyfin tramite HTTP semplice sono consentiti per gli host VPN e di rete locale.</item>
+        <item>Ora i server media server tramite HTTP semplice sono consentiti per gli host VPN e di rete locale.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>App più leggera: regole di riduzione del codice più snelle tolgono circa 1,5 MB alle dimensioni di installazione.</item>
@@ -495,7 +495,7 @@ La barra rovesciata (\) può essere usata per l\'escape dei delimitatori di cara
         <item>Liste, schermate a scorrimento ed equalizzatore più reattivi grazie a un\'ampia ottimizzazione delle prestazioni di Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Riproduzione cloud più affidabile: le richieste Navidrome/Jellyfin annullate non vengono più segnalate erroneamente come errori di rete quando si saltano rapidamente i brani.</item>
+        <item>Riproduzione cloud più affidabile: le richieste remote server/media server annullate non vengono più segnalate erroneamente come errori di rete quando si saltano rapidamente i brani.</item>
         <item>Gli eventi di backup, ripristino e configurazione non possono più andare persi durante la rotazione dello schermo.</item>
         <item>Pulizie di primavera: rimosso il codice inutilizzato, migrate le API deprecate e aggiornate le dipendenze.</item>
     </string-array>

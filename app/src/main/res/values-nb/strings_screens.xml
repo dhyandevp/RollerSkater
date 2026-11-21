@@ -87,7 +87,6 @@
     <string name="cd_next_step">Neste</string>
     <string name="cd_no_search_results">Ingen resultater</string>
     <string name="cd_open_github_profile">Åpne GitHub-profil</string>
-    <string name="cd_open_telegram_profile">Åpne Telegram-profil</string>
     <string name="cd_options">Alternativer</string>
     <string name="cd_play_album">Spill album</string>
     <string name="cd_play_artist">Spill artist</string>
@@ -138,13 +137,10 @@
     <string name="dash_libraries_sync_needed">Synkroniser biblioteket for å ta i bruk endringene</string>
     <string name="dash_libraries_title">Bibliotek</string>
     <string name="dash_library_playlist_title">Bibliotek</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Trykk på synk for å hente Jellyfin-spillelister</string>
     <string name="dash_playlists_empty_hint_subsonic">Trykk på synk for å hente spillelister</string>
     <string name="dash_playlists_empty_title">Ingen spillelister synkronisert ennå</string>
     <string name="dash_playlists_synced_count">%1$d spillelister synkronisert</string>
     <string name="dash_quick_actions">Hurtighandlinger</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Administrer din Jellyfin-tilkobling.</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Administrer Navidrome, Airsonic og andre Subsonic-kompatible servere.</string>
     <string name="dash_song_count">%1$d sanger</string>
     <string name="dash_status_fetching_albums">Henter albumliste…</string>
     <string name="dash_status_fetching_playlists">Henter spillelister…</string>
@@ -288,10 +284,6 @@
     <string name="home_empty_placeholder_subtitle">Miksen din vises her når RollerSkater finner sanger eller synkroniserer en kilde.</string>
     <string name="crash_report_share_subject">Krasjrapport for RollerSkater</string>
     <string name="about_support_title">Støtt RollerSkater</string>
-    <string name="dash_jellyfin_sync_favorites_title">Synkroniser favoritter</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Toveis synkronisering av likte sanger med Jellyfin-favoritter</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Favoritter synkronisert med Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Kunne ikke synkronisere favoritter med Jellyfin</string>
     <string name="home_recently_added_title">Nylig lagt til</string>
     <string name="home_recently_added_play_cd">Spill av nylig tillagte sanger</string>
 </resources>

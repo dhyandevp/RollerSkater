@@ -431,7 +431,7 @@ Skråstrek bakover (\) kan brukes til å escape tegndelimitere.</string>
         <item>Redigering av metadata støtter nå bytte av albumkunst.</item>
         <item>Jevnet ut animasjoner og overganger i hele appen for mer flytende navigasjon.</item>
         <item>Forbedret oppsettet på artistskjermen med rikere detaljer og finpuss.</item>
-        <item>Oppgraderte DailyMix- og YourMix-generering med smartere og mer varierte utvalg.</item>
+        <item>Oppgraderte SmartMix- og YourMix-generering med smartere og mer varierte utvalg.</item>
         <item>Bedre søkerelevans og presentasjon for raskere oppdagelse.</item>
         <item>Utvidet støtte for et bredere utvalg lydfilformater.</item>
     </string-array>
@@ -465,11 +465,11 @@ Skråstrek bakover (\) kan brukes til å escape tegndelimitere.</string>
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Første offentlige FOSS-utgivelse av RollerSkater.</item>
         <item>Inkluderer lokal avspilling, spillelister, favoritter, sangtekster, lyttestatistikk, dynamisk Material 3-tema, widgeter og sikkerhetskopiering/gjenoppretting.</item>
-        <item>Beholder støtte for selvhostet Navidrome/Subsonic og Jellyfin, pluss valgfritt oppslag av sangtekster via LRCLIB og av artistbilder fra Deezer.</item>
+        <item>Beholder støtte for selvhostet remote server/Subsonic og media server, pluss valgfritt oppslag av sangtekster via LRCLIB og av artistbilder fra Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Fjernet kjøretidsavhengighetene til Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, Play Store-fakturering, Firebase, Crashlytics og Google Play Services.</item>
-        <item>Fjernet offentlig scrobbling til Last.fm og ListenBrainz; rapportering til selvhostet Navidrome/Subsonic er fortsatt begrenset til brukerens egen server.</item>
+        <item>Fjernet kjøretidsavhengighetene til messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, Play Store-fakturering, Firebase, Crashlytics og Google Play Services.</item>
+        <item>Fjernet offentlig scrobbling til Last.fm og ListenBrainz; rapportering til selvhostet remote server/Subsonic er fortsatt begrenset til brukerens egen server.</item>
         <item>Fjernet medfølgende oversettelser og språkvelgeren i appen for denne første FOSS-utgivelsen; engelske ressurser leveres først.</item>
         <item>Fjernet utgivelsesløp som var avhengige av lokale/private signeringsartefakter, dummy-signeringsverdier eller antakelser som bare gjaldt app-butikker.</item>
     </string-array>
@@ -487,7 +487,7 @@ Skråstrek bakover (\) kan brukes til å escape tegndelimitere.</string>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Designoppgradering med Material 3 Expressive: et nytt bevegelsesskjema, bølgete fremdriftsindikatorer og formtransformerende animasjoner i hele appen.</item>
-        <item>Jellyfin-servere over vanlig HTTP er nå tillatt for VPN- og lokalnettverksverter.</item>
+        <item>media server-servere over vanlig HTTP er nå tillatt for VPN- og lokalnettverksverter.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Mindre app: slankere regler for kodekomprimering sparer rundt 1,5 MB installasjonsstørrelse.</item>
@@ -495,7 +495,7 @@ Skråstrek bakover (\) kan brukes til å escape tegndelimitere.</string>
         <item>Kjappere lister, paneler og equalizer takket være en omfattende ytelsesgjennomgang av Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Mer pålitelig skyavspilling: avbrutte Navidrome/Jellyfin-forespørsler rapporteres ikke lenger feilaktig som nettverksfeil når du hopper raskt mellom spor.</item>
+        <item>Mer pålitelig skyavspilling: avbrutte remote server/media server-forespørsler rapporteres ikke lenger feilaktig som nettverksfeil når du hopper raskt mellom spor.</item>
         <item>Hendelser for sikkerhetskopiering, gjenoppretting og oppsett kan ikke lenger gå tapt ved skjermrotasjon.</item>
         <item>Vårrengjøring: ubrukt kode fjernet, utdaterte API-er migrert og avhengigheter oppdatert.</item>
     </string-array>

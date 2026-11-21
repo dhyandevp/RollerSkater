@@ -431,7 +431,7 @@ La barra invertida (\) se puede usar para escapar los delimitadores de caractere
         <item>La edición de metadatos ahora permite cambiar la carátula.</item>
         <item>Se suavizaron las animaciones y transiciones de toda la app para una navegación más fluida.</item>
         <item>Se mejoró el diseño de la pantalla de artista con más detalles y mejor acabado.</item>
-        <item>Se mejoró la generación de DailyMix y YourMix con selecciones más inteligentes y variadas.</item>
+        <item>Se mejoró la generación de SmartMix y YourMix con selecciones más inteligentes y variadas.</item>
         <item>Se mejoraron la relevancia y la presentación de la búsqueda para descubrir música más rápido.</item>
         <item>Se amplió la compatibilidad con una gama más amplia de formatos de archivo de audio.</item>
     </string-array>
@@ -465,11 +465,11 @@ La barra invertida (\) se puede usar para escapar los delimitadores de caractere
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Primera versión FOSS pública de RollerSkater.</item>
         <item>Incluye reproducción local, listas de reproducción, favoritos, letras, estadísticas de escucha, temas dinámicos Material 3, widgets y copia de seguridad/restauración.</item>
-        <item>Mantiene la compatibilidad con Navidrome/Subsonic y Jellyfin autoalojados, además de la búsqueda opcional de letras en LRCLIB y de imágenes de artista en Deezer.</item>
+        <item>Mantiene la compatibilidad con remote server/Subsonic y media server autoalojados, además de la búsqueda opcional de letras en LRCLIB y de imágenes de artista en Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Se eliminaron las dependencias de ejecución de Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, la facturación de Play Store, Firebase, Crashlytics y Google Play Services.</item>
-        <item>Se eliminó el scrobbling público de Last.fm y ListenBrainz; el envío de datos a Navidrome/Subsonic autoalojado sigue limitado al servidor propio del usuario.</item>
+        <item>Se eliminaron las dependencias de ejecución de messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, la facturación de Play Store, Firebase, Crashlytics y Google Play Services.</item>
+        <item>Se eliminó el scrobbling público de Last.fm y ListenBrainz; el envío de datos a remote server/Subsonic autoalojado sigue limitado al servidor propio del usuario.</item>
         <item>Se eliminaron las traducciones incluidas y el selector de idioma de la app en esta primera versión FOSS; primero se publican los recursos en inglés.</item>
         <item>Se eliminaron las rutas de publicación que dependían de artefactos de firma locales o privados, valores de firma ficticios o supuestos exclusivos de tiendas de aplicaciones.</item>
     </string-array>
@@ -487,7 +487,7 @@ La barra invertida (\) se puede usar para escapar los delimitadores de caractere
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Mejora del diseño Material 3 Expressive: un nuevo esquema de movimiento, indicadores de progreso ondulados y animaciones de transformación de formas en toda la app.</item>
-        <item>Ahora se permiten servidores Jellyfin sobre HTTP sin cifrar para hosts de VPN y de red local.</item>
+        <item>Ahora se permiten servidores media server sobre HTTP sin cifrar para hosts de VPN y de red local.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>App más ligera: unas reglas de reducción de código más ajustadas recortan unos 1,5 MB del tamaño de instalación.</item>
@@ -495,7 +495,7 @@ La barra invertida (\) se puede usar para escapar los delimitadores de caractere
         <item>Listas, hojas y ecualizador más ágiles gracias a una amplia mejora de rendimiento de Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Reproducción en la nube más fiable: las solicitudes canceladas de Navidrome/Jellyfin ya no se notifican por error como errores de red al saltar pistas rápidamente.</item>
+        <item>Reproducción en la nube más fiable: las solicitudes canceladas de remote server/media server ya no se notifican por error como errores de red al saltar pistas rápidamente.</item>
         <item>Los eventos de copia de seguridad, restauración y configuración ya no se pueden perder al girar la pantalla.</item>
         <item>Limpieza general: se eliminó el código muerto, se migraron las API obsoletas y se actualizaron las dependencias.</item>
     </string-array>

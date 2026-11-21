@@ -431,7 +431,7 @@ La barre oblique inverse (\) permet d\'échapper les délimiteurs de caractères
         <item>La modification des métadonnées permet désormais de changer la pochette.</item>
         <item>Animations et transitions adoucies dans toute l\'application pour une navigation plus fluide.</item>
         <item>Mise en page de l\'écran des artistes améliorée, avec plus de détails et de finitions.</item>
-        <item>Génération de DailyMix et YourMix améliorée, avec des sélections plus intelligentes et plus variées.</item>
+        <item>Génération de SmartMix et YourMix améliorée, avec des sélections plus intelligentes et plus variées.</item>
         <item>Pertinence et présentation de la recherche améliorées pour une découverte plus rapide.</item>
         <item>Prise en charge élargie d\'un plus grand nombre de formats de fichiers audio.</item>
     </string-array>
@@ -465,11 +465,11 @@ La barre oblique inverse (\) permet d\'échapper les délimiteurs de caractères
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Première version FOSS publique de RollerSkater.</item>
         <item>Comprend la lecture locale, les playlists, les favoris, les paroles, les statistiques d\'écoute, le thème dynamique Material 3, les widgets et la sauvegarde/restauration.</item>
-        <item>Conserve la prise en charge de Navidrome/Subsonic et Jellyfin auto-hébergés, ainsi que les paroles LRCLIB et la recherche de visuels d\'artistes Deezer, en option.</item>
+        <item>Conserve la prise en charge de remote server/Subsonic et media server auto-hébergés, ainsi que les paroles LRCLIB et la recherche de visuels d\'artistes Deezer, en option.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Suppression des dépendances d\'exécution Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, facturation Play Store, Firebase, Crashlytics et Google Play Services.</item>
-        <item>Suppression du scrobbling public Last.fm et ListenBrainz ; le suivi Navidrome/Subsonic auto-hébergé reste limité au serveur de l\'utilisateur.</item>
+        <item>Suppression des dépendances d\'exécution messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, facturation Play Store, Firebase, Crashlytics et Google Play Services.</item>
+        <item>Suppression du scrobbling public Last.fm et ListenBrainz ; le suivi remote server/Subsonic auto-hébergé reste limité au serveur de l\'utilisateur.</item>
         <item>Suppression des traductions intégrées et du sélecteur de langue dans l\'application pour cette première version FOSS ; les ressources en anglais sont livrées en premier.</item>
         <item>Suppression des chemins de publication qui dépendaient d\'artefacts de signature locaux/privés, de valeurs de signature factices ou d\'hypothèses propres aux magasins d\'applications.</item>
     </string-array>
@@ -487,7 +487,7 @@ La barre oblique inverse (\) permet d\'échapper les délimiteurs de caractères
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Passe de design Material 3 Expressive : nouveau schéma de mouvement, indicateurs de progression ondulés et animations de transformation de formes dans toute l\'application.</item>
-        <item>Les serveurs Jellyfin en HTTP simple sont désormais autorisés pour les hôtes VPN et du réseau local.</item>
+        <item>Les serveurs media server en HTTP simple sont désormais autorisés pour les hôtes VPN et du réseau local.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Application plus légère : des règles de réduction du code plus strictes retirent environ 1,5 Mo de la taille d\'installation.</item>
@@ -495,7 +495,7 @@ La barre oblique inverse (\) permet d\'échapper les délimiteurs de caractères
         <item>Listes, feuilles et égaliseur plus réactifs grâce à une vaste passe de performance Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Lecture cloud plus fiable : les requêtes Navidrome/Jellyfin annulées ne sont plus signalées à tort comme des erreurs réseau lorsque vous passez rapidement d\'une piste à l\'autre.</item>
+        <item>Lecture cloud plus fiable : les requêtes remote server/media server annulées ne sont plus signalées à tort comme des erreurs réseau lorsque vous passez rapidement d\'une piste à l\'autre.</item>
         <item>Les événements de sauvegarde, de restauration et de configuration ne peuvent plus être perdus lors de la rotation de l\'écran.</item>
         <item>Grand ménage de printemps : code mort supprimé, API obsolètes migrées et dépendances mises à jour.</item>
     </string-array>

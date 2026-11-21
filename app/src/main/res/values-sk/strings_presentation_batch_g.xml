@@ -451,11 +451,11 @@
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Prvé verejné vydanie RollerSkater s otvoreným zdrojovým kódom.</item>
         <item>Obsahuje miestne prehrávanie, zoznamy skladieb, obľúbené, texty, štatistiky počúvania, dynamické motívy Material 3, miniaplikácie, zálohovanie a obnovenie.</item>
-        <item>Naďalej podporuje vlastné servery Navidrome, Subsonic a Jellyfin, ako aj voliteľné vyhľadávanie textov cez LRCLIB a fotografií interpretov cez Deezer.</item>
+        <item>Naďalej podporuje vlastné servery remote server, Subsonic a media server, ako aj voliteľné vyhľadávanie textov cez LRCLIB a fotografií interpretov cez Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Odstránili sa závislosti od služieb Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, fakturácie Obchodu Play, Firebase, Crashlytics a Služieb Google Play.</item>
-        <item>Odstránilo sa odosielanie záznamov počúvania do verejných služieb Last.fm a ListenBrainz. Pri vlastnom serveri Navidrome alebo Subsonic sa záznamy naďalej posielajú len na tento server.</item>
+        <item>Odstránili sa závislosti od služieb messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, fakturácie Obchodu Play, Firebase, Crashlytics a Služieb Google Play.</item>
+        <item>Odstránilo sa odosielanie záznamov počúvania do verejných služieb Last.fm a ListenBrainz. Pri vlastnom serveri remote server alebo Subsonic sa záznamy naďalej posielajú len na tento server.</item>
         <item>V prvom otvorenom vydaní sa odstránili priložené preklady aj výber jazyka v aplikácii. Najskôr boli dostupné iba anglické texty.</item>
         <item>Odstránili sa postupy vydávania závislé od miestnych či súkromných podpisových súborov, zástupných podpisových údajov alebo konkrétneho obchodu s aplikáciami.</item>
     </string-array>
@@ -473,7 +473,7 @@
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Vzhľad Material 3 Expressive prináša nové animácie pohybu, zvlnené ukazovatele priebehu a zmeny tvarov v celej aplikácii.</item>
-        <item>K serverom Jellyfin vo VPN alebo miestnej sieti sa teraz dá pripojiť aj cez obyčajné HTTP.</item>
+        <item>K serverom media server vo VPN alebo miestnej sieti sa teraz dá pripojiť aj cez obyčajné HTTP.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Menšia aplikácia: úspornejšie pravidlá zmenšovania kódu znižujú veľkosť inštalácie približne o 1,5 MB.</item>
@@ -481,7 +481,7 @@
         <item>Zoznamy, panely a ekvalizér reagujú rýchlejšie vďaka optimalizácii rozhrania Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Spoľahlivejšie prehrávanie z cloudu: zrušené požiadavky Navidrome alebo Jellyfinu sa pri rýchlom preskakovaní skladieb už nehlásia ako chyby siete.</item>
+        <item>Spoľahlivejšie prehrávanie z cloudu: zrušené požiadavky remote server alebo media server sa pri rýchlom preskakovaní skladieb už nehlásia ako chyby siete.</item>
         <item>Pri otočení obrazovky sa už nestrácajú udalosti zálohovania, obnovy ani úvodného nastavenia.</item>
         <item>Odstránil sa nepoužívaný kód, zastarané rozhrania sa nahradili a závislosti sa aktualizovali.</item>
     </string-array>

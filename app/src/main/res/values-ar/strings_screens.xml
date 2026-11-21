@@ -111,7 +111,6 @@
     <string name="cd_next_step">التالي</string>
     <string name="cd_no_search_results">لا توجد نتائج</string>
     <string name="cd_open_github_profile">فتح ملف GitHub الشخصي</string>
-    <string name="cd_open_telegram_profile">فتح ملف Telegram الشخصي</string>
     <string name="cd_options">خيارات</string>
     <string name="cd_play_album">تشغيل الألبوم</string>
     <string name="cd_play_artist">تشغيل الفنان</string>
@@ -150,13 +149,10 @@
     <string name="dash_libraries_sync_needed">زامن المكتبة لتطبيق التغييرات</string>
     <string name="dash_libraries_title">المكتبات</string>
     <string name="dash_library_playlist_title">المكتبة</string>
-    <string name="dash_playlists_empty_hint_jellyfin">اضغط على مزامنة لجلب قوائم تشغيل Jellyfin الخاصة بك</string>
     <string name="dash_playlists_empty_hint_subsonic">اضغط على مزامنة لجلب قوائم التشغيل الخاصة بك</string>
     <string name="dash_playlists_empty_title">لم يتم مزامنة أي قوائم تشغيل بعد</string>
     <string name="dash_playlists_synced_count">تم مزامنة %1$d قائمة تشغيل</string>
     <string name="dash_quick_actions">إجراءات سريعة</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">إدارة اتصال خادم Jellyfin الخاص بك.</string>
-    <string name="dash_quick_actions_subsonic_subtitle">إدارة خوادم Navidrome وAirsonic والخوادم الأخرى المتوافقة مع Subsonic.</string>
     <string name="dash_song_count">%1$d أغانٍ</string>
     <string name="dash_status_fetching_albums">جاري جلب قائمة الألبومات…</string>
     <string name="dash_status_fetching_playlists">جاري جلب قوائم التشغيل…</string>
@@ -300,10 +296,6 @@
     <string name="home_empty_placeholder_subtitle">سيظهر مزيجك الموسيقي هنا عندما يعثر RollerSkater على أغانٍ أو يزامن مصدراً.</string>
     <string name="crash_report_share_subject">تقرير تعطل RollerSkater</string>
     <string name="about_support_title">ادعم RollerSkater</string>
-    <string name="dash_jellyfin_sync_favorites_title">مزامنة المفضلة</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">مزامنة ثنائية الاتجاه للأغاني المعجب بها مع مفضلة Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">تمت مزامنة المفضلة مع Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">تعذرت مزامنة المفضلة مع Jellyfin</string>
     <string name="home_recently_added_title">أُضيف مؤخراً</string>
     <string name="home_recently_added_play_cd">تشغيل الأغاني المضافة مؤخراً</string>
 </resources>

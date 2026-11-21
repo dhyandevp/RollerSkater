@@ -431,7 +431,7 @@ Garis miring terbalik (\) dapat digunakan untuk meloloskan pemisah karakter.</st
         <item>Pengeditan metadata kini mendukung penggantian sampul.</item>
         <item>Animasi dan transisi di seluruh aplikasi dihaluskan agar navigasi lebih mulus.</item>
         <item>Tata letak layar artis ditingkatkan dengan detail yang lebih kaya dan lebih rapi.</item>
-        <item>Pembuatan DailyMix dan YourMix ditingkatkan dengan pilihan yang lebih cerdas dan beragam.</item>
+        <item>Pembuatan SmartMix dan YourMix ditingkatkan dengan pilihan yang lebih cerdas dan beragam.</item>
         <item>Relevansi dan tampilan pencarian ditingkatkan agar penemuan lebih cepat.</item>
         <item>Dukungan diperluas untuk lebih banyak format file audio.</item>
     </string-array>
@@ -465,11 +465,11 @@ Garis miring terbalik (\) dapat digunakan untuk meloloskan pemisah karakter.</st
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>Rilis FOSS publik pertama dari RollerSkater.</item>
         <item>Mencakup pemutaran lokal, playlist, favorit, lirik, statistik mendengarkan, tema dinamis Material 3, widget, dan cadangan/pemulihan.</item>
-        <item>Tetap mendukung Navidrome/Subsonic dan Jellyfin yang dihosting sendiri, ditambah lirik LRCLIB opsional dan pencarian gambar artis Deezer.</item>
+        <item>Tetap mendukung remote server/Subsonic dan media server yang dihosting sendiri, ditambah lirik LRCLIB opsional dan pencarian gambar artis Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>Menghapus dependensi runtime Telegram, NetEase, QQ Music, Google Drive, Gemini, Cast, Wear OS, penagihan Play Store, Firebase, Crashlytics, dan Google Play Services.</item>
-        <item>Menghapus scrobbling publik Last.fm dan ListenBrainz; pelaporan Navidrome/Subsonic yang dihosting sendiri tetap terbatas pada server milik pengguna.</item>
+        <item>Menghapus dependensi runtime messaging, streaming, QQ Music, Google Drive, AI, Cast, Wear OS, penagihan Play Store, Firebase, Crashlytics, dan Google Play Services.</item>
+        <item>Menghapus scrobbling publik Last.fm dan ListenBrainz; pelaporan remote server/Subsonic yang dihosting sendiri tetap terbatas pada server milik pengguna.</item>
         <item>Menghapus terjemahan bawaan dan pemilih bahasa di dalam aplikasi untuk rilis FOSS pertama ini; sumber daya bahasa Inggris dirilis lebih dulu.</item>
         <item>Menghapus jalur rilis yang bergantung pada artefak penandatanganan lokal/privat, nilai penandatanganan palsu, atau asumsi khusus toko aplikasi.</item>
     </string-array>
@@ -487,7 +487,7 @@ Garis miring terbalik (\) dapat digunakan untuk meloloskan pemisah karakter.</st
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>Penyempurnaan desain Material 3 Expressive: skema gerak baru, indikator progres bergelombang, dan animasi perubahan bentuk di seluruh aplikasi.</item>
-        <item>Server Jellyfin lewat HTTP biasa kini diizinkan untuk host VPN dan jaringan lokal.</item>
+        <item>Server media server lewat HTTP biasa kini diizinkan untuk host VPN dan jaringan lokal.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>Aplikasi lebih kecil: aturan penyusutan kode yang lebih ramping memangkas sekitar 1,5 MB dari ukuran instalasi.</item>
@@ -495,7 +495,7 @@ Garis miring terbalik (\) dapat digunakan untuk meloloskan pemisah karakter.</st
         <item>Daftar, sheet, dan equalizer lebih gesit berkat penyempurnaan kinerja Compose secara menyeluruh.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>Pemutaran cloud lebih andal: permintaan Navidrome/Jellyfin yang dibatalkan tidak lagi salah dilaporkan sebagai kesalahan jaringan saat melewati trek dengan cepat.</item>
+        <item>Pemutaran cloud lebih andal: permintaan remote server/media server yang dibatalkan tidak lagi salah dilaporkan sebagai kesalahan jaringan saat melewati trek dengan cepat.</item>
         <item>Peristiwa cadangan, pemulihan, dan penyiapan tidak lagi bisa hilang saat layar diputar.</item>
         <item>Bersih-bersih besar: kode mati dihapus, API yang usang dimigrasikan, dan dependensi diperbarui.</item>
     </string-array>

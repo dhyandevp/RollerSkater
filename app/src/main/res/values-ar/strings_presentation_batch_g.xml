@@ -431,7 +431,7 @@
         <item>أصبح تعديل البيانات الوصفية يدعم تغيير صورة الغلاف.</item>
         <item>تنعيم الحركات والانتقالات في التطبيق لتنقل أكثر سلاسة.</item>
         <item>تحسين تخطيط شاشة الفنان بتفاصيل أغنى ولمسات أدق.</item>
-        <item>ترقية توليد DailyMix وYourMix باختيارات أذكى وأكثر تنوعاً.</item>
+        <item>ترقية توليد SmartMix وYourMix باختيارات أذكى وأكثر تنوعاً.</item>
         <item>تحسين صلة نتائج البحث وطريقة عرضها لاكتشاف أسرع.</item>
         <item>توسيع الدعم ليشمل نطاقاً أوسع من صيغ ملفات الصوت.</item>
     </string-array>
@@ -465,11 +465,11 @@
     <string-array name="presentation_batch_g_changelog_070_whats_new">
         <item>أول إصدار عام مفتوح المصدر (FOSS) من RollerSkater.</item>
         <item>يتضمن التشغيل المحلي وقوائم التشغيل والمفضلة وكلمات الأغاني وإحصاءات الاستماع وتنسيق Material 3 الديناميكي والأدوات والنسخ الاحتياطي والاستعادة.</item>
-        <item>يحافظ على دعم Navidrome/Subsonic وJellyfin المستضافة ذاتياً، مع كلمات LRCLIB الاختيارية والبحث عن صور الفنانين من Deezer.</item>
+        <item>يحافظ على دعم remote server/Subsonic وmedia server المستضافة ذاتياً، مع كلمات LRCLIB الاختيارية والبحث عن صور الفنانين من Deezer.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_070_improvements">
-        <item>إزالة تبعيات وقت التشغيل الخاصة بـ Telegram وNetEase وQQ Music وGoogle Drive وGemini وCast وWear OS وفوترة Play Store وFirebase وCrashlytics وGoogle Play Services.</item>
-        <item>إزالة تسجيل الاستماع العام عبر Last.fm وListenBrainz؛ ويبقى الإبلاغ عبر Navidrome/Subsonic المستضاف ذاتياً مقتصراً على خادم المستخدم نفسه.</item>
+        <item>إزالة تبعيات وقت التشغيل الخاصة بـ messaging وstreaming وQQ Music وGoogle Drive وAI وCast وWear OS وفوترة Play Store وFirebase وCrashlytics وGoogle Play Services.</item>
+        <item>إزالة تسجيل الاستماع العام عبر Last.fm وListenBrainz؛ ويبقى الإبلاغ عبر remote server/Subsonic المستضاف ذاتياً مقتصراً على خادم المستخدم نفسه.</item>
         <item>إزالة الترجمات المضمنة ومحدد اللغة داخل التطبيق في هذا الإصدار الأول مفتوح المصدر؛ وتصدر الموارد الإنجليزية أولاً.</item>
         <item>إزالة مسارات الإصدار التي تعتمد على ملفات توقيع محلية أو خاصة، أو قيم توقيع وهمية، أو افتراضات خاصة بمتاجر التطبيقات فقط.</item>
     </string-array>
@@ -487,7 +487,7 @@
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_whats_new">
         <item>تحسين تصميم Material 3 Expressive: مخطط حركة جديد ومؤشرات تقدم متموجة وحركات تحويل الأشكال في أرجاء التطبيق.</item>
-        <item>أصبحت خوادم Jellyfin عبر HTTP العادي مسموحة الآن لمضيفي VPN والشبكة المحلية.</item>
+        <item>أصبحت خوادم media server عبر HTTP العادي مسموحة الآن لمضيفي VPN والشبكة المحلية.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_improvements">
         <item>تطبيق أصغر: قواعد تقليص الكود الأخف تقلل حجم التثبيت بنحو 1.5 MB.</item>
@@ -495,7 +495,7 @@
         <item>قوائم وصفحات سفلية وموازن صوت أكثر استجابة بفضل تحسين شامل لأداء Compose.</item>
     </string-array>
     <string-array name="presentation_batch_g_changelog_v020_under_the_hood">
-        <item>تشغيل سحابي أكثر موثوقية: لم يعد يتم الإبلاغ خطأً عن طلبات Navidrome/Jellyfin الملغاة كأخطاء شبكة عند تخطي المسارات بسرعة.</item>
+        <item>تشغيل سحابي أكثر موثوقية: لم يعد يتم الإبلاغ خطأً عن طلبات remote server/media server الملغاة كأخطاء شبكة عند تخطي المسارات بسرعة.</item>
         <item>لم يعد من الممكن فقدان أحداث النسخ الاحتياطي والاستعادة والإعداد أثناء تدوير الشاشة.</item>
         <item>تنظيف شامل: إزالة الكود الميت، وترحيل الواجهات البرمجية المهجورة، وتحديث التبعيات.</item>
     </string-array>

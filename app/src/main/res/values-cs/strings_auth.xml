@@ -16,20 +16,7 @@
     <string name="auth_select_libraries_title">Vyberte knihovny k synchronizaci</string>
     <string name="auth_select_libraries_subtitle">Na tomto serveru je více hudebních knihoven. Vyberte, které chcete synchronizovat. Později to můžete změnit v přehledu serveru.</string>
     <string name="auth_select_libraries_confirm">Uložit a synchronizovat</string>
-    <string name="auth_navidrome_subtitle">Připojte se k vlastnímu hudebnímu serveru</string>
-    <string name="auth_navidrome_info_card">Podporuje Navidrome, Airsonic, Gonic, Ampache a další servery kompatibilní s rozhraním Subsonic API.</string>
-    <string name="auth_navidrome_server_url_hint">Zadejte úplnou adresu serveru včetně http:// pro místní servery nebo https:// pro vzdálené.</string>
-    <string name="auth_navidrome_username_hint">Zadejte své uživatelské jméno pro Subsonic nebo Navidrome.</string>
-    <string name="auth_navidrome_password_hint">Můžete použít i heslo aplikace, pokud ho server podporuje.</string>
     <string name="auth_prefill_http">Předvyplnit http://</string>
     <string name="auth_use_http">Použít HTTP / VPN</string>
-    <string name="auth_navidrome_footer">Kompatibilní s Navidrome, Gonic, Airsonic a dalšími servery s podporou Subsonic</string>
-    <string name="auth_jellyfin_info_card">Připojuje se k serverům Jellyfin. Přístup v místní síti podporuje HTTP i HTTPS.</string>
-    <string name="auth_jellyfin_subtitle">Připojte se k multimediálnímu serveru Jellyfin</string>
-    <string name="auth_jellyfin_connection_subtitle">Zadejte adresu serveru Jellyfin a přihlašovací údaje.</string>
-    <string name="auth_jellyfin_server_url_hint">Úplná adresa včetně portu. Místní adresy, adresy Tailscale i adresy .local a .lan můžou používat HTTP.</string>
-    <string name="auth_jellyfin_username_hint">Uživatelské jméno vašeho účtu Jellyfin.</string>
-    <string name="auth_jellyfin_password_hint">Heslo vašeho účtu Jellyfin.</string>
-    <string name="auth_jellyfin_footer">Připojte se k serverům Jellyfin a streamujte hudbu ze své knihovny</string>
     <string name="auth_web_retry">Zkusit znovu</string>
 </resources>

@@ -29,7 +29,7 @@ class AudioBookmarksModuleHandlerTest {
     // A non-local content uri keeps the stored artwork uri as-is through toSong().
     private fun song(id: Long, title: String, art: String) = SongEntity(
         id = id, title = title, artistName = "Artist", artistId = 1, albumName = "Album", albumId = 1,
-        contentUriString = "jellyfin://$id", albumArtUriString = art, duration = 200_000, genre = null,
+        contentUriString = "custom://$id", albumArtUriString = art, duration = 200_000, genre = null,
         filePath = "", parentDirectoryPath = ""
     )
 
@@ -143,7 +143,7 @@ class AudioBookmarksModuleHandlerTest {
         // A synced cloud song's id, and a server's own song id.
         val legacy = """[
             {"id":10,"songId":"-55","songTitle":"Remote","artistName":"Artist","title":"Drop","timestampMs":5000,"createdTime":1},
-            {"id":11,"songId":"navidrome_abc","songTitle":"Streamed","artistName":"Artist","title":"Chorus","timestampMs":5000,"createdTime":1}
+            {"id":11,"songId":"custom_abc","songTitle":"Streamed","artistName":"Artist","title":"Chorus","timestampMs":5000,"createdTime":1}
         ]"""
         coEvery { targetDao.getAllLocalSongSummaries() } returns emptyList()
         coEvery { targetDao.getSongsByIdsListSimple(any()) } returns emptyList()
@@ -151,7 +151,7 @@ class AudioBookmarksModuleHandlerTest {
         val restored = restoreOnTarget(legacy).associateBy { it.title }
         assertEquals("-55", restored.getValue("Drop").songId)
         assertNull(restored.getValue("Drop").albumArtUri)
-        assertEquals("navidrome_abc", restored.getValue("Chorus").songId)
+        assertEquals("custom_abc", restored.getValue("Chorus").songId)
     }
 
     @Test

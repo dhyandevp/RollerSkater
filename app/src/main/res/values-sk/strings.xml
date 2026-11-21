@@ -20,8 +20,6 @@
     <string name="accounts_listenbrainz_needs_reauth">Platnosť tokenu vypršala. Ak chcete pokračovať v zaznamenávaní počúvania, pripojte sa znova. Čakajúce záznamy sa zachovajú.</string>
     <string name="accounts_listenbrainz_reconnect">Pripojiť znova</string>
     <string name="accounts_listenbrainz_scrobble_local">Zaznamenávať počúvanie miestnych súborov</string>
-    <string name="accounts_listenbrainz_scrobble_navidrome">Zaznamenávať počúvanie zo Subsonicu</string>
-    <string name="accounts_listenbrainz_scrobble_jellyfin">Zaznamenávať počúvanie z Jellyfinu</string>
     <string name="accounts_listenbrainz_toggle_hint">Ak server už odosiela záznamy do služby ListenBrainz, vypnite tu príslušný zdroj, aby sa počúvanie nezapočítavalo dvakrát.</string>
     <string name="accounts_listenbrainz_stat_listens">Celkový počet prehratí</string>
     <string name="accounts_listenbrainz_stat_queued">Čakajúce záznamy</string>

@@ -219,7 +219,6 @@
     <string name="about_support_chip_streaming">Hudba z vlastného servera</string>
     <string name="about_support_cta">Podporiť na GitHube</string>
     <string name="cd_open_github_profile">Otvoriť profil na GitHube</string>
-    <string name="cd_open_telegram_profile">Otvoriť profil na Telegrame</string>
     <string name="cd_contributor_avatar">Profilový obrázok používateľa %1$s</string>
     <string name="cd_contributor_icon">Ikona používateľa %1$s</string>
     <string name="dash_playlists_synced_count">Synchronizované zoznamy skladieb: %1$d</string>
@@ -228,10 +227,7 @@
     <string name="dash_action_sync">Synchronizovať</string>
     <string name="dash_playlists_empty_title">Zatiaľ sa nesynchronizoval žiadny zoznam skladieb</string>
     <string name="dash_playlists_empty_hint_subsonic">Ťuknutím na tlačidlo synchronizácie načítate zoznamy skladieb</string>
-    <string name="dash_playlists_empty_hint_jellyfin">Ťuknutím na tlačidlo synchronizácie načítate zoznamy skladieb z Jellyfinu</string>
     <string name="dash_quick_actions">Rýchle akcie</string>
-    <string name="dash_quick_actions_subsonic_subtitle">Spravujte Navidrome, Airsonic a ďalšie servery kompatibilné so Subsonicom.</string>
-    <string name="dash_quick_actions_jellyfin_subtitle">Spravujte pripojenie k serveru Jellyfin.</string>
     <string name="dash_libraries_title">Knižnice</string>
     <string name="dash_libraries_all">Všetky knižnice</string>
     <string name="dash_libraries_selected_count">Vybrané: %1$d z %2$d</string>
@@ -288,10 +284,6 @@
         <item quantity="many">Odstrániť %1$d pozície?</item>
         <item quantity="other">Odstrániť %1$d pozícií?</item>
     </plurals>
-    <string name="dash_jellyfin_sync_favorites_title">Synchronizovať obľúbené</string>
-    <string name="dash_jellyfin_sync_favorites_subtitle">Obojsmerná synchronizácia obľúbených skladieb s Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_synced">Obľúbené synchronizované s Jellyfin</string>
-    <string name="dash_jellyfin_sync_favorites_failed">Nepodarilo sa synchronizovať obľúbené s Jellyfin</string>
     <string name="home_recently_added_title">Nedávno pridané</string>
     <string name="home_recently_added_play_cd">Prehrať nedávno pridané skladby</string>
 </resources>

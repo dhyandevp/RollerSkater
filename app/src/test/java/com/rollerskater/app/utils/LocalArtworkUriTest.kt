@@ -43,12 +43,12 @@ class LocalArtworkUriTest {
     @Test
     fun resolveSongArtworkUri_keepsCloudSourceArtworkUntouched() {
         val resolved = LocalArtworkUri.resolveSongArtworkUri(
-            storedUri = "navidrome_cover://cover-123",
+            storedUri = "http://example.com/cover-123",
             songId = 42L,
-            contentUriString = "navidrome://song-123"
+            contentUriString = "http://example.com/song-123"
         )
 
-        assertThat(resolved).isEqualTo("navidrome_cover://cover-123")
+        assertThat(resolved).isEqualTo("http://example.com/cover-123")
     }
 
     @Test
