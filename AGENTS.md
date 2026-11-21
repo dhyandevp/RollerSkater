@@ -137,6 +137,31 @@ This repository is indexed by `graphify`. When navigating or understanding unfam
 
 ## 7. Rules for Autonomous Agents
 
-1. **Standalone Identity**: Never reintroduce old upstream names, links, or external cloud accounts. The project is strictly **RollerSkater**.
-2. **Incremental Verification**: After modifying Kotlin source files, always run `./gradlew :app:compileDebugKotlin` and `./gradlew :app:testDebugUnitTest` to guarantee the build remains clean.
-3. **Preserve Documentation**: Maintain comments, license headers, and required legal notices across all changes.
+### Prime Directive: Absolute Repository Separation & Standalone Mandate
+This project is **RollerSkater** (`com.rollerskater.app`), an independent, offline-first Android music player. You must treat this repository as **strictly standalone**. Under no circumstances should you add, reference, link, sync, or establish connections with the original upstream repository (`PixelPlayer`, `PixelPlayerOSS`, `PixelPlayerHQ`, or `theovilardo/PixelPlayer`).
+
+#### Hard Prohibitions:
+1. **NO Upstream Git Remotes**:
+   - Never run `git remote add upstream ...` or link to any `PixelPlayer*` repository.
+   - The only valid git remote is the user's repository (`origin: https://github.com/dhyandevp/RollerSkater.git`).
+   - Never add upstream repositories as git submodules, subtrees, or tracking branches.
+2. **NO Cross-Repository Linking or Telemetry**:
+   - Do not reintroduce URLs, issue links, discussions, release channels, or documentation referencing `github.com/PixelPlayer*` or `theovilardo/PixelPlayer`.
+   - Never create pull requests, fetch branches, or cherry-pick commits directly from upstream remotes.
+   - Do not reintroduce any cloud, analytics, crash reporting, or external sync services.
+3. **NO Upstream Naming in Code or UI**:
+   - The application name is strictly **RollerSkater**.
+   - The Android package namespace is strictly `com.rollerskater.app`.
+   - Never reintroduce legacy names in user-facing UI, notification channels, file providers, database names, or resource strings.
+4. **Copyleft Legal Notice Preservation Only**:
+   - The only acceptable references to the predecessor project are the static, legal copyright notices mandated by GPL-3.0 Section 5 in `NOTICE.md` and `app/src/main/assets/licenses/`.
+   - These notices are strictly legal modification records; they must remain purely historical text files and never be used to establish repository, network, or package couplings.
+
+### Incremental Verification & Hygiene
+1. **Verify Git Remote**:
+   - Run `git remote -v` to ensure only `https://github.com/dhyandevp/RollerSkater.git` is configured.
+2. **Compile & Test**:
+   - After modifying Kotlin source files, always run `./gradlew :app:compileDebugKotlin` and `./gradlew :app:testDebugUnitTest` to guarantee the build remains clean.
+3. **Preserve Documentation**:
+   - Maintain comments, license headers, and required legal notices across all changes.
+
