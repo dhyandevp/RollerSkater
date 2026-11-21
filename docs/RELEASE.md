@@ -61,7 +61,7 @@ Install the release candidate and verify:
 3. Playback starts, pauses, resumes, skips, and survives backgrounding.
 4. Full player opens and closes smoothly.
 5. Widget controls still reach the playback service.
-6. Navidrome and Jellyfin login screens open.
+6. Equalizer, crossfade, and lyrics pane function properly.
 7. Backup export flow creates a file.
 
 ## In-App Updates

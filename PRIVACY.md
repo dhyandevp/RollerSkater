@@ -1,32 +1,39 @@
 # Privacy Policy
 
-RollerSkatererOSS is local-first and does not include analytics, advertising SDKs, Firebase, Crashlytics, or Google Play Services runtime dependencies.
+RollerSkater is an offline-first, privacy-focused Android music player. The app does not include analytics, telemetry, advertising SDKs, Firebase, Crashlytics, or Google Play Services runtime dependencies.
 
 ## Data Stored On Device
 
-The app stores music library metadata, playlists, favorites, lyrics, preferences, playback state, artwork cache, and optional backup/restore data on the device.
+All data created or processed by RollerSkater remains strictly on your device:
 
-## Network Access
+- **Library & Metadata**: Audio metadata scanned from your device's storage (titles, artists, albums, durations, genres, embedded artwork, and lyrics).
+- **Playlists & Favorites**: User-created playlists, favorite song markings, playback order, and custom playlist descriptions.
+- **Listening History & Stats**: Local listening timestamps, total play counts, skip counts, and generated listening recaps.
+- **Audio & App Preferences**: Custom equalizer presets, audio transitions (crossfade / gapless), theme colors, and layout configurations.
+- **Backups**: Encrypted or plain-text user backup archives saved directly to user-chosen directories via the Android Storage Access Framework (SAF).
 
-Network features are optional and user-controlled:
+## Network Access & Optional Features
 
-- Navidrome/Subsonic and Jellyfin are used only after the user signs in to a self-hosted server. Those servers may receive the authentication, library, playback state, and play history requests needed for their protocols.
-- MusicBrainz lookup runs only when the user requests enrichment for a track. The app sends that track's title and, when available, artist, album, and duration to the public MusicBrainz search API; applying a result stores the selected MusicBrainz identifiers locally.
-- LRCLIB lyric lookup is used only when online lyrics are enabled.
-- Deezer artist artwork lookup is used only when online artist images are enabled.
-- ListenBrainz scrobbling is optional and disabled by default. It activates only after the user connects a ListenBrainz account with their own user token. While connected, the app submits listening activity (track title, artist, album, duration, listen timestamps, and MusicBrainz identifiers when available) to the configured ListenBrainz server for the playback sources the user has enabled — listenbrainz.org by default, or a user-supplied custom URL for self-hosted ListenBrainz-compatible servers such as Maloja; per-source toggles cover local files, Navidrome/Subsonic, and Jellyfin playback. Disconnecting stops submissions and deletes any queued listens. Last.fm is not supported.
-- Update checks contact the F-Droid package API (Stable channel) or the GitHub Releases API (Alpha channel) when the user opens the Updates screen or taps Check, and once a day if automatic checks are enabled (off by default on F-Droid builds). Installing an update downloads the APK from f-droid.org or GitHub. These requests carry no account or library data, only the standard request headers including the app version.
+RollerSkater is designed to function 100% offline. Network features are completely optional, disabled by default, and activate only when explicitly configured by the user:
 
-Server credentials and preferences are stored locally. The app does not sell or share user data.
+- **Metadata Enrichment (MusicBrainz)**: Runs only when the user explicitly triggers metadata lookup for a track. The app sends the track title, artist, and album to the public MusicBrainz API. Applied results are saved locally.
+- **Online Lyrics (LRCLIB)**: If enabled by the user in settings, the app queries the public LRCLIB API to fetch synchronized or plain lyrics when local lyrics (.lrc files or embedded tags) are unavailable.
+- **Artist Artwork (Deezer API)**: If enabled by the user in settings, the app queries the Deezer public API solely to download artist profile photos for local display.
+- **Scrobbling (ListenBrainz)**: Optional and disabled by default. Activates only if you connect a ListenBrainz account using your personal user token. When active, listening submissions (title, artist, album, duration, timestamp) are sent to `listenbrainz.org` or your custom self-hosted ListenBrainz-compatible server (e.g., Maloja). Disconnecting removes all credentials and purges any queued submissions.
+- **Update Checks**: The app checks the F-Droid package repository (Stable builds) or GitHub Releases API (Alpha builds) only when the user opens the Updates screen or taps "Check for updates", or periodically if the user enables automatic update checks. No identifying information or library data is ever transmitted.
 
-## Files And Media
+## File and Storage Access
 
-RollerSkatererOSS requests media/file permissions to scan and play local music, read artwork, edit metadata, and export/import user backups. Optional Navidrome/Subsonic and Jellyfin downloads are stored in the app's private files area for offline playback and are excluded from Android cloud backup and device transfer.
+RollerSkater requests standard Android media permissions (`READ_MEDIA_AUDIO` on Android 13+, `READ_EXTERNAL_STORAGE` on older versions) strictly to index and play local audio files and read embedded cover art.
 
-## Crash Reports
+- The app accesses only the audio directories and media files you permit.
+- Tag editing and album cover writing require explicit user confirmation or Android MediaStore write permission.
+- Backups and export files are written strictly to user-selected folders via the Storage Access Framework (SAF).
 
-The app keeps crash logs locally for troubleshooting. It does not automatically upload crash reports.
+## Crash Reports & Logs
 
-## Contact
+RollerSkater does not automatically upload crash reports or error logs to any server. In-app crash logs remain saved locally on your device for manual review and troubleshooting.
 
-Open a GitHub issue for privacy questions that do not contain sensitive personal data.
+## Contact & Inquiries
+
+For questions or concerns regarding privacy, please open an issue on the [RollerSkater GitHub repository](https://github.com/dhyandevp/RollerSkater/issues).

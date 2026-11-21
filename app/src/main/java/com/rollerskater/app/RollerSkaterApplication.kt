@@ -35,6 +35,13 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * Main application entry point for RollerSkater.
+ *
+ * Configures Dagger Hilt dependency injection, customized Coil image loading pipelines,
+ * WorkManager worker factory, notification channels, on-device crash handling, and
+ * memory trim lifecycle listeners.
+ */
 @HiltAndroidApp
 class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration.Provider {
 
