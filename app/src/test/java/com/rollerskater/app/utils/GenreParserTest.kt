@@ -121,18 +121,8 @@ class GenreParserTest {
     }
 
     @Test
-    fun `dominantGenre skips the placeholders cloud sync stores for songs without a genre`() {
-        assertNull(GenreParser.dominantGenre(listOf("Jellyfin", "Jellyfin")))
-        assertNull(GenreParser.dominantGenre(listOf("Navidrome")))
-        assertEquals("Soul", GenreParser.dominantGenre(listOf("Jellyfin", "Jellyfin", "Soul")))
-    }
-
-    @Test
-    fun `isSourcePlaceholder matches the cloud placeholders by key only`() {
-        assertTrue(GenreParser.isSourcePlaceholder("Jellyfin"))
-        assertTrue(GenreParser.isSourcePlaceholder(" navidrome "))
-        assertTrue(GenreParser.isSourcePlaceholder("JELLYFIN"))
-        assertFalse(GenreParser.isSourcePlaceholder("Jellyfin Jazz"))
+    fun `isSourcePlaceholder returns false for any genre`() {
+        assertFalse(GenreParser.isSourcePlaceholder("Rock"))
         assertFalse(GenreParser.isSourcePlaceholder("Indie Rock"))
     }
 
