@@ -217,3 +217,13 @@ val MIGRATION_6_7 = object : Migration(6, 7) {
         }
     }
 }
+
+/**
+ * v7 -> v8: remove ListenBrainz pending listens table.
+ */
+val MIGRATION_7_8 = object : Migration(7, 8) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("DROP TABLE IF EXISTS `listenbrainz_pending_listens`")
+    }
+}
+

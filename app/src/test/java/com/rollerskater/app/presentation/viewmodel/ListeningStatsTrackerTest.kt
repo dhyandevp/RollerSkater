@@ -2,7 +2,6 @@ package com.rollerskater.app.presentation.viewmodel
 
 import android.os.SystemClock
 import com.google.common.truth.Truth.assertThat
-import com.rollerskater.app.data.listenbrainz.ScrobbleManager
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.stats.PlaybackStatsRepository
 import io.mockk.coVerify
@@ -18,7 +17,6 @@ import org.junit.jupiter.api.Test
 class ListeningStatsTrackerTest {
 
     private val playbackStatsRepository: PlaybackStatsRepository = mockk(relaxed = true)
-    private val scrobbleManager: ScrobbleManager = mockk(relaxed = true)
 
     @BeforeEach
     fun setUp() {
@@ -33,8 +31,7 @@ class ListeningStatsTrackerTest {
     @Test
     fun `finalizeCurrentSession preserves listening longer than track duration`() {
         val tracker = ListeningStatsTracker(
-            playbackStatsRepository = playbackStatsRepository,
-            scrobbleManager = scrobbleManager
+            playbackStatsRepository = playbackStatsRepository
         )
         val song = song(
             songId = "looped-song",
@@ -63,8 +60,7 @@ class ListeningStatsTrackerTest {
     @Test
     fun `onProgress accumulates incremental listening time`() {
         val tracker = ListeningStatsTracker(
-            playbackStatsRepository = playbackStatsRepository,
-            scrobbleManager = scrobbleManager
+            playbackStatsRepository = playbackStatsRepository
         )
         val song = song(songId = "song-1")
         val firstChunkMs = 7_000L

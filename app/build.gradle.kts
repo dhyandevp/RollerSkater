@@ -258,7 +258,6 @@ dependencies {
     implementation(libs.kotlinx.collections.immutable)
 
     implementation(libs.androidx.work.runtime.ktx)
-    implementation(libs.androidx.security.crypto)
 
     implementation(libs.timber)
     implementation(libs.reorderables)

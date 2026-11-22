@@ -44,7 +44,6 @@ vorbisjava = "0.8"
 datastore = "1.2.1"
 androidxTestCore = "1.7.0"
 junit5 = "6.1.2"
-securityCrypto = "1.1.0"
 bouncycastle = "1.85"
 commons-lang3 = "3.20.0"
 jdom2 = "2.0.6.1"
@@ -112,7 +111,6 @@ androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "ro
 androidx-room-testing = { module = "androidx.room:room-testing", version.ref = "roomRuntime" }
 androidx-paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
-androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "securityCrypto" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }

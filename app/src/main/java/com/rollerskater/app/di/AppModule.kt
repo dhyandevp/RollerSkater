@@ -22,7 +22,6 @@ import com.rollerskater.app.data.database.EngagementDao
 import com.rollerskater.app.data.database.FavoritesDao
 import com.rollerskater.app.data.database.LyricsDao
 import com.rollerskater.app.data.database.LocalPlaylistDao
-import com.rollerskater.app.data.database.ListenBrainzDao
 import com.rollerskater.app.data.database.AudioBookmarkDao
 import com.rollerskater.app.data.database.MIGRATION_1_2
 import com.rollerskater.app.data.database.MIGRATION_2_3
@@ -30,6 +29,7 @@ import com.rollerskater.app.data.database.MIGRATION_3_4
 import com.rollerskater.app.data.database.MIGRATION_4_5
 import com.rollerskater.app.data.database.MIGRATION_5_6
 import com.rollerskater.app.data.database.MIGRATION_6_7
+import com.rollerskater.app.data.database.MIGRATION_7_8
 import com.rollerskater.app.data.database.MusicDao
 import com.rollerskater.app.data.database.RollerSkaterDatabase
 import com.rollerskater.app.data.database.SearchHistoryDao
@@ -140,6 +140,7 @@ object AppModule {
                 MIGRATION_4_5,
                 MIGRATION_5_6,
                 MIGRATION_6_7,
+                MIGRATION_7_8,
             )
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
 
@@ -196,12 +197,6 @@ object AppModule {
     @Provides
     fun provideLocalPlaylistDao(database: RollerSkaterDatabase): LocalPlaylistDao {
         return database.localPlaylistDao()
-    }
-
-    @Singleton
-    @Provides
-    fun provideListenBrainzDao(database: RollerSkaterDatabase): ListenBrainzDao {
-        return database.listenBrainzDao()
     }
 
     @Singleton

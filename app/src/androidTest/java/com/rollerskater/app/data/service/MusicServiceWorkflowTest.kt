@@ -24,6 +24,8 @@ import com.rollerskater.app.data.database.MIGRATION_2_3
 import com.rollerskater.app.data.database.MIGRATION_3_4
 import com.rollerskater.app.data.database.MIGRATION_4_5
 import com.rollerskater.app.data.database.MIGRATION_5_6
+import com.rollerskater.app.data.database.MIGRATION_6_7
+import com.rollerskater.app.data.database.MIGRATION_7_8
 import com.rollerskater.app.data.database.MusicDao
 import com.rollerskater.app.data.database.RollerSkaterDatabase
 import com.rollerskater.app.data.database.SongEntity
@@ -81,6 +83,8 @@ class MusicServiceWorkflowTest {
                 MIGRATION_3_4,
                 MIGRATION_4_5,
                 MIGRATION_5_6,
+                MIGRATION_6_7,
+                MIGRATION_7_8,
             )
             .setJournalMode(RoomDatabase.JournalMode.WRITE_AHEAD_LOGGING)
             .fallbackToDestructiveMigration(dropAllTables = true)

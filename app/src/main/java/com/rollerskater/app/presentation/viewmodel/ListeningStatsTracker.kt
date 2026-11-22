@@ -2,7 +2,6 @@ package com.rollerskater.app.presentation.viewmodel
 
 import android.os.SystemClock
 import androidx.media3.common.C
-import com.rollerskater.app.data.listenbrainz.ScrobbleManager
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.stats.PlaybackStatsRepository
 import kotlinx.coroutines.CoroutineScope
@@ -30,8 +29,7 @@ import timber.log.Timber
  */
 @Singleton
 class ListeningStatsTracker @Inject constructor(
-    private val playbackStatsRepository: PlaybackStatsRepository,
-    private val scrobbleManager: ScrobbleManager
+    private val playbackStatsRepository: PlaybackStatsRepository
 ) {
     private var currentSession: ActiveSession? = null
     private var pendingVoluntarySongId: String? = null
@@ -123,24 +121,17 @@ class ListeningStatsTracker @Inject constructor(
         if (pendingVoluntarySongId == safeSongId) {
             pendingVoluntarySongId = null
         }
-        if (isPlaying) {
-            scrobbleManager.onPlayingNow(safeSongId)
-        }
     }
 
     @Synchronized
     fun onPlayStateChanged(isPlaying: Boolean, positionMs: Long) {
         val session = currentSession ?: return
-        val wasPlaying = session.isPlaying
         val nowRealtime = SystemClock.elapsedRealtime()
         accumulateRealtimeListening(session, nowRealtime)
         session.isPlaying = isPlaying
         session.lastRealtimeMs = nowRealtime
         session.lastKnownPositionMs = positionMs.coerceAtLeast(0L)
         session.lastUpdateEpochMs = System.currentTimeMillis()
-        if (!wasPlaying && isPlaying) {
-            scrobbleManager.onPlayingNow(session.songId)
-        }
     }
 
     @Synchronized
@@ -208,9 +199,6 @@ class ListeningStatsTracker @Inject constructor(
             existing.lastRealtimeMs = nowRealtime
             existing.lastKnownPositionMs = positionMs.coerceAtLeast(0L)
             existing.lastUpdateEpochMs = System.currentTimeMillis()
-            if (!wasPlaying && isPlaying) {
-                scrobbleManager.onPlayingNow(existing.songId)
-            }
             return
         }
         onTrackChanged(
@@ -237,12 +225,6 @@ class ListeningStatsTracker @Inject constructor(
         val nowEpoch = System.currentTimeMillis()
         accumulateRealtimeListening(session, nowRealtime)
         val listened = session.accumulatedListeningMs.coerceAtLeast(0L)
-        scrobbleManager.onSessionFinalized(
-            songId = session.songId,
-            startedAtEpochMs = session.startedAtEpochMs,
-            listenedMs = listened,
-            trackDurationMs = session.totalDurationMs
-        )
         if (listened >= MIN_SESSION_LISTEN_MS) {
             val rawEndTimestamp = when {
                 session.isPlaying -> nowEpoch

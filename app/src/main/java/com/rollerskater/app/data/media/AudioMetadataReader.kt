@@ -49,7 +49,7 @@ private val MBID_REGEX =
 /**
  * Returns the first well-formed MusicBrainz identifier among tag values. Some taggers join
  * multiple artist IDs into one value ("id1; id2" or "id1/id2"), so each value is split first.
- * Malformed IDs are dropped because ListenBrainz rejects listens carrying an invalid MBID.
+ * Malformed IDs are dropped.
  */
 internal fun firstMusicBrainzId(values: Iterable<String?>?): String? =
     values?.asSequence().orEmpty()

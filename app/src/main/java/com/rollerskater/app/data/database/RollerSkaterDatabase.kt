@@ -19,10 +19,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase
         LyricsEntity::class,
         PlaylistEntity::class,
         PlaylistSongEntity::class,
-        ListenBrainzPendingListenEntity::class,
         AudioBookmarkEntity::class
     ],
-    version = 7,
+    version = 8,
     exportSchema = true
 )
 abstract class RollerSkaterDatabase : RoomDatabase() {
@@ -34,7 +33,6 @@ abstract class RollerSkaterDatabase : RoomDatabase() {
     abstract fun favoritesDao(): FavoritesDao
     abstract fun lyricsDao(): LyricsDao
     abstract fun localPlaylistDao(): LocalPlaylistDao
-    abstract fun listenBrainzDao(): ListenBrainzDao
     abstract fun audioBookmarkDao(): AudioBookmarkDao
 
     companion object {
