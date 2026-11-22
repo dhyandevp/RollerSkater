@@ -19,7 +19,6 @@ RollerSkater is designed to function 100% offline. Network features are complete
 - **Metadata Enrichment (MusicBrainz)**: Runs only when the user explicitly triggers metadata lookup for a track. The app sends the track title, artist, and album to the public MusicBrainz API. Applied results are saved locally.
 - **Online Lyrics (LRCLIB)**: If enabled by the user in settings, the app queries the public LRCLIB API to fetch synchronized or plain lyrics when local lyrics (.lrc files or embedded tags) are unavailable.
 - **Artist Artwork (Deezer API)**: If enabled by the user in settings, the app queries the Deezer public API solely to download artist profile photos for local display.
-- **Scrobbling (ListenBrainz)**: Optional and disabled by default. Activates only if you connect a ListenBrainz account using your personal user token. When active, listening submissions (title, artist, album, duration, timestamp) are sent to `listenbrainz.org` or your custom self-hosted ListenBrainz-compatible server (e.g., Maloja). Disconnecting removes all credentials and purges any queued submissions.
 - **Update Checks**: The app checks the F-Droid package repository (Stable builds) or GitHub Releases API (Alpha builds) only when the user opens the Updates screen or taps "Check for updates", or periodically if the user enables automatic update checks. No identifying information or library data is ever transmitted.
 
 ## File and Storage Access

@@ -213,13 +213,13 @@ flowchart TD
 | `com.rollerskater.app.ui.glancewidget` | AndroidX Glance home-screen app widgets and API 30 adapters | [`RollerSkaterGlanceWidget`](app/src/main/java/com/rollerskater/app/ui/glancewidget/RollerSkaterGlanceWidget.kt), [`WidgetUtils`](app/src/main/java/com/rollerskater/app/ui/glancewidget/WidgetUtils.kt) |
 | `com.rollerskater.app.di` | Dependency injection modules managed via Dagger Hilt | [`AppModule`](app/src/main/java/com/rollerskater/app/di/AppModule.kt), [`NetworkModule`](app/src/main/java/com/rollerskater/app/di/NetworkModule.kt) |
 
-### Database Schema Summary (Version 7)
+### Database Schema Summary (Version 8)
 Managed by Room in [`RollerSkaterDatabase`](app/src/main/java/com/rollerskater/app/data/database/RollerSkaterDatabase.kt):
-- **Current Version**: `7` (Version 7 dropped legacy cloud streaming and remote caching tables for a strictly offline layout).
-- **Core Tables**: `songs`, `albums`, `artists`, `song_artist_cross_ref`, `playlists`, `playlist_songs`, `favorites`, `lyrics`, `listening_stats`, `album_art_themes`, `search_history`, `transition_rules`, `audio_bookmarks`, `listenbrainz_pending_listens`.
+- **Current Version**: `8` (Version 8 dropped legacy scrobbling tables for a strictly offline, privacy-first layout).
+- **Core Tables**: `songs`, `albums`, `artists`, `song_artist_cross_ref`, `playlists`, `playlist_songs`, `favorites`, `lyrics`, `listening_stats`, `album_art_themes`, `search_history`, `transition_rules`, `audio_bookmarks`.
 - **Search Virtual Table**: `songs_fts` using SQLite FTS4 with `unicode61` tokenizer. Automated triggers (`trg_songs_fts_insert`, `trg_songs_fts_update`, `trg_songs_fts_delete`) keep search indexes synchronized without manual re-indexing.
 - **Favorites Triggers**: `trg_favorites_insert_sync_song`, `trg_favorites_update_sync_song`, `trg_favorites_delete_sync_song` maintain atomic synchronization between the `favorites` table and `songs.is_favorite`.
-- **Migrations**: Fully defined in [`Migrations.kt`](app/src/main/java/com/rollerskater/app/data/database/Migrations.kt) covering `MIGRATION_1_2` through `MIGRATION_6_7`. Schema exports are versioned in `app/schemas/`.
+- **Migrations**: Fully defined in [`Migrations.kt`](app/src/main/java/com/rollerskater/app/data/database/Migrations.kt) covering `MIGRATION_1_2` through `MIGRATION_7_8`. Schema exports are versioned in `app/schemas/`.
 
 ---
 
@@ -430,7 +430,6 @@ Summary of release engineering standards from [docs/RELEASE.md](docs/RELEASE.md)
 1. **Audio Offload Firmware Quirks**: Certain Android device firmware implementations exhibit Audio HAL stall bugs where the DSP fails to advance audio timestamps; RollerSkater detects this after 1,500ms and gracefully falls back to standard PCM decoding.
 2. **In-App Updater on Google Play**: The in-app updater (`data/update/`) and its associated `REQUEST_INSTALL_PACKAGES` permission are intended for F-Droid and GitHub Releases; Google Play policies prohibit apps from self-updating APKs.
 3. **Exact Alarms for Sleep Timer**: `SCHEDULE_EXACT_ALARM` ensures drift-free sleep timer execution on Android 12+ during deep Doze mode; for platforms that restrict exact alarms, an inexact alarm fallback is automatically used.
-4. **ListenBrainz Scrobbling UI**: Backend queuing and worker logic are implemented in `data/listenbrainz/`, but the preferences UI screen is currently unlinked in settings.
 
 ---
 
@@ -440,15 +439,13 @@ RollerSkater welcomes bug reports, translations, and clean code contributions th
 
 ---
 
-## Origin & Credits
+## Legal & Attribution
 
-RollerSkater is an independent, rebranded GPL-3.0 fork of **PixelPlayerOSS** ([`https://github.com/PixelPlayerHQ/PixelPlayerOSS`](https://github.com/PixelPlayerHQ/PixelPlayerOSS)).
+RollerSkater is free software licensed under the GNU General Public License v3.0 (GPL-3.0).
 
-- **Original Authors & Maintainers**: Created by Theo Vilardo and maintained by lostf1sh and open-source contributors.
-- **Historical Notice**: Historical MIT-era notices from early predecessor contributions are preserved intact in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and [`app/src/main/assets/licenses/`](app/src/main/assets/licenses/).
-- **Modifications**: Forked in November 2026 by Dhyandev. Rebranded as RollerSkater (`com.rollerskater.app`), completely removed all cloud and remote streaming backends (Navidrome, Subsonic, Jellyfin, Telegram) in favor of a strictly offline player, re-engineered AndroidX Glance home-screen widgets for Android 11+ compatibility, updated dependencies, and optimized cold startup rendering.
-- **Disclaimer**: RollerSkater is an independent project and is **not affiliated with, endorsed by, or sponsored by** the original PixelPlayer project, PixelPlayerHQ, or its maintainers.
-- **Third-Party Libraries**: All third-party libraries and their licenses are documented in [`docs/DEPENDENCY_LICENSES.md`](docs/DEPENDENCY_LICENSES.md).
+- **Attribution & Notice**: Historical GPL-3.0 attribution notices, fork modification records, and author credits are documented in [`NOTICE.md`](NOTICE.md).
+- **Third-Party Notices**: Historical copyright notices from predecessor components are preserved in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and [`app/src/main/assets/licenses/`](app/src/main/assets/licenses/).
+- **Third-Party Libraries**: All bundled dependencies and their open-source licenses are documented in [`docs/DEPENDENCY_LICENSES.md`](docs/DEPENDENCY_LICENSES.md).
 
 ---
 

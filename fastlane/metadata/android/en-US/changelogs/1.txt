@@ -1,0 +1,9 @@
+Initial release of RollerSkater!
+• 100% offline-first & private music playback
+• Media3 + FFmpeg audio engine with gapless playback & crossfade
+• Material 3 Expressive UI with dynamic theming & pure AMOLED black
+• Synchronized lyrics display (LRC/TTML)
+• Native TagLib audio tag editor
+• Private on-device listening stats & yearly recap
+• Responsive Glance home screen widgets
+• Atomic backup & restore

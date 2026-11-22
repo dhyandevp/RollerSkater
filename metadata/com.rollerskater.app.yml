@@ -1,0 +1,39 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: RollerSkater Contributors
+SourceCode: https://github.com/dhyandevp/RollerSkater
+IssueTracker: https://github.com/dhyandevp/RollerSkater/issues
+Changelog: https://github.com/dhyandevp/RollerSkater/blob/master/CHANGELOG.md
+
+AutoName: RollerSkater
+Summary: Fast, private, offline-first music player with Material 3 design
+Description: |-
+  RollerSkater is an offline-first, privacy-focused Android music player built with Jetpack Compose, Material 3, and Kotlin Coroutines/Flow.
+
+  Features:
+  * 100% offline and privacy-first: zero trackers, zero telemetry, zero crash uploaders, zero third-party ads
+  * Audiophile-grade playback engine powered by AndroidX Media3 / ExoPlayer and FFmpeg native decoders (FLAC, ALAC, Opus, APE, and more)
+  * Seamless gapless playback and configurable audio crossfade
+  * Material 3 Expressive UI with dynamic theming and pure AMOLED black mode
+  * Synchronized lyrics display (LRC, TTML)
+  * Native metadata tag editor powered by TagLib
+  * Private on-device listening statistics and year-in-review recap
+  * Responsive home screen widgets (AndroidX Glance)
+  * Atomic backup and restore for playlists, playback stats, and preferences
+
+RepoType: git
+Repo: https://github.com/dhyandevp/RollerSkater.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: v1.0.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1

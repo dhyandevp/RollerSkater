@@ -1,0 +1,45 @@
+RollerSkater is a fast, offline-first Android music player crafted with Jetpack Compose, Material 3, and Kotlin Coroutines/Flow. It is built from the ground up to respect your privacy, your device resources, and your music library.
+
+🔒 100% OFFLINE & PRIVACY-FIRST
+• Zero tracking, zero telemetry, zero crash uploaders, zero third-party ads.
+• Strictly on-device: all listening history, playlists, favorites, and metadata never leave your phone.
+• No internet permission required for playback: complete privacy by architectural design.
+
+🎵 AUDIOPHILE-GRADE PLAYBACK ENGINE
+• Powered by AndroidX Media3 / ExoPlayer with custom DualPlayerEngine.
+• Extended codec support via native FFmpeg decoding: FLAC, ALAC, Opus, APE, WMA, AC-3, E-AC-3, DTS, and more.
+• 32-bit float PCM direct decoding for pristine bit-perfect audio reproduction.
+• True gapless audio playback and smooth configurable audio crossfade.
+• Sleep timer with smooth volume ramp-down.
+
+🎨 MATERIAL 3 EXPRESSIVE DESIGN
+• Dynamic Material You color schemes matched to your wallpaper or album artwork.
+• Pure AMOLED dark mode for deep contrast and battery savings on OLED screens.
+• Predictive back gesture support across all player sheets, queue lists, and dialogs.
+• Full immersive edge-to-edge layout honoring system cutouts and navigation bars.
+• Smooth, hardware-accelerated rounded corners and fluid transitions.
+
+📝 SYNCHRONIZED LYRICS
+• Real-time synchronized lyrics rendering with line-by-line and word-by-word tracking.
+• Support for embedded audio lyrics, external LRC files, and TTML formats.
+• Offline caching ensures your lyrics are always available without network requests.
+
+🏷️ METADATA & TAG EDITOR
+• High-performance audio tagging powered by native TagLib bindings.
+• Edit song title, artist, album, genre, track number, disc number, and release year directly on your device.
+• Batch album art management and cache optimization.
+
+📊 PRIVATE ON-DEVICE LISTENING STATS
+• Detailed local listening insights: top tracks, favorite artists, most played albums, and listening hours.
+• Annual listening recap story generator computed 100% locally on your device.
+• Never shared, scrobbled, or uploaded to any remote service.
+
+📱 HOME SCREEN WIDGETS
+• Modern AndroidX Glance AppWidgets for quick playback control.
+• Responsive layouts that adapt seamlessly to any home screen grid size.
+
+💾 ATOMIC BACKUP & RESTORE
+• Export your playlists, preferences, and listening stats into portable, verifiable JSON backups.
+• Complete data sovereignty: move your library metadata between devices effortlessly.
+
+RollerSkater is free software licensed under the GNU General Public License v3.0 (GPL-3.0).
