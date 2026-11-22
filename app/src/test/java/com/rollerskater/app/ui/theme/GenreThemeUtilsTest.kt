@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.toArgb
 import com.google.common.truth.Truth.assertThat
 import com.rollerskater.app.data.model.Genre
 import com.rollerskater.app.data.preferences.AlbumArtPaletteStyle
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class GenreThemeUtilsTest {
 

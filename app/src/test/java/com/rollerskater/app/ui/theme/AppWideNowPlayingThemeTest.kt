@@ -4,7 +4,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import com.google.common.truth.Truth.assertThat
 import com.rollerskater.app.presentation.viewmodel.ColorSchemePair
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class AppWideNowPlayingThemeTest {
 

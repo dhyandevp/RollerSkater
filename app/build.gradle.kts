@@ -268,8 +268,6 @@ dependencies {
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)
     testRuntimeOnly(libs.junit.jupiter.engine)
-    testImplementation(libs.junit)
-    testRuntimeOnly(libs.junit.vintage.engine)
     testRuntimeOnly(libs.junitplatformlauncher)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockk)
@@ -309,5 +307,9 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-    reports.html.required.set(false)
+    maxHeapSize = "2048m"
+    testLogging {
+        events("started", "passed", "skipped", "failed")
+        showStandardStreams = true
+    }
 }

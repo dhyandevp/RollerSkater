@@ -2,7 +2,7 @@ package com.rollerskater.app.presentation.viewmodel
 
 import com.google.common.truth.Truth.assertThat
 import com.rollerskater.app.data.model.Song
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class PlayerViewModelHydrationTest {
 

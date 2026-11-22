@@ -3,7 +3,7 @@ package com.rollerskater.app.utils
 import com.google.common.truth.Truth.assertThat
 import com.rollerskater.app.data.database.AlbumEntity
 import com.rollerskater.app.data.database.toAlbum
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class LocalArtworkUriTest {
 

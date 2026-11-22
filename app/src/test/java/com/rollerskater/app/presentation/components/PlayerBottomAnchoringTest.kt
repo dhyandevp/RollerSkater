@@ -2,8 +2,8 @@ package com.rollerskater.app.presentation.components
 
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import org.junit.Assert.assertEquals
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 
 class PlayerBottomAnchoringTest {
 

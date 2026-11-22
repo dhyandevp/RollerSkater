@@ -1,7 +1,7 @@
 package com.rollerskater.app.utils
 
 import com.google.common.truth.Truth.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 import java.io.File
 
 class AlbumArtCacheManagerTest {

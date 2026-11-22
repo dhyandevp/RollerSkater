@@ -3,7 +3,7 @@ package com.rollerskater.app.presentation.components
 import coil.size.Dimension
 import coil.size.Size
 import com.google.common.truth.Truth.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class OptimizedAlbumArtTest {
 

@@ -13,7 +13,7 @@ import com.google.android.material.color.utilities.SchemeVibrant
 import com.google.common.truth.Truth.assertThat
 import com.rollerskater.app.data.preferences.AlbumArtColorAccuracy
 import com.rollerskater.app.data.preferences.AlbumArtPaletteStyle
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class ColorRolesTest {
 
