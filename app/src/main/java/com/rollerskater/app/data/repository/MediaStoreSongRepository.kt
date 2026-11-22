@@ -2,6 +2,7 @@ package com.rollerskater.app.data.repository
 
 import android.content.ContentUris
 import android.content.Context
+import android.os.Build
 import android.provider.MediaStore
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -117,7 +118,7 @@ class MediaStoreSongRepository @Inject constructor(
     ): List<Song> = withContext(Dispatchers.IO) {
         val songs = mutableListOf<Song>()
         val (baseSelection, baseSelectionArgs) = buildLocalAudioSelection(minDurationMs)
-        val projection = arrayOf(
+        val projectionList = mutableListOf(
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ARTIST,
@@ -133,6 +134,10 @@ class MediaStoreSongRepository @Inject constructor(
             MediaStore.Audio.Media.MIME_TYPE,
             MediaStore.Audio.Media.ALBUM_ARTIST,
         )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            projectionList.add(MediaStore.Audio.Media.GENRE)
+        }
+        val projection = projectionList.toTypedArray()
 
         val selection = buildString {
             append(baseSelection)
@@ -148,7 +153,11 @@ class MediaStoreSongRepository @Inject constructor(
             baseSelectionArgs + extraSelectionArgs
         }
 
-        val songIdToGenreMap = getSongIdToGenreMap(context.contentResolver)
+        val songIdToGenreMap = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
+            getSongIdToGenreMap(context.contentResolver)
+        } else {
+            emptyMap()
+        }
 
         try {
             context.contentResolver.query(
@@ -172,6 +181,9 @@ class MediaStoreSongRepository @Inject constructor(
                 val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATE_MODIFIED)
                 val mimeTypeCol = cursor.getColumnIndex(MediaStore.Audio.Media.MIME_TYPE)
                 val albumArtistCol = cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ARTIST)
+                val genreCol = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                    cursor.getColumnIndex(MediaStore.Audio.Media.GENRE)
+                } else -1
 
                 val resolver = DirectoryRuleResolver(
                     allowedDirs.map(::normalizePath).toSet(),
@@ -231,6 +243,12 @@ class MediaStoreSongRepository @Inject constructor(
                         )
                     }
 
+                    val resolvedGenre = if (genreCol != -1) {
+                        cursor.getString(genreCol)?.normalizeMetadataTextOrEmpty()?.takeIf { it.isNotBlank() && it != "<unknown>" }
+                    } else {
+                        null
+                    } ?: songIdToGenreMap[id]
+
                     val song = Song(
                         id = id.toString(),
                         title = displayTitle,
@@ -244,7 +262,7 @@ class MediaStoreSongRepository @Inject constructor(
                         contentUriString = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id).toString(),
                         albumArtUriString = albumArtUriString,
                         duration = cursor.getLong(durationCol),
-                        genre = songIdToGenreMap[id],
+                        genre = resolvedGenre,
                         lyrics = null,
                         isFavorite = favoriteIds.contains(id),
                         trackNumber = cursor.getInt(trackCol) % 1000,
@@ -265,6 +283,9 @@ class MediaStoreSongRepository @Inject constructor(
     }
 
     private fun getSongIdToGenreMap(contentResolver: android.content.ContentResolver): Map<Long, String> {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            return emptyMap()
+        }
         val genreMap = mutableMapOf<Long, String>()
         try {
             val genresUri = MediaStore.Audio.Genres.EXTERNAL_CONTENT_URI

@@ -1,5 +1,6 @@
 package com.rollerskater.app.presentation.splash
 
+import android.os.Build
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.CubicBezierEasing
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -134,8 +135,10 @@ fun RollerSkaterSplash(
     // covers launches where the system never calls the exit listener.
     val currentSystemSplashGone by rememberUpdatedState(systemSplashGone)
     LaunchedEffect(Unit) {
-        withTimeoutOrNull(SystemSplashWaitTimeoutMs) {
-            snapshotFlow { currentSystemSplashGone }.first { it }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            withTimeoutOrNull(SystemSplashWaitTimeoutMs) {
+                snapshotFlow { currentSystemSplashGone }.first { it }
+            }
         }
         coroutineScope {
             launch { blend.animateTo(1f, tween(220, easing = FastOutSlowInEasing)) }

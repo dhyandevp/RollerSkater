@@ -2,6 +2,7 @@ package com.rollerskater.app.data.paging
 
 import android.content.ContentUris
 import android.content.Context
+import android.os.Build
 import android.provider.MediaStore
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
@@ -86,7 +87,7 @@ class MediaStorePagingSource(
 
         val selection = "${MediaStore.Audio.Media._ID} IN (${ids.joinToString(",")})"
         
-        val projection = arrayOf(
+        val projectionList = mutableListOf(
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ARTIST,
@@ -101,6 +102,10 @@ class MediaStorePagingSource(
             MediaStore.Audio.Media.DATE_MODIFIED,
             MediaStore.Audio.Media.ALBUM_ARTIST
         )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            projectionList.add(MediaStore.Audio.Media.GENRE)
+        }
+        val projection = projectionList.toTypedArray()
 
         context.contentResolver.query(
             MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
@@ -122,6 +127,9 @@ class MediaStorePagingSource(
             val dateAddedCol = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATE_ADDED)
             val dateModifiedCol = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATE_MODIFIED)
             val albumArtistCol = cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ARTIST)
+            val genreCol = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                cursor.getColumnIndex(MediaStore.Audio.Media.GENRE)
+            } else -1
 
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(idCol)
@@ -133,6 +141,12 @@ class MediaStorePagingSource(
                     songId = id,
                     forceRefresh = false
                 )
+
+                val resolvedGenre = if (genreCol != -1) {
+                    cursor.getString(genreCol)?.normalizeMetadataTextOrEmpty()?.takeIf { it.isNotBlank() && it != "<unknown>" }
+                } else {
+                    null
+                } ?: songIdToGenreMap[id]
 
                 val song = Song(
                     id = id.toString(),
@@ -147,7 +161,7 @@ class MediaStorePagingSource(
                     contentUriString = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id).toString(),
                     albumArtUriString = albumArtUriString,
                     duration = cursor.getLong(durationCol),
-                    genre = songIdToGenreMap[id],
+                    genre = resolvedGenre,
                     lyrics = null,
                     isFavorite = false,
                     trackNumber = cursor.getInt(trackCol) % 1000,

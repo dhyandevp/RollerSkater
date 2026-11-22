@@ -274,17 +274,26 @@ class MainActivity : ComponentActivity() {
             !isBenchmarkMode &&
             Settings.Global.getFloat(contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1f) > 0f
         if (playAnimatedSplash) {
-            // RollerSkaterSplash's first frame is the system splash's last one, so the system view
-            // only needs a short fade to cover device-specific icon rendering differences.
-            splashScreen.setOnExitAnimationListener { provider ->
-                provider.view.animate()
-                    .alpha(0f)
-                    .setDuration(SYSTEM_SPLASH_HANDOFF_MS)
-                    .withEndAction {
-                        provider.remove()
-                        systemSplashGone.value = true
-                    }
-                    .start()
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+                // On Android 11 (API 30), there is no system-level animated splash icon overlay.
+                // Mark systemSplashGone = true immediately so RollerSkaterSplash begins animating on Frame 0.
+                systemSplashGone.value = true
+                splashScreen.setOnExitAnimationListener { provider ->
+                    provider.remove()
+                }
+            } else {
+                // RollerSkaterSplash's first frame is the system splash's last one, so the system view
+                // only needs a short fade to cover device-specific icon rendering differences.
+                splashScreen.setOnExitAnimationListener { provider ->
+                    provider.view.animate()
+                        .alpha(0f)
+                        .setDuration(SYSTEM_SPLASH_HANDOFF_MS)
+                        .withEndAction {
+                            provider.remove()
+                            systemSplashGone.value = true
+                        }
+                        .start()
+                }
             }
         }
         val shouldBenchmarkRebuildDatabase =
@@ -394,17 +403,12 @@ class MainActivity : ComponentActivity() {
                 themePreset = themePreset,
                 interfaceAppearance = interfaceAppearance
             ) {
-                var contentVisible by remember { mutableStateOf(false) }
+                var contentVisible by remember { mutableStateOf(true) }
                 val contentAlpha by animateFloatAsState(
                     targetValue = if (contentVisible) 1f else 0f,
-                    animationSpec = tween(600, easing = LinearOutSlowInEasing),
+                    animationSpec = tween(200, easing = LinearOutSlowInEasing),
                     label = "AppContentAlpha"
                 )
-
-                LaunchedEffect(Unit) {
-                    delay(100)
-                    contentVisible = true
-                }
 
                 var showAnimatedSplash by remember { mutableStateOf(playAnimatedSplash) }
 
