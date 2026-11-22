@@ -313,3 +313,23 @@ tasks.withType<Test> {
         showStandardStreams = true
     }
 }
+
+abstract class EnsureR8DirTask : DefaultTask() {
+    @get:OutputDirectory
+    abstract val targetDir: DirectoryProperty
+
+    @TaskAction
+    fun execute() {
+        targetDir.get().asFile.mkdirs()
+    }
+}
+
+val ensureR8DirTask = tasks.register<EnsureR8DirTask>("ensureR8Dir") {
+    targetDir.set(layout.buildDirectory.dir("intermediates/merged_java_res/release/minifyReleaseWithR8"))
+}
+
+tasks.matching { it.name.startsWith("minify") && it.name.endsWith("WithR8") }.configureEach {
+    dependsOn(ensureR8DirTask)
+}
+
+
