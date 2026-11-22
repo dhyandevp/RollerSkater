@@ -212,7 +212,7 @@ object AppModule {
             .allowHardware(true)
             .memoryCache {
                 MemoryCache.Builder(context)
-                    .maxSizeBytes(40 * 1024 * 1024)
+                    .maxSizePercent(0.20)
                     .build()
             }
             .diskCache {

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.media.MediaRouter2
 import android.os.Build
 import android.provider.Settings
+import android.widget.Toast
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -304,6 +305,7 @@ private fun openCastToTv(context: Context) {
             Timber.d(e, "Intent failed to open cast settings")
         }
     }
+    Toast.makeText(context, R.string.player_audio_output_cast_subtitle, Toast.LENGTH_SHORT).show()
 }
 
 /** Android 14+ system output switcher, else Bluetooth settings to connect a paired device. */

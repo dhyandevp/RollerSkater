@@ -141,18 +141,31 @@ class AudioOutputStateHolder @Inject constructor(
         audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)
             .filter { it.isSink && it.type in MEDIA_OUTPUT_TYPES }
 
-    /** Where Android would route media right now, if the platform can tell us (API 33+). */
+    /** Where Android would route media right now (API 33+ precise query, with API 30-32 fallback). */
+    @Suppress("DEPRECATION")
     private fun systemMediaRoute(): AudioDeviceInfo? {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return null
-        val attributes = android.media.AudioAttributes.Builder()
-            .setUsage(android.media.AudioAttributes.USAGE_MEDIA)
-            .setContentType(android.media.AudioAttributes.CONTENT_TYPE_MUSIC)
-            .build()
-        val route = runCatching { audioManager.getAudioDevicesForAttributes(attributes) }
-            .getOrNull()
-            ?.firstOrNull()
-            ?: return null
-        return mediaOutputs().firstOrNull { it.type == route.type && it.address == route.address }
+        val outputs = mediaOutputs()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            val attributes = android.media.AudioAttributes.Builder()
+                .setUsage(android.media.AudioAttributes.USAGE_MEDIA)
+                .setContentType(android.media.AudioAttributes.CONTENT_TYPE_MUSIC)
+                .build()
+            val route = runCatching { audioManager.getAudioDevicesForAttributes(attributes) }
+                .getOrNull()
+                ?.firstOrNull()
+            if (route != null) {
+                return outputs.firstOrNull { it.type == route.type && it.address == route.address }
+            }
+        }
+        if (audioManager.isBluetoothA2dpOn) {
+            val bt = outputs.firstOrNull { it.kind() == AudioOutputKind.Bluetooth }
+            if (bt != null) return bt
+        }
+        if (audioManager.isWiredHeadsetOn) {
+            val wired = outputs.firstOrNull { it.kind() == AudioOutputKind.Wired }
+            if (wired != null) return wired
+        }
+        return outputs.firstOrNull { it.type == AudioDeviceInfo.TYPE_BUILTIN_SPEAKER }
     }
 
     private fun displayName(device: AudioDeviceInfo): String = when (device.kind()) {
