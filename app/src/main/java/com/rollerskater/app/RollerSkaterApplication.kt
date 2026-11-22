@@ -142,13 +142,12 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
 
         registerActivityLifecycleCallbacks(PhoneOrientationPolicy)
 
-        syncManager.get().start()
-
-        m3uSyncCoordinator.get().start()
-
-        updateCheckScheduler.get().start()
-
-        advancedPerformanceDiagnosticsController.get().start(startupScope)
+        startupScope.launch(Dispatchers.Default) {
+            syncManager.get().start()
+            m3uSyncCoordinator.get().start()
+            updateCheckScheduler.get().start()
+            advancedPerformanceDiagnosticsController.get().start(startupScope)
+        }
 
         startupScope.launch {
             val savedLimit = runCatching {

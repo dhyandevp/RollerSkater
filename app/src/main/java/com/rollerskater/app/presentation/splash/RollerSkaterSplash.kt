@@ -64,11 +64,11 @@ private const val GlyphSettledScale = 0.6f
 private const val ContainerToGlyph = 1.85f
 private const val HaloToContainer = 1.24f
 
-private const val SystemSplashWaitTimeoutMs = 700L
-private const val NoteBeatDelayMs = 170L
-private const val EmblemBeatDelayMs = 500L
-private const val RevealDelayMs = 700L
-private const val RevealDurationMs = 480
+private const val SystemSplashWaitTimeoutMs = 150L
+private const val NoteBeatDelayMs = 50L
+private const val EmblemBeatDelayMs = 120L
+private const val RevealDelayMs = 220L
+private const val RevealDurationMs = 260
 
 // M3 emphasized-accelerate: the reveal starts gently under the emblem, then rushes out.
 private val EmphasizedAccelerate = CubicBezierEasing(0.3f, 0f, 0.8f, 0.15f)
@@ -138,9 +138,9 @@ fun RollerSkaterSplash(
             snapshotFlow { currentSystemSplashGone }.first { it }
         }
         coroutineScope {
-            launch { blend.animateTo(1f, tween(420, easing = FastOutSlowInEasing)) }
-            launch { enter.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = 300f)) }
-            launch { settle.animateTo(1f, spring(dampingRatio = 0.8f, stiffness = 320f)) }
+            launch { blend.animateTo(1f, tween(220, easing = FastOutSlowInEasing)) }
+            launch { enter.animateTo(1f, spring(dampingRatio = 0.55f, stiffness = 380f)) }
+            launch { settle.animateTo(1f, spring(dampingRatio = 0.8f, stiffness = 400f)) }
             launch {
                 spin.animateTo(
                     1f,
@@ -153,13 +153,13 @@ fun RollerSkaterSplash(
             }
             launch {
                 delay(NoteBeatDelayMs)
-                noteBeat.animateTo(1f, tween(130, easing = FastOutSlowInEasing))
-                noteBeat.animateTo(0f, spring(dampingRatio = 0.3f, stiffness = 380f))
+                noteBeat.animateTo(1f, tween(80, easing = FastOutSlowInEasing))
+                noteBeat.animateTo(0f, spring(dampingRatio = 0.3f, stiffness = 420f))
             }
             launch {
                 delay(EmblemBeatDelayMs)
-                emblemBeat.animateTo(1f, tween(110, easing = FastOutSlowInEasing))
-                emblemBeat.animateTo(0f, spring(dampingRatio = 0.4f, stiffness = 420f))
+                emblemBeat.animateTo(1f, tween(80, easing = FastOutSlowInEasing))
+                emblemBeat.animateTo(0f, spring(dampingRatio = 0.4f, stiffness = 460f))
             }
             delay(RevealDelayMs)
             reveal.animateTo(1f, tween(RevealDurationMs, easing = EmphasizedAccelerate))

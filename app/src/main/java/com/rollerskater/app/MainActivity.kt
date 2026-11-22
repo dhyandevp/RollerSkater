@@ -192,7 +192,7 @@ private data class DismissUndoBarSlice(
     val durationMillis: Long = 4000L
 )
 
-private const val SYSTEM_SPLASH_HANDOFF_MS = 150L
+private const val SYSTEM_SPLASH_HANDOFF_MS = 80L
 
 @androidx.annotation.OptIn(UnstableApi::class)
 @AndroidEntryPoint

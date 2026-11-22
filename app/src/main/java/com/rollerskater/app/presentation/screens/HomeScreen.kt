@@ -125,7 +125,7 @@ import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
 import androidx.compose.ui.res.stringResource
 import com.rollerskater.app.presentation.components.rememberModalSheetState
 
-private const val HomeLoadingPlaceholderMinDurationMillis = 1200L
+private const val HomeLoadingPlaceholderMinDurationMillis = 0L
 private const val HomeScrollRestoreGraceMillis = 1_500L
 
 /** A Home song a long press opened options for, with the queue that playing it from there uses. */
@@ -162,11 +162,11 @@ fun HomeScreen(
     val yourMixSongs = recentlyAddedSongs
     var homePlaceholderRefreshGeneration by rememberSaveable { mutableIntStateOf(0) }
     var hasHomeLoadingMinimumElapsed by rememberSaveable(homePlaceholderRefreshGeneration) {
-        mutableStateOf(false)
+        mutableStateOf(HomeLoadingPlaceholderMinDurationMillis == 0L)
     }
 
     LaunchedEffect(homePlaceholderRefreshGeneration, yourMixSongs.isEmpty()) {
-        if (yourMixSongs.isEmpty()) {
+        if (yourMixSongs.isEmpty() && HomeLoadingPlaceholderMinDurationMillis > 0L) {
             hasHomeLoadingMinimumElapsed = false
             delay(HomeLoadingPlaceholderMinDurationMillis)
             hasHomeLoadingMinimumElapsed = true
