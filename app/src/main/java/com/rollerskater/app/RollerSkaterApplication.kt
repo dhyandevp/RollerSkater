@@ -126,6 +126,9 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
             Timber.plant(Timber.DebugTree())
             android.os.StrictMode.setThreadPolicy(
                 android.os.StrictMode.ThreadPolicy.Builder()
+                    .detectDiskReads()
+                    .detectDiskWrites()
+                    .detectNetwork()
                     .detectCustomSlowCalls()
                     .penaltyLog()
                     .build()
