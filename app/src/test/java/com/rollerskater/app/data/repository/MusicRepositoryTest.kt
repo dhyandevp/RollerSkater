@@ -36,9 +36,9 @@ import org.junit.jupiter.api.Test
 
 
 @ExperimentalCoroutinesApi
-class MusicRepositoryImplTest {
+class MusicRepositoryTest {
 
-    private lateinit var musicRepository: MusicRepositoryImpl
+    private lateinit var musicRepository: MusicRepository
     private val mockMusicDao: MusicDao = mockk()
     private val mockDatabase: RollerSkaterDatabase = mockk()
     private val mockSearchHistoryDao: SearchHistoryDao = mockk(relaxed = true)
@@ -99,7 +99,7 @@ class MusicRepositoryImplTest {
 
 
 
-        musicRepository = MusicRepositoryImpl(
+        musicRepository = MusicRepository(
             context = mockContext,
             userPreferencesRepository = mockUserPreferencesRepository,
             playlistPreferencesRepository = mockPlaylistPreferencesRepository,

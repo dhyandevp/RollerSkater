@@ -45,7 +45,6 @@ import com.rollerskater.app.data.repository.AudioBookmarkRepository
 import com.rollerskater.app.data.repository.LyricsRepository
 import com.rollerskater.app.data.repository.MediaStoreSongRepository
 import com.rollerskater.app.data.repository.MusicRepository
-import com.rollerskater.app.data.repository.MusicRepositoryImpl
 import com.rollerskater.app.data.repository.SongRepository
 import com.rollerskater.app.data.repository.TransitionRepository
 import com.rollerskater.app.data.repository.FolderTreeBuilder
@@ -284,7 +283,7 @@ object AppModule {
         artistImageRepository: ArtistImageRepository,
         folderTreeBuilder: FolderTreeBuilder
     ): MusicRepository {
-        return MusicRepositoryImpl(
+        return MusicRepository(
             context = context,
             userPreferencesRepository = userPreferencesRepository,
             playlistPreferencesRepository = playlistPreferencesRepository,

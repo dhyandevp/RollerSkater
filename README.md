@@ -178,7 +178,7 @@ flowchart TD
     end
 
     subgraph Data ["Data & Storage Layer"]
-        MusicRepo["MusicRepositoryImpl\n(MediaStore + Room Orchestration)"]
+        MusicRepo["MusicRepository\n(MediaStore + Room Orchestration)"]
         PreferencesRepo["UserPreferencesRepository\n(Jetpack DataStore)"]
         RoomDB["RollerSkaterDatabase (v7)\n(Room + FTS4 Search + Triggers)"]
         MediaStore["Android MediaStore\n(Audio & Album Art Queries)"]
@@ -203,7 +203,7 @@ flowchart TD
 | Package | Purpose | Key Classes |
 |---|---|---|
 | `com.rollerskater.app.data.database` | Room persistence, DAOs, FTS, and migration strategies | [`RollerSkaterDatabase`](app/src/main/java/com/rollerskater/app/data/database/RollerSkaterDatabase.kt), [`MusicDao`](app/src/main/java/com/rollerskater/app/data/database/MusicDao.kt), [`Migrations`](app/src/main/java/com/rollerskater/app/data/database/Migrations.kt) |
-| `com.rollerskater.app.data.repository` | Domain repositories bridging database, preferences, and MediaStore | [`MusicRepositoryImpl`](app/src/main/java/com/rollerskater/app/data/repository/MusicRepositoryImpl.kt), [`ArtistImageRepository`](app/src/main/java/com/rollerskater/app/data/repository/ArtistImageRepository.kt) |
+| `com.rollerskater.app.data.repository` | Domain repositories bridging database, preferences, and MediaStore | [`MusicRepository`](app/src/main/java/com/rollerskater/app/data/repository/MusicRepository.kt), [`ArtistImageRepository`](app/src/main/java/com/rollerskater/app/data/repository/ArtistImageRepository.kt) |
 | `com.rollerskater.app.data.service` | AndroidX Media3 playback service and notification manager | [`MusicService`](app/src/main/java/com/rollerskater/app/data/service/MusicService.kt), [`MusicNotificationProvider`](app/src/main/java/com/rollerskater/app/data/service/MusicNotificationProvider.kt) |
 | `com.rollerskater.app.data.service.player` | DualPlayer audio engine, decoders, offload, and sinks | [`DualPlayerEngine`](app/src/main/java/com/rollerskater/app/data/service/player/DualPlayerEngine.kt), [`AudioDecoderPolicy`](app/src/main/java/com/rollerskater/app/data/service/player/AudioDecoderPolicy.kt) |
 | `com.rollerskater.app.data.media` | Audio metadata reading, tag editing, and artwork decoding | [`AudioMetadataReader`](app/src/main/java/com/rollerskater/app/data/media/AudioMetadataReader.kt), [`SongMetadataEditor`](app/src/main/java/com/rollerskater/app/data/media/SongMetadataEditor.kt) |

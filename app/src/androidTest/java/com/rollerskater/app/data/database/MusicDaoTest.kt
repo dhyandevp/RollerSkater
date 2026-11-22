@@ -9,7 +9,7 @@ import com.rollerskater.app.data.model.SearchFilterType
 import com.rollerskater.app.data.model.SearchResultItem
 import com.rollerskater.app.data.preferences.UserPreferencesRepository
 import com.rollerskater.app.data.repository.FolderTreeBuilder
-import com.rollerskater.app.data.repository.MusicRepositoryImpl
+import com.rollerskater.app.data.repository.MusicRepository
 import com.rollerskater.app.utils.GenreParser
 import io.mockk.every
 import io.mockk.mockk
@@ -339,7 +339,7 @@ class MusicDaoTest {
             every { allowedDirectoriesFlow } returns flowOf(emptySet())
             every { blockedDirectoriesFlow } returns flowOf(emptySet())
         }
-        val repository = MusicRepositoryImpl(
+        val repository = MusicRepository(
             context = ApplicationProvider.getApplicationContext(),
             userPreferencesRepository = preferences,
             playlistPreferencesRepository = mockk(),

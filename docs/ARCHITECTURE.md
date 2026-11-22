@@ -28,7 +28,7 @@ flowchart TD
     end
 
     subgraph Data ["Domain & Data Layer"]
-        MusicRepo["MusicRepositoryImpl"]
+        MusicRepo["MusicRepository"]
         PrefRepo["UserPreferencesRepository (DataStore)"]
         EqualizerRepo["EqualizerPreferencesRepository (DataStore)"]
         StatsRepo["PlaybackStatsRepository"]

@@ -61,7 +61,7 @@ flowchart TD
     end
 
     subgraph Data ["Data & Storage Layer"]
-        MusicRepo["MusicRepositoryImpl\n(MediaStore + Room Orchestration)"]
+        MusicRepo["MusicRepository\n(MediaStore + Room Orchestration)"]
         PreferencesRepo["UserPreferencesRepository\n(Jetpack DataStore)"]
         RoomDB["RollerSkaterDatabase (v7)\n(Room + FTS4 Search + Triggers)"]
         MediaStore["Android MediaStore\n(Audio & Album Art Queries)"]
