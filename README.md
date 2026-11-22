@@ -55,7 +55,7 @@
 - **JSON Backup & Restore**: One-tap export and import of playlists, favorites, equalizer configurations, listening statistics, and preferences.
 
 ### 📱 Android System Integration
-- **Glance Home-Screen Widgets**: Interactive Material 3 widgets with live playback controls and reactive artwork updates.
+- **Glance Home-Screen Widgets**: 4 distinct Material 3 widget layouts (4×1 Bar, 4×2 Controls, 2×2 Album Grid, and Resizable Adaptive Glance) with real-time playback updates, dynamic color palette adaptation, and antialiased rounded bitmap fallbacks on Android 11 (API 30+). See [WIDGET_ARCHITECTURE.md](docs/WIDGET_ARCHITECTURE.md).
 - **MediaSession & Notifications**: Full lockscreen playback controls, fast-forward/rewind actions, and Android Auto support.
 - **Sleep Timer**: System-level sleep timer with gradual volume fade-out.
 
@@ -134,14 +134,29 @@ rollerskater/
 
 ---
 
+## Documentation Index
+
+For in-depth guides and architectural references:
+
+| Document | Topic |
+|---|---|
+| 📖 [**COMPILATION_AND_DEVELOPMENT.md**](docs/COMPILATION_AND_DEVELOPMENT.md) | **Step-by-step Android Studio setup, APK compilation, device debugging, and GitHub push workflow** |
+| 🏗️ [**ARCHITECTURE.md**](ARCHITECTURE.md) | System architecture, unidirectional data flow (UDF), and layer boundaries |
+| 🎛️ [**WIDGET_ARCHITECTURE.md**](docs/WIDGET_ARCHITECTURE.md) | Glance widget design, 4 widget configurations, and Android 11 antialiased rounded fallback |
+| 🎵 [**AUDIO_ENGINE.md**](docs/AUDIO_ENGINE.md) | DualPlayerEngine state machine, parametric crossfades, and gapless playback |
+| 🗄️ [**DATABASE_SCHEMA.md**](docs/DATABASE_SCHEMA.md) | Room database entity relationships, DAO queries, and version migration history |
+| 💾 [**BACKUP_AND_RESTORE.md**](docs/BACKUP_AND_RESTORE.md) | SAF integration and JSON backup/restore schema |
+| 🚀 [**RELEASE.md**](docs/RELEASE.md) | Release engineering, APK signing, and automated CI pipelines |
+| 🤝 [**CONTRIBUTING.md**](CONTRIBUTING.md) | Contribution guidelines, code standards, and PR workflows |
+| 🛡️ [**PRIVACY.md**](PRIVACY.md) | Offline-first, zero-telemetry privacy policy |
+
+---
+
 ## Building from Source
 
-### Prerequisites
-- **JDK**: Java Development Kit 21 (OpenJDK recommended)
-- **Android SDK**: `minSdk 30` (Android 11), `compileSdk 37`, `targetSdk 37`
-- **Android NDK**: Required for compiling native TagLib bindings if building from source
+For a complete walkthrough on configuring Android Studio, SDK components, and device debugging, see [**COMPILATION_AND_DEVELOPMENT.md**](docs/COMPILATION_AND_DEVELOPMENT.md).
 
-### Compilation Commands
+### Quick Compilation Commands
 
 Execute commands from the repository root:
 
@@ -156,7 +171,7 @@ Execute commands from the repository root:
 ./gradlew :app:assembleRelease -Prollerskater.disableReleaseSigning=true
 
 # 4. Run Unit Test Suite
-./gradlew :app:testDebugUnitTest
+./gradlew :app:testDebugUnitTest --max-workers=2
 
 # 5. Run Android Lint Checks
 ./gradlew lint
