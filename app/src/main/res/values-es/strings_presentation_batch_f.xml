@@ -27,8 +27,6 @@
     <string name="presentation_batch_f_colors_title">Colores</string>
     <string name="presentation_batch_f_corner_radius">Radio de esquina</string>
     <string name="presentation_batch_f_create">Crear</string>
-    <string name="presentation_batch_f_creation_mode_manual">Manual</string>
-    <string name="presentation_batch_f_creation_mode_smart">Inteligente</string>
     <string name="presentation_batch_f_curve">Curvatura</string>
     <string name="presentation_batch_f_done">Hecho</string>
     <string name="presentation_batch_f_dot_space_suffix"> · %1$s</string>
@@ -81,7 +79,6 @@
     <string name="presentation_batch_f_full_rescan">Reescaneo completo</string>
     <string name="presentation_batch_f_icon_symbol">Símbolo del icono</string>
     <string name="presentation_batch_f_new_playlist">Nueva lista</string>
-    <string name="presentation_batch_f_new_smart_playlist">Nueva lista inteligente</string>
     <string name="presentation_batch_f_next">Siguiente</string>
     <string name="presentation_batch_f_palette_label_expressive">Expresivo</string>
     <string name="presentation_batch_f_palette_label_fruit_salad">Ensalada de frutas</string>
@@ -110,15 +107,6 @@
     <string name="presentation_batch_f_shape_parameters">Parámetros de forma</string>
     <string name="presentation_batch_f_shape_style">Estilo de forma</string>
     <string name="presentation_batch_f_sides">Lados</string>
-    <string name="presentation_batch_f_smart_rule">Regla inteligente</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_subtitle">Favoritos que no has reproducido en un tiempo.</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_title">Favoritos olvidados</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_subtitle">Añadidas recientemente con pocas reproducciones.</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_title">Nuevas joyas</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_subtitle">Canciones que escuchaste más recientemente.</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_title">Reproducidas recientemente</string>
-    <string name="presentation_batch_f_smart_rule_top_played_subtitle">Tus pistas más reproducidas.</string>
-    <string name="presentation_batch_f_smart_rule_top_played_title">Más reproducidas</string>
     <string name="presentation_batch_f_smoothness">Suavidad</string>
     <string name="presentation_batch_f_status_bullet_step">%1$s • %2$s</string>
     <string name="presentation_batch_f_sync_phase_cleaning_cache">Limpiando caché de carátulas</string>

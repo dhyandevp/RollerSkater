@@ -2,7 +2,6 @@
 <resources>
     <string name="widget_tap_to_open">Ťuknutím otvorte</string>
     <string name="widget_album_art">Obal albumu</string>
-    <string name="widget_album_art_placeholder">Náhradný obrázok obalu albumu</string>
     <string name="cd_album_art_of">Obal albumu %1$s</string>
     <string name="cd_album_art_placeholder">Náhradný obrázok pre %1$s</string>
     <string name="cd_show_controls">Zobraziť ovládanie</string>
@@ -11,10 +10,7 @@
     <string name="cd_play">Prehrať</string>
     <string name="cd_pause">Pozastaviť</string>
     <string name="widget_tap_to_play">Ťuknutím spustite prehrávanie</string>
-    <string name="widget_preview_song_title">Názov skladby</string>
-    <string name="widget_preview_artist">Interpret</string>
     <string name="cd_repeat">Opakovať</string>
-    <string name="widget_wavy_progress_bar_desc">Ukazovateľ priebehu, %1$d percent</string>
     <string name="lyrics_more_appearance">Vzhľad</string>
     <string name="lyrics_more_alignment">Zarovnanie</string>
     <string name="lyrics_more_controls">Ovládanie</string>
@@ -110,7 +106,6 @@
     <string name="song_info_tone_alarm_label">zvuk budíka</string>
     <string name="song_info_ringtone_permission_prompt">Povoľte možnosť Meniť nastavenia systému a vráťte sa do RollerSkater. Nastavenie sa dokončí automaticky.</string>
     <string name="song_info_ringtone_permission_missing">Povolenie meniť nastavenia systému nebolo udelené.</string>
-    <string name="song_info_ringtone_local_only">Ako vyzváňanie možno použiť iba miestne skladby.</string>
     <string name="song_info_ringtone_missing_file">Zvukový súbor sa nepodarilo pripraviť na použitie ako vyzváňanie.</string>
     <string name="song_info_ringtone_failed">Vyzváňanie sa nepodarilo nastaviť: %1$s</string>
     <string name="song_info_label_duration">Trvanie</string>
@@ -119,7 +114,6 @@
     <string name="cd_genre_icon">Žáner</string>
     <string name="cd_artist_icon">Interpret</string>
     <string name="cd_audio_format_icon">Formát zvuku</string>
-    <string name="cd_provider_icon">Poskytovateľ</string>
     <string name="cd_file_icon">Súbor</string>
     <string name="cd_edit_song_metadata">Upraviť metadáta skladby</string>
     <string name="cd_remove_from_favorites">Odstrániť z obľúbených</string>
@@ -176,4 +170,6 @@
     <string name="playlist_saved_toast">Uložené</string>
     <string name="folder_state_excluded">Vylúčené</string>
     <string name="folder_state_included">Zahrnuté</string>
+    <string name="cd_album_icon">Album</string>
+    <string name="song_field_album">Album</string>
 </resources>

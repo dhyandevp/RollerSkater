@@ -41,7 +41,6 @@ import com.rollerskater.app.presentation.model.SettingsCategory
 import com.rollerskater.app.presentation.screens.ArtistDetailScreen
 import com.rollerskater.app.presentation.screens.ArtistSettingsScreen
 import com.rollerskater.app.presentation.screens.EditTransitionScreen
-import com.rollerskater.app.presentation.screens.EasterEggScreen
 import com.rollerskater.app.presentation.screens.ExperimentalSettingsScreen
 import com.rollerskater.app.presentation.screens.LyricsSettingsScreen
 import com.rollerskater.app.presentation.screens.GenreDetailScreen
@@ -510,20 +509,6 @@ fun AppNavigation(
                 ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
                     LicensesScreen(
                         onNavigationIconClick = { navController.popBackStack() }
-                    )
-                }
-            }
-            composable(
-                Screen.EasterEgg.route,
-                enterTransition = { enterTransition() },
-                exitTransition = { exitTransition() },
-                popEnterTransition = { popEnterTransition() },
-                popExitTransition = { popExitTransition() },
-            ) {
-                ScreenWrapper(navController = navController, playerViewModel = playerViewModel) {
-                    EasterEggScreen(
-                        viewModel = playerViewModel,
-                        onNavigationIconClick = { navController.popBackStack() },
                     )
                 }
             }

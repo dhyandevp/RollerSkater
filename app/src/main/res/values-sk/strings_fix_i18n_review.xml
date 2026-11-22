@@ -11,10 +11,4 @@
     <string name="collage_pattern_pixel_cookie">Pixelová sušienka</string>
     <string name="collage_pattern_heart_garden">Záhrada sŕdc</string>
 
-    <plurals name="cloud_download_selected_started">
-        <item quantity="one">Pripravuje sa %1$d skladba z cloudu na prehrávanie offline</item>
-        <item quantity="few">Pripravujú sa %1$d skladby z cloudu na prehrávanie offline</item>
-        <item quantity="many">Pripravuje sa %1$d skladby z cloudu na prehrávanie offline</item>
-        <item quantity="other">Pripravuje sa %1$d skladieb z cloudu na prehrávanie offline</item>
-    </plurals>
 </resources>

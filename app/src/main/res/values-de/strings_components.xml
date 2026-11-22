@@ -48,7 +48,6 @@
     <string name="cd_play_selected_albums">Ausgewählte Alben abspielen</string>
     <string name="cd_play_selected_albums_next">Ausgewählte Alben als nächstes abspielen</string>
     <string name="cd_play_song_action">Song abspielen</string>
-    <string name="cd_provider_icon">Anbieter</string>
     <string name="cd_remove_from_favorites">Aus Favoriten entfernen</string>
     <string name="cd_repeat">Wiederholen</string>
     <string name="cd_replaygain_album">ReplayGain Album</string>
@@ -138,7 +137,6 @@
     <string name="song_info_label_duration">Dauer</string>
     <string name="song_info_label_song_metadata">Song-Info</string>
     <string name="song_info_ringtone_failed">Sound konnte nicht geändert werden: %1$s</string>
-    <string name="song_info_ringtone_local_only">Nur lokale Songs können als Systemsounds verwendet werden.</string>
     <string name="song_info_ringtone_missing_file">Diese Audiodatei konnte nicht vorbereitet werden.</string>
     <string name="song_info_ringtone_permission_missing">Systemeinstellungen ändern wurde nicht aktiviert.</string>
     <string name="song_info_set_as_short">Als</string>
@@ -162,12 +160,8 @@
     <string name="song_info_tone_ringtone_title">Telefonklingelton</string>
     <string name="song_info_tone_success">\"%1$s\" wurde als %2$s festgelegt</string>
     <string name="widget_album_art">Cover</string>
-    <string name="widget_album_art_placeholder">Cover-Platzhalter</string>
-    <string name="widget_preview_artist">Künstler</string>
-    <string name="widget_preview_song_title">Songtitel</string>
     <string name="widget_tap_to_open">Antippen zum Öffnen</string>
     <string name="widget_tap_to_play">Antippen zum Abspielen</string>
-    <string name="widget_wavy_progress_bar_desc">Fortschrittsbalken, %1$d Prozent</string>
     <string name="song_info_tone_picker_body">Wähle aus, wo RollerSkater diesen Sound installieren soll.</string>
     <string name="song_info_ringtone_permission_prompt">Aktiviere „Systemeinstellungen ändern“ und kehre dann zu RollerSkater zurück, damit der Vorgang automatisch abgeschlossen wird.</string>
     <string name="edit_song_custom_metadata_heading">Optionale Metadaten</string>

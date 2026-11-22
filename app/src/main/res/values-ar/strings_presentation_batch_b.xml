@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">ربط %1$s</string>
-    <string name="presentation_batch_b_accounts_linked_services">الخدمات المرتبطة</string>
-    <string name="presentation_batch_b_accounts_logging_out">جاري تسجيل الخروج…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">قم بربط أحد المزودين لتتمكن من إدارته من هذه الشاشة.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">لا توجد حسابات مرتبطة بعد</string>
-    <string name="presentation_batch_b_accounts_open_service">فتح الخدمة</string>
-    <string name="presentation_batch_b_accounts_status_connected">متصل</string>
     <string name="presentation_batch_b_add">إضافة</string>
     <string name="presentation_batch_b_add_custom_genre">إضافة نوع مخصص</string>
     <string name="presentation_batch_b_add_custom_genre_title">إضافة نوع مخصص</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">مسح</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">نصف قطر الزوايا</string>
-    <string name="presentation_batch_b_daily_mix_title">المزيج اليومي</string>
     <string name="presentation_batch_b_date_today">اليوم</string>
     <string name="presentation_batch_b_date_yesterday">أمس</string>
     <string name="presentation_batch_b_delete_playlist">حذف قائمة التشغيل</string>
@@ -34,7 +26,6 @@
     <string name="presentation_batch_b_play_latest">تشغيل الأحدث</string>
     <string name="presentation_batch_b_playlist_empty_add_hint">انقر على "إضافة أغانٍ" للبدء.</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">هذا المجلد لا يحتوي على أغانٍ.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">لا توجد أغانٍ تطابق هذه القاعدة الذكية بعد.</string>
     <string name="presentation_batch_b_playlist_empty_title">قائمة التشغيل هذه فارغة.</string>
     <string name="presentation_batch_b_playlist_options_title">خيارات قائمة التشغيل</string>
     <string name="presentation_batch_b_queue_recently_played">المشغلة حديثاً</string>
@@ -54,13 +45,5 @@
     <string name="presentation_batch_b_select_all">تحديد الكل</string>
     <string name="presentation_batch_b_select_icon">اختر أيقونة</string>
     <string name="presentation_batch_b_set_default_transition">تعيين الانتقال الافتراضي</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="zero">لا توجد أغانٍ • %2$s</item>
-        <item quantity="one">أغنية واحدة • %2$s</item>
-        <item quantity="two">أغنيتان • %2$s</item>
-        <item quantity="few">%1$d أغانٍ • %2$s</item>
-        <item quantity="many">%1$d أغنية • %2$s</item>
-        <item quantity="other">%1$d أغنية • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">فرز الأغاني</string>
 </resources>

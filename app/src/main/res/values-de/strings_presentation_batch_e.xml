@@ -14,10 +14,6 @@
     <string name="presentation_batch_e_cd_visible">Sichtbar</string>
     <string name="presentation_batch_e_clear_queue_dialog_message">Alle Songs außer dem aktuellen entfernen?</string>
     <string name="presentation_batch_e_clear_queue_dialog_title">Queue leeren</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Wie soll die Playlist erstellt werden?</string>
-    <string name="presentation_batch_e_create_playlist_title">Playlist erstellen</string>
-    <string name="presentation_batch_e_creation_mode_manual">Manuell</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Cover, Icon, Form und Songs selbst wählen.</string>
     <string name="presentation_batch_e_deselect_all">Alle abwählen</string>
     <string name="presentation_batch_e_enter_playlist_name">Playlist-Namen eingeben</string>
     <string name="presentation_batch_e_manage_presets_title">Presets verwalten</string>

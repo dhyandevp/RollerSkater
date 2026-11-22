@@ -14,10 +14,6 @@
     <string name="presentation_batch_e_cd_visible">Видимый</string>
     <string name="presentation_batch_e_clear_queue_dialog_message">Вы уверены, что хотите удалить из очереди все треки, кроме текущего?</string>
     <string name="presentation_batch_e_clear_queue_dialog_title">Очистить очередь</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Выберите способ создания.</string>
-    <string name="presentation_batch_e_create_playlist_title">Создать плейлист</string>
-    <string name="presentation_batch_e_creation_mode_manual">Вручную</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Создайте обложку, значок, форму и выберите песни самостоятельно.</string>
     <string name="presentation_batch_e_deselect_all">Снять выделение</string>
     <string name="presentation_batch_e_enter_playlist_name">Введите название плейлиста</string>
     <string name="presentation_batch_e_manage_presets_title">Управление пресетами</string>

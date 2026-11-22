@@ -425,9 +425,7 @@ class ConnectivityStateHolder @Inject constructor(
             ContextCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_SCAN) == PackageManager.PERMISSION_GRANTED
     }
 
-    private fun hasFineLocationPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-    }
+    private fun hasFineLocationPermission(): Boolean = false
 
     private fun BluetoothAudioDeviceState.uniqueKey(): String {
         return bluetoothDeviceKey(address, name)

@@ -40,8 +40,6 @@
     <string name="dialog_rebuild_database_message">Dette vil gjenoppbygge musikkbiblioteket ditt helt fra bunnen av. Alle importerte sangtekster, favoritter og egendefinerte metadata vil gå tapt. Denne handlingen kan ikke angres.</string>
     <string name="dialog_rebuild_database_title">Gjenoppbygg database?</string>
     <string name="dialog_regenerate">Regenerer</string>
-    <string name="dialog_regenerate_daily_mix_body">Dette vil forkaste gjeldende miks og generere en ny basert på lyttevaner.</string>
-    <string name="dialog_regenerate_daily_mix_title">Regenerer Daily Mix?</string>
     <string name="dialog_regenerate_palettes_confirm_body">Dette vil tømme cachede temadata og gjenoppbygge alle palettstiler for %1$d unike albumkunst-bilder.</string>
     <string name="dialog_regenerate_palettes_progress_body">Gjenoppbygger cachede palettvarianter for %1$d unike albumkunst-bilder. Dette kan ta tid for store biblioteker.</string>
     <string name="dialog_regenerate_palettes_title">Regenerer alle album-paletter?</string>
@@ -119,10 +117,6 @@
     <string name="setcat_export_backup_subtitle">%1$s Oppretter en .pxpl-fil.</string>
     <string name="setcat_export_backup_title">Eksporter sikkerhetskopi</string>
     <string name="setcat_external_artist_images_subtitle">Tillat at manglende artistbilder hentes fra Deezer og lagres lokalt i cachen.</string>
-    <string name="setcat_smart_mix_history_title">Smart Mix-historikk</string>
-    <string name="setcat_smart_mix_history_subtitle">Nylige forespørsler, og minnet som hindrer at nye mikser gjentar de forrige.</string>
-    <string name="setcat_smart_mix_history_action">Tøm historikk</string>
-    <string name="setcat_smart_mix_history_cleared">Smart Mix-historikken er tømt</string>
     <string name="setcat_external_artist_images_title">Artistbilder fra Deezer</string>
     <string name="setcat_external_lyrics_subtitle">Tillat søk og manuell henting fra lrclib.net når sangtekster mangler lokalt.</string>
     <string name="setcat_external_lyrics_title">Sangtekster fra nett via LRCLIB</string>
@@ -130,8 +124,6 @@
     <string name="setcat_folder_back_gesture_subtitle">I Mapper-fanen vil systemets tilbake-knapp navigere i mapper før biblioteket forlates.</string>
     <string name="setcat_folder_back_gesture_title">Tilbake-bevegelse styrer mapper</string>
     <string name="setcat_folders">Mapper</string>
-    <string name="setcat_force_daily_mix_subtitle">Gjenskaper Daily Mix-spillelisten umiddelbart.</string>
-    <string name="setcat_force_daily_mix_title">Tving regenerering av Daily Mix</string>
     <string name="setcat_force_palette_empty">Ingen sanger med albumkunst ble funnet.</string>
     <string name="setcat_force_palette_subtitle">Gjenoppbygg alle cachede palettvarianter for hver albumkunst, eller velg en sang for å oppdatere.</string>
     <string name="setcat_force_palette_title">Tving regenerering av album-palett</string>
@@ -209,7 +201,6 @@
     <string name="setcat_player_theme_label">Spiller-tema</string>
     <string name="setcat_queue_transitions">Kø og overganger</string>
     <string name="setcat_regenerate_all">Regenerer alle</string>
-    <string name="setcat_regenerate_daily_mix_action">Regenerer Daily Mix</string>
     <string name="setcat_regenerate_stats_action">Regenerer statistikk</string>
     <string name="setcat_regenerating">Regenererer…</string>
     <string name="setcat_replaygain_enable_subtitle">Normaliser volumnivåer ved bruk av ReplayGain-metadata fra lydfiler.</string>
@@ -250,7 +241,6 @@
     <string name="setcat_theme_light">Lyst tema</string>
     <string name="setcat_trigger_crash_subtitle">Simuler et krasj for å teste rapporteringssystemet.</string>
     <string name="setcat_trigger_crash_title">Utløs test-krasj</string>
-    <string name="settings_accounts_row_title">Kontoer</string>
     <string name="settings_category_about_subtitle">App-info, versjon og bidragsytere</string>
     <string name="settings_category_about_title">Om</string>
     <string name="settings_category_appearance_subtitle">Temaer, layout og visuelle stiler</string>
@@ -276,7 +266,6 @@
     <string name="settings_top_bar_title">Innstillinger</string>
     <string name="sync_indicator_rebuilding">Gjenoppbygger database</string>
     <string name="tab_home">Hjem</string>
-    <string name="toast_daily_mix_regeneration_started">Regenerering av Daily Mix startet</string>
     <string name="toast_full_rescan_started">Fullstendig reskanning startet…</string>
     <string name="toast_library_sync_finished">Biblioteksynkronisering fullført</string>
     <string name="toast_rebuilding_database">Gjenoppbygger database…</string>
@@ -367,4 +356,9 @@
     <string name="playback_speed_custom_supporting">Fra %1$s× til %2$s×, opptil to desimaler</string>
     <string name="playback_speed_custom_error">Angi en hastighet fra %1$s× til %2$s×</string>
     <string name="playback_speed_multiplier_suffix">×</string>
+    <string name="setcat_interface_scale_title">Grensesnittstørrelse</string>
+    <string name="setcat_interface_scale_subtitle">Endre størrelsen på appens grensesnitt uten å endre Androids skjerminnstillinger.</string>
+    <string name="setcat_min_tracks_per_artist">Minimum antall spor per artist</string>
+    <string name="setcat_system_font_title">Bruk systemskrift</string>
+    <string name="setcat_system_font_subtitle">Bruk Androids standard skrifttype i stedet for RollerSkaters avrundede skrift.</string>
 </resources>

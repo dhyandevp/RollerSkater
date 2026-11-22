@@ -303,27 +303,14 @@ class LyricsRepositoryImplTest {
     }
 
     @Test
-    fun fetchFromRemote_prefersLrclibWordSyncedLyricsfile() = runTest {
+    fun fetchFromRemote_prefersLrclibWordSyncedLyrics() = runTest {
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         val wordSynced = lrcResponse(
             name = "Word Song",
             artistName = "Word Artist",
             duration = 180.0,
-            lyricsfile = """
-                version: '1.0'
-                lines:
-                  - text: 'Hello world'
-                    start_ms: 1000
-                    end_ms: 3000
-                    words:
-                      - text: 'Hello '
-                        start_ms: 1000
-                        end_ms: 1800
-                      - text: 'world'
-                        start_ms: 1800
-                        end_ms: 3000
-            """.trimIndent(),
+            syncedLyrics = "[00:01.00]<00:01.00>Hello <00:01.80>world",
         )
         coEvery { lyricsDao.getLyrics(106L) } returns null
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(wordSynced)
@@ -658,7 +645,7 @@ class LyricsRepositoryImplTest {
         name: String,
         artistName: String,
         duration: Double,
-        lyricsfile: String? = null,
+        syncedLyrics: String? = "[00:01.00]First line\n[00:05.00]Second line",
     ): LrcLibResponse {
         return LrcLibResponse(
             id = name.hashCode(),
@@ -667,8 +654,7 @@ class LyricsRepositoryImplTest {
             albumName = "Album",
             duration = duration,
             plainLyrics = null,
-            syncedLyrics = "[00:01.00]First line\n[00:05.00]Second line",
-            lyricsfile = lyricsfile,
+            syncedLyrics = syncedLyrics,
         )
     }
 }

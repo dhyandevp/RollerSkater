@@ -48,7 +48,6 @@
     <string name="cd_play_selected_albums">Spill valgte album</string>
     <string name="cd_play_selected_albums_next">Spill valgte album som neste</string>
     <string name="cd_play_song_action">Spill av sang</string>
-    <string name="cd_provider_icon">Leverandør</string>
     <string name="cd_remove_from_favorites">Fjern fra favoritter</string>
     <string name="cd_repeat">Gjenta</string>
     <string name="cd_replaygain_album">ReplayGain album</string>
@@ -138,7 +137,6 @@
     <string name="song_info_label_duration">Varighet</string>
     <string name="song_info_label_song_metadata">Sanginfo</string>
     <string name="song_info_ringtone_failed">Kunne ikke angi ringetone: %1$s</string>
-    <string name="song_info_ringtone_local_only">Kun lokale sanger kan brukes som ringetoner.</string>
     <string name="song_info_ringtone_missing_file">Kunne ikke klargjøre denne lydfilen som ringetone.</string>
     <string name="song_info_ringtone_permission_missing">Endre systeminnstillinger ble ikke aktivert.</string>
     <string name="song_info_set_as_short">Angi som</string>
@@ -162,12 +160,8 @@
     <string name="song_info_tone_ringtone_title">Telefonringetone</string>
     <string name="song_info_tone_success">Angitt \"%1$s\" som din %2$s</string>
     <string name="widget_album_art">Albumkunst</string>
-    <string name="widget_album_art_placeholder">Plassholder for albumkunst</string>
-    <string name="widget_preview_artist">Artist</string>
-    <string name="widget_preview_song_title">Sangtittel</string>
     <string name="widget_tap_to_open">Trykk for å åpne</string>
     <string name="widget_tap_to_play">Trykk for å spille</string>
-    <string name="widget_wavy_progress_bar_desc">Fremdriftslinje, %1$d prosent</string>
     <string name="song_info_tone_picker_body">Velg hvor RollerSkater skal installere denne lyden.</string>
     <string name="song_info_ringtone_permission_prompt">Slå på «Endre systeminnstillinger», og gå deretter tilbake til RollerSkater for å fullføre automatisk.</string>
     <string name="edit_song_custom_metadata_heading">Valgfri metadata</string>

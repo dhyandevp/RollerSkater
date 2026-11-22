@@ -14,10 +14,6 @@
     <string name="presentation_batch_e_cd_visible">Görünür</string>
     <string name="presentation_batch_e_clear_queue_dialog_message">Mevcut şarkı hariç kuyruktaki tüm şarkıları temizlemek istediğinizden emin misiniz?</string>
     <string name="presentation_batch_e_clear_queue_dialog_title">Kuyruğu temizle</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Oluşturma yöntemini seçin.</string>
-    <string name="presentation_batch_e_create_playlist_title">Çalma listesi oluştur</string>
-    <string name="presentation_batch_e_creation_mode_manual">Manuel</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Kapak görselini, simgeyi, şekli tasarlayın ve şarkıları kendiniz seçin.</string>
     <string name="presentation_batch_e_deselect_all">Tüm seçimi kaldır</string>
     <string name="presentation_batch_e_enter_playlist_name">Bir çalma listesi adı girin</string>
     <string name="presentation_batch_e_manage_presets_title">Ön ayarları yönet</string>
@@ -26,7 +22,7 @@
         <item quantity="one">%d şarkı seçildi</item>
         <item quantity="other">%d şarkı seçildi</item>
     </plurals>
-    <string name="presentation_batch_e_new_playlist_hint">Başlamak için \'Yeni Çalma Listesi\' düğmesine dokunun.</string>
+<string name="presentation_batch_e_new_playlist_hint">"Başlamak için 'Yeni Çalma Listesi' düğmesine dokunun."</string>
     <string name="presentation_batch_e_next_up">Sıradaki</string>
     <string name="presentation_batch_e_no_playlist_created">Henüz çalma listesi oluşturulmadı.</string>
     <string name="presentation_batch_e_no_songs_match_query">\"%1$s\" ile eşleşen şarkı yok</string>

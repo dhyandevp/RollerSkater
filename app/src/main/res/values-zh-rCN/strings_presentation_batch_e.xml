@@ -37,10 +37,6 @@
     <string name="presentation_batch_e_no_playlist_created">尚未创建任何歌单。</string>
     <string name="presentation_batch_e_new_playlist_hint">点击“新建歌单”按钮开始创建。</string>
 
-    <string name="presentation_batch_e_create_playlist_title">新建歌单</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">选择创建方式。</string>
-    <string name="presentation_batch_e_creation_mode_manual">手动创建</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">自定义封面、图标、样式，并手动挑选歌曲。</string>
 
     <string name="presentation_batch_e_reset_presets_title">重置预设</string>
     <string name="presentation_batch_e_reset_presets_message">将会恢复预设的原始顺序与显示状态，是否继续？</string>

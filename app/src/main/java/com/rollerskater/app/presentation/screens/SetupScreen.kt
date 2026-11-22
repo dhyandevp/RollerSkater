@@ -152,8 +152,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.repeatOnLifecycle
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.rollerskater.app.R
 import com.rollerskater.app.data.backup.model.BackupSection
 import com.rollerskater.app.data.backup.model.BackupTransferProgressUpdate
@@ -188,7 +186,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.text.style.TextOverflow
 
-@OptIn(ExperimentalPermissionsApi::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun SetupScreen(
     setupViewModel: SetupViewModel = hiltViewModel(),
@@ -872,18 +870,24 @@ private fun SetupLanguagePill() {
     }
 }
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun MediaPermissionPage(
     uiState: SetupUiState,
     onPermissionStateUpdated: () -> Unit
 ) {
-    val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        listOf(Manifest.permission.READ_MEDIA_AUDIO)
-    } else {
-        listOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+    val context = LocalContext.current
+    val permissions = remember {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            listOf(Manifest.permission.READ_MEDIA_AUDIO)
+        } else {
+            listOf(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
     }
-    val permissionState = rememberMultiplePermissionsState(permissions = permissions)
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) {
+        onPermissionStateUpdated()
+    }
     val mediaIcons = persistentListOf(
         R.drawable.rounded_music_note_24,
         R.drawable.rounded_album_24,
@@ -892,11 +896,10 @@ fun MediaPermissionPage(
         R.drawable.rounded_playlist_play_24
     )
 
-    val isGranted = uiState.mediaPermissionGranted || permissionState.allPermissionsGranted
-
-    LaunchedEffect(permissionState.allPermissionsGranted) {
-        onPermissionStateUpdated()
+    val allGranted = permissions.all {
+        ContextCompat.checkSelfPermission(context, it) == android.content.pm.PackageManager.PERMISSION_GRANTED
     }
+    val isGranted = uiState.mediaPermissionGranted || allGranted
 
     PermissionPageLayout(
         title = stringResource(R.string.setup_permission_media_title),
@@ -907,13 +910,12 @@ fun MediaPermissionPage(
         icons = mediaIcons,
         onGrantClicked = {
             if (!isGranted) {
-                permissionState.launchMultiplePermissionRequest()
+                launcher.launch(permissions.toTypedArray())
             }
         }
     )
 }
 
-@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun NotificationsPermissionPage(
     uiState: SetupUiState,
@@ -921,7 +923,12 @@ fun NotificationsPermissionPage(
 ) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
 
-    val permissionState = rememberMultiplePermissionsState(permissions = listOf(Manifest.permission.POST_NOTIFICATIONS))
+    val context = LocalContext.current
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) {
+        onPermissionStateUpdated()
+    }
     val notificationIcons = persistentListOf(
         R.drawable.rounded_circle_notifications_24,
         R.drawable.rounded_skip_next_24,
@@ -930,11 +937,8 @@ fun NotificationsPermissionPage(
         R.drawable.rounded_skip_previous_24
     )
 
-    val isGranted = uiState.notificationsPermissionGranted || permissionState.allPermissionsGranted
-
-    LaunchedEffect(permissionState.allPermissionsGranted) {
-        onPermissionStateUpdated()
-    }
+    val isGranted = uiState.notificationsPermissionGranted ||
+        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == android.content.pm.PackageManager.PERMISSION_GRANTED
 
     PermissionPageLayout(
         title = stringResource(R.string.setup_permission_notifications_title),
@@ -945,7 +949,7 @@ fun NotificationsPermissionPage(
         icons = notificationIcons,
         onGrantClicked = {
             if (!isGranted) {
-                permissionState.launchMultiplePermissionRequest()
+                launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
     )

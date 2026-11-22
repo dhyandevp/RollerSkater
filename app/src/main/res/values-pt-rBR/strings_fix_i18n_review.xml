@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="collage_pattern_cosmic_swirl">Redemoinho cósmico</string>
+<string name="collage_pattern_honeycomb_groove">Ritmo de favo de mel</string>
+<string name="collage_pattern_vinyl_stack">Pilha de vinil</string>
+<string name="collage_pattern_pixel_mosaic">Mosaico de pixels</string>
+<string name="collage_pattern_stardust_scatter">Chuveiro de poeira estelar</string>
+<string name="collage_pattern_soft_orbit">Órbita suave</string>
+<string name="collage_pattern_arrow_fanfare">Fanfarra de Flechas</string>
+<string name="collage_pattern_sunny_bloom">flor ensolarada</string>
+<string name="collage_pattern_pixel_cookie">biscoito de pixel</string>
+<string name="collage_pattern_heart_garden">jardim dos corações</string>
+
+</resources>

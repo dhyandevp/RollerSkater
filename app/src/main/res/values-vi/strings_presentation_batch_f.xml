@@ -20,7 +20,6 @@
     <string name="presentation_batch_f_cd_refresh_lyrics">Làm mới lời bài hát</string>
     <string name="presentation_batch_f_refresh_lyrics_processing">Đang xử lý %1$d trên %2$d bài hát</string>
     <string name="presentation_batch_f_save">Lưu</string>
-    <string name="presentation_batch_f_new_smart_playlist">Danh sách phát thông minh mới</string>
     <string name="presentation_batch_f_new_playlist">Danh sách phát mới</string>
     <string name="presentation_batch_f_add_songs">Thêm bài hát</string>
     <string name="presentation_batch_f_cd_back_or_cancel">Quay lại hoặc Hủy</string>
@@ -38,9 +37,6 @@
     <string name="presentation_batch_f_edit_cover_title">Chỉnh sửa ảnh bìa</string>
     <string name="presentation_batch_f_adjust_cover_title">Điều chỉnh ảnh bìa của bạn</string>
     <string name="presentation_batch_f_adjust_cover_hint">Dùng cử chỉ chụm và kéo để chọn góc chụp hoàn hảo</string>
-    <string name="presentation_batch_f_creation_mode_manual">Thủ công</string>
-    <string name="presentation_batch_f_creation_mode_smart">Thông minh</string>
-    <string name="presentation_batch_f_smart_rule">Quy tắc thông minh</string>
     <string name="presentation_batch_f_tab_default">Mặc định</string>
     <string name="presentation_batch_f_tab_image">Hình ảnh</string>
     <string name="presentation_batch_f_tab_icon">Biểu tượng</string>
@@ -54,14 +50,6 @@
     <string name="presentation_batch_f_curve">Đường cong</string>
     <string name="presentation_batch_f_rotation">Xoay</string>
     <string name="presentation_batch_f_scale">Tỷ lệ</string>
-    <string name="presentation_batch_f_smart_rule_top_played_title">Phát nhiều nhất</string>
-    <string name="presentation_batch_f_smart_rule_top_played_subtitle">Các bài hát được nghe nhiều nhất của bạn.</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_title">Đã phát gần đây</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_subtitle">Những bài hát bạn vừa nghe gần đây nhất.</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_title">Giai điệu lãng quên</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_subtitle">Các bài hát yêu thích mà đã lâu bạn chưa nghe lại</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_title">Viên ngọc mới</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_subtitle">Các bài hát mới thêm gần đây có ít lượt nghe</string>
     <string name="presentation_batch_f_palette_style_heading">Kiểu bảng màu</string>
     <string name="presentation_batch_f_palette_style_subtitle">Chọn thuật toán phối màu Material You</string>
     <string name="presentation_batch_f_colors_title">Màu sắc</string>

@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="auth_cd_back">Atrás</string>
-    <string name="auth_connect">Conectar</string>
-    <string name="auth_connecting">Conectando…</string>
-    <string name="auth_connection_details">Datos de conexión</string>
-    <string name="auth_connection_details_subtitle">Introduce la URL del servidor y tus credenciales.</string>
-    <string name="auth_hide_password">Ocultar contraseña</string>
-    <string name="auth_local_network_permission_denied">Permite el acceso a los dispositivos cercanos para conectarte a un servidor de tu red local.</string>
-    <string name="auth_password">Contraseña</string>
-    <string name="auth_password_placeholder">Introduce la contraseña</string>
-    <string name="auth_prefill_http">Rellenar http://</string>
-    <string name="auth_select_libraries_confirm">Guardar y sincronizar</string>
-    <string name="auth_select_libraries_subtitle">Este servidor tiene más de una biblioteca de música. Elige cuáles quieres sincronizar; podrás cambiarlo más adelante desde el panel del servidor.</string>
-    <string name="auth_select_libraries_title">Elige las bibliotecas a sincronizar</string>
-    <string name="auth_server_url">URL del servidor</string>
-    <string name="auth_show_password">Mostrar contraseña</string>
-    <string name="auth_use_http">Usar HTTP / VPN</string>
-    <string name="auth_username">Usuario</string>
-    <string name="auth_username_placeholder_admin">admin</string>
     <string name="auth_web_retry">Reintentar</string>
-    <string name="cd_subsonic_logo">Subsonic</string>
-    <string name="toast_welcome_user">¡Bienvenido, %1$s!</string>
 </resources>

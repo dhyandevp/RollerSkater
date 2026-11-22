@@ -9,7 +9,6 @@
     <string name="setcat_m3u_sync_now_subtitle">Import and export changes without overwriting conflicts</string>
     <string name="setcat_m3u_sync_result">%1$d changed · %2$d conflicts · %3$d unresolved entries</string>
     <string name="settings_top_bar_title">Settings</string>
-    <string name="settings_accounts_row_title">Accounts</string>
 
     <string name="settings_search_hint">Search settings</string>
     <string name="settings_search_no_results">No results for \"%1$s\"</string>
@@ -63,7 +62,7 @@
     <string name="setcat_auto_scan_lrc_title">Auto-scan .lrc files</string>
     <string name="setcat_auto_scan_lrc_subtitle">Automatically scan and assign .lrc files in the same folder during library sync.</string>
     <string name="setcat_folder_album_art_title">Use folder cover images</string>
-    <string name="setcat_folder_album_art_subtitle">Use cover.jpg, folder.jpg or a similar image from a song\'s own folder as its album art, in preference to embedded artwork. Shared folders such as Music, Downloads, DCIM and Pictures are ignored. Artist folders are also checked for artist.jpg, band.jpg and PNG variants. Manually chosen artist photos take priority.</string>
+<string name="setcat_folder_album_art_subtitle">"Use cover.jpg, folder.jpg or a similar image from a song's own folder as its album art, in preference to embedded artwork. Shared folders such as Music, Downloads, DCIM and Pictures are ignored. Artist folders are also checked for artist.jpg, band.jpg and PNG variants. Manually chosen artist photos take priority."</string>
     <string name="setcat_folder_album_art_permission_required">Full photo access is required to read album and artist images from your music folders.</string>
     <string name="setcat_folder_album_art_refreshing">Refreshing artwork…</string>
     <string name="setcat_online_services">Optional online services</string>
@@ -71,10 +70,6 @@
     <string name="setcat_external_lyrics_subtitle">Allow searches and manual fetches from lrclib.net when lyrics are missing locally.</string>
     <string name="setcat_external_artist_images_title">Artist artwork from Deezer</string>
     <string name="setcat_external_artist_images_subtitle">Allow missing artist images to be fetched from Deezer and cached locally.</string>
-    <string name="setcat_smart_mix_history_title">Smart Mix history</string>
-    <string name="setcat_smart_mix_history_subtitle">Recent requests, and the memory that keeps new mixes from repeating the last ones.</string>
-    <string name="setcat_smart_mix_history_action">Clear history</string>
-    <string name="setcat_smart_mix_history_cleared">Smart Mix history cleared</string>
     <string name="setcat_lyrics_management">Lyrics Management</string>
     <string name="setcat_lyrics_source_priority_label">Lyrics Source Priority</string>
     <string name="setcat_lyrics_source_priority_desc">Choose which source to try first when fetching lyrics.</string>
@@ -88,7 +83,7 @@
     <string name="setcat_lyrics_readability_section">Readability and motion</string>
     <string name="setcat_lyrics_font_size_title">Lyrics size</string>
     <string name="setcat_lyrics_font_size_subtitle">Text size for synced and plain lyrics</string>
-    <string name="setcat_lyrics_font_size_value">%1$.0f sp</string>
+    <string name="setcat_lyrics_font_size_value" translatable="false">%1$.0f sp</string>
     <string name="setcat_lyrics_blur_requires_animated">Turn on Animated lyrics in Experimental settings to use this effect.</string>
 
     <string name="setcat_global_theme">Global Theme</string>
@@ -114,16 +109,16 @@
     <string name="setcat_app_theme_label">App Theme</string>
     <string name="setcat_app_theme_desc">Switch between light, dark, or follow system appearance.</string>
     <string name="setcat_global_now_playing_theme_title">Use now playing colors across the app</string>
-    <string name="setcat_global_now_playing_theme_subtitle">Colors the whole app from the current song\'s album art. Light and dark mode are still respected.</string>
+<string name="setcat_global_now_playing_theme_subtitle">"Colors the whole app from the current song's album art. Light and dark mode are still respected."</string>
     <string name="setcat_theme_preset_label">Theme preset</string>
     <string name="setcat_theme_preset_desc">Default follows your wallpaper colors. AMOLED uses true black surfaces and always stays dark.</string>
     <string name="setcat_theme_preset_default">Default</string>
-    <string name="setcat_theme_preset_amoled">AMOLED</string>
+    <string name="setcat_theme_preset_amoled" translatable="false">AMOLED</string>
     <string name="setcat_system_font_title">Use system font</string>
     <string name="setcat_system_font_subtitle">Use Android’s default typeface instead of RollerSkater’s rounded font.</string>
     <string name="setcat_interface_scale_title">Interface size</string>
     <string name="setcat_interface_scale_subtitle">Resize the app’s interface without changing Android’s display settings.</string>
-    <string name="setcat_interface_scale_percent">%1$d%%</string>
+    <string name="setcat_interface_scale_percent" translatable="false">%1$d%%</string>
     <string name="setcat_theme_light">Light Theme</string>
     <string name="setcat_theme_dark">Dark Theme</string>
     <string name="setcat_theme_follow_system">Follow System</string>
@@ -200,7 +195,7 @@
     <string name="setcat_crossfade_desc">Enable smooth transition between songs.</string>
     <string name="setcat_crossfade_duration">Crossfade Duration</string>
     <string name="setcat_smart_crossfade_title">Smart crossfade</string>
-    <string name="setcat_smart_crossfade_subtitle">Match the crossfade length to the songs\' tempo when their BPM tags are compatible.</string>
+<string name="setcat_smart_crossfade_subtitle">"Match the crossfade length to the songs' tempo when their BPM tags are compatible."</string>
     <string name="setcat_audio_output_mode_title">Audio output mode</string>
     <string name="setcat_audio_output_mode_description">Choose how decoded PCM is sent to Android. Changing mode briefly restarts the audio output.</string>
     <string name="setcat_audio_output_mode_system_default">System default</string>
@@ -235,7 +230,7 @@
 
     <!-- Playback speed -->
     <string name="playback_speed_description">Pitch stays the same. Applies to everything you play.</string>
-    <string name="playback_speed_value">%1$s×</string>
+    <string name="playback_speed_value" translatable="false">%1$s×</string>
     <string name="playback_speed_state_description">%1$s× speed</string>
     <string name="playback_speed_decrease">Decrease playback speed</string>
     <string name="playback_speed_increase">Increase playback speed</string>
@@ -245,7 +240,7 @@
     <string name="playback_speed_custom_field_label">Speed</string>
     <string name="playback_speed_custom_supporting">From %1$s× to %2$s×, up to two decimals</string>
     <string name="playback_speed_custom_error">Enter a speed from %1$s× to %2$s×</string>
-    <string name="playback_speed_multiplier_suffix">×</string>
+    <string name="playback_speed_multiplier_suffix" translatable="false">×</string>
 
 
     <string name="setcat_create_backup">Create Backup</string>
@@ -260,8 +255,6 @@
     <string name="setcat_test_setup_title">Test Setup Flow</string>
     <string name="setcat_test_setup_subtitle">Launch the onboarding setup screen for testing.</string>
     <string name="setcat_maintenance">Maintenance</string>
-    <string name="setcat_force_daily_mix_title">Force Daily Mix Regeneration</string>
-    <string name="setcat_force_daily_mix_subtitle">Re-creates the daily mix playlist immediately.</string>
     <string name="setcat_force_stats_title">Force Stats Regeneration</string>
     <string name="setcat_force_stats_subtitle">Clears cache and recalculates playback statistics.</string>
     <string name="setcat_force_palette_title">Force Album Palette Regeneration</string>
@@ -288,10 +281,10 @@
     <string name="backup_step_format">Step %1$d of %2$d</string>
     <string name="backup_entries_will_replace">%1$d entries · Will replace current data</string>
     <string name="backup_encrypt_title">Encrypt backup</string>
-    <string name="backup_encrypt_subtitle">Protect the file with a password (AES-256). You\'ll need it to restore.</string>
+<string name="backup_encrypt_subtitle">"Protect the file with a password (AES-256). You'll need it to restore."</string>
     <string name="backup_password_hint">Backup password</string>
     <string name="backup_password_confirm_hint">Confirm password</string>
-    <string name="backup_password_mismatch">Passwords don\'t match.</string>
+<string name="backup_password_mismatch">"Passwords don't match."</string>
     <string name="backup_password_too_short">Use at least 4 characters.</string>
     <string name="backup_encrypted_prompt_title">Encrypted backup</string>
     <string name="backup_encrypted_prompt_body">This backup is protected with a password. Enter it to continue.</string>
@@ -318,15 +311,11 @@
     <string name="rebuild">Rebuild</string>
     <string name="sync_indicator_rebuilding">Rebuilding database</string>
     <string name="toast_rebuilding_database">Rebuilding database…</string>
-    <string name="dialog_regenerate_daily_mix_title">Regenerate Daily Mix?</string>
-    <string name="dialog_regenerate_daily_mix_body">This will discard the current mix and generate a new one based on recent listening habits.</string>
-    <string name="toast_daily_mix_regeneration_started">Daily Mix regeneration started</string>
     <string name="dialog_regenerate_stats_title">Regenerate Stats?</string>
     <string name="dialog_regenerate_stats_body">This will clear the statistics cache and force a recalculation from the database history.</string>
     <string name="toast_stats_regeneration_started">Stats regeneration started</string>
     <string name="backup_file_name_format" translatable="false">RollerSkater_Backup_%1$d.pxpl</string>
 
-    <string name="setcat_regenerate_daily_mix_action">Regenerate Daily Mix</string>
     <string name="setcat_regenerate_stats_action">Regenerate Stats</string>
     <string name="setcat_force_palette_empty">No songs with album art were found.</string>
     <string name="setcat_force_palette_subtitle">Rebuild all cached palette variants for every album art, or pick a single one to refresh.</string>
@@ -340,7 +329,7 @@
     <string name="import_backup_toolbar_title">Import Backup</string>
     <string name="import_inspecting">Inspecting…</string>
     <string name="import_browse_file">Browse for file</string>
-    <string name="import_backup_hint">Select a .pxpl backup file to inspect. You\'ll choose which sections to restore in the next step.</string>
+<string name="import_backup_hint">"Select a .pxpl backup file to inspect. You'll choose which sections to restore in the next step."</string>
     <string name="import_recent_backups">Recent Backups</string>
     <string name="import_no_recent_title">No recent backups</string>
     <string name="import_no_recent_subtitle">Previously imported backups will appear here.</string>
@@ -369,21 +358,21 @@
     <string name="updates_auto_check_subtitle">Look for updates once a day and notify you when one is available.</string>
     <string name="updates_status_idle">Check whether a newer build is available.</string>
     <string name="updates_status_checking">Checking for updates…</string>
-    <string name="updates_status_up_to_date">You\'re on the latest %1$s build.</string>
+<string name="updates_status_up_to_date">"You're on the latest %1$s build."</string>
     <string name="updates_status_available">Version %1$s is available.</string>
     <string name="updates_status_reinstall">Version %1$s is on the %2$s channel. Switching channels requires reinstalling the app.</string>
-    <string name="updates_status_reinstall_signature">Version %1$s can\'t be installed over this build: it is signed with a different key or uses a different package name (for example, a debug build).</string>
+<string name="updates_status_reinstall_signature">"Version %1$s can't be installed over this build: it is signed with a different key or uses a different package name (for example, a debug build)."</string>
     <string name="updates_status_downloading">Downloading %1$s…</string>
     <string name="updates_status_downloading_progress">Downloading %1$s… %2$d%%</string>
     <string name="updates_status_permission">Allow RollerSkater to install apps to finish updating to %1$s.</string>
     <string name="updates_status_confirm">Confirm the installation of %1$s in the system prompt.</string>
     <string name="updates_status_installing">Installing %1$s…</string>
-    <string name="updates_error_check">Couldn\'t reach the update server. Check your connection and try again.</string>
+<string name="updates_error_check">"Couldn't reach the update server. Check your connection and try again."</string>
     <string name="updates_error_nothing_published">No build for this device is published on this channel yet.</string>
     <string name="updates_error_download">The download failed. Try again.</string>
-    <string name="updates_error_invalid_apk">The downloaded file isn\'t an update for this app.</string>
-    <string name="updates_error_not_newer">The downloaded build isn\'t newer than the installed one.</string>
-    <string name="updates_error_install">Android couldn\'t install the update.</string>
+<string name="updates_error_invalid_apk">"The downloaded file isn't an update for this app."</string>
+<string name="updates_error_not_newer">"The downloaded build isn't newer than the installed one."</string>
+<string name="updates_error_install">"Android couldn't install the update."</string>
     <string name="updates_action_check">Check for updates</string>
     <string name="updates_action_check_again">Check again</string>
     <string name="updates_action_install">Download and install</string>
@@ -394,9 +383,9 @@
     <string name="updates_action_switch">How to switch</string>
     <string name="updates_action_dismiss">Dismiss</string>
     <string name="updates_switch_dialog_title">Reinstall required</string>
-    <string name="updates_switch_dialog_body">Stable builds come from F-Droid and alpha builds from GitHub. They are signed with different keys, so Android can\'t update one with the other. Uninstalling deletes the app\'s data, so back up first.</string>
+<string name="updates_switch_dialog_body">"Stable builds come from F-Droid and alpha builds from GitHub. They are signed with different keys, so Android can't update one with the other. Uninstalling deletes the app's data, so back up first."</string>
     <string name="updates_switch_step_backup">1. Create a backup and save the file outside the app.</string>
-    <string name="updates_switch_step_download_stable">2. Install F-Droid if you don\'t have it, and open RollerSkater there.</string>
+<string name="updates_switch_step_download_stable">"2. Install F-Droid if you don't have it, and open RollerSkater there."</string>
     <string name="updates_switch_step_download_alpha">2. Download the %1$s APK.</string>
     <string name="updates_switch_step_uninstall">3. Uninstall this app, install the new build, and restore your backup.</string>
     <string name="updates_switch_action_backup">Back up</string>

@@ -1,5 +1,4 @@
 <resources>
-<string name="do_not_show_again">不再提示</string>
 <string name="dismiss">关闭</string>
 <string name="all_files_access_title">需要特殊权限</string>
 <string name="all_files_access_description">为了编辑歌曲元数据（mp3文件），RollerSkater需要全部文件访问权限，以此直接修改歌曲标签。请在下一界面授予权限，启用元数据编辑功能。</string>
@@ -7,27 +6,6 @@
 <string name="error">错误</string>
 <string name="ok">确定</string>
 <string name="cancel">取消</string>
-<string name="accounts_listenbrainz_title">ListenBrainz</string>
-<string name="accounts_listenbrainz_token_dialog_title">连接 ListenBrainz</string>
-<string name="accounts_listenbrainz_token_dialog_body">粘贴你的用户令牌，即可向 ListenBrainz 提交播放记录。你可以在 listenbrainz.org 的设置页面找到令牌。</string>
-<string name="accounts_listenbrainz_token_hint">用户令牌</string>
-<string name="accounts_listenbrainz_connect">连接</string>
-<string name="accounts_listenbrainz_connect_failed">连接失败，请检查令牌与服务器地址后重试。</string>
-<string name="accounts_listenbrainz_server_hint">服务器地址（选填）</string>
-<string name="accounts_listenbrainz_server_supporting">留空则使用 listenbrainz.org。可对接兼容该API的自建服务，例如 Maloja。</string>
-<string name="accounts_listenbrainz_invalid_url">请输入有效的服务器地址，例如 https://maloja.example.com/apis/listenbrainz</string>
-<string name="accounts_listenbrainz_custom_server">正在向 %1$s 提交播放记录</string>
-<string name="accounts_listenbrainz_get_token">打开 listenbrainz.org</string>
-<string name="accounts_listenbrainz_needs_reauth">令牌已失效，请重新连接以恢复播放记录提交，排队记录将会保留。</string>
-<string name="accounts_listenbrainz_reconnect">重新连接</string>
-<string name="accounts_listenbrainz_scrobble_local">提交本地文件播放记录</string>
-<string name="accounts_listenbrainz_toggle_hint">如果你的服务端已经向ListenBrainz上报记录，请在此关闭，避免重复上报。</string>
-<string name="accounts_listenbrainz_stat_listens">总播放记录</string>
-<string name="accounts_listenbrainz_stat_queued">排队中</string>
-<string name="accounts_listenbrainz_now_playing_label">正在上报播放状态</string>
-<string name="accounts_listenbrainz_now_playing_format">%1$s — %2$s</string>
-<string name="accounts_listenbrainz_now_playing_idle">当前无正在播放曲目</string>
-<string name="accounts_available_services">可用服务</string>
 <string name="import_file">导入</string>
 <string name="search">搜索</string>
 
@@ -44,7 +22,6 @@
 <string name="lyrics_server_error">服务器错误（代码 %d），请稍后重试。</string>
 <string name="lyrics_remote_disabled">设置中已关闭在线歌词功能。</string>
 <string name="found_n_matches_format">找到 %d 条匹配结果</string>
-<string name="searched_for_x_format">搜索关键词：\"%s\"</string>
 <string name="searching_lyrics">正在搜索歌词…</string>
 <string name="lyrics_already_available">歌词已存在，跳过在线获取。</string>
 <string name="lyrics_embedded_already_available">已读取内嵌歌词，跳过在线获取。</string>
@@ -247,29 +224,7 @@
 <string name="setcat_find_duplicates_title">查找重复曲目</string>
 <string name="setcat_find_duplicates_subtitle">扫描曲库中多次出现的歌曲</string>
 
-    <string name="cloud_download_action">下载</string>
-    <string name="cloud_download_queued">排队中</string>
-    <string name="cloud_downloading">正在下载…</string>
-    <string name="cloud_download_progress">%1$d%%</string>
-    <string name="cloud_remove_download">移除下载</string>
     <string name="cloud_download_retry">重试</string>
-    <string name="cloud_album_download">下载专辑</string>
-    <string name="cloud_album_remove_downloads">移除下载</string>
-    <string name="cloud_downloads_title">下载</string>
-    <string name="cloud_downloads_settings_subtitle">管理离线云端曲目和存储空间</string>
-    <string name="cloud_downloads_storage_used">离线存储已用空间</string>
-    <string name="cloud_downloads_storage_summary">已完成 %1$d 首 · 共 %2$d 首</string>
-    <string name="cloud_downloads_active_section">排队与下载中</string>
-    <string name="cloud_downloads_failed_section">失败</string>
-    <string name="cloud_downloads_completed_section">已完成</string>
-    <string name="cloud_downloads_section_count">%1$s · %2$d</string>
-    <string name="cloud_downloads_unknown_track">未知曲目</string>
-    <string name="cloud_downloads_downloaded_size">已下载 · %1$s</string>
-    <string name="cloud_downloads_failed_fallback">下载失败</string>
-    <string name="cloud_downloads_empty_title">暂无离线下载</string>
-    <string name="cloud_downloads_empty_subtitle">你下载的云端曲目会显示在这里。</string>
-    <string name="cloud_download_selected">下载所选云端曲目</string>
-    <string name="cloud_download_selected_count">下载 %1$d 首云端曲目</string>
     <string name="musicbrainz_lookup">在 MusicBrainz 上查找</string>
     <string name="musicbrainz_searching">正在搜索匹配的录音…</string>
     <string name="musicbrainz_lookup_failed">MusicBrainz 查询失败</string>
@@ -279,5 +234,6 @@
     <string name="musicbrainz_no_results">未找到合适的录音。</string>
     <string name="musicbrainz_match_score">匹配度：%1$d%%</string>
     <string name="musicbrainz_applied">已保存 MusicBrainz 标识符，并补全了缺失的年份和占位名称。</string>
-    <string name="cloud_playlist_download">下载歌单</string>
+    <string name="player_audio_output_cast_title">投屏到电视</string>
+    <string name="player_audio_output_cast_subtitle">串流到智能电视、Chromecast 或无线显示器</string>
 </resources>

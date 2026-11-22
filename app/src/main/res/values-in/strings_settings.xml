@@ -40,8 +40,6 @@
     <string name="dialog_rebuild_database_message">Ini akan sepenuhnya membangun kembali pustaka musik Anda dari awal. Semua lirik yang diimpor, favorit, dan metadata kustom akan hilang. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="dialog_rebuild_database_title">Bangun kembali database?</string>
     <string name="dialog_regenerate">Regenerasi</string>
-    <string name="dialog_regenerate_daily_mix_body">Ini akan membuang mix saat ini dan menghasilkan yang baru berdasarkan kebiasaan mendengarkan baru-baru ini.</string>
-    <string name="dialog_regenerate_daily_mix_title">Regenerasi Daily Mix?</string>
     <string name="dialog_regenerate_palettes_confirm_body">Ini akan membersihkan data tema yang dicache dan membangun kembali semua gaya palet untuk %1$d sampul album unik.</string>
     <string name="dialog_regenerate_palettes_progress_body">Membangun kembali varian palet yang dicache untuk %1$d sampul album unik. Ini mungkin memakan waktu lama pada pustaka besar.</string>
     <string name="dialog_regenerate_palettes_title">Regenerasi semua palet album?</string>
@@ -119,10 +117,6 @@
     <string name="setcat_export_backup_subtitle">%1$s Membuat file cadangan .pxpl.</string>
     <string name="setcat_export_backup_title">Ekspor Cadangan</string>
     <string name="setcat_external_artist_images_subtitle">Izinkan gambar artis yang belum tersedia diambil dari Deezer dan disimpan di cache lokal.</string>
-    <string name="setcat_smart_mix_history_title">Riwayat Smart Mix</string>
-    <string name="setcat_smart_mix_history_subtitle">Permintaan terbaru, dan memori yang mencegah mix baru mengulang mix sebelumnya.</string>
-    <string name="setcat_smart_mix_history_action">Hapus riwayat</string>
-    <string name="setcat_smart_mix_history_cleared">Riwayat Smart Mix dihapus</string>
     <string name="setcat_external_artist_images_title">Gambar artis dari Deezer</string>
     <string name="setcat_external_lyrics_subtitle">Izinkan pencarian dan pengambilan manual dari lrclib.net saat lirik tidak tersedia secara lokal.</string>
     <string name="setcat_external_lyrics_title">Lirik online dari LRCLIB</string>
@@ -130,8 +124,6 @@
     <string name="setcat_folder_back_gesture_subtitle">Di tab Folder, tombol kembali sistem menavigasi tumpukan folder sebelum meninggalkan Pustaka.</string>
     <string name="setcat_folder_back_gesture_title">Gerakan kembali mengontrol folder</string>
     <string name="setcat_folders">Folder</string>
-    <string name="setcat_force_daily_mix_subtitle">Membuat ulang daftar putar daily mix segera.</string>
-    <string name="setcat_force_daily_mix_title">Paksa Regenerasi Daily Mix</string>
     <string name="setcat_force_palette_empty">Tidak ditemukan lagu dengan sampul album.</string>
     <string name="setcat_force_palette_subtitle">Bangun kembali semua varian palet yang dicache untuk setiap sampul album, atau pilih satu saja untuk disegarkan.</string>
     <string name="setcat_force_palette_title">Paksa Regenerasi Palet Album</string>
@@ -209,7 +201,6 @@
     <string name="setcat_player_theme_label">Tema Pemutar</string>
     <string name="setcat_queue_transitions">Antrean dan Transisi</string>
     <string name="setcat_regenerate_all">Regenerasi Semua</string>
-    <string name="setcat_regenerate_daily_mix_action">Regenerasi Daily Mix</string>
     <string name="setcat_regenerate_stats_action">Regenerasi Statistik</string>
     <string name="setcat_regenerating">Meregenerasi…</string>
     <string name="setcat_replaygain_enable_subtitle">Normalkan tingkat volume menggunakan metadata ReplayGain dari file audio.</string>
@@ -250,7 +241,6 @@
     <string name="setcat_theme_light">Tema Terang</string>
     <string name="setcat_trigger_crash_subtitle">Simulasikan crash untuk menguji sistem pelaporan crash.</string>
     <string name="setcat_trigger_crash_title">Picu Crash Uji Coba</string>
-    <string name="settings_accounts_row_title">Akun</string>
     <string name="settings_category_about_subtitle">Info aplikasi, versi, dan kredit</string>
     <string name="settings_category_about_title">Tentang</string>
     <string name="settings_category_appearance_subtitle">Tema, tata letak, dan gaya visual</string>
@@ -276,7 +266,6 @@
     <string name="settings_top_bar_title">Pengaturan</string>
     <string name="sync_indicator_rebuilding">Membangun kembali database</string>
     <string name="tab_home">Beranda</string>
-    <string name="toast_daily_mix_regeneration_started">Regenerasi Daily Mix dimulai</string>
     <string name="toast_full_rescan_started">Pemindaian ulang penuh dimulai…</string>
     <string name="toast_library_sync_finished">Sinkronisasi pustaka selesai</string>
     <string name="toast_rebuilding_database">Membangun kembali database…</string>
@@ -367,4 +356,9 @@
     <string name="playback_speed_custom_supporting">Dari %1$s× hingga %2$s×, maksimal dua desimal</string>
     <string name="playback_speed_custom_error">Masukkan kecepatan dari %1$s× hingga %2$s×</string>
     <string name="playback_speed_multiplier_suffix">×</string>
+    <string name="setcat_interface_scale_title">Ukuran antarmuka</string>
+    <string name="setcat_interface_scale_subtitle">Ubah ukuran antarmuka aplikasi tanpa mengubah pengaturan tampilan Android.</string>
+    <string name="setcat_min_tracks_per_artist">Trek Minimum per Artis</string>
+    <string name="setcat_system_font_title">Gunakan font sistem</string>
+    <string name="setcat_system_font_subtitle">Gunakan jenis huruf default Android daripada font bulat RollerSkater.</string>
 </resources>

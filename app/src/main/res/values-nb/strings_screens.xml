@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_contributions_format">%1$d bidrag.</string>
-    <string name="about_link_fdroid_subtitle">Tilgjengelig i F-Droid-katalogen</string>
     <string name="about_licenses_title">Lisenser og kreditering</string>
     <string name="about_licenses_subtitle">Biblioteker med åpen kildekode, skrifttyper og medfølgende data</string>
     <string name="about_licenses_sheet_subtitle">Tredjepartsprogramvare, skrifttyper og data som følger med denne appen.</string>
@@ -9,8 +8,6 @@
     <string name="licenses_tab_libraries">Biblioteker</string>
     <string name="licenses_tab_fonts">Skrifttyper</string>
     <string name="licenses_tab_contributors">Bidragsytere</string>
-    <string name="navigation_rail_expand">Vis navigasjon</string>
-    <string name="navigation_rail_collapse">Skjul navigasjon</string>
     <string name="licenses_tab_data">Data</string>
     <string name="licenses_tab_raw_notice">Rå merknad</string>
     <string name="licenses_search_placeholder">Søk i biblioteker eller lisenser…</string>
@@ -22,7 +19,6 @@
     <string name="licenses_toast_copied">Lisensteksten er kopiert til utklippstavlen</string>
     <string name="licenses_cd_close">Lukk</string>
     <string name="licenses_cd_copy">Kopier lisenstekst</string>
-    <string name="about_link_fdroid_title">F-Droid</string>
     <string name="about_link_source_title">Kildekode</string>
     <string name="about_maintainer_subtitle">Vedlikehold av FOSS-utgaven og den opprinnelige, ikke-FOSS-utgaven.</string>
     <string name="about_maintainer_title">Vedlikeholdere</string>
@@ -39,7 +35,6 @@
     <string name="about_support_eyebrow">GitHub Sponsors</string>
     <string name="about_tagline">Lokal musikk først, selvhostet strømming og Material 3-håndverk i én FOSS-spiller.</string>
     <string name="about_version_format">Versjon v%1$s</string>
-    <string name="accounts_unable_open_screen">Kan ikke åpne denne skjermen akkurat nå.</string>
     <string name="action_copy">Kopier</string>
     <string name="action_reset">Nullstill</string>
     <string name="action_share">Del</string>
@@ -83,7 +78,6 @@
     <string name="cd_finish">Fullfør</string>
     <string name="cd_generic_artist">Artist</string>
     <string name="cd_genre_illustration">Sjangerillustrasjon</string>
-    <string name="cd_logout">Logg ut</string>
     <string name="cd_next_step">Neste</string>
     <string name="cd_no_search_results">Ingen resultater</string>
     <string name="cd_open_github_profile">Åpne GitHub-profil</string>
@@ -110,7 +104,6 @@
     <string name="detail_hero_duration_minutes">%1$d min</string>
     <string name="detail_hero_duration_hours">%1$d t %2$d min</string>
     <string name="cd_song_cover">Sangcover</string>
-    <string name="cd_sync">Synkroniser</string>
     <string name="cd_toggle_grid_list">Bytt mellom rutenett og liste</string>
     <string name="clear_all">Tøm alt</string>
     <string name="crash_report_clipboard_label">Krasj-logg</string>
@@ -121,39 +114,6 @@
     <string name="crash_report_subtitle">Appen krasjet i forrige økt. Hjelp oss ved å dele krasjrapporten.</string>
     <string name="crash_report_title">Beklager, noe gikk galt</string>
     <string name="customize_corner_radius">Juster hjørneradius</string>
-    <string name="dash_action_disconnect">Koble fra</string>
-    <string name="dash_action_sync">Synk</string>
-    <string name="dash_action_sync_library">Synkroniser bibliotek</string>
-    <string name="dash_last_synced_format">Sist synkronisert: %1$s</string>
-    <string name="dash_libraries_all">Alle bibliotek</string>
-    <string name="dash_libraries_all_subtitle">Ta med alle bibliotek denne serveren tilbyr</string>
-    <string name="dash_libraries_change">Endre</string>
-    <string name="dash_libraries_folder_subtitle">Ta med dette biblioteket i neste biblioteksynkronisering</string>
-    <string name="dash_libraries_load_failed">Kunne ikke laste bibliotekene; synkronisering bruker alle</string>
-    <string name="dash_libraries_more_count">+%1$d flere</string>
-    <string name="dash_libraries_not_music">Ikke et musikkbibliotek</string>
-    <string name="dash_libraries_selected_count">%1$d av %2$d valgt</string>
-    <string name="dash_libraries_sheet_subtitle">Velg hvilke serverbibliotek som skal tas med når hovedbiblioteket synkroniseres.</string>
-    <string name="dash_libraries_sync_needed">Synkroniser biblioteket for å ta i bruk endringene</string>
-    <string name="dash_libraries_title">Bibliotek</string>
-    <string name="dash_library_playlist_title">Bibliotek</string>
-    <string name="dash_playlists_empty_hint_subsonic">Trykk på synk for å hente spillelister</string>
-    <string name="dash_playlists_empty_title">Ingen spillelister synkronisert ennå</string>
-    <string name="dash_playlists_synced_count">%1$d spillelister synkronisert</string>
-    <string name="dash_quick_actions">Hurtighandlinger</string>
-    <string name="dash_song_count">%1$d sanger</string>
-    <string name="dash_status_fetching_albums">Henter albumliste…</string>
-    <string name="dash_status_fetching_playlists">Henter spillelister…</string>
-    <string name="dash_status_fetching_songs_from_format">Henter sanger fra %1$s…</string>
-    <string name="dash_status_library_sync_complete">Biblioteksynkronisering fullført</string>
-    <string name="dash_status_no_songs_found">Ingen biblioteksanger funnet</string>
-    <string name="dash_status_saving_songs_format">Lagrer %1$d sanger i databasen…</string>
-    <string name="dash_status_sync_complete">Synkronisering fullført</string>
-    <string name="dash_status_syncing">Synkroniserer</string>
-    <string name="dash_status_syncing_library">Synkroniserer bibliotek…</string>
-    <string name="dash_status_syncing_playlist_format">Synkroniserer spilleliste: %1$s</string>
-    <string name="dash_status_updating_local">Oppdaterer lokalt bibliotek…</string>
-    <string name="dash_title_playlists">Spillelister</string>
     <string name="delimiter_add_title">Legg til ny delimiter</string>
     <string name="delimiter_defaults_title">Standard delimitere</string>
     <string name="delimiter_hint">f.eks. / eller ;</string>
@@ -181,7 +141,6 @@
     <string name="restore_selected">Gjenopprett valgte</string>
     <string name="restoring">Gjenoppretter</string>
     <string name="screen_about">Om</string>
-    <string name="screen_subsonic_dashboard_title">Subsonic</string>
     <string name="search_no_results_for_query">Ingen resultater for \"%1$s\"</string>
     <string name="search_no_results_found">Ingen resultater funnet.</string>
     <string name="search_nothing_found">Fant ingenting</string>
@@ -233,7 +192,6 @@
     <string name="setup_permission_media_title">Medietilgang</string>
     <string name="setup_permission_notifications_description">Aktiver varslinger for å styre musikken fra låst skjerm.</string>
     <string name="setup_permission_notifications_title">Varslinger</string>
-    <string name="setup_preview_songs_label">Sanger</string>
     <string name="setup_recommended">Anbefalt</string>
     <string name="setup_restore_backup_subtitle">Se gjennom hva du vil importere før du fullfører oppsettet.</string>
     <string name="setup_restore_backup_title">Gjenopprett sikkerhetskopi</string>
@@ -275,7 +233,6 @@
     <string name="word_delimiter_toast_invalid">Finnes allerede eller er ugyldig</string>
     <string name="word_delimiter_toast_reset">Orddelimitere tilbakestilt til standard</string>
     <string name="word_delimiters_screen_title">Orddelimitere</string>
-    <string name="easter_egg_thank_you">Takk for at du bruker RollerSkater!</string>
     <string name="setup_external_services_subtitle">RollerSkater fungerer offline som standard. Aktiver bare oppslagene du vil ha.</string>
     <string name="setup_permission_media_description">RollerSkater trenger tilgang til lydfilene dine for å bygge musikkbiblioteket ditt.</string>
     <string name="setup_permission_alarms_description">Valgfritt, men anbefalt hvis du bruker Sleep timer og vil at RollerSkater skal stoppe avspillingen nøyaktig i tide.</string>

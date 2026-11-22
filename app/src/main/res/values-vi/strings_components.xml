@@ -2,7 +2,6 @@
 <resources>
     <string name="widget_tap_to_open">Nhấn để mở</string>
     <string name="widget_album_art">Ảnh bìa album</string>
-    <string name="widget_album_art_placeholder">Khung giữ chỗ ảnh bìa album</string>
     <string name="cd_album_art_of">Ảnh bìa album của %1$s</string>
     <string name="cd_album_art_placeholder">Khung giữ chỗ %1$s</string>
     <string name="cd_show_controls">Hiện các nút điều khiển</string>
@@ -11,10 +10,7 @@
     <string name="cd_play">Phát</string>
     <string name="cd_pause">Tạm dừng</string>
     <string name="widget_tap_to_play">Nhấn để phát</string>
-    <string name="widget_preview_song_title">Tên bài hát</string>
-    <string name="widget_preview_artist">Nghệ sĩ</string>
     <string name="cd_repeat">Lặp lại</string>
-    <string name="widget_wavy_progress_bar_desc">Thanh tiến trình, %1$d phần trăm</string>
 
     <string name="lyrics_more_appearance">Giao diện</string>
     <string name="lyrics_more_alignment">Căn chỉnh lề</string>
@@ -119,7 +115,6 @@
     <string name="song_info_tone_alarm_label">âm báo thức</string>
     <string name="song_info_ringtone_permission_prompt">Bật quyền Thay đổi cài đặt hệ thống, sau đó quay lại RollerSkater để tự động hoàn tất.</string>
     <string name="song_info_ringtone_permission_missing">Quyền Thay đổi cài đặt hệ thống chưa được bật.</string>
-    <string name="song_info_ringtone_local_only">Chỉ các bài hát cục bộ mới có thể dùng làm nhạc chuông.</string>
     <string name="song_info_ringtone_missing_file">Không thể chuẩn bị tệp âm thanh này để làm nhạc chuông.</string>
     <string name="song_info_ringtone_failed">Không thể đặt nhạc chuông: %1$s</string>
     <string name="song_info_label_duration">Thời lượng</string>
@@ -129,7 +124,6 @@
     <string name="cd_album_icon">Album</string>
     <string name="cd_artist_icon">Nghệ sĩ</string>
     <string name="cd_audio_format_icon">Định dạng âm thanh</string>
-    <string name="cd_provider_icon">Nguồn cung cấp</string>
     <string name="cd_file_icon">Tệp</string>
     <string name="cd_edit_song_metadata">Chỉnh sửa siêu dữ liệu bài hát</string>
     <string name="cd_remove_from_favorites">Xóa khỏi yêu thích</string>

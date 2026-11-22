@@ -540,8 +540,7 @@ class LyricsRepositoryImpl @Inject constructor(
                     val parsedLyrics = LyricsUtils.parseLyrics(rawLyrics).copy(areFromRemote = true)
                     if (parsedLyrics.isValid()) {
                         Timber.tag(TAG).d(
-                            "LRCLIB lyrics found - Word synced: ${!bestMatch.lyricsfile.isNullOrBlank()}, " +
-                                "Synced: ${bestMatch.hasSyncedContent}, " +
+                            "LRCLIB lyrics found - Synced: ${bestMatch.hasSyncedContent}, " +
                                 "Plain: ${!bestMatch.plainLyrics.isNullOrBlank()}"
                         )
                         

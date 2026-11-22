@@ -27,8 +27,6 @@
     <string name="presentation_batch_f_colors_title">Warna</string>
     <string name="presentation_batch_f_corner_radius">Radius Sudut</string>
     <string name="presentation_batch_f_create">Buat</string>
-    <string name="presentation_batch_f_creation_mode_manual">Manual</string>
-    <string name="presentation_batch_f_creation_mode_smart">Pintar</string>
     <string name="presentation_batch_f_curve">Kurva</string>
     <string name="presentation_batch_f_done">Selesai</string>
     <string name="presentation_batch_f_dot_space_suffix"> · %1$s</string>
@@ -81,7 +79,6 @@
     <string name="presentation_batch_f_full_rescan">Pindai Ulang Penuh</string>
     <string name="presentation_batch_f_icon_symbol">Simbol Ikon</string>
     <string name="presentation_batch_f_new_playlist">Playlist baru</string>
-    <string name="presentation_batch_f_new_smart_playlist">Playlist pintar baru</string>
     <string name="presentation_batch_f_next">Berikutnya</string>
     <string name="presentation_batch_f_palette_label_expressive">Expressive</string>
     <string name="presentation_batch_f_palette_label_fruit_salad">Fruit Salad</string>
@@ -110,15 +107,6 @@
     <string name="presentation_batch_f_shape_parameters">Parameter bentuk</string>
     <string name="presentation_batch_f_shape_style">Gaya Bentuk</string>
     <string name="presentation_batch_f_sides">Sisi</string>
-    <string name="presentation_batch_f_smart_rule">Aturan Pintar</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_subtitle">Trek favorit yang sudah lama tidak Anda putar.</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_title">Favorit yang Terlupakan</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_subtitle">Trek yang baru ditambahkan dengan jumlah putaran rendah.</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_title">Permata Baru</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_subtitle">Lagu yang paling baru-baru ini Anda dengarkan.</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_title">Baru-baru Ini Diputar</string>
-    <string name="presentation_batch_f_smart_rule_top_played_subtitle">Trek Anda yang paling sering diputar.</string>
-    <string name="presentation_batch_f_smart_rule_top_played_title">Paling Sering Diputar</string>
     <string name="presentation_batch_f_smoothness">Kehalusan</string>
     <string name="presentation_batch_f_status_bullet_step">%1$s • %2$s</string>
     <string name="presentation_batch_f_sync_phase_cleaning_cache">Membersihkan cache sampul album</string>

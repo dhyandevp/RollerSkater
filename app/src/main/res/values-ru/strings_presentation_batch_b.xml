@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">Подключить %1$s</string>
-    <string name="presentation_batch_b_accounts_linked_services">Подключённые сервисы</string>
-    <string name="presentation_batch_b_accounts_logging_out">Выход…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Подключите сервис, чтобы управлять им с этого экрана.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Пока нет подключённых аккаунтов</string>
-    <string name="presentation_batch_b_accounts_open_service">Открыть сервис</string>
-    <string name="presentation_batch_b_accounts_status_connected">Подключено</string>
     <string name="presentation_batch_b_add">Добавить</string>
     <string name="presentation_batch_b_add_custom_genre">Добавить свой</string>
     <string name="presentation_batch_b_add_custom_genre_title">Добавить свой жанр</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">Очистить</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">Радиус скругления</string>
-    <string name="presentation_batch_b_daily_mix_title">Daily Mix</string>
     <string name="presentation_batch_b_date_today">Сегодня</string>
     <string name="presentation_batch_b_date_yesterday">Вчера</string>
     <string name="presentation_batch_b_delete_playlist">Удалить плейлист</string>
@@ -34,7 +26,6 @@
     <string name="presentation_batch_b_play_latest">Воспроизвести последнее</string>
     <string name="presentation_batch_b_playlist_empty_add_hint">Нажмите «Добавить треки», чтобы начать.</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">В этой папке нет треков.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Пока ни один трек не подходит под это умное правило.</string>
     <string name="presentation_batch_b_playlist_empty_title">Этот плейлист пуст.</string>
     <string name="presentation_batch_b_playlist_options_title">Параметры плейлиста</string>
     <string name="presentation_batch_b_queue_recently_played">Недавно прослушанные</string>
@@ -54,11 +45,5 @@
     <string name="presentation_batch_b_select_all">Выбрать всё</string>
     <string name="presentation_batch_b_select_icon">Выбрать иконку</string>
     <string name="presentation_batch_b_set_default_transition">Установить переход по умолчанию</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="one">%1$d песня • %2$s</item>
-        <item quantity="few">%1$d песни • %2$s</item>
-        <item quantity="many">%1$d песен • %2$s</item>
-        <item quantity="other">%1$d песни • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">Сортировать треки</string>
 </resources>

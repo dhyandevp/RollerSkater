@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="auth_cd_back">Назад</string>
-    <string name="auth_connect">Подключить</string>
-    <string name="auth_connecting">Подключение…</string>
-    <string name="auth_connection_details">Данные подключения</string>
-    <string name="auth_connection_details_subtitle">Введите URL сервера и данные учётной записи.</string>
-    <string name="auth_hide_password">Скрыть пароль</string>
-    <string name="auth_local_network_permission_denied">Разрешите доступ к устройствам поблизости, чтобы подключиться к серверу в локальной сети.</string>
-    <string name="auth_password">Пароль</string>
-    <string name="auth_password_placeholder">Введите пароль</string>
-    <string name="auth_prefill_http">Вставить http://</string>
-    <string name="auth_select_libraries_confirm">Сохранить и синхронизировать</string>
-    <string name="auth_select_libraries_subtitle">На этом сервере несколько музыкальных библиотек. Выберите, какие синхронизировать — позже это можно изменить на панели управления сервером.</string>
-    <string name="auth_select_libraries_title">Выберите библиотеки для синхронизации</string>
-    <string name="auth_server_url">URL сервера</string>
-    <string name="auth_show_password">Показать пароль</string>
-    <string name="auth_use_http">Использовать HTTP / VPN</string>
-    <string name="auth_username">Имя пользователя</string>
-    <string name="auth_username_placeholder_admin">admin</string>
     <string name="auth_web_retry">Повторить</string>
-    <string name="cd_subsonic_logo">Subsonic</string>
-    <string name="toast_welcome_user">Добро пожаловать, %1$s!</string>
 </resources>

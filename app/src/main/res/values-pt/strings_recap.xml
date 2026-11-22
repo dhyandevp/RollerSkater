@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+<string name="recap_card_title">Seu resumo de %1$d</string>
+<string name="recap_card_title_so_far">Seu %1$d até agora</string>
+<string name="recap_card_subtitle">Reviva seu ano na música</string>
+<string name="recap_card_subtitle_so_far">Veja como está sendo seu ano na música</string>
+<string name="recap_home_card_title">Seu resumo de %1$d está aqui</string>
+<string name="recap_home_card_subtitle">Reviva as músicas, artistas e momentos que marcaram o seu ano.</string>
+<string name="recap_home_card_open">Ver resumo</string>
+<string name="recap_home_card_dismiss">Descartar</string>
+<string name="recap_cd_close">Fechar resumo</string>
+<string name="recap_cd_pause">Pausa</string>
+<string name="recap_cd_resume">Currículo</string>
+<string name="recap_cd_slide_progress">Diapositivo %1$d de %2$d</string>
+<string name="recap_action_next_slide">Próximo slide</string>
+<string name="recap_action_previous_slide">Diapositivo anterior</string>
+<string name="recap_close">Fechar</string>
+<string name="recap_not_enough_title">Você ainda não ouviu o suficiente</string>
+<string name="recap_not_enough_subtitle">Continue ouvindo música e seu resumo de %1$d será preenchido.</string>
+<string name="recap_intro_kicker">Visão geral do RollerSkater</string>
+<string name="recap_intro_title">Seu ano na música</string>
+<string name="recap_intro_title_so_far">Seu ano até agora</string>
+<string name="recap_intro_subtitle">Uma resenha das músicas, artistas e momentos que deram a trilha sonora do seu ano.</string>
+<string name="recap_tap_hint">Toque para continuar</string>
+<string name="recap_minutes_kicker">Em %1$d você ouviu música por</string>
+    <plurals name="recap_minutes_unit" tools:ignore="ImpliedQuantity">
+<item quantity="one">minuto</item>
+<item quantity="many">minutos</item>
+<item quantity="other">minutos</item>
+    </plurals>
+    <plurals name="recap_minutes_days_equivalent">
+<item quantity="one">É equivalente a %d dia de música ininterrupta.</item>
+<item quantity="many">É equivalente a alguns %d dias de música ininterrupta.</item>
+<item quantity="other">É equivalente a alguns %d dias de música ininterrupta.</item>
+    </plurals>
+    <plurals name="recap_minutes_hours_equivalent">
+<item quantity="one">É equivalente a %d hora de música ininterrupta.</item>
+<item quantity="many">É equivalente a cerca de %d horas de música ininterrupta.</item>
+<item quantity="other">É equivalente a cerca de %d horas de música ininterrupta.</item>
+    </plurals>
+<string name="recap_minutes_daily_average">Média diária</string>
+<string name="recap_minutes_active_days">Dias com música</string>
+<string name="recap_months_kicker">Seu mês mais intenso</string>
+<string name="recap_months_detail">%1$s ouvindo</string>
+<string name="recap_clock_kicker">Seu relógio de escuta</string>
+<string name="recap_personality_early_bird">Madrugador</string>
+<string name="recap_personality_early_bird_desc">Você começou o dia com música. As manhãs eram seu melhor momento.</string>
+<string name="recap_personality_daytime">ouvinte diurno</string>
+<string name="recap_personality_daytime_desc">Sua música te acompanhou durante o dia, do meio da manhã até a tarde.</string>
+<string name="recap_personality_evening">ouvinte noturno</string>
+<string name="recap_personality_evening_desc">À medida que o dia se acalmava, a música ficava mais alta.</string>
+<string name="recap_personality_night_owl">coruja noturna</string>
+<string name="recap_personality_night_owl_desc">Quanto mais tarde, mais você ouvia.</string>
+<string name="recap_clock_favorite_day">Dia favorito: %1$s</string>
+<string name="recap_cd_chart_entry">%1$s: %2$s</string>
+<string name="recap_cd_months_chart">Ouça por mês: %1$s</string>
+<string name="recap_cd_clock_chart">Ouvindo por hora: %1$s</string>
+<string name="recap_dedication_kicker">Sua sequência mais longa</string>
+    <plurals name="recap_streak_unit" tools:ignore="ImpliedQuantity">
+<item quantity="one">dia seguido</item>
+<item quantity="many">dias seguidos</item>
+<item quantity="other">dias seguidos</item>
+    </plurals>
+<string name="recap_dedication_longest_session">Sessão mais longa</string>
+<string name="recap_dedication_biggest_day">Dia com mais escuta</string>
+<string name="recap_dedication_first_song">Primeira música do ano</string>
+<string name="recap_genres_kicker">Seus gêneros mais ouvidos</string>
+<string name="recap_genres_share">%1$s do que você ouviu</string>
+<string name="recap_decade_kicker">Seu tempo</string>
+<string name="recap_decade_value">%1$d década</string>
+<string name="recap_decade_detail">%1$s do que você ouviu foram músicas lançadas nesta década.</string>
+<string name="recap_albums_kicker">Seus álbuns mais ouvidos</string>
+    <plurals name="recap_unique_albums">
+<item quantity="one">%d álbum na sua rotação</item>
+<item quantity="many">%d álbuns na sua rotação</item>
+<item quantity="other">%d álbuns na sua rotação</item>
+    </plurals>
+<string name="recap_artists_kicker">Seu artista número 1</string>
+    <plurals name="recap_unique_artists">
+<item quantity="one">Você ouviu %d artista</item>
+<item quantity="many">Você ouviu %d artistas diferentes</item>
+<item quantity="other">Você ouviu %d artistas diferentes</item>
+    </plurals>
+<string name="recap_songs_kicker">Sua música número 1</string>
+    <plurals name="recap_unique_songs">
+<item quantity="one">Você tocou %d música</item>
+<item quantity="many">Você tocou %d músicas diferentes</item>
+<item quantity="other">Você tocou %d músicas diferentes</item>
+    </plurals>
+<string name="recap_summary_kicker">Resumo do seu ano</string>
+<string name="recap_summary_title">Meu %1$d em música</string>
+<string name="recap_summary_title_so_far">Meu %1$d até agora</string>
+<string name="recap_summary_minutes">Minutos ouvidos</string>
+<string name="recap_summary_top_artist">Artista nº 1</string>
+<string name="recap_summary_top_song">Canção nº 1</string>
+<string name="recap_summary_top_genre">Gênero #1</string>
+<string name="recap_summary_top_album">Álbum nº 1</string>
+<string name="recap_summary_listening_style">Estilo de escuta</string>
+<string name="recap_share">Compartilhar</string>
+<string name="recap_share_chooser_title">Compartilhe seu resumo</string>
+<string name="recap_share_text">Meu %1$d em música, criado com RollerSkater</string>
+<string name="recap_share_failed">Não foi possível criar a imagem de resumo</string>
+<string name="recap_play_top_songs">Jogar no topo</string>
+<string name="recap_top_songs_queue_name">%1$d melhores músicas</string>
+<string name="recap_replay">Veja novamente</string>
+</resources>

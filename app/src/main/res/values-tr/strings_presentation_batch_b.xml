@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">%1$s Bağla</string>
-    <string name="presentation_batch_b_accounts_linked_services">Bağlantılı Hizmetler</string>
-    <string name="presentation_batch_b_accounts_logging_out">Oturum kapatılıyor…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Bu ekrandan yönetmek için bir sağlayıcı bağlayın.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Henüz bağlantılı hesap yok</string>
-    <string name="presentation_batch_b_accounts_open_service">Hizmeti Aç</string>
-    <string name="presentation_batch_b_accounts_status_connected">Bağlandı</string>
     <string name="presentation_batch_b_add">Ekle</string>
     <string name="presentation_batch_b_add_custom_genre">Özel Ekle</string>
     <string name="presentation_batch_b_add_custom_genre_title">Özel Tür Ekle</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">Temizle</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">Köşe Yarıçapı</string>
-    <string name="presentation_batch_b_daily_mix_title">Günlük Miks</string>
     <string name="presentation_batch_b_date_today">Bugün</string>
     <string name="presentation_batch_b_date_yesterday">Dün</string>
     <string name="presentation_batch_b_delete_playlist">Çalma listesini sil</string>
@@ -32,9 +24,8 @@
     <string name="presentation_batch_b_new_name">Yeni ad</string>
     <string name="presentation_batch_b_play_it">Çal</string>
     <string name="presentation_batch_b_play_latest">En sonuncuyu oynat</string>
-    <string name="presentation_batch_b_playlist_empty_add_hint">Başlamak için \'Şarkı Ekle\' seçeneğine dokunun.</string>
+<string name="presentation_batch_b_playlist_empty_add_hint">"Başlamak için 'Şarkı Ekle' seçeneğine dokunun."</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">Bu klasör şarkı içermiyor.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Bu akıllı kurala uyan şarkı henüz yok.</string>
     <string name="presentation_batch_b_playlist_empty_title">Bu çalma listesi boş.</string>
     <string name="presentation_batch_b_playlist_options_title">Çalma listesi seçenekleri</string>
     <string name="presentation_batch_b_queue_recently_played">Son Oynatılanlar</string>
@@ -54,9 +45,5 @@
     <string name="presentation_batch_b_select_all">Tümünü seç</string>
     <string name="presentation_batch_b_select_icon">Simge Seç</string>
     <string name="presentation_batch_b_set_default_transition">Varsayılan geçişi ayarla</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="one">%1$d şarkı • %2$s</item>
-        <item quantity="other">%1$d şarkı • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">Şarkıları Sırala</string>
 </resources>

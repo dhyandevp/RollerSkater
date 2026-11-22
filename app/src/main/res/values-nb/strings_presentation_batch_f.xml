@@ -27,8 +27,6 @@
     <string name="presentation_batch_f_colors_title">Farger</string>
     <string name="presentation_batch_f_corner_radius">Hjørneradius</string>
     <string name="presentation_batch_f_create">Opprett</string>
-    <string name="presentation_batch_f_creation_mode_manual">Manuell</string>
-    <string name="presentation_batch_f_creation_mode_smart">Smart</string>
     <string name="presentation_batch_f_curve">Kurve</string>
     <string name="presentation_batch_f_done">Ferdig</string>
     <string name="presentation_batch_f_dot_space_suffix"> · %1$s</string>
@@ -81,7 +79,6 @@
     <string name="presentation_batch_f_full_rescan">Full reskanning</string>
     <string name="presentation_batch_f_icon_symbol">Ikonsymbol</string>
     <string name="presentation_batch_f_new_playlist">Ny spilleliste</string>
-    <string name="presentation_batch_f_new_smart_playlist">Ny smart spilleliste</string>
     <string name="presentation_batch_f_next">Neste</string>
     <string name="presentation_batch_f_palette_label_expressive">Expressive</string>
     <string name="presentation_batch_f_palette_label_fruit_salad">Fruit Salad</string>
@@ -110,15 +107,6 @@
     <string name="presentation_batch_f_shape_parameters">Form-parametere</string>
     <string name="presentation_batch_f_shape_style">Formstil</string>
     <string name="presentation_batch_f_sides">Sider</string>
-    <string name="presentation_batch_f_smart_rule">Smart regel</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_subtitle">Favorittspor du ikke har spilt på en stund.</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_title">Glemte favoritter</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_subtitle">Nylig tillagte spor med få avspillinger.</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_title">Nye perler</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_subtitle">Sanger du har lyttet til nylig.</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_title">Nylig spilt</string>
-    <string name="presentation_batch_f_smart_rule_top_played_subtitle">Dine mest spilte spor.</string>
-    <string name="presentation_batch_f_smart_rule_top_played_title">Mest spilt</string>
     <string name="presentation_batch_f_smoothness">Glatthet</string>
     <string name="presentation_batch_f_status_bullet_step">%1$s • %2$s</string>
     <string name="presentation_batch_f_sync_phase_cleaning_cache">Rydder albumkunst-cache</string>

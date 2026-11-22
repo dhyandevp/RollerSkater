@@ -35,12 +35,8 @@
     </plurals>
 
     <string name="presentation_batch_e_no_playlist_created">Chưa có danh sách phát nào được tạo.</string>
-    <string name="presentation_batch_e_new_playlist_hint">Chạm vào nút \'Danh sách phát mới\' để bắt đầu.</string>
+<string name="presentation_batch_e_new_playlist_hint">"Chạm vào nút 'Danh sách phát mới' để bắt đầu."</string>
 
-    <string name="presentation_batch_e_create_playlist_title">Tạo danh sách phát</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Chọn cách tạo.</string>
-    <string name="presentation_batch_e_creation_mode_manual">Thủ công</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Tự thiết kế ảnh bìa, biểu tượng, hình dạng và tự chọn bài hát.</string>
 
     <string name="presentation_batch_e_reset_presets_title">Đặt lại cài đặt sẵn</string>
     <string name="presentation_batch_e_reset_presets_message">Thao tác này sẽ khôi phục thứ tự và chế độ hiển thị mặc định của các cài đặt sẵn. Tiếp tục?</string>

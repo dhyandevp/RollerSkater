@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="settings_top_bar_title">设置</string>
-    <string name="settings_accounts_row_title">账号</string>
 
     <string name="settings_search_hint">搜索设置</string>
     <string name="settings_search_no_results">未找到与“%1$s”匹配的结果</string>
@@ -62,10 +61,6 @@
     <string name="setcat_external_lyrics_subtitle">本地无歌词时允许从 lrclib.net 搜索、手动获取歌词</string>
     <string name="setcat_external_artist_images_title">来自 Deezer 的歌手封面</string>
     <string name="setcat_external_artist_images_subtitle">歌手图片缺失时从 Deezer 获取并缓存到本地</string>
-    <string name="setcat_smart_mix_history_title">Smart Mix 历史记录</string>
-    <string name="setcat_smart_mix_history_subtitle">最近的请求，以及用于避免新混音与上次重复的记忆。</string>
-    <string name="setcat_smart_mix_history_action">清除历史记录</string>
-    <string name="setcat_smart_mix_history_cleared">Smart Mix 历史记录已清除</string>
     <string name="setcat_lyrics_management">歌词管理</string>
     <string name="setcat_lyrics_source_priority_label">歌词来源优先级</string>
     <string name="setcat_lyrics_source_priority_desc">获取歌词时选择优先尝试的来源</string>
@@ -209,8 +204,6 @@
     <string name="setcat_test_setup_title">测试初始化引导页</string>
     <string name="setcat_test_setup_subtitle">调出首次启动引导界面用于测试</string>
     <string name="setcat_maintenance">维护工具</string>
-    <string name="setcat_force_daily_mix_title">强制重新生成每日混合歌单</string>
-    <string name="setcat_force_daily_mix_subtitle">立刻重新生成每日推荐混合歌单</string>
     <string name="setcat_force_stats_title">强制重建播放统计</string>
     <string name="setcat_force_stats_subtitle">清空缓存，重新计算全部播放统计数据</string>
     <string name="setcat_force_palette_title">强制重建专辑取色配色</string>
@@ -267,14 +260,10 @@
     <string name="rebuild">重建</string>
     <string name="sync_indicator_rebuilding">正在重建数据库</string>
     <string name="toast_rebuilding_database">正在重建数据库…</string>
-    <string name="dialog_regenerate_daily_mix_title">重新生成每日混合歌单？</string>
-    <string name="dialog_regenerate_daily_mix_body">丢弃当前歌单，根据近期听歌记录生成全新歌单。</string>
-    <string name="toast_daily_mix_regeneration_started">开始重新生成每日混合歌单</string>
     <string name="dialog_regenerate_stats_title">重建播放统计？</string>
     <string name="dialog_regenerate_stats_body">清空统计缓存，基于数据库历史重新计算播放数据。</string>
     <string name="toast_stats_regeneration_started">开始重建播放统计</string>
 
-    <string name="setcat_regenerate_daily_mix_action">重新生成每日混合歌单</string>
     <string name="setcat_regenerate_stats_action">重建播放统计</string>
     <string name="setcat_force_palette_empty">未找到带有专辑封面的歌曲</string>
     <string name="setcat_force_palette_subtitle">重建全部专辑封面缓存配色，或者选择单首歌曲刷新</string>
@@ -382,4 +371,9 @@
     <string name="playback_speed_custom_supporting">%1$s× 至 %2$s×，最多两位小数</string>
     <string name="playback_speed_custom_error">请输入 %1$s× 至 %2$s× 之间的速度</string>
     <string name="playback_speed_multiplier_suffix">×</string>
+    <string name="setcat_interface_scale_title">界面大小</string>
+    <string name="setcat_interface_scale_subtitle">在不更改 Android 显示设置的情况下调整应用界面的大小。</string>
+    <string name="setcat_min_tracks_per_artist">每位艺术家的最少曲目数</string>
+    <string name="setcat_system_font_title">使用系统字体</string>
+    <string name="setcat_system_font_subtitle">使用 Android 默认字体代替 RollerSkater 的圆角字体。</string>
 </resources>

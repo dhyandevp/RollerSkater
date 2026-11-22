@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">Conectar %1$s</string>
-    <string name="presentation_batch_b_accounts_linked_services">Servicios vinculados</string>
-    <string name="presentation_batch_b_accounts_logging_out">Cerrando sesión…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Conecta un proveedor para gestionarlo desde esta pantalla.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Aún no hay cuentas vinculadas</string>
-    <string name="presentation_batch_b_accounts_open_service">Abrir servicio</string>
-    <string name="presentation_batch_b_accounts_status_connected">Conectado</string>
     <string name="presentation_batch_b_add">Añadir</string>
     <string name="presentation_batch_b_add_custom_genre">Añadir personalizado</string>
     <string name="presentation_batch_b_add_custom_genre_title">Añadir género personalizado</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">Limpiar</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">Radio de esquina</string>
-    <string name="presentation_batch_b_daily_mix_title">Mix Diario</string>
     <string name="presentation_batch_b_date_today">Hoy</string>
     <string name="presentation_batch_b_date_yesterday">Ayer</string>
     <string name="presentation_batch_b_delete_playlist">Eliminar lista de reproducción</string>
@@ -32,9 +24,8 @@
     <string name="presentation_batch_b_new_name">Nombre nuevo</string>
     <string name="presentation_batch_b_play_it">Reproducir</string>
     <string name="presentation_batch_b_play_latest">Reproducir lo último</string>
-    <string name="presentation_batch_b_playlist_empty_add_hint">Toca en \'Añadir canciones\' para comenzar.</string>
+<string name="presentation_batch_b_playlist_empty_add_hint">"Toca en 'Añadir canciones' para comenzar."</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">Esta carpeta no contiene canciones.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Todavía no hay canciones que coincidan con esta regla inteligente.</string>
     <string name="presentation_batch_b_playlist_empty_title">Esta lista de reproducción está vacía.</string>
     <string name="presentation_batch_b_playlist_options_title">Opciones de la lista</string>
     <string name="presentation_batch_b_queue_recently_played">Reproducidas recientemente</string>
@@ -54,9 +45,5 @@
     <string name="presentation_batch_b_select_all">Seleccionar todo</string>
     <string name="presentation_batch_b_select_icon">Seleccionar icono</string>
     <string name="presentation_batch_b_set_default_transition">Establecer transición predeterminada</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="one">%1$d canción • %2$s</item>
-        <item quantity="other">%1$d canciones • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">Ordenar canciones</string>
 </resources>

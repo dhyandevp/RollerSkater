@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">RollerSkater</string>
-    <string name="do_not_show_again">Não mostrar novamente</string>
     <string name="dismiss">Dispensar</string>
     <string name="all_files_access_title">Permissão especial necessária</string>
     <string name="all_files_access_description">Para editar os metadados das músicas (arquivos .mp3), o RollerSkater precisa de acesso especial a todos os arquivos. Isso permite modificar diretamente as tags das faixas. Conceda essa permissão na próxima tela para ativar a edição de metadados.</string>
@@ -8,31 +7,8 @@
     <string name="error">Erro</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancelar</string>
-    <string name="accounts_listenbrainz_title">ListenBrainz</string>
-    <string name="accounts_listenbrainz_token_dialog_title">Conectar ao ListenBrainz</string>
-    <string name="accounts_listenbrainz_token_dialog_body">Cole seu token de usuário para enviar seus registros de audição ao ListenBrainz. Você pode encontrá-lo nas configurações da sua conta em listenbrainz.org.</string>
-    <string name="accounts_listenbrainz_token_hint">Token de usuário</string>
-    <string name="accounts_listenbrainz_connect">Conectar</string>
-    <string name="accounts_listenbrainz_connect_failed">Não foi possível conectar. Confira seu token e o endereço do servidor e tente novamente.</string>
-    <string name="accounts_listenbrainz_server_hint">URL do servidor (opcional)</string>
-    <string name="accounts_listenbrainz_server_supporting">Deixe em branco para usar listenbrainz.org. Também funciona com servidores próprios compatíveis com a API do ListenBrainz, como o Maloja.</string>
-    <string name="accounts_listenbrainz_invalid_url">Digite uma URL de servidor válida, como https://maloja.example.com/apis/listenbrainz</string>
-    <string name="accounts_listenbrainz_custom_server">Enviando registros de audição para %1$s</string>
-    <string name="accounts_listenbrainz_get_token">Abrir listenbrainz.org</string>
-    <string name="accounts_listenbrainz_needs_reauth">Seu token não é mais válido. Conecte-se novamente para retomar o envio dos registros de audição. As audições que estão na fila serão mantidas.</string>
-    <string name="accounts_listenbrainz_reconnect">Conectar novamente</string>
-    <string name="accounts_listenbrainz_scrobble_local">Registrar audições de arquivos locais</string>
-    <string name="accounts_listenbrainz_toggle_hint">Se o seu servidor já envia registros de audição ao ListenBrainz, desative essa origem aqui para evitar registros duplicados.</string>
-    <string name="accounts_listenbrainz_stat_listens">Total de audições</string>
-    <string name="accounts_listenbrainz_stat_queued">Na fila</string>
-    <string name="accounts_listenbrainz_now_playing_label">Registrando audição agora</string>
-    <string name="accounts_listenbrainz_now_playing_format">%1$s — %2$s</string>
-    <string name="accounts_listenbrainz_now_playing_idle">Nenhuma música em reprodução no momento</string>
-    <string name="accounts_available_services">Serviços disponíveis</string>
     <string name="import_file">Importar</string>
-    <string name="tab_home">Início</string>
     <string name="search">Pesquisar</string>
-    <string name="tab_library">Biblioteca</string>
 
     <string name="lyrics">Letras</string>
     <string name="loading_lyrics">Carregando letras…</string>
@@ -48,7 +24,6 @@
     <string name="lyrics_server_error">Erro no servidor (código %d). Tente novamente mais tarde.</string>
     <string name="lyrics_remote_disabled">A busca de letras na internet está desativada nas configurações.</string>
     <string name="found_n_matches_format">Resultados encontrados: %d</string>
-    <string name="searched_for_x_format">Pesquisa por \"%s\"</string>
     <string name="searching_lyrics">Pesquisando letras…</string>
     <string name="lyrics_already_available">As letras já estão disponíveis. A busca online foi ignorada.</string>
     <string name="lyrics_embedded_already_available">Já foram encontradas letras incorporadas ao arquivo. A busca online foi ignorada.</string>
@@ -252,30 +227,7 @@
     <string name="setcat_find_duplicates_title">Encontrar faixas duplicadas</string>
     <string name="setcat_find_duplicates_subtitle">Verificar se há faixas repetidas na sua biblioteca.</string>
 
-    <string name="cloud_download_action">Baixar</string>
-    <string name="cloud_download_queued">Na fila</string>
-    <string name="cloud_downloading">Baixando…</string>
-    <string name="cloud_download_progress">%1$d%%</string>
-    <string name="cloud_remove_download">Remover download</string>
     <string name="cloud_download_retry">Tentar novamente</string>
-    <string name="cloud_album_download">Baixar álbum</string>
-    <string name="cloud_playlist_download">Baixar playlist</string>
-    <string name="cloud_album_remove_downloads">Remover downloads</string>
-    <string name="cloud_downloads_title">Downloads</string>
-    <string name="cloud_downloads_settings_subtitle">Gerenciar músicas da nuvem disponíveis offline e o armazenamento</string>
-    <string name="cloud_downloads_storage_used">Espaço usado por downloads offline</string>
-    <string name="cloud_downloads_storage_summary">%1$d concluídos · %2$d no total</string>
-    <string name="cloud_downloads_active_section">Na fila ou em download</string>
-    <string name="cloud_downloads_failed_section">Com falha</string>
-    <string name="cloud_downloads_completed_section">Concluídos</string>
-    <string name="cloud_downloads_section_count">%1$s · %2$d</string>
-    <string name="cloud_downloads_unknown_track">Faixa desconhecida</string>
-    <string name="cloud_downloads_downloaded_size">Tamanho baixado · %1$s</string>
-    <string name="cloud_downloads_failed_fallback">Falha no download</string>
-    <string name="cloud_downloads_empty_title">Nenhum download offline</string>
-    <string name="cloud_downloads_empty_subtitle">As músicas da nuvem que você baixar aparecerão aqui.</string>
-    <string name="cloud_download_selected">Baixar músicas selecionadas da nuvem</string>
-    <string name="cloud_download_selected_count">Baixar %1$d músicas da nuvem</string>
     <string name="musicbrainz_lookup">Pesquisar no MusicBrainz</string>
     <string name="musicbrainz_searching">Procurando gravações correspondentes…</string>
     <string name="musicbrainz_lookup_failed">Falha ao consultar o MusicBrainz</string>
@@ -286,49 +238,10 @@
     <string name="musicbrainz_match_score">Confiabilidade da correspondência: %1$d%%</string>
     <string name="musicbrainz_applied">Identificadores do MusicBrainz salvos. O ano que faltava e os nomes genéricos foram preenchidos.</string>
 
-    <string name="setup_gate_preparing">Preparando a configuração…</string>
-    <string name="song_info_label_provider">Provedor</string>
-    <string name="song_info_label_path">Caminho</string>
-    <string name="cd_playlist_artwork">Capa da playlist</string>
-    <string name="home_your_mix_subtitle">Seu mix de hoje</string>
-    <string name="home_your_mix_queue_name">Seu mix</string>
-    <string name="queue_name_liked_songs">Músicas favoritas</string>
-    <string name="queue_name_all_songs_shuffled">Todas as músicas (ordem aleatória)</string>
-    <string name="queue_name_liked_songs_shuffled">Músicas favoritas (ordem aleatória)</string>
-    <string name="queue_name_selected_songs">Músicas selecionadas</string>
 
-    <string name="cd_player_sheet_collapsed">Painel do reprodutor do RollerSkater recolhido, %1$s</string>
-    <string name="cd_player_sheet_expanded">Painel do reprodutor do RollerSkater expandido, %1$s</string>
-    <string name="cd_player_sheet_collapsed_no_track">Painel do reprodutor do RollerSkater recolhido</string>
-    <string name="cd_player_sheet_expanded_no_track">Painel do reprodutor do RollerSkater expandido</string>
-    <string name="mini_player_connecting_device">Conectando ao dispositivo…</string>
-    <string name="mini_player_preparing_playback">Preparando a reprodução…</string>
-    <string name="mini_player_loading_audio">Carregando áudio…</string>
-    <string name="cd_shuffle">Reprodução aleatória</string>
-    <string name="cd_playback_position">Posição de reprodução</string>
-    <string name="add_bookmark_title">Salvar marcador</string>
-    <string name="add_bookmark_saved_point">Ponto de reprodução salvo</string>
-    <string name="add_bookmark_use_lyric_line">Usar linha da letra</string>
-    <string name="add_bookmark_default_name">Marcador @ %1$s</string>
 
-    <string name="collage_pattern_cosmic_swirl">Redemoinho cósmico</string>
-    <string name="collage_pattern_honeycomb_groove">Ritmo em colmeia</string>
-    <string name="collage_pattern_vinyl_stack">Pilha de vinis</string>
-    <string name="collage_pattern_pixel_mosaic">Mosaico de pixels</string>
-    <string name="collage_pattern_stardust_scatter">Chuva de poeira estelar</string>
-    <string name="collage_pattern_soft_orbit">Órbita suave</string>
-    <string name="collage_pattern_arrow_fanfare">Fanfara de setas</string>
-    <string name="collage_pattern_sunny_bloom">Flor ao sol</string>
-    <string name="collage_pattern_pixel_cookie">Biscoito pixelado</string>
-    <string name="collage_pattern_heart_garden">Jardim de corações</string>
 
-    <string name="setcat_group_local_albums_by_title">Agrupar álbuns locais por título</string>
-    <string name="setcat_group_local_albums_by_title_subtitle">Combina faixas locais com o mesmo título de álbum, mesmo quando os artistas do álbum são diferentes. Isso também pode combinar álbuns diferentes com o mesmo título.</string>
-    <string name="presentation_batch_d_cd_open_album_title">Abrir álbum %1$s</string>
-    <string name="home_recently_added_title">Adicionados recentemente</string>
-    <string name="home_recently_added_play_cd">Reproduzir músicas adicionadas recentemente</string>
-    <string name="setcat_audio_output_mode_bit_perfect_usb">USB bit-perfect (experimental)</string>
-    <string name="setcat_audio_output_mode_bit_perfect_usb_description">Envia cada faixa sem alterações para um DAC USB em sua própria taxa de amostragem. Requer celular e DAC compatíveis com saída USB bit-perfect; caso contrário, usa o caminho normal. O volume passa a ser controlado pelo DAC e ativar o equalizador altera o sinal.</string>
-    <string name="setcat_audio_output_mode_bit_perfect_usb_unsupported">Requer Android 14 ou superior e suporte à saída PCM_FLOAT.</string>
+    <string name="player_audio_output_cast_title">Transmitir para a TV</string>
+    <string name="player_audio_output_cast_subtitle">Transmitir para Smart TV, Chromecast ou tela sem fio</string>
 </resources>
 

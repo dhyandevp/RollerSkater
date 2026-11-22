@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="do_not_show_again">Không hiển thị lại</string>
     <string name="dismiss">Bỏ qua</string>
     <string name="all_files_access_title">Cần cấp quyền đặc biệt</string>
     <string name="all_files_access_description">Để chỉnh sửa siêu dữ liệu bài hát (tệp .mp3), RollerSkater cần quyền truy cập vào tất cả các tệp. Điều này cho phép chỉnh sửa trực tiếp các thẻ bài hát. Vui lòng cấp quyền này ở màn hình tiếp theo để bật tính năng chỉnh sửa siêu dữ liệu.</string>
@@ -8,27 +7,6 @@
     <string name="error">Lỗi</string>
     <string name="ok">OK</string>
     <string name="cancel">Hủy</string>
-    <string name="accounts_listenbrainz_title">ListenBrainz</string>
-    <string name="accounts_listenbrainz_token_dialog_title">Kết nối ListenBrainz</string>
-    <string name="accounts_listenbrainz_token_dialog_body">Dán mã khóa người dùng (user token) của bạn để gửi lịch sử nghe nhạc lên ListenBrainz. Bạn có thể tìm thấy mã này trong cài đặt trên listenbrainz.org.</string>
-    <string name="accounts_listenbrainz_token_hint">Mã khóa người dùng</string>
-    <string name="accounts_listenbrainz_connect">Kết nối</string>
-    <string name="accounts_listenbrainz_connect_failed">Không thể kết nối. Kiểm tra mã khóa và URL máy chủ rồi thử lại.</string>
-    <string name="accounts_listenbrainz_server_hint">URL máy chủ (tùy chọn)</string>
-    <string name="accounts_listenbrainz_server_supporting">Để trống đối với listenbrainz.org. Hoạt động với các máy chủ tự lưu trữ hỗ trợ API ListenBrainz như Maloja.</string>
-    <string name="accounts_listenbrainz_invalid_url">Nhập URL máy chủ hợp lệ, ví dụ https://maloja.example.com/apis/listenbrainz</string>
-    <string name="accounts_listenbrainz_custom_server">Đang gửi lịch sử nghe tới %1$s</string>
-    <string name="accounts_listenbrainz_get_token">Mở listenbrainz.org</string>
-    <string name="accounts_listenbrainz_needs_reauth">Mã khóa không còn hợp lệ — kết nối lại để tiếp tục gửi lịch sử nghe. Các lượt nghe trong hàng đợi được giữ lại.</string>
-    <string name="accounts_listenbrainz_reconnect">Kết nối lại</string>
-    <string name="accounts_listenbrainz_scrobble_local">Gửi lịch sử nghe tệp cục bộ</string>
-    <string name="accounts_listenbrainz_toggle_hint">Nếu máy chủ của bạn đã tự gửi lịch sử tới ListenBrainz, hãy tắt nguồn đó tại đây để tránh trùng lặp.</string>
-    <string name="accounts_listenbrainz_stat_listens">Tổng lượt nghe</string>
-    <string name="accounts_listenbrainz_stat_queued">Đang chờ gửi</string>
-    <string name="accounts_listenbrainz_now_playing_label">Đang gửi bài đang phát</string>
-    <string name="accounts_listenbrainz_now_playing_format">%1$s — %2$s</string>
-    <string name="accounts_listenbrainz_now_playing_idle">Hiện không phát bài nào</string>
-    <string name="accounts_available_services">Các dịch vụ khả dụng</string>
     <string name="import_file">Nhập tệp</string>
     <string name="search">Tìm kiếm</string>
     <string name="lyrics">Lời bài hát</string>
@@ -44,7 +22,6 @@
     <string name="lyrics_server_error">Lỗi máy chủ (mã %d). Vui lòng thử lại sau.</string>
     <string name="lyrics_remote_disabled">Lời bài hát trực tuyến đã bị tắt trong cài đặt.</string>
     <string name="found_n_matches_format">Tìm thấy %d kết quả phù hợp</string>
-    <string name="searched_for_x_format">Đã tìm kiếm "%s"</string>
     <string name="searching_lyrics">Đang tìm kiếm lời bài hát…</string>
     <string name="lyrics_already_available">Lời bài hát đã có sẵn. Đã bỏ qua tìm kiếm trực tuyến.</string>
     <string name="lyrics_embedded_already_available">Đã tìm thấy lời bài hát nhúng. Bỏ qua tìm kiếm trực tuyến.</string>
@@ -227,30 +204,7 @@
     <string name="duplicates_group_title_format">%1$s — %2$s</string>
     <string name="setcat_find_duplicates_title">Tìm bài hát trùng lặp</string>
     <string name="setcat_find_duplicates_subtitle">Quét thư viện để tìm các bài hát xuất hiện nhiều hơn một lần.</string>
-    <string name="cloud_download_action">Tải xuống</string>
-    <string name="cloud_download_queued">Trong hàng đợi</string>
-    <string name="cloud_downloading">Đang tải xuống…</string>
-    <string name="cloud_download_progress">%1$d%%</string>
-    <string name="cloud_remove_download">Xóa bản tải xuống</string>
     <string name="cloud_download_retry">Thử lại</string>
-    <string name="cloud_album_download">Tải xuống album</string>
-    <string name="cloud_playlist_download">Tải xuống danh sách phát</string>
-    <string name="cloud_album_remove_downloads">Xóa các bản tải xuống</string>
-    <string name="cloud_downloads_title">Bản tải xuống</string>
-    <string name="cloud_downloads_settings_subtitle">Quản lý bài hát đám mây ngoại tuyến và dung lượng lưu trữ</string>
-    <string name="cloud_downloads_storage_used">Dung lượng ngoại tuyến đã dùng</string>
-    <string name="cloud_downloads_storage_summary">Đã hoàn thành %1$d · Tổng số %2$d</string>
-    <string name="cloud_downloads_active_section">Đang xếp hàng và tải xuống</string>
-    <string name="cloud_downloads_failed_section">Thất bại</string>
-    <string name="cloud_downloads_completed_section">Đã hoàn tất</string>
-    <string name="cloud_downloads_section_count">%1$s · %2$d</string>
-    <string name="cloud_downloads_unknown_track">Bài hát không xác định</string>
-    <string name="cloud_downloads_downloaded_size">Đã tải xuống · %1$s</string>
-    <string name="cloud_downloads_failed_fallback">Tải xuống thất bại</string>
-    <string name="cloud_downloads_empty_title">Chưa có bản tải xuống ngoại tuyến nào</string>
-    <string name="cloud_downloads_empty_subtitle">Các bài hát đám mây bạn tải xuống sẽ xuất hiện tại đây.</string>
-    <string name="cloud_download_selected">Tải xuống các bài hát đám mây đã chọn</string>
-    <string name="cloud_download_selected_count">Tải xuống %1$d bài hát đám mây</string>
     <string name="musicbrainz_lookup">Tìm trên MusicBrainz</string>
     <string name="musicbrainz_searching">Đang tìm bản ghi phù hợp…</string>
     <string name="musicbrainz_lookup_failed">Tra cứu MusicBrainz thất bại</string>
@@ -260,4 +214,6 @@
     <string name="musicbrainz_no_results">Không tìm thấy bản ghi phù hợp nào.</string>
     <string name="musicbrainz_match_score">Độ khớp: %1$d%%</string>
     <string name="musicbrainz_applied">Đã lưu mã định danh MusicBrainz. Đã bổ sung năm còn thiếu và tên bài hát.</string>
+    <string name="player_audio_output_cast_title">Phát lên TV</string>
+    <string name="player_audio_output_cast_subtitle">Phát tới Smart TV, Chromecast hoặc Màn hình không dây</string>
 </resources>

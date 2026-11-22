@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">Connetti %1$s</string>
-    <string name="presentation_batch_b_accounts_linked_services">Servizi collegati</string>
-    <string name="presentation_batch_b_accounts_logging_out">Disconnessione in corso…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Connetti un provider per gestirlo da questa schermata.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Nessun account collegato</string>
-    <string name="presentation_batch_b_accounts_open_service">Apri servizio</string>
-    <string name="presentation_batch_b_accounts_status_connected">Connesso</string>
     <string name="presentation_batch_b_add">Aggiungi</string>
     <string name="presentation_batch_b_add_custom_genre">Aggiungi personalizzato</string>
     <string name="presentation_batch_b_add_custom_genre_title">Aggiungi genere personalizzato</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">Cancella</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">Raggio angoli</string>
-    <string name="presentation_batch_b_daily_mix_title">Daily Mix</string>
     <string name="presentation_batch_b_date_today">Oggi</string>
     <string name="presentation_batch_b_date_yesterday">Ieri</string>
     <string name="presentation_batch_b_delete_playlist">Elimina playlist</string>
@@ -32,16 +24,15 @@
     <string name="presentation_batch_b_new_name">Nuovo nome</string>
     <string name="presentation_batch_b_play_it">Riproduci</string>
     <string name="presentation_batch_b_play_latest">Riproduci le più recenti</string>
-    <string name="presentation_batch_b_playlist_empty_add_hint">Tocca su \'Aggiungi brani\' per iniziare.</string>
+<string name="presentation_batch_b_playlist_empty_add_hint">"Tocca su 'Aggiungi brani' per iniziare."</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">Questa cartella non contiene brani.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Nessun brano corrisponde ancora a questa regola smart.</string>
     <string name="presentation_batch_b_playlist_empty_title">Questa playlist è vuota.</string>
     <string name="presentation_batch_b_playlist_options_title">Opzioni playlist</string>
     <string name="presentation_batch_b_queue_recently_played">Riprodotte di recente</string>
     <string name="presentation_batch_b_quick_fill">Riempimento rapido</string>
     <string name="presentation_batch_b_quick_fill_choose_genre">Scegli genere</string>
     <string name="presentation_batch_b_quick_fill_select_songs">Seleziona brani</string>
-    <string name="presentation_batch_b_recent_empty_subtitle">Cambia l\'intervallo o riproduci più brani per popolare questa cronologia.</string>
+<string name="presentation_batch_b_recent_empty_subtitle">"Cambia l'intervallo o riproduci più brani per popolare questa cronologia."</string>
     <string name="presentation_batch_b_recent_empty_title">Nessuna riproduzione recente in %1$s</string>
     <string name="presentation_batch_b_recently_played_title">Riprodotte di recente</string>
     <string name="presentation_batch_b_remove_songs">Rimuovi brani</string>
@@ -54,9 +45,5 @@
     <string name="presentation_batch_b_select_all">Seleziona tutti</string>
     <string name="presentation_batch_b_select_icon">Seleziona icona</string>
     <string name="presentation_batch_b_set_default_transition">Imposta transizione predefinita</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="one">%1$d brano • %2$s</item>
-        <item quantity="other">%1$d brani • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">Ordina brani</string>
 </resources>

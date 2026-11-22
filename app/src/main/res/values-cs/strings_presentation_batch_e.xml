@@ -28,10 +28,6 @@
     <string name="presentation_batch_e_more_options_for_song">Další možnosti pro %1$s</string>
     <string name="presentation_batch_e_no_playlist_created">Zatím nebyl vytvořen žádný playlist.</string>
     <string name="presentation_batch_e_new_playlist_hint">Začněte klepnutím na tlačítko „Nový playlist“.</string>
-    <string name="presentation_batch_e_create_playlist_title">Vytvořit playlist</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Vyberte způsob vytvoření playlistu.</string>
-    <string name="presentation_batch_e_creation_mode_manual">Ručně</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Navrhněte obal, ikonu i tvar a sami vyberte skladby.</string>
     <string name="presentation_batch_e_reset_presets_title">Obnovit předvolby</string>
     <string name="presentation_batch_e_reset_presets_message">Obnoví se výchozí pořadí a viditelnost předvoleb. Pokračovat?</string>
     <string name="presentation_batch_e_manage_presets_title">Spravovat předvolby</string>
@@ -39,4 +35,16 @@
     <string name="presentation_batch_e_cd_reset_presets_default">Obnovit výchozí nastavení</string>
     <string name="presentation_batch_e_cd_visible">Zobrazeno</string>
     <string name="presentation_batch_e_cd_hidden">Skryto</string>
+    <plurals name="presentation_batch_e_queue_tracks_lined_up">
+        <item quantity="one">Ve frontě je 1 skladba.</item>
+        <item quantity="few">Ve frontě jsou %d skladby.</item>
+        <item quantity="many">Ve frontě je %d skladby.</item>
+        <item quantity="other">Ve frontě je %d skladeb.</item>
+    </plurals>
+    <plurals name="presentation_batch_e_n_songs_selected">
+        <item quantity="one">Vybrána %d skladba</item>
+        <item quantity="few">Vybrány %d skladby</item>
+        <item quantity="many">Ve výběru je %d skladby</item>
+        <item quantity="other">Vybráno %d skladeb</item>
+    </plurals>
 </resources>

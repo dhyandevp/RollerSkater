@@ -2,7 +2,6 @@
 <resources>
     <string name="widget_tap_to_open">Tap to open</string>
     <string name="widget_album_art">Album art</string>
-    <string name="widget_album_art_placeholder">Album art placeholder</string>
     <string name="cd_album_art_of">Album art of %1$s</string>
     <string name="cd_album_art_placeholder">%1$s placeholder</string>
     <string name="cd_show_controls">Show controls</string>
@@ -11,10 +10,7 @@
     <string name="cd_play">Play</string>
     <string name="cd_pause">Pause</string>
     <string name="widget_tap_to_play">Tap to play</string>
-    <string name="widget_preview_song_title">Song title</string>
-    <string name="widget_preview_artist">Artist</string>
     <string name="cd_repeat">Repeat</string>
-    <string name="widget_wavy_progress_bar_desc">Progress bar, %1$d percent</string>
 
     <string name="lyrics_more_appearance">Appearance</string>
     <string name="lyrics_more_alignment">Alignment</string>
@@ -33,7 +29,7 @@
 
     <string name="no_internet_dialog_title">No internet connection</string>
     <string name="no_internet_dialog_message">This content requires an internet connection. Please check your network settings and try again.</string>
-    <string name="offline_screen_title">You\'re offline</string>
+<string name="offline_screen_title">"You're offline"</string>
     <string name="offline_screen_message">Please check your internet connection and try again to access this content.</string>
 
     <string name="equalizer_save_custom_preset_title">Save custom preset</string>
@@ -53,7 +49,7 @@
     <string name="song_field_composer">Composer</string>
 
     <string name="edit_song_info_dialog_title">Editing song metadata</string>
-    <string name="edit_song_info_dialog_body">Editing a song\'s metadata can affect how it\'s displayed and organized in your library. Changes are permanent and may not be reversible.</string>
+<string name="edit_song_info_dialog_body">"Editing a song's metadata can affect how it's displayed and organized in your library. Changes are permanent and may not be reversible."</string>
     <string name="edit_song_got_it">Got it</string>
     <string name="cd_info_icon">Information</string>
     <string name="edit_song_toolbar_title">Edit song</string>
@@ -62,8 +58,8 @@
     <string name="song_field_disc_number">Disc number</string>
     <string name="song_field_replaygain_track_db">ReplayGain track (dB)</string>
     <string name="song_field_replaygain_album_db">ReplayGain album (dB)</string>
-    <string name="placeholder_replaygain_track_example">-6.50</string>
-    <string name="placeholder_replaygain_album_example">-8.20</string>
+    <string name="placeholder_replaygain_track_example" translatable="false">-6.50</string>
+    <string name="placeholder_replaygain_album_example" translatable="false">-8.20</string>
     <string name="cd_replaygain_track">ReplayGain track</string>
     <string name="cd_replaygain_album">ReplayGain album</string>
     <string name="cd_song_title_icon">Title</string>
@@ -119,9 +115,8 @@
     <string name="song_info_tone_alarm_label">alarm sound</string>
     <string name="song_info_ringtone_permission_prompt">Enable Modify system settings, then return to RollerSkater to finish automatically.</string>
     <string name="song_info_ringtone_permission_missing">Modify system settings was not enabled.</string>
-    <string name="song_info_ringtone_local_only">Only local songs can be used as ringtones.</string>
-    <string name="song_info_ringtone_missing_file">Couldn\'t prepare this audio file for ringtone.</string>
-    <string name="song_info_ringtone_failed">Couldn\'t set ringtone: %1$s</string>
+<string name="song_info_ringtone_missing_file">"Couldn't prepare this audio file for ringtone."</string>
+<string name="song_info_ringtone_failed">"Couldn't set ringtone: %1$s"</string>
     <string name="song_info_label_duration">Duration</string>
     <string name="song_info_label_song_metadata">Song info</string>
     <string name="cd_duration_icon">Duration</string>
@@ -129,7 +124,6 @@
     <string name="cd_album_icon">Album</string>
     <string name="cd_artist_icon">Artist</string>
     <string name="cd_audio_format_icon">Audio format</string>
-    <string name="cd_provider_icon">Provider</string>
     <string name="cd_file_icon">File</string>
     <string name="cd_edit_song_metadata">Edit song metadata</string>
     <string name="cd_remove_from_favorites">Remove from favorites</string>
@@ -137,7 +131,7 @@
     <string name="song_info_tab_options">Options</string>
     <string name="song_info_tab_options_badge">OPTIONS</string>
     <string name="song_info_tab_details">Details</string>
-    <string name="song_info_tab_info_badge">INFO</string>
+    <string name="song_info_tab_info_badge" translatable="false">INFO</string>
     <string name="cd_details_tab">Details</string>
 
     <string name="multi_selection_songs_count_upper">%1$d SONGS</string>

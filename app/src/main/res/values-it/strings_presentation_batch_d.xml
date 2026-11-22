@@ -6,7 +6,6 @@
     <string name="presentation_batch_d_cd_expand_title">Espandi %1$s</string>
     <string name="presentation_batch_d_cd_folder">Cartella</string>
     <string name="presentation_batch_d_cd_play_title">Riproduci %1$s</string>
-    <string name="presentation_batch_d_cd_shuffle_play_artist">Riproduzione casuale artista</string>
     <string name="presentation_batch_d_change_photo">Cambia foto</string>
     <string name="presentation_batch_d_cloud_only">Solo cloud</string>
     <string name="presentation_batch_d_cloud_sources_heading">Cloud</string>

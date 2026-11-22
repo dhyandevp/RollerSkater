@@ -101,7 +101,6 @@
     <string name="presentation_batch_d_edit_artist_image_cd">编辑艺术家封面</string>
     <string name="presentation_batch_d_change_photo">更换图片</string>
     <string name="presentation_batch_d_reset_to_default">恢复默认</string>
-    <string name="presentation_batch_d_cd_shuffle_play_artist">随机播放该艺术家</string>
     <string name="presentation_batch_d_cd_artist">艺术家</string>
     <string name="presentation_batch_d_cd_open_album_title">打开专辑 %1$s</string>
 </resources>

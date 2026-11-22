@@ -14,10 +14,6 @@
     <string name="presentation_batch_e_cd_visible">Synlig</string>
     <string name="presentation_batch_e_clear_queue_dialog_message">Er du sikker på at du vil tømme alle sanger fra køen, bortsett fra den gjeldende?</string>
     <string name="presentation_batch_e_clear_queue_dialog_title">Tøm kø</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Velg opprettelsesmetode.</string>
-    <string name="presentation_batch_e_create_playlist_title">Opprett spilleliste</string>
-    <string name="presentation_batch_e_creation_mode_manual">Manuelt</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Design grafikk, ikon og form, og velg sanger selv.</string>
     <string name="presentation_batch_e_deselect_all">Velg bort alle</string>
     <string name="presentation_batch_e_enter_playlist_name">Skriv inn et navn</string>
     <string name="presentation_batch_e_manage_presets_title">Administrer forhåndsinnstillinger</string>

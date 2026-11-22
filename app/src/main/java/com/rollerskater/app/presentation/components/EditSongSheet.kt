@@ -64,7 +64,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import racra.compose.smooth_corner_rect_library.AbsoluteSmoothCornerShape
-import dev.shreyaspatil.capturable.capturable
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.graphics.layer.drawLayer
+import androidx.compose.ui.graphics.rememberGraphicsLayer
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.material.icons.rounded.Restore
 import androidx.compose.material.icons.rounded.Shuffle
@@ -80,7 +82,6 @@ import com.rollerskater.app.data.media.CoverArtUpdate
 import com.rollerskater.app.data.media.CustomMetadataChanges
 import com.rollerskater.app.data.media.CustomMetadataField
 import com.rollerskater.app.data.media.buildCustomMetadataChanges
-import dev.shreyaspatil.capturable.controller.rememberCaptureController
 import java.io.ByteArrayOutputStream
 import java.util.Locale
 import androidx.compose.ui.res.stringResource
@@ -1002,7 +1003,7 @@ fun CoverArtCropperDialog(
 ) {
     val context = LocalContext.current
     val dialogScope = rememberCoroutineScope()
-    val captureController = rememberCaptureController()
+    val graphicsLayer = rememberGraphicsLayer()
     var loadedBitmap by remember { mutableStateOf<ImageBitmap?>(null) }
     var isLoading by remember { mutableStateOf(true) }
     var loadError by remember { mutableStateOf<String?>(null) }
@@ -1120,7 +1121,12 @@ fun CoverArtCropperDialog(
                                             .clip(RoundedCornerShape(28.dp))
                                             .background(MaterialTheme.colorScheme.surface)
                                             .clipToBounds()
-                                            .capturable(controller = captureController)
+                                            .drawWithContent {
+                                                graphicsLayer.record {
+                                                    this@drawWithContent.drawContent()
+                                                }
+                                                drawLayer(graphicsLayer)
+                                            }
                                             .transformable(transformableState)
                                     ) {
                                         Image(
@@ -1187,7 +1193,7 @@ fun CoverArtCropperDialog(
                             if (!canConfirm) return@Button
                             dialogScope.launch {
                                 isSaving = true
-                                val captured = captureController.captureAsync().await()
+                                val captured = graphicsLayer.toImageBitmap()
                                 val bytes = withContext(Dispatchers.IO) {
                                     imageBitmapToJpeg(captured)
                                 }

@@ -27,8 +27,6 @@
     <string name="presentation_batch_f_colors_title">색상</string>
     <string name="presentation_batch_f_corner_radius">모서리 반경</string>
     <string name="presentation_batch_f_create">생성</string>
-    <string name="presentation_batch_f_creation_mode_manual">수동</string>
-    <string name="presentation_batch_f_creation_mode_smart">스마트</string>
     <string name="presentation_batch_f_curve">곡률</string>
     <string name="presentation_batch_f_done">완료</string>
     <string name="presentation_batch_f_dot_space_suffix"> · %1$s</string>
@@ -81,7 +79,6 @@
     <string name="presentation_batch_f_full_rescan">전체 재스캔</string>
     <string name="presentation_batch_f_icon_symbol">아이콘 기호</string>
     <string name="presentation_batch_f_new_playlist">새 플레이리스트</string>
-    <string name="presentation_batch_f_new_smart_playlist">새 스마트 플레이리스트</string>
     <string name="presentation_batch_f_next">다음</string>
     <string name="presentation_batch_f_palette_label_expressive">Expressive</string>
     <string name="presentation_batch_f_palette_label_fruit_salad">Fruit Salad</string>
@@ -110,15 +107,6 @@
     <string name="presentation_batch_f_shape_parameters">모양 매개변수</string>
     <string name="presentation_batch_f_shape_style">모양 스타일</string>
     <string name="presentation_batch_f_sides">변의 수</string>
-    <string name="presentation_batch_f_smart_rule">스마트 규칙</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_subtitle">한동안 재생하지 않은 즐겨찾기 트랙입니다.</string>
-    <string name="presentation_batch_f_smart_rule_forgotten_favorites_title">잊혀진 즐겨찾기</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_subtitle">최근에 추가되었지만 재생 횟수가 적은 트랙입니다.</string>
-    <string name="presentation_batch_f_smart_rule_new_gems_title">새로운 보석</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_subtitle">가장 최근에 감상한 곡입니다.</string>
-    <string name="presentation_batch_f_smart_rule_recently_played_title">최근 재생함</string>
-    <string name="presentation_batch_f_smart_rule_top_played_subtitle">가장 많이 재생한 트랙입니다.</string>
-    <string name="presentation_batch_f_smart_rule_top_played_title">많이 재생함</string>
     <string name="presentation_batch_f_smoothness">부드러움</string>
     <string name="presentation_batch_f_status_bullet_step">%1$s • %2$s</string>
     <string name="presentation_batch_f_sync_phase_cleaning_cache">앨범 아트 캐시 정리 중</string>

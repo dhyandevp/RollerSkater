@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="lyrics_highlight_style_title">Destaque de palavras</string>
+<string name="lyrics_highlight_style_subtitle">Como as letras sincronizadas iluminam palavra por palavra quando cantadas</string>
+<string name="lyrics_highlight_style_wipe">varredura gradiente</string>
+<string name="lyrics_highlight_style_wipe_desc">Uma borda suave percorre cada palavra à medida que é cantada</string>
+<string name="lyrics_highlight_style_fade">Desaparecer</string>
+<string name="lyrics_highlight_style_fade_desc">Cada sílaba aparece gradualmente enquanto canta</string>
+<string name="lyrics_highlight_style_classic">Instantâneo</string>
+<string name="lyrics_highlight_style_classic_desc">Cada sílaba acende assim que começa</string>
+<string name="lyrics_duet_layout_title">Design duplo</string>
+<string name="lyrics_duet_layout_subtitle">Coloque cada cantor de lado quando a letra marcar os vocais (v1:, v2:)</string>
+<string name="lyrics_background_vocals_title">coros de fundo</string>
+<string name="lyrics_background_vocals_subtitle">Mostrar refrões em texto menor abaixo da linha principal</string>
+</resources>

@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_connect_service">Hubungkan %1$s</string>
-    <string name="presentation_batch_b_accounts_linked_services">Layanan Tertaut</string>
-    <string name="presentation_batch_b_accounts_logging_out">Keluar…</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Hubungkan penyedia untuk mengelolanya dari layar ini.</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Belum ada akun tertaut</string>
-    <string name="presentation_batch_b_accounts_open_service">Buka Layanan</string>
-    <string name="presentation_batch_b_accounts_status_connected">Terhubung</string>
     <string name="presentation_batch_b_add">Tambah</string>
     <string name="presentation_batch_b_add_custom_genre">Tambah Kustom</string>
     <string name="presentation_batch_b_add_custom_genre_title">Tambah Genre Kustom</string>
@@ -14,7 +7,6 @@
     <string name="presentation_batch_b_clear">Bersihkan</string>
     <string name="presentation_batch_b_corner_dp_format">%1$d dp</string>
     <string name="presentation_batch_b_corner_radius_label">Radius Sudut</string>
-    <string name="presentation_batch_b_daily_mix_title">Daily Mix</string>
     <string name="presentation_batch_b_date_today">Hari ini</string>
     <string name="presentation_batch_b_date_yesterday">Kemarin</string>
     <string name="presentation_batch_b_delete_playlist">Hapus playlist</string>
@@ -32,9 +24,8 @@
     <string name="presentation_batch_b_new_name">Nama baru</string>
     <string name="presentation_batch_b_play_it">Putar</string>
     <string name="presentation_batch_b_play_latest">Putar terbaru</string>
-    <string name="presentation_batch_b_playlist_empty_add_hint">Ketuk \'Tambah Lagu\' untuk memulai.</string>
+<string name="presentation_batch_b_playlist_empty_add_hint">"Ketuk 'Tambah Lagu' untuk memulai."</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">Folder ini tidak berisi lagu.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Belum ada lagu yang cocok dengan aturan pintar ini.</string>
     <string name="presentation_batch_b_playlist_empty_title">Playlist ini kosong.</string>
     <string name="presentation_batch_b_playlist_options_title">Opsi playlist</string>
     <string name="presentation_batch_b_queue_recently_played">Baru-baru Ini Diputar</string>
@@ -54,9 +45,5 @@
     <string name="presentation_batch_b_select_all">Pilih Semua</string>
     <string name="presentation_batch_b_select_icon">Pilih Ikon</string>
     <string name="presentation_batch_b_set_default_transition">Atur transisi default</string>
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="one">%1$d lagu • %2$s</item>
-        <item quantity="other">%1$d lagu • %2$s</item>
-    </plurals>
     <string name="presentation_batch_b_sort_songs">Urutkan Lagu</string>
 </resources>

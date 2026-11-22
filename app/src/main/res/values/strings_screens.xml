@@ -17,15 +17,14 @@
         <item quantity="other">Delete %1$d folders?</item>
     </plurals>
     <plurals name="audio_bookmarks_delete_folders_message">
-        <item quantity="one">%1$d saved moment will be permanently removed. This can\'t be undone.</item>
-        <item quantity="other">%1$d saved moments will be permanently removed. This can\'t be undone.</item>
+<item quantity="one">"%1$d saved moment will be permanently removed. This can't be undone."</item>
+<item quantity="other">"%1$d saved moments will be permanently removed. This can't be undone."</item>
     </plurals>
     <plurals name="audio_bookmarks_delete_moments_title">
         <item quantity="one">Delete this moment?</item>
         <item quantity="other">Delete %1$d moments?</item>
     </plurals>
-    <string name="audio_bookmarks_delete_moments_message">The selected saved moments will be permanently removed. This can\'t be undone.</string>
-    <string name="easter_egg_thank_you">Thank you for using RollerSkater!</string>
+<string name="audio_bookmarks_delete_moments_message">"The selected saved moments will be permanently removed. This can't be undone."</string>
 
     <string name="word_delimiter_section_title">Current Word Delimiters</string>
     <string name="word_delimiter_section_subtitle">These keywords split artist names when surrounded by spaces. Matched case-insensitively. Tap to remove.</string>
@@ -57,12 +56,11 @@
     <string name="delimiter_label_space">Space</string>
     <string name="cd_add_path_delimiter">Add delimiter</string>
 
-    <string name="accounts_unable_open_screen">Unable to open this screen right now.</string>
 
     <string name="setup_welcome_prefix">Welcome to </string>
-    <string name="setup_beta_symbol">β</string>
-    <string name="setup_beta_label">Beta</string>
-    <string name="setup_intro_body">Let\'s get everything set up for you.</string>
+    <string name="setup_beta_symbol" translatable="false">β</string>
+    <string name="setup_beta_label" translatable="false">Beta</string>
+<string name="setup_intro_body">"Let's get everything set up for you."</string>
     <string name="setup_checking_backup">Checking backup package…</string>
     <string name="setup_theme_title">App Theme</string>
     <string name="setup_theme_subtitle">Pick the look you want before you start exploring your library.</string>
@@ -84,14 +82,14 @@
     <string name="tab_albums">ALBUMS</string>
     <string name="tab_artists">ARTISTS</string>
     <string name="setup_all_set_title">All Set!</string>
-    <string name="setup_all_set_body">You\'re ready to enjoy your music.</string>
+<string name="setup_all_set_body">"You're ready to enjoy your music."</string>
     <string name="setup_restore_backup_title">Restore Backup</string>
     <string name="setup_restore_backup_subtitle">Review what you want to import before finishing setup.</string>
     <string name="setup_modules_selected_format">%1$d of %2$d modules selected</string>
     <string name="setup_backup_created_format">Created %1$s</string>
     <string name="setup_backup_from_version">Backup from %1$s</string>
     <string name="unknown_version">Unknown version</string>
-    <string name="setup_lets_go">Let\'s Go!</string>
+<string name="setup_lets_go">"Let's Go!"</string>
     <string name="setup_step_format">Step %1$d of %2$d</string>
     <string name="setup_app_navigation_title">App Navigation</string>
     <string name="setup_app_navigation_subtitle">Choose the style of the bottom navigation bar.</string>
@@ -140,10 +138,9 @@
     <string name="setup_theme_light_title">Light</string>
     <string name="setup_theme_light_description">A brighter Material 3 look across the app.</string>
     <string name="setup_theme_follow_title">Follow system</string>
-    <string name="setup_theme_follow_description">Match your phone\'s current appearance setting.</string>
+<string name="setup_theme_follow_description">"Match your phone's current appearance setting."</string>
     <string name="setup_compact_mode_pill_hint">Using minimal pill navigation</string>
     <string name="setup_compact_mode_tab_hint">Using standard tab row</string>
-    <string name="setup_preview_songs_label">Songs</string>
     <string name="setup_nav_floating_pill_description">Floating pill with rounded corners</string>
     <string name="setup_nav_full_width_description">Standard full-width bar</string>
 
@@ -162,7 +159,7 @@
     <string name="cd_play_album">Play album</string>
     <string name="cd_shuffle_play_album">Shuffle play album</string>
     <string name="album_cover_for">Cover of %1$s</string>
-    <string name="album_detail_meta_line">%1$s · %2$s</string>
+    <string name="album_detail_meta_line" translatable="false">%1$s · %2$s</string>
     <string name="detail_hero_shuffle">Shuffle</string>
     <string name="detail_hero_play">Play</string>
     <string name="detail_hero_pause">Pause</string>
@@ -173,8 +170,8 @@
     <string name="detail_hero_add_to_queue">Add to queue</string>
     <string name="detail_hero_album_count_many">%1$d Albums</string>
     <string name="detail_hero_album_count_one">1 Album</string>
-    <string name="detail_hero_duration_minutes">%1$d min</string>
-    <string name="detail_hero_duration_hours">%1$d h %2$d min</string>
+    <string name="detail_hero_duration_minutes" translatable="false">%1$d min</string>
+    <string name="detail_hero_duration_hours" translatable="false">%1$d h %2$d min</string>
     <string name="mashup_cd_play_pause">Play/Pause</string>
     <string name="cd_song_cover">Song cover</string>
 
@@ -218,8 +215,6 @@
     <string name="about_project_subtitle">Source, releases, and community entry points.</string>
     <string name="about_link_source_title">Source code</string>
     <string name="about_link_source_subtitle" translatable="false">github.com/dhyandevp/RollerSkater</string>
-    <string name="about_link_fdroid_title">F-Droid</string>
-    <string name="about_link_fdroid_subtitle">Available on the F-Droid catalog</string>
     <string name="about_licenses_title">Licenses &amp; attribution</string>
     <string name="about_licenses_subtitle">Open-source libraries, fonts and bundled data</string>
     <string name="about_licenses_sheet_subtitle">Third-party software, fonts and data bundled with this app.</string>
@@ -227,8 +222,6 @@
     <string name="licenses_tab_libraries">Libraries</string>
     <string name="licenses_tab_fonts">Fonts</string>
     <string name="licenses_tab_contributors">Contributors</string>
-    <string name="navigation_rail_expand">Expand navigation</string>
-    <string name="navigation_rail_collapse">Collapse navigation</string>
     <string name="licenses_tab_data">Data</string>
     <string name="licenses_tab_raw_notice">Raw notice</string>
     <string name="licenses_search_placeholder">Search libraries or licenses…</string>
@@ -244,7 +237,7 @@
     <string name="about_signal_open_source">Open source</string>
     <string name="about_signal_community_first">Community-first</string>
     <string name="about_signal_material3">Material 3 expressive</string>
-    <string name="about_support_eyebrow">GitHub Sponsors</string>
+    <string name="about_support_eyebrow" translatable="false">GitHub Sponsors</string>
     <string name="about_support_title">Support RollerSkater</string>
     <string name="about_support_body">Help keep the FOSS edition maintained, reviewed, and tested for real Android devices.</string>
     <string name="about_support_chip_foss">FOSS maintenance</string>
@@ -255,41 +248,6 @@
     <string name="cd_contributor_avatar">Avatar of %1$s</string>
     <string name="cd_contributor_icon">Icon of %1$s</string>
 
-    <string name="screen_subsonic_dashboard_title">Subsonic</string>
-    <string name="dash_playlists_synced_count">%1$d playlists synced</string>
-    <string name="dash_title_playlists">Playlists</string>
-    <string name="dash_library_playlist_title">Library</string>
-    <string name="dash_action_sync">Sync</string>
-    <string name="dash_playlists_empty_title">No playlists synced yet</string>
-    <string name="dash_playlists_empty_hint_subsonic">Tap sync to fetch your playlists</string>
-    <string name="dash_quick_actions">Quick actions</string>
-    <string name="dash_libraries_title">Libraries</string>
-    <string name="dash_libraries_all">All libraries</string>
-    <string name="dash_libraries_selected_count">%1$d of %2$d selected</string>
-    <string name="dash_libraries_more_count">+%1$d more</string>
-    <string name="dash_libraries_change">Change</string>
-    <string name="dash_libraries_load_failed">Could not load libraries; sync uses all</string>
-    <string name="dash_libraries_sheet_subtitle">Choose which server libraries are included when syncing the main library.</string>
-    <string name="dash_libraries_all_subtitle">Include every library exposed by this server</string>
-    <string name="dash_libraries_folder_subtitle">Include this library in the next library sync</string>
-    <string name="dash_libraries_sync_needed">Sync library to apply changes</string>
-    <string name="dash_libraries_not_music">Not a music library</string>
-    <string name="dash_status_syncing">Syncing</string>
-    <string name="dash_action_sync_library">Sync library</string>
-    <string name="dash_action_disconnect">Disconnect</string>
-    <string name="dash_status_syncing_library">Syncing library…</string>
-    <string name="dash_status_fetching_playlists">Fetching playlists…</string>
-    <string name="dash_status_syncing_playlist_format">Syncing playlist: %1$s</string>
-    <string name="dash_status_updating_local">Updating local library…</string>
-    <string name="dash_status_sync_complete">Sync complete</string>
-    <string name="dash_status_fetching_albums">Fetching album list…</string>
-    <string name="dash_status_fetching_songs_from_format">Fetching songs from %1$s…</string>
-    <string name="dash_status_saving_songs_format">Saving %1$d songs to database…</string>
-    <string name="dash_status_no_songs_found">No library songs found</string>
-    <string name="dash_status_library_sync_complete">Library sync complete</string>
-    <string name="dash_song_count">%1$d songs</string>
-    <string name="cd_sync">Sync</string>
-    <string name="cd_logout">Log out</string>
     <string name="toast_playlist_created">Playlist created successfully</string>
     <string name="toast_added_to_queue">Added to queue</string>
     <string name="toast_playing_next">Playing next</string>
@@ -299,7 +257,6 @@
     <string name="cd_play_playlist">Play playlist</string>
     <string name="cd_toggle_grid_list">Toggle grid/list view</string>
     <string name="cd_genre_illustration">Genre illustration</string>
-    <string name="dash_last_synced_format">Last synced: %1$s</string>
     <string name="home_recently_added_title">Recently added</string>
     <string name="home_recently_added_play_cd">Play recently added songs</string>
 </resources>

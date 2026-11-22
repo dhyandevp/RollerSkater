@@ -28,10 +28,6 @@
     <string name="presentation_batch_e_more_options_for_song">Ďalšie možnosti pre %1$s</string>
     <string name="presentation_batch_e_no_playlist_created">Zatiaľ nebol vytvorený žiadny zoznam skladieb.</string>
     <string name="presentation_batch_e_new_playlist_hint">Začnite ťuknutím na tlačidlo Nový zoznam skladieb.</string>
-    <string name="presentation_batch_e_create_playlist_title">Vytvoriť zoznam skladieb</string>
-    <string name="presentation_batch_e_create_playlist_subtitle">Vyberte spôsob vytvorenia.</string>
-    <string name="presentation_batch_e_creation_mode_manual">Ručne</string>
-    <string name="presentation_batch_e_creation_mode_manual_subtitle">Navrhnite obal, ikonu a tvar a sami vyberte skladby.</string>
     <string name="presentation_batch_e_reset_presets_title">Obnoviť predvoľby</string>
     <string name="presentation_batch_e_reset_presets_message">Obnoví sa predvolené poradie a viditeľnosť predvolieb. Chcete pokračovať?</string>
     <string name="presentation_batch_e_manage_presets_title">Spravovať predvoľby</string>

@@ -67,4 +67,46 @@
     <string name="recap_play_top_songs">Přehrát nejhranější skladby</string>
     <string name="recap_top_songs_queue_name">Nejhranější skladby roku %1$d</string>
     <string name="recap_replay">Přehrát znovu</string>
+    <plurals name="recap_minutes_unit">
+        <item quantity="one">minuta</item>
+        <item quantity="few">minuty</item>
+        <item quantity="many">minuty</item>
+        <item quantity="other">minut</item>
+    </plurals>
+    <plurals name="recap_minutes_days_equivalent">
+        <item quantity="one">To je asi %d den nepřetržité hudby.</item>
+        <item quantity="few">To jsou asi %d dny nepřetržité hudby.</item>
+        <item quantity="many">To je asi %d dne nepřetržité hudby.</item>
+        <item quantity="other">To je asi %d dní nepřetržité hudby.</item>
+    </plurals>
+    <plurals name="recap_minutes_hours_equivalent">
+        <item quantity="one">To je asi %d hodina nepřetržité hudby.</item>
+        <item quantity="few">To jsou asi %d hodiny nepřetržité hudby.</item>
+        <item quantity="many">To je asi %d hodiny nepřetržité hudby.</item>
+        <item quantity="other">To je asi %d hodin nepřetržité hudby.</item>
+    </plurals>
+    <plurals name="recap_streak_unit">
+        <item quantity="one">den v řadě</item>
+        <item quantity="few">dny v řadě</item>
+        <item quantity="many">dne v řadě</item>
+        <item quantity="other">dní v řadě</item>
+    </plurals>
+    <plurals name="recap_unique_albums">
+        <item quantity="one">%d album ve vaší rotaci</item>
+        <item quantity="few">%d alba ve vaší rotaci</item>
+        <item quantity="many">%d alba ve vaší rotaci</item>
+        <item quantity="other">%d alb ve vaší rotaci</item>
+    </plurals>
+    <plurals name="recap_unique_artists">
+        <item quantity="one">Poslouchali jste %d interpreta</item>
+        <item quantity="few">Poslouchali jste %d různé interprety</item>
+        <item quantity="many">Poslouchali jste %d interpreta</item>
+        <item quantity="other">Poslouchali jste %d různých interpretů</item>
+    </plurals>
+    <plurals name="recap_unique_songs">
+        <item quantity="one">Přehráli jste %d skladbu</item>
+        <item quantity="few">Přehráli jste %d různé skladby</item>
+        <item quantity="many">Přehráli jste %d skladby</item>
+        <item quantity="other">Přehráli jste %d různých skladeb</item>
+    </plurals>
 </resources>

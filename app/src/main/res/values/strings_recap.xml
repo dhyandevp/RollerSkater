@@ -64,7 +64,7 @@
     <string name="recap_clock_favorite_day">Favorite day: %1$s</string>
     <!-- Screen reader text for the month and hour charts. %1$s in the chart strings is a list of
          entries, each built from recap_cd_chart_entry: %1$s is a month or hour, %2$s a duration. -->
-    <string name="recap_cd_chart_entry">%1$s: %2$s</string>
+    <string name="recap_cd_chart_entry" translatable="false">%1$s: %2$s</string>
     <string name="recap_cd_months_chart">Listening by month: %1$s</string>
     <string name="recap_cd_clock_chart">Listening by hour: %1$s</string>
 

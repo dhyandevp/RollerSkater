@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.annotation.DrawableRes
 import androidx.appcompat.content.res.AppCompatResources
-import com.google.accompanist.drawablepainter.rememberDrawablePainter
+import coil.compose.rememberAsyncImagePainter
 import com.rollerskater.app.R
 import com.rollerskater.app.ui.theme.LocalRollerSkaterDarkTheme
 
@@ -36,7 +36,7 @@ fun MaterialYouVectorDrawable(
 
     drawable?.let {
         Image(
-            painter = rememberDrawablePainter(it),
+            painter = rememberAsyncImagePainter(model = it),
             contentDescription = null,
             contentScale = contentScale,
             modifier = modifier

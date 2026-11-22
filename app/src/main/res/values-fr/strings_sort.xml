@@ -5,7 +5,7 @@
     <string name="sort_method_title">Titre</string>
     <string name="sort_method_artist">Artiste</string>
     <string name="sort_method_album">Album</string>
-    <string name="sort_method_date_added">Date d\'ajout</string>
+<string name="sort_method_date_added">"Date d'ajout"</string>
     <string name="sort_method_date_modified">Date de modification</string>
     <string name="sort_method_duration">Durée</string>
     <string name="sort_method_release_year">Année de sortie</string>
@@ -13,6 +13,10 @@
     <string name="sort_method_name">Nom</string>
     <string name="sort_method_num_songs">Nombre de chansons</string>
     <string name="sort_method_date_created">Date de création</string>
-    <string name="sort_method_date_liked">Date d\'ajout aux favoris</string>
+<string name="sort_method_date_liked">"Date d'ajout aux favoris"</string>
     <string name="sort_method_subfolder_count">Nombre de sous-dossiers</string>
+    <string name="sort_advanced_sorting">Tri avancé</string>
+    <string name="sort_method_filename">Nom de fichier</string>
+    <string name="sort_primary">Principal</string>
+    <string name="sort_secondary">Secondaire</string>
 </resources>

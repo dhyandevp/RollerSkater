@@ -48,13 +48,12 @@
     <string name="cd_play_selected_albums">Seçilen albümleri oynat</string>
     <string name="cd_play_selected_albums_next">Seçilen albümleri sıradaki olarak oynat</string>
     <string name="cd_play_song_action">Şarkıyı oynat</string>
-    <string name="cd_provider_icon">Sağlayıcı</string>
     <string name="cd_remove_from_favorites">Favorilerden kaldır</string>
     <string name="cd_repeat">Tekrarla</string>
     <string name="cd_replaygain_album">ReplayGain albüm</string>
     <string name="cd_replaygain_track">ReplayGain parça</string>
     <string name="cd_reset">Sıfırla</string>
-    <string name="cd_search_lyrics_lrclib">lrclib.net\'te sözleri ara</string>
+<string name="cd_search_lyrics_lrclib">"lrclib.net'te sözleri ara"</string>
     <string name="cd_share_all">Tümünü paylaş</string>
     <string name="cd_share_all_as_zip">Tümünü ZIP olarak paylaş</string>
     <string name="cd_share_song_file">Şarkı dosyasını paylaş</string>
@@ -148,7 +147,6 @@
     <string name="song_info_label_duration">Süre</string>
     <string name="song_info_label_song_metadata">Şarkı bilgisi</string>
     <string name="song_info_ringtone_failed">Zil sesi ayarlanamadı: %1$s</string>
-    <string name="song_info_ringtone_local_only">Yalnızca yerel şarkılar zil sesi olarak kullanılabilir.</string>
     <string name="song_info_ringtone_missing_file">Bu ses dosyası zil sesi için hazırlanamadı.</string>
     <string name="song_info_ringtone_permission_missing">Sistem ayarlarını değiştirme etkinleştirilmedi.</string>
     <string name="song_info_set_as_short">Şu şekilde ayarla:</string>
@@ -172,12 +170,8 @@
     <string name="song_info_tone_ringtone_title">Telefon zil sesi</string>
     <string name="song_info_tone_success">\"%1$s\" %2$s olarak ayarlandı</string>
     <string name="widget_album_art">Albüm kapağı</string>
-    <string name="widget_album_art_placeholder">Albüm kapağı şablonu</string>
-    <string name="widget_preview_artist">Sanatçı</string>
-    <string name="widget_preview_song_title">Şarkı adı</string>
     <string name="widget_tap_to_open">Açmak için dokun</string>
     <string name="widget_tap_to_play">Oynatmak için dokun</string>
-    <string name="widget_wavy_progress_bar_desc">İlerleme çubuğu, yüzde %1$d</string>
-    <string name="song_info_tone_picker_body">RollerSkater\'in bu sesi nereye yüklemesi gerektiğini seçin.</string>
-    <string name="song_info_ringtone_permission_prompt">Sistem ayarlarını değiştirme iznini etkinleştirin, ardından işlemi otomatik olarak tamamlamak için RollerSkater\'e dönün.</string>
+<string name="song_info_tone_picker_body">"RollerSkater'in bu sesi nereye yüklemesi gerektiğini seçin."</string>
+<string name="song_info_ringtone_permission_prompt">"Sistem ayarlarını değiştirme iznini etkinleştirin, ardından işlemi otomatik olarak tamamlamak için RollerSkater'e dönün."</string>
 </resources>

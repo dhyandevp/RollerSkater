@@ -2,7 +2,6 @@
 <resources>
     <string name="widget_tap_to_open">点击打开</string>
     <string name="widget_album_art">专辑封面</string>
-    <string name="widget_album_art_placeholder">专辑封面占位图</string>
     <string name="cd_album_art_of">%1$s 的专辑封面</string>
     <string name="cd_album_art_placeholder">%1$s 占位图</string>
     <string name="cd_show_controls">显示控制按钮</string>
@@ -11,10 +10,7 @@
     <string name="cd_play">播放</string>
     <string name="cd_pause">暂停</string>
     <string name="widget_tap_to_play">点击播放</string>
-    <string name="widget_preview_song_title">歌曲标题</string>
-    <string name="widget_preview_artist">艺术家</string>
     <string name="cd_repeat">循环</string>
-    <string name="widget_wavy_progress_bar_desc">进度条，%1$d%%</string>
 
     <string name="lyrics_more_appearance">外观</string>
     <string name="lyrics_more_alignment">对齐方式</string>
@@ -109,7 +105,6 @@
     <string name="song_info_tone_alarm_label">闹钟音</string>
     <string name="song_info_ringtone_permission_prompt">请开启修改系统设置权限，返回 RollerSkater 自动完成设置。</string>
     <string name="song_info_ringtone_permission_missing">未授予修改系统设置权限。</string>
-    <string name="song_info_ringtone_local_only">仅本地歌曲可以设置为铃声。</string>
     <string name="song_info_ringtone_missing_file">无法处理该音频文件作为铃声。</string>
     <string name="song_info_ringtone_failed">设置铃声失败：%1$s</string>
     <string name="song_info_label_duration">时长</string>
@@ -119,7 +114,6 @@
     <string name="cd_album_icon">专辑</string>
     <string name="cd_artist_icon">艺术家</string>
     <string name="cd_audio_format_icon">音频格式</string>
-    <string name="cd_provider_icon">来源</string>
     <string name="cd_file_icon">文件</string>
     <string name="cd_edit_song_metadata">编辑歌曲元数据</string>
     <string name="cd_remove_from_favorites">取消收藏</string>

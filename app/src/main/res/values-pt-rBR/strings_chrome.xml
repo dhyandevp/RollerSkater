@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="setup_gate_preparing">Preparando a configuração…</string>
+<string name="song_info_label_provider">Fornecedor</string>
+<string name="song_info_label_path">Rota</string>
+<string name="cd_playlist_artwork">Lista de reprodução</string>
+<string name="home_your_mix_subtitle">Sua mistura hoje</string>
+<string name="home_your_mix_queue_name">Sua mistura</string>
+<string name="queue_name_liked_songs">Músicas que eu gosto</string>
+<string name="queue_name_all_songs_shuffled">Todas as músicas (aleatórias)</string>
+<string name="queue_name_liked_songs_shuffled">Músicas que gosto (aleatórias)</string>
+<string name="queue_name_selected_songs">Músicas selecionadas</string>
+
+    <!-- Player sheet, mini player and full player chrome -->
+<string name="cd_player_sheet_collapsed">Painel do jogador RollerSkater minimizado, %1$s</string>
+<string name="cd_player_sheet_expanded">Painel expandido do jogador RollerSkater, %1$s</string>
+<string name="cd_player_sheet_collapsed_no_track">Painel do jogador RollerSkater minimizado</string>
+<string name="cd_player_sheet_expanded_no_track">Painel expandido do jogador RollerSkater</string>
+<string name="mini_player_connecting_device">Conectando com o dispositivo…</string>
+<string name="mini_player_preparing_playback">Preparando a reprodução…</string>
+<string name="mini_player_loading_audio">Carregando áudio…</string>
+<string name="cd_shuffle">Aleatório</string>
+<string name="cd_playback_position">Posição de reprodução</string>
+<string name="add_bookmark_title">Salvar favorito</string>
+<string name="add_bookmark_saved_point">Ponto de jogo salvo</string>
+<string name="add_bookmark_use_lyric_line">Usar linha de letras</string>
+<string name="add_bookmark_default_name">Marcador @%1$s</string>
+    <string name="song_info_open_source">Código aberto</string>
+    <string name="song_info_open_source_failed">Nenhum aplicativo pôde abrir este link</string>
+</resources>

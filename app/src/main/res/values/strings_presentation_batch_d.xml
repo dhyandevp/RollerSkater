@@ -33,7 +33,7 @@
     <string name="presentation_batch_d_mashup_deck_n">Deck %1$d</string>
     <string name="presentation_batch_d_mashup_load_song_cd">Load song</string>
     <string name="presentation_batch_d_mashup_no_song_loaded">No song loaded</string>
-    <string name="presentation_batch_d_mashup_artist_placeholder">…</string>
+    <string name="presentation_batch_d_mashup_artist_placeholder" translatable="false">…</string>
     <string name="presentation_batch_d_mashup_stem_separation_unavailable">Stem separation is not available yet.</string>
     <string name="presentation_batch_d_mashup_volume">Volume</string>
     <string name="presentation_batch_d_mashup_speed">Speed</string>
@@ -57,7 +57,7 @@
     <string name="presentation_batch_d_eq_effect_not_supported_device">Not supported on this device</string>
     <string name="presentation_batch_d_eq_volume">Volume</string>
     <string name="presentation_batch_d_eq_frequency_response">Frequency Response</string>
-    <string name="presentation_batch_d_eq_unit_hz">Hz</string>
+    <string name="presentation_batch_d_eq_unit_hz" translatable="false">Hz</string>
     <string name="presentation_batch_d_eq_band_bass">Bass</string>
     <string name="presentation_batch_d_eq_band_low_mids">Low Mids</string>
     <string name="presentation_batch_d_eq_band_high_mids">High Mids</string>
@@ -102,6 +102,5 @@
     <string name="presentation_batch_d_edit_artist_image_cd">Edit artist image</string>
     <string name="presentation_batch_d_change_photo">Change photo</string>
     <string name="presentation_batch_d_reset_to_default">Reset to default</string>
-    <string name="presentation_batch_d_cd_shuffle_play_artist">Shuffle play artist</string>
     <string name="presentation_batch_d_cd_artist">Artist</string>
 </resources>

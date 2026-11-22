@@ -6,7 +6,7 @@
     <string name="song_info_open_source" tools:ignore="MissingTranslation">Open source</string>
     <string name="song_info_open_source_failed" tools:ignore="MissingTranslation">No app could open this link</string>
     <string name="cd_playlist_artwork">Playlist</string>
-    <string name="home_your_mix_subtitle">Today\'s Mix for you</string>
+<string name="home_your_mix_subtitle">"Today's Mix for you"</string>
     <string name="home_your_mix_queue_name">Your Mix</string>
     <string name="queue_name_liked_songs">Liked Songs</string>
     <string name="queue_name_all_songs_shuffled">All Songs (Shuffled)</string>

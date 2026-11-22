@@ -62,7 +62,6 @@ sealed class Screen(val route: String) {
 
     object About : Screen("about")
     object Licenses : Screen("licenses")
-    object EasterEgg : Screen("easter_egg")
 
     object ArtistSettings : Screen("artist_settings?highlightKey={highlightKey}") {
         fun createRoute(highlightKey: String? = null) =

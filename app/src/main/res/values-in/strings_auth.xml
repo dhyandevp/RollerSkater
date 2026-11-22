@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="auth_cd_back">Kembali</string>
-    <string name="auth_connect">Hubungkan</string>
-    <string name="auth_connecting">Menghubungkan…</string>
-    <string name="auth_connection_details">Detail koneksi</string>
-    <string name="auth_connection_details_subtitle">Masukkan URL server dan kredensial akun Anda.</string>
-    <string name="auth_hide_password">Sembunyikan kata sandi</string>
-    <string name="auth_local_network_permission_denied">Izinkan akses ke perangkat di sekitar untuk terhubung ke server di jaringan lokal Anda.</string>
-    <string name="auth_password">Kata Sandi</string>
-    <string name="auth_password_placeholder">Masukkan kata sandi</string>
-    <string name="auth_prefill_http">Isi otomatis http://</string>
-    <string name="auth_select_libraries_confirm">Simpan dan sinkronkan</string>
-    <string name="auth_select_libraries_subtitle">Server ini memiliki lebih dari satu pustaka musik. Pilih pustaka mana yang ingin disinkronkan — Anda dapat mengubahnya nanti dari dasbor server.</string>
-    <string name="auth_select_libraries_title">Pilih pustaka untuk disinkronkan</string>
-    <string name="auth_server_url">URL Server</string>
-    <string name="auth_show_password">Tampilkan kata sandi</string>
-    <string name="auth_use_http">Gunakan HTTP / VPN</string>
-    <string name="auth_username">Nama Pengguna</string>
-    <string name="auth_username_placeholder_admin">admin</string>
     <string name="auth_web_retry">Coba lagi</string>
-    <string name="cd_subsonic_logo">Subsonic</string>
-    <string name="toast_welcome_user">Selamat datang, %1$s!</string>
 </resources>

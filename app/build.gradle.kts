@@ -140,7 +140,6 @@ android {
 
     lint {
         checkReleaseBuilds = false
-        baseline = file("lint-baseline.xml")
         abortOnError = false
     }
 
@@ -248,7 +247,6 @@ dependencies {
     implementation(libs.taglib)
     implementation(libs.jaudiotagger)
     implementation(libs.vorbisjava.core)
-    implementation(libs.wavy.slider)
     implementation(libs.androidx.graphics.shapes)
 
     implementation(libs.retrofit)
@@ -257,29 +255,16 @@ dependencies {
     implementation(libs.logging.interceptor)
     implementation(libs.gson)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.snakeyaml)
     implementation(libs.kotlinx.collections.immutable)
 
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.security.crypto)
 
     implementation(libs.timber)
-    implementation(libs.smooth.corner.rect.android.compose)
     implementation(libs.reorderables)
     implementation(libs.androidx.glance)
     implementation(libs.androidx.glance.appwidget)
     implementation(libs.androidx.glance.material3)
-    implementation(libs.kuromoji.ipadic)
-    implementation(libs.pinyin4j.core)
-    implementation(libs.accompanist.drawablepainter)
-    implementation(libs.accompanist.permissions)
-    implementation(libs.capturable) {
-        exclude(group = "androidx.compose.animation")
-        exclude(group = "androidx.compose.foundation")
-        exclude(group = "androidx.compose.material")
-        exclude(group = "androidx.compose.runtime")
-        exclude(group = "androidx.compose.ui")
-    }
 
     testImplementation(libs.junit.jupiter.api)
     testImplementation(libs.junit.jupiter.params)
@@ -325,4 +310,5 @@ dependencies {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    reports.html.required.set(false)
 }

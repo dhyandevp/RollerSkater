@@ -17,8 +17,8 @@
         <item quantity="other">%d chansons ajoutées aux favoris</item>
     </plurals>
     <plurals name="n_songs_added_to_queue">
-        <item quantity="one">%d chanson ajoutée à la file d\'attente</item>
-        <item quantity="other">%d chansons ajoutées à la file d\'attente</item>
+<item quantity="one">"%d chanson ajoutée à la file d'attente"</item>
+<item quantity="other">"%d chansons ajoutées à la file d'attente"</item>
     </plurals>
     <plurals name="n_songs_removed_from_favorites">
         <item quantity="one">%d chanson retirée des favoris</item>

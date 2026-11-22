@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_linked_services">Dịch vụ đã liên kết</string>
-    <string name="presentation_batch_b_accounts_status_connected">Đã kết nối</string>
-    <string name="presentation_batch_b_accounts_open_service">Mở dịch vụ</string>
-    <string name="presentation_batch_b_accounts_logging_out">Đang đăng xuất…</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Chưa có tài khoản liên kết nào</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Kết nối nhà cung cấp dịch vụ để quản lý từ màn hình này.</string>
-    <string name="presentation_batch_b_accounts_connect_service">Kết nối %1$s</string>
 
     <string name="presentation_batch_b_sort_songs">Sắp xếp bài hát</string>
     <string name="presentation_batch_b_more_options">Tùy chọn khác</string>
@@ -19,8 +12,7 @@
     <string name="presentation_batch_b_reorder_song">Sắp xếp lại bài hát</string>
     <string name="presentation_batch_b_playlist_empty_title">Danh sách phát này đang trống.</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">Thư mục này không chứa bài hát nào.</string>
-    <string name="presentation_batch_b_playlist_empty_add_hint">Chạm vào \'Thêm bài hát\' để bắt đầu.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Chưa có bài hát nào khớp với quy tắc thông minh này.</string>
+<string name="presentation_batch_b_playlist_empty_add_hint">"Chạm vào 'Thêm bài hát' để bắt đầu."</string>
     <string name="presentation_batch_b_playlist_options_title">Tùy chọn danh sách phát</string>
     <string name="presentation_batch_b_edit_playlist">Chỉnh sửa danh sách phát</string>
     <string name="presentation_batch_b_delete_playlist">Xóa danh sách phát</string>
@@ -31,7 +23,6 @@
     <string name="presentation_batch_b_rename_playlist_dialog_title">Đổi tên danh sách phát</string>
     <string name="presentation_batch_b_new_name">Tên mới</string>
 
-    <string name="presentation_batch_b_daily_mix_title">Bản phối hàng ngày</string>
 
     <string name="presentation_batch_b_quick_fill_select_songs">Chọn bài hát</string>
     <string name="presentation_batch_b_quick_fill_choose_genre">Chọn thể loại</string>
@@ -62,7 +53,4 @@
 
     <string name="presentation_batch_b_genre_shuffle_label">Xáo trộn %1$s</string>
 
-    <plurals name="presentation_batch_b_songs_dot_duration">
-        <item quantity="other">%1$d bài hát • %2$s</item>
-    </plurals>
 </resources>

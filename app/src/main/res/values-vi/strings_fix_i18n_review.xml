@@ -11,7 +11,4 @@
     <string name="collage_pattern_pixel_cookie">Bánh quy Pixel</string>
     <string name="collage_pattern_heart_garden">Vườn trái tim</string>
 
-    <plurals name="cloud_download_selected_started">
-        <item quantity="other">Đang chuẩn bị %1$d bài hát đám mây để phát ngoại tuyến</item>
-    </plurals>
 </resources>

@@ -48,7 +48,6 @@
     <string name="cd_play_selected_albums">Riproduci gli album selezionati</string>
     <string name="cd_play_selected_albums_next">Riproduci dopo gli album selezionati</string>
     <string name="cd_play_song_action">Riproduci brano</string>
-    <string name="cd_provider_icon">Provider</string>
     <string name="cd_remove_from_favorites">Rimuovi dai preferiti</string>
     <string name="cd_repeat">Ripeti</string>
     <string name="cd_replaygain_album">ReplayGain album</string>
@@ -69,15 +68,15 @@
     <string name="edit_song_apply_cover_art">Applica copertina</string>
     <string name="edit_song_change_cover_art">Cambia copertina</string>
     <string name="edit_song_cover_art_heading">Copertina</string>
-    <string name="edit_song_cover_art_hint">Seleziona un\'immagine quadrata e ritoccalaffinché la copertina abbia un bell\'aspetto in tutta l\'app.</string>
-    <string name="edit_song_crop_dialog_hint">Usa i gesti di pizzico e trascinamento per trovare l\'inquadratura perfetta.</string>
+<string name="edit_song_cover_art_hint">"Seleziona un'immagine quadrata e ritoccalaffinché la copertina abbia un bell'aspetto in tutta l'app."</string>
+<string name="edit_song_crop_dialog_hint">"Usa i gesti di pizzico e trascinamento per trovare l'inquadratura perfetta."</string>
     <string name="edit_song_crop_dialog_title">Regola la tua copertina</string>
     <string name="edit_song_delete_cover_art">Elimina copertina</string>
     <string name="edit_song_got_it">Ho capito</string>
     <string name="edit_song_info_dialog_body">La modifica dei metadati di un brano può influire su come viene visualizzato e organizzato nella tua libreria. Le modifiche sono permanenti e potrebbero non essere reversibili.</string>
     <string name="edit_song_info_dialog_title">Modifica metadati brano</string>
     <string name="edit_song_toolbar_title">Modifica brano</string>
-    <string name="edit_song_unable_to_load_image">Impossibile caricare l\'immagine selezionata</string>
+<string name="edit_song_unable_to_load_image">"Impossibile caricare l'immagine selezionata"</string>
     <string name="equalizer_action_save_new">Salva nuovo</string>
     <string name="equalizer_preset_name_label">Nome preset</string>
     <string name="equalizer_rename_preset_title">Rinomina preset</string>
@@ -100,7 +99,7 @@
     <string name="lyrics_more_show_translations">Mostra traduzioni</string>
     <string name="multi_selection_playlists_count_upper">%1$d PLAYLIST</string>
     <string name="multi_selection_genres_count_upper">%1$d GENERI</string>
-    <string name="multi_selection_genres_queue_hint">Esegui operazioni batch su tutti i brani all\'interno di questi generi.</string>
+<string name="multi_selection_genres_queue_hint">"Esegui operazioni batch su tutti i brani all'interno di questi generi."</string>
     <string name="multi_selection_selected">selezionati</string>
     <string name="multi_selection_songs_count_upper">%1$d BRANI</string>
     <string name="no_internet_dialog_message">Questo contenuto richiede una connessione internet. Controlla le impostazioni di rete e riprova.</string>
@@ -116,7 +115,7 @@
     <string name="playlist_saved_toast">Salvata</string>
     <string name="playlist_songs_added_toast">Brani aggiunti alle playlist</string>
     <string name="reorder_tabs_reordering">Riordinamento schede…</string>
-    <string name="reorder_tabs_reset_dialog_body">Reimpostare l\'ordine delle schede a quello predefinito?</string>
+<string name="reorder_tabs_reset_dialog_body">"Reimpostare l'ordine delle schede a quello predefinito?"</string>
     <string name="reorder_tabs_reset_dialog_title">Reimposta ordine</string>
     <string name="reorder_tabs_sheet_title">Riordina schede libreria</string>
     <string name="reorder_tabs_visible_title">Schede visibili</string>
@@ -138,7 +137,6 @@
     <string name="song_info_label_duration">Durata</string>
     <string name="song_info_label_song_metadata">Info brano</string>
     <string name="song_info_ringtone_failed">Impossibile cambiare suono: %1$s</string>
-    <string name="song_info_ringtone_local_only">Solo i brani locali possono essere usati come suoni di sistema.</string>
     <string name="song_info_ringtone_missing_file">Impossibile preparare questo file audio.</string>
     <string name="song_info_ringtone_permission_missing">Modifica impostazioni di sistema non attivata.</string>
     <string name="song_info_set_as_short">Imposta</string>
@@ -148,7 +146,7 @@
     <string name="song_info_tab_options">Opzioni</string>
     <string name="song_info_tab_options_badge">OPZIONI</string>
     <string name="song_info_tone_alarm_label">suono sveglia</string>
-    <string name="song_info_tone_alarm_subtitle">Sveglie dell\'orologio</string>
+<string name="song_info_tone_alarm_subtitle">"Sveglie dell'orologio"</string>
     <string name="song_info_tone_alarm_title">Suono sveglia</string>
     <string name="song_info_tone_confirm_action">Imposta suono</string>
     <string name="song_info_tone_confirm_body">Impostare \"%1$s\" come %2$s?</string>
@@ -162,12 +160,8 @@
     <string name="song_info_tone_ringtone_title">Suoneria telefono</string>
     <string name="song_info_tone_success">\"%1$s\" impostato come %2$s</string>
     <string name="widget_album_art">Copertina album</string>
-    <string name="widget_album_art_placeholder">Placeholder copertina album</string>
-    <string name="widget_preview_artist">Artista</string>
-    <string name="widget_preview_song_title">Titolo brano</string>
     <string name="widget_tap_to_open">Tocca per aprire</string>
     <string name="widget_tap_to_play">Tocca per riprodurre</string>
-    <string name="widget_wavy_progress_bar_desc">Barra di avanzamento, %1$d percento</string>
     <string name="song_info_tone_picker_body">Scegli dove RollerSkater deve installare questo suono.</string>
     <string name="song_info_ringtone_permission_prompt">Attiva Modifica impostazioni di sistema, poi torna a RollerSkater per completare automaticamente.</string>
     <string name="edit_song_custom_metadata_heading">Metadati facoltativi</string>

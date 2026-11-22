@@ -109,8 +109,6 @@ import androidx.media3.session.SessionToken
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.common.util.concurrent.ListenableFuture
 import com.google.common.util.concurrent.MoreExecutors
 import com.rollerskater.app.data.preferences.AppThemeMode
@@ -223,7 +221,6 @@ class MainActivity : ComponentActivity() {
         super.attachBaseContext(AppLocaleManager.wrapContext(newBase))
     }
 
-    @OptIn(ExperimentalPermissionsApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         LogUtils.d(this, "onCreate")
         val splashScreen = installSplashScreen()
@@ -372,9 +369,11 @@ class MainActivity : ComponentActivity() {
             } else {
                 listOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             }
-            @OptIn(ExperimentalPermissionsApi::class)
-            val permissionState = rememberMultiplePermissionsState(permissions = permissions)
-            val permissionsValid = permissionState.allPermissionsGranted
+            val permissionsValid = remember(permissions) {
+                permissions.all {
+                    androidx.core.content.ContextCompat.checkSelfPermission(this@MainActivity, it) == android.content.pm.PackageManager.PERMISSION_GRANTED
+                }
+            }
             val showSetupScreen = remember(isSetupComplete, permissionsValid, isBenchmarkMode) {
                 when {
                     isBenchmarkMode -> false
@@ -731,7 +730,6 @@ class MainActivity : ComponentActivity() {
                 Screen.PaletteStyle.route,
                 Screen.RecentlyPlayed.route,
                 Screen.DeviceCapabilities.route,
-                Screen.EasterEgg.route,
                 Screen.WordDelimiterConfig.route,
                 Screen.ExcludedDirectories.route,
                 Screen.AudioBookmarks.route,

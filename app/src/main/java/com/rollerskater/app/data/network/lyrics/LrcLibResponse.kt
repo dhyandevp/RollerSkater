@@ -14,13 +14,11 @@ data class LrcLibResponse(
     @SerializedName("duration") val duration: Double,
     @SerializedName("plainLyrics") val plainLyrics: String?,
     @SerializedName("syncedLyrics") val syncedLyrics: String?,
-    @SerializedName("lyricsfile") val lyricsfile: String? = null,
 ) {
     val hasSyncedContent: Boolean
-        get() = !lyricsfile.isNullOrBlank() || !syncedLyrics.isNullOrBlank()
+        get() = !syncedLyrics.isNullOrBlank()
 
     internal fun preferredLyricsContent(): String? =
-        LyricsfileParser.toEnhancedLrc(lyricsfile)
-            ?: syncedLyrics?.takeIf { it.isNotBlank() }
+        syncedLyrics?.takeIf { it.isNotBlank() }
             ?: plainLyrics?.takeIf { it.isNotBlank() }
 }

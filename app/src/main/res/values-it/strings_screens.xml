@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_contributions_format">%1$d contrib.</string>
-    <string name="about_link_fdroid_subtitle">Disponibile nel catalogo F-Droid</string>
     <string name="about_licenses_title">Licenze e attribuzioni</string>
     <string name="about_licenses_subtitle">Librerie open source, font e dati inclusi</string>
     <string name="about_licenses_sheet_subtitle">Software di terze parti, font e dati inclusi in questa app.</string>
@@ -9,8 +8,6 @@
     <string name="licenses_tab_libraries">Librerie</string>
     <string name="licenses_tab_fonts">Font</string>
     <string name="licenses_tab_contributors">Collaboratori</string>
-    <string name="navigation_rail_expand">Espandi navigazione</string>
-    <string name="navigation_rail_collapse">Comprimi navigazione</string>
     <string name="licenses_tab_data">Dati</string>
     <string name="licenses_tab_raw_notice">Testo originale</string>
     <string name="licenses_search_placeholder">Cerca librerie o licenze…</string>
@@ -22,7 +19,6 @@
     <string name="licenses_toast_copied">Testo della licenza copiato negli appunti</string>
     <string name="licenses_cd_close">Chiudi</string>
     <string name="licenses_cd_copy">Copia testo della licenza</string>
-    <string name="about_link_fdroid_title">F-Droid</string>
     <string name="about_link_source_title">Codice sorgente</string>
     <string name="about_maintainer_subtitle">Manutenzione della versione FOSS e di quella originale/non FOSS.</string>
     <string name="about_maintainer_title">Manutentori</string>
@@ -31,7 +27,7 @@
     <string name="about_signal_community_first">Community-first</string>
     <string name="about_signal_material3">Material 3 expressive</string>
     <string name="about_signal_open_source">Open source</string>
-    <string name="about_support_body">Aiutaci a mantenere, revisionare e testare l\'edizione FOSS su dispositivi Android reali.</string>
+<string name="about_support_body">"Aiutaci a mantenere, revisionare e testare l'edizione FOSS su dispositivi Android reali."</string>
     <string name="about_support_chip_ci">CI e release</string>
     <string name="about_support_chip_foss">Manutenzione FOSS</string>
     <string name="about_support_chip_streaming">Musica self-hosted</string>
@@ -39,7 +35,6 @@
     <string name="about_support_eyebrow">GitHub Sponsors</string>
     <string name="about_tagline">Musica local-first, streaming self-hosted e cura Material 3 in un unico player FOSS.</string>
     <string name="about_version_format">Versione v%1$s</string>
-    <string name="accounts_unable_open_screen">Impossibile aprire questa schermata al momento.</string>
     <string name="action_copy">Copia</string>
     <string name="action_reset">Reimposta</string>
     <string name="action_share">Condividi</string>
@@ -54,14 +49,14 @@
         <item quantity="other">Eliminare %1$d cartelle?</item>
     </plurals>
     <plurals name="audio_bookmarks_delete_folders_message">
-        <item quantity="one">%1$d momento salvato verrà rimosso definitivamente. L\'operazione non può essere annullata.</item>
-        <item quantity="other">%1$d momenti salvati verranno rimossi definitivamente. L\'operazione non può essere annullata.</item>
+<item quantity="one">"%1$d momento salvato verrà rimosso definitivamente. L'operazione non può essere annullata."</item>
+<item quantity="other">"%1$d momenti salvati verranno rimossi definitivamente. L'operazione non può essere annullata."</item>
     </plurals>
     <plurals name="audio_bookmarks_delete_moments_title">
         <item quantity="one">Eliminare %1$d momento?</item>
         <item quantity="other">Eliminare %1$d momenti?</item>
     </plurals>
-    <string name="audio_bookmarks_delete_moments_message">I momenti salvati selezionati verranno rimossi definitivamente. L\'operazione non può essere annullata.</string>
+<string name="audio_bookmarks_delete_moments_message">"I momenti salvati selezionati verranno rimossi definitivamente. L'operazione non può essere annullata."</string>
     <string name="audio_bookmarks_cd_open">Segnalibri audio</string>
     <string name="audio_bookmarks_back_to_top">Torna su</string>
     <string name="audio_bookmarks_clear_filter">Cancella filtro</string>
@@ -83,7 +78,6 @@
     <string name="cd_finish">Fine</string>
     <string name="cd_generic_artist">Artista generico</string>
     <string name="cd_genre_illustration">Illustrazione genere</string>
-    <string name="cd_logout">Disconnetti</string>
     <string name="cd_next_step">Avanti</string>
     <string name="cd_no_search_results">Nessun risultato</string>
     <string name="cd_open_github_profile">Apri profilo GitHub</string>
@@ -110,7 +104,6 @@
     <string name="detail_hero_duration_minutes">%1$d min</string>
     <string name="detail_hero_duration_hours">%1$d h %2$d min</string>
     <string name="cd_song_cover">Copertina brano</string>
-    <string name="cd_sync">Sincronizza</string>
     <string name="cd_toggle_grid_list">Alterna vista griglia/elenco</string>
     <string name="clear_all">Cancella tutto</string>
     <string name="crash_report_clipboard_label">Log crash</string>
@@ -118,42 +111,9 @@
     <string name="crash_report_error_label">Errore:</string>
     <string name="crash_report_share_chooser">Condividi report crash</string>
     <string name="crash_report_stack_preview_label">Stack trace (anteprima):</string>
-    <string name="crash_report_subtitle">L\'app è crashata durante l\'ultima sessione. Aiutaci a risolvere condividendo il report del crash.</string>
+<string name="crash_report_subtitle">"L'app è crashata durante l'ultima sessione. Aiutaci a risolvere condividendo il report del crash."</string>
     <string name="crash_report_title">Ops! Qualcosa è andato storto</string>
     <string name="customize_corner_radius">Personalizza raggio angoli</string>
-    <string name="dash_action_disconnect">Disconnetti</string>
-    <string name="dash_action_sync">Sincronizza</string>
-    <string name="dash_action_sync_library">Sincronizza libreria</string>
-    <string name="dash_last_synced_format">Ultima sincronizzazione: %1$s</string>
-    <string name="dash_libraries_all">Tutte le librerie</string>
-    <string name="dash_libraries_all_subtitle">Includi tutte le librerie esposte da questo server</string>
-    <string name="dash_libraries_change">Cambia</string>
-    <string name="dash_libraries_folder_subtitle">Includi questa libreria nella prossima sincronizzazione</string>
-    <string name="dash_libraries_load_failed">Impossibile caricare le librerie; la sincronizzazione le usa tutte</string>
-    <string name="dash_libraries_more_count">+%1$d altri</string>
-    <string name="dash_libraries_not_music">Non è una libreria musicale</string>
-    <string name="dash_libraries_selected_count">%1$d di %2$d selezionate</string>
-    <string name="dash_libraries_sheet_subtitle">Scegli quali librerie del server includere quando sincronizzi la libreria principale.</string>
-    <string name="dash_libraries_sync_needed">Sincronizza la libreria per applicare le modifiche</string>
-    <string name="dash_libraries_title">Librerie</string>
-    <string name="dash_library_playlist_title">Libreria</string>
-    <string name="dash_playlists_empty_hint_subsonic">Tocca sincronizza per recuperare le tue playlist</string>
-    <string name="dash_playlists_empty_title">Ancora nessuna playlist sincronizzata</string>
-    <string name="dash_playlists_synced_count">%1$d playlist sincronizzate</string>
-    <string name="dash_quick_actions">Azioni rapide</string>
-    <string name="dash_song_count">%1$d brani</string>
-    <string name="dash_status_fetching_albums">Recupero elenco album…</string>
-    <string name="dash_status_fetching_playlists">Recupero playlist…</string>
-    <string name="dash_status_fetching_songs_from_format">Recupero brani da %1$s…</string>
-    <string name="dash_status_library_sync_complete">Sincronizzazione libreria completata</string>
-    <string name="dash_status_no_songs_found">Nessun brano trovato nella libreria</string>
-    <string name="dash_status_saving_songs_format">Salvataggio di %1$d brani nel database…</string>
-    <string name="dash_status_sync_complete">Sincronizzazione completata</string>
-    <string name="dash_status_syncing">Sincronizzazione</string>
-    <string name="dash_status_syncing_library">Sincronizzazione libreria…</string>
-    <string name="dash_status_syncing_playlist_format">Sincronizzazione playlist: %1$s</string>
-    <string name="dash_status_updating_local">Aggiornamento libreria locale…</string>
-    <string name="dash_title_playlists">Playlist</string>
     <string name="delimiter_add_title">Aggiungi nuovo delimitatore</string>
     <string name="delimiter_defaults_title">Delimitatori predefiniti</string>
     <string name="delimiter_hint">es., / o ;</string>
@@ -181,7 +141,6 @@
     <string name="restore_selected">Ripristina selezionati</string>
     <string name="restoring">Ripristino in corso</string>
     <string name="screen_about">Informazioni</string>
-    <string name="screen_subsonic_dashboard_title">Subsonic</string>
     <string name="search_no_results_for_query">Nessun risultato per \"%1$s\"</string>
     <string name="search_no_results_found">Nessun risultato trovato.</string>
     <string name="search_nothing_found">Nessun risultato trovato</string>
@@ -227,25 +186,24 @@
     <string name="setup_navbar_footer">Puoi cambiarlo in seguito in Impostazioni &gt; Aspetto &gt; Stile barra navigazione.</string>
     <string name="setup_permission_alarms_title">Allarmi e promemoria</string>
     <string name="setup_battery_optimization_title">Ottimizzazione batteria</string>
-    <string name="setup_battery_optimization_description">Alcuni dispositivi Android chiudono aggressivamente le app in background. Disabilita l\'ottimizzazione batteria per RollerSkater per prevenire interruzioni di riproduzione impreviste.</string>
+<string name="setup_battery_optimization_description">"Alcuni dispositivi Android chiudono aggressivamente le app in background. Disabilita l'ottimizzazione batteria per RollerSkater per prevenire interruzioni di riproduzione impreviste."</string>
     <string name="setup_disable_battery_optimization">Disabilita ottimizzazione</string>
     <string name="setup_permission_granted">Permesso concesso</string>
     <string name="setup_permission_media_title">Permesso media</string>
     <string name="setup_permission_notifications_description">Abilita le notifiche per controllare la tua musica dalla schermata di blocco e dal pannello notifiche.</string>
     <string name="setup_permission_notifications_title">Notifiche</string>
-    <string name="setup_preview_songs_label">Brani</string>
     <string name="setup_recommended">Consigliato</string>
     <string name="setup_restore_backup_subtitle">Rivedi cosa vuoi importare prima di completare il setup.</string>
     <string name="setup_restore_backup_title">Ripristina backup</string>
     <string name="setup_restoring_backup">Ripristino backup</string>
     <string name="setup_step_format">Passo %1$d di %2$d</string>
     <string name="setup_theme_dark_title">Scuro</string>
-    <string name="setup_theme_follow_description">Corrisponde all\'impostazione di aspetto attuale del telefono.</string>
+<string name="setup_theme_follow_description">"Corrisponde all'impostazione di aspetto attuale del telefono."</string>
     <string name="setup_theme_follow_title">Segui sistema</string>
     <string name="setup_theme_footer">Puoi cambiarlo in seguito in Impostazioni &gt; Aspetto &gt; Tema app.</string>
-    <string name="setup_theme_light_description">Un aspetto Material 3 più luminoso in tutta l\'app.</string>
+<string name="setup_theme_light_description">"Un aspetto Material 3 più luminoso in tutta l'app."</string>
     <string name="setup_theme_light_title">Chiaro</string>
-    <string name="setup_theme_subtitle">Scegli l\'aspetto che preferisci prima di iniziare a esplorare la tua libreria.</string>
+<string name="setup_theme_subtitle">"Scegli l'aspetto che preferisci prima di iniziare a esplorare la tua libreria."</string>
     <string name="setup_theme_title">Tema app</string>
     <string name="setup_welcome_prefix">Benvenuto in </string>
     <string name="skip_for_now">Salta per ora</string>
@@ -275,12 +233,11 @@
     <string name="word_delimiter_toast_invalid">Esiste già o non è valido</string>
     <string name="word_delimiter_toast_reset">Delimitatori parola reimpostati ai predefiniti</string>
     <string name="word_delimiters_screen_title">Delimitatori parola</string>
-    <string name="easter_egg_thank_you">Grazie per aver scelto RollerSkater!</string>
     <string name="setup_external_services_subtitle">RollerSkater funziona offline per impostazione predefinita. Attiva solo le ricerche che vuoi.</string>
     <string name="setup_permission_media_description">RollerSkater ha bisogno di accedere ai tuoi file audio per creare la tua libreria musicale.</string>
-    <string name="setup_permission_alarms_description">Facoltativo, ma consigliato se usi il timer di spegnimento e vuoi che RollerSkater interrompa la riproduzione esattamente all\'ora impostata.</string>
+<string name="setup_permission_alarms_description">"Facoltativo, ma consigliato se usi il timer di spegnimento e vuoi che RollerSkater interrompa la riproduzione esattamente all'ora impostata."</string>
     <string name="setup_backup_have_description">Se hai già un backup di RollerSkater, ripristinalo ora e salta gran parte della configurazione rimanente su questo dispositivo.</string>
-    <string name="setup_theme_dark_description">L\'aspetto scuro Material 3 predefinito per RollerSkater.</string>
+<string name="setup_theme_dark_description">"L'aspetto scuro Material 3 predefinito per RollerSkater."</string>
     <string name="home_empty_placeholder_subtitle">Il tuo mix apparirà qui quando RollerSkater troverà dei brani o sincronizzerà una sorgente.</string>
     <string name="crash_report_share_subject">Report crash di RollerSkater</string>
     <string name="about_support_title">Sostieni RollerSkater</string>

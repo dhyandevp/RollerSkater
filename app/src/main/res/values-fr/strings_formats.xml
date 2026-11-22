@@ -15,5 +15,5 @@
     <string name="duration_seconds_short">%1$ds</string>
     <!-- Relative times, such as the last sync time -->
     <string name="time_ago_never">Jamais</string>
-    <string name="time_ago_just_now">À l\'instant</string>
+<string name="time_ago_just_now">"À l'instant"</string>
 </resources>

@@ -48,7 +48,6 @@
     <string name="cd_play_selected_albums">Воспроизвести выбранные альбомы</string>
     <string name="cd_play_selected_albums_next">Воспроизвести выбранные альбомы следующими</string>
     <string name="cd_play_song_action">Воспроизвести трек</string>
-    <string name="cd_provider_icon">Источник</string>
     <string name="cd_remove_from_favorites">Удалить из избранного</string>
     <string name="cd_repeat">Повтор</string>
     <string name="cd_replaygain_album">ReplayGain альбом</string>
@@ -138,7 +137,6 @@
     <string name="song_info_label_duration">Длительность</string>
     <string name="song_info_label_song_metadata">Информация о треке</string>
     <string name="song_info_ringtone_failed">Не удалось установить рингтон: %1$s</string>
-    <string name="song_info_ringtone_local_only">Только локальные треки можно использовать как рингтоны.</string>
     <string name="song_info_ringtone_missing_file">Не удалось подготовить этот аудиофайл для рингтона.</string>
     <string name="song_info_ringtone_permission_missing">Разрешение «Изменение системных настроек» не было предоставлено.</string>
     <string name="song_info_set_as_short">Установить как</string>
@@ -162,12 +160,8 @@
     <string name="song_info_tone_ringtone_title">Рингтон</string>
     <string name="song_info_tone_success">«%1$s» установлен как %2$s</string>
     <string name="widget_album_art">Обложка альбома</string>
-    <string name="widget_album_art_placeholder">Заполнитель обложки альбома</string>
-    <string name="widget_preview_artist">Исполнитель</string>
-    <string name="widget_preview_song_title">Название песни</string>
     <string name="widget_tap_to_open">Нажмите, чтобы открыть</string>
     <string name="widget_tap_to_play">Нажмите для воспроизведения</string>
-    <string name="widget_wavy_progress_bar_desc">Индикатор прогресса, %1$d%%</string>
     <string name="song_info_tone_picker_body">Выберите, куда RollerSkater должен установить этот звук.</string>
     <string name="song_info_ringtone_permission_prompt">Включите «Изменение системных настроек», затем вернитесь в RollerSkater, чтобы завершить установку автоматически.</string>
     <string name="edit_song_custom_metadata_heading">Дополнительные метаданные</string>

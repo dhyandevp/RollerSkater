@@ -21,7 +21,6 @@
         <item quantity="other">Xóa %1$d khoảnh khắc?</item>
     </plurals>
     <string name="audio_bookmarks_delete_moments_message">Các khoảnh khắc đã chọn sẽ bị xóa vĩnh viễn.</string>
-    <string name="easter_egg_thank_you">Cảm ơn bạn đã sử dụng RollerSkater! ❤️</string>
     <string name="word_delimiter_section_title">Từ phân tách hiện tại</string>
     <string name="word_delimiter_section_subtitle">Các từ khóa này tách tên nghệ sĩ khi có khoảng trắng hai bên. Không phân biệt hoa thường. Nhấn để xóa.</string>
     <string name="word_delimiter_empty">Chưa cấu hình từ phân tách nào</string>
@@ -50,7 +49,6 @@
     <string name="path_delimiters_toolbar_title">Ký tự phân tách</string>
     <string name="delimiter_label_space">Dấu cách</string>
     <string name="cd_add_path_delimiter">Thêm ký tự phân tách</string>
-    <string name="accounts_unable_open_screen">Không thể mở màn hình tài khoản</string>
     <string name="setup_welcome_prefix">Chào mừng bạn đến với</string>
     <string name="setup_beta_symbol">β</string>
     <string name="setup_beta_label">Beta</string>
@@ -133,7 +131,6 @@
     <string name="setup_theme_follow_description">Tự động đổi theo cài đặt giao diện của thiết bị.</string>
     <string name="setup_compact_mode_pill_hint">Dạng viên thuốc nổi thu gọn</string>
     <string name="setup_compact_mode_tab_hint">Dạng thẻ điều hướng tiêu chuẩn</string>
-    <string name="setup_preview_songs_label">Xem trước danh sách bài hát</string>
     <string name="setup_nav_floating_pill_description">Thanh điều hướng dạng viên thuốc nổi</string>
     <string name="setup_nav_full_width_description">Thanh điều hướng trải rộng toàn màn hình</string>
     <string name="dialog_delete_song_title">Xóa bài hát?</string>
@@ -200,8 +197,6 @@
     <string name="about_project_title">Dự án RollerSkater</string>
     <string name="about_project_subtitle">Mã nguồn mở hoàn toàn theo giấy phép GPL.</string>
     <string name="about_link_source_title">Mã nguồn GitHub</string>
-    <string name="about_link_fdroid_title">F-Droid</string>
-    <string name="about_link_fdroid_subtitle">Tải bản phát hành trên F-Droid.</string>
     <string name="about_licenses_title">Giấy phép mã nguồn mở</string>
     <string name="about_licenses_subtitle">Các thư viện và thành phần bên thứ ba.</string>
     <string name="about_licenses_sheet_subtitle">Cảm ơn các dự án mã nguồn mở tuyệt vời.</string>
@@ -209,8 +204,6 @@
     <string name="licenses_tab_libraries">Thư viện</string>
     <string name="licenses_tab_fonts">Phông chữ</string>
     <string name="licenses_tab_contributors">Người đóng góp</string>
-    <string name="navigation_rail_expand">Mở rộng thanh điều hướng</string>
-    <string name="navigation_rail_collapse">Thu gọn thanh điều hướng</string>
     <string name="licenses_tab_data">Dữ liệu</string>
     <string name="licenses_tab_raw_notice">Thông báo bản quyền gốc</string>
     <string name="licenses_search_placeholder">Tìm kiếm giấy phép…</string>
@@ -236,41 +229,6 @@
     <string name="cd_open_github_profile">Mở trang GitHub</string>
     <string name="cd_contributor_avatar">Ảnh đại diện của %1$s</string>
     <string name="cd_contributor_icon">Biểu tượng của %1$s</string>
-    <string name="screen_subsonic_dashboard_title">Bảng điều khiển Subsonic</string>
-    <string name="dash_playlists_synced_count">%1$d danh sách phát đã đồng bộ</string>
-    <string name="dash_title_playlists">Danh sách phát</string>
-    <string name="dash_library_playlist_title">Danh sách phát thư viện</string>
-    <string name="dash_action_sync">Đồng bộ</string>
-    <string name="dash_playlists_empty_title">Chưa có danh sách phát nào</string>
-    <string name="dash_playlists_empty_hint_subsonic">Tạo danh sách phát trên máy chủ Subsonic của bạn.</string>
-    <string name="dash_quick_actions">Tác vụ nhanh</string>
-    <string name="dash_libraries_title">Các thư viện nhạc</string>
-    <string name="dash_libraries_all">Tất cả thư viện</string>
-    <string name="dash_libraries_selected_count">Đã chọn %1$d trên %2$d</string>
-    <string name="dash_libraries_more_count">+%1$d thư viện khác</string>
-    <string name="dash_libraries_change">Thay đổi</string>
-    <string name="dash_libraries_load_failed">Không thể tải danh sách thư viện</string>
-    <string name="dash_libraries_sheet_subtitle">Chọn các thư viện bạn muốn đồng bộ vào RollerSkater.</string>
-    <string name="dash_libraries_all_subtitle">Đồng bộ tất cả các thư viện âm nhạc có sẵn.</string>
-    <string name="dash_libraries_folder_subtitle">Đồng bộ theo thư mục cụ thể.</string>
-    <string name="dash_libraries_sync_needed">Cần đồng bộ để cập nhật</string>
-    <string name="dash_libraries_not_music">Thư mục này không phải nhạc</string>
-    <string name="dash_status_syncing">Đang đồng bộ…</string>
-    <string name="dash_action_sync_library">Đồng bộ thư viện</string>
-    <string name="dash_action_disconnect">Ngắt kết nối</string>
-    <string name="dash_status_syncing_library">Đang đồng bộ thư viện…</string>
-    <string name="dash_status_fetching_playlists">Đang lấy danh sách phát…</string>
-    <string name="dash_status_syncing_playlist_format">Đang đồng bộ "%1$s"…</string>
-    <string name="dash_status_updating_local">Đang cập nhật cơ sở dữ liệu cục bộ…</string>
-    <string name="dash_status_sync_complete">Đồng bộ hoàn tất!</string>
-    <string name="dash_status_fetching_albums">Đang lấy album…</string>
-    <string name="dash_status_fetching_songs_from_format">Đang lấy bài hát từ %1$s…</string>
-    <string name="dash_status_saving_songs_format">Đang lưu %1$d bài hát…</string>
-    <string name="dash_status_no_songs_found">Không tìm thấy bài hát nào trên máy chủ</string>
-    <string name="dash_status_library_sync_complete">Đồng bộ thư viện hoàn tất</string>
-    <string name="dash_song_count">%1$d bài hát</string>
-    <string name="cd_sync">Đồng bộ</string>
-    <string name="cd_logout">Đăng xuất</string>
     <string name="toast_playlist_created">Đã tạo danh sách phát</string>
     <string name="toast_added_to_queue">Đã thêm vào hàng đợi</string>
     <string name="toast_playing_next">Sẽ phát tiếp theo</string>
@@ -280,7 +238,6 @@
     <string name="cd_play_playlist">Phát danh sách phát</string>
     <string name="cd_toggle_grid_list">Chuyển đổi dạng lưới / danh sách</string>
     <string name="cd_genre_illustration">Hình minh họa thể loại</string>
-    <string name="dash_last_synced_format">Đồng bộ lần cuối: %1$s</string>
     <string name="home_recently_added_title">Mới thêm gần đây</string>
     <string name="home_recently_added_play_cd">Phát các bài hát mới thêm gần đây</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="about_contributions_format">%1$d Beiträge</string>
-    <string name="about_link_fdroid_subtitle">Im F-Droid-Katalog verfügbar</string>
     <string name="about_licenses_title">Lizenzen &amp; Namensnennung</string>
     <string name="about_licenses_subtitle">Open-Source-Bibliotheken, Schriftarten und mitgelieferte Daten</string>
     <string name="about_licenses_sheet_subtitle">Software, Schriftarten und Daten von Drittanbietern, die in dieser App enthalten sind.</string>
@@ -9,8 +8,6 @@
     <string name="licenses_tab_libraries">Bibliotheken</string>
     <string name="licenses_tab_fonts">Schriftarten</string>
     <string name="licenses_tab_contributors">Mitwirkende</string>
-    <string name="navigation_rail_expand">Navigation ausklappen</string>
-    <string name="navigation_rail_collapse">Navigation einklappen</string>
     <string name="licenses_tab_data">Daten</string>
     <string name="licenses_tab_raw_notice">Originaltext</string>
     <string name="licenses_search_placeholder">Bibliotheken oder Lizenzen suchen…</string>
@@ -22,7 +19,6 @@
     <string name="licenses_toast_copied">Lizenztext in die Zwischenablage kopiert</string>
     <string name="licenses_cd_close">Schließen</string>
     <string name="licenses_cd_copy">Lizenztext kopieren</string>
-    <string name="about_link_fdroid_title">F-Droid</string>
     <string name="about_link_source_title">Quellcode</string>
     <string name="about_maintainer_subtitle">Betreuung der FOSS- und der ursprünglichen/nicht-FOSS-Version.</string>
     <string name="about_maintainer_title">Maintainer</string>
@@ -39,7 +35,6 @@
     <string name="about_support_eyebrow">GitHub Sponsors</string>
     <string name="about_tagline">Lokale Musik zuerst, selbst gehostetes Streaming und Material-3-Handwerk in einem FOSS-Player.</string>
     <string name="about_version_format">Version v%1$s</string>
-    <string name="accounts_unable_open_screen">Dieser Bildschirm ist gerade nicht verfügbar.</string>
     <string name="action_copy">Kopieren</string>
     <string name="action_reset">Zurücksetzen</string>
     <string name="action_share">Teilen</string>
@@ -83,7 +78,6 @@
     <string name="cd_finish">Fertigstellen</string>
     <string name="cd_generic_artist">Unbekannter Künstler</string>
     <string name="cd_genre_illustration">Genre-Illustration</string>
-    <string name="cd_logout">Abmelden</string>
     <string name="cd_next_step">Weiter</string>
     <string name="cd_no_search_results">Keine Ergebnisse</string>
     <string name="cd_open_github_profile">GitHub-Profil öffnen</string>
@@ -110,7 +104,6 @@
     <string name="detail_hero_duration_minutes">%1$d Min.</string>
     <string name="detail_hero_duration_hours">%1$d Std. %2$d Min.</string>
     <string name="cd_song_cover">Song-Cover</string>
-    <string name="cd_sync">Synchronisieren</string>
     <string name="cd_toggle_grid_list">Zwischen Raster- und Listenansicht wechseln</string>
     <string name="clear_all">Alles löschen</string>
     <string name="crash_report_clipboard_label">Absturzprotokoll</string>
@@ -121,39 +114,6 @@
     <string name="crash_report_subtitle">Die App ist während deiner letzten Sitzung abgestürzt. Hilf uns, dies zu beheben, indem du den Absturzbericht teilst.</string>
     <string name="crash_report_title">Oops! Etwas ist schiefgelaufen</string>
     <string name="customize_corner_radius">Eckenradius anpassen</string>
-    <string name="dash_action_disconnect">Trennen</string>
-    <string name="dash_action_sync">Synchronisieren</string>
-    <string name="dash_action_sync_library">Bibliothek synchronisieren</string>
-    <string name="dash_last_synced_format">Zuletzt synchronisiert: %1$s</string>
-    <string name="dash_libraries_all">Alle Bibliotheken</string>
-    <string name="dash_libraries_all_subtitle">Jede Bibliothek einbeziehen, die dieser Server bereitstellt</string>
-    <string name="dash_libraries_change">Ändern</string>
-    <string name="dash_libraries_folder_subtitle">Diese Bibliothek beim nächsten Bibliotheks-Sync einbeziehen</string>
-    <string name="dash_libraries_load_failed">Bibliotheken konnten nicht geladen werden; der Sync verwendet alle</string>
-    <string name="dash_libraries_more_count">+%1$d weitere</string>
-    <string name="dash_libraries_not_music">Keine Musikbibliothek</string>
-    <string name="dash_libraries_selected_count">%1$d von %2$d ausgewählt</string>
-    <string name="dash_libraries_sheet_subtitle">Wähle aus, welche Server-Bibliotheken beim Synchronisieren der Hauptbibliothek einbezogen werden.</string>
-    <string name="dash_libraries_sync_needed">Bibliothek synchronisieren, um Änderungen zu übernehmen</string>
-    <string name="dash_libraries_title">Bibliotheken</string>
-    <string name="dash_library_playlist_title">Bibliothek</string>
-    <string name="dash_playlists_empty_hint_subsonic">Auf Synchronisieren tippen, um Playlists abzurufen</string>
-    <string name="dash_playlists_empty_title">Noch keine Playlists synchronisiert</string>
-    <string name="dash_playlists_synced_count">%1$d Playlists synchronisiert</string>
-    <string name="dash_quick_actions">Schnellaktionen</string>
-    <string name="dash_song_count">%1$d Songs</string>
-    <string name="dash_status_fetching_albums">Albumliste abrufen…</string>
-    <string name="dash_status_fetching_playlists">Playlists abrufen…</string>
-    <string name="dash_status_fetching_songs_from_format">Songs von %1$s abrufen…</string>
-    <string name="dash_status_library_sync_complete">Bibliotheks-Synchronisierung abgeschlossen</string>
-    <string name="dash_status_no_songs_found">Keine Bibliothekssongs gefunden</string>
-    <string name="dash_status_saving_songs_format">Saving %1$d songs to database…</string>
-    <string name="dash_status_sync_complete">Synchronisierung abgeschlossen</string>
-    <string name="dash_status_syncing">Synchronisieren</string>
-    <string name="dash_status_syncing_library">Bibliothek synchronisieren…</string>
-    <string name="dash_status_syncing_playlist_format">Playlist synchronisieren: %1$s</string>
-    <string name="dash_status_updating_local">Lokale Bibliothek aktualisieren…</string>
-    <string name="dash_title_playlists">Playlists</string>
     <string name="delimiter_add_title">Neues Trennzeichen hinzufügen</string>
     <string name="delimiter_defaults_title">Standard-Trennzeichen</string>
     <string name="delimiter_hint">z. B. / oder ;</string>
@@ -181,7 +141,6 @@
     <string name="restore_selected">Ausgewählte wiederherstellen</string>
     <string name="restoring">Wiederherstellen</string>
     <string name="screen_about">Über</string>
-    <string name="screen_subsonic_dashboard_title">Subsonic</string>
     <string name="search_no_results_for_query">Keine Ergebnisse für \"%1$s\"</string>
     <string name="search_no_results_found">Keine Ergebnisse gefunden.</string>
     <string name="search_nothing_found">Nichts gefunden</string>
@@ -216,7 +175,7 @@
     <string name="setup_import_backup">Backup importieren</string>
     <string name="setup_inspecting_backup">Backup wird geprüft</string>
     <string name="setup_intro_body">Richten wir alles ein.</string>
-    <string name="setup_lets_go">Los geht\'s!</string>
+<string name="setup_lets_go">"Los geht's!"</string>
     <string name="setup_library_layout_footer">Änderbar unter Einstellungen &gt; Darstellung &gt; Bibliotheks-Navigation.</string>
     <string name="setup_library_layout_subtitle">Wie möchtest du durch die Bibliothek navigieren?</string>
     <string name="setup_library_layout_title">Bibliotheks-Layout</string>
@@ -233,7 +192,6 @@
     <string name="setup_permission_media_title">Medienberechtigung</string>
     <string name="setup_permission_notifications_description">Musik vom Sperrbildschirm und der Benachrichtigungsleiste steuern.</string>
     <string name="setup_permission_notifications_title">Benachrichtigungen</string>
-    <string name="setup_preview_songs_label">Songs</string>
     <string name="setup_recommended">Empfohlen</string>
     <string name="setup_restore_backup_subtitle">Vor dem Abschluss prüfen, was importiert werden soll.</string>
     <string name="setup_restore_backup_title">Backup wiederherstellen</string>
@@ -275,7 +233,6 @@
     <string name="word_delimiter_toast_invalid">Bereits vorhanden oder ungültig</string>
     <string name="word_delimiter_toast_reset">Wort-Trennzeichen zurückgesetzt</string>
     <string name="word_delimiters_screen_title">Wort-Trennzeichen</string>
-    <string name="easter_egg_thank_you">Danke, dass du RollerSkater verwendest!</string>
     <string name="setup_external_services_subtitle">RollerSkater funktioniert standardmäßig offline. Aktiviere nur die Abfragen, die du möchtest.</string>
     <string name="setup_permission_media_description">RollerSkater benötigt Zugriff auf deine Audiodateien, um deine Musikbibliothek aufzubauen.</string>
     <string name="setup_permission_alarms_description">Optional, aber empfehlenswert, wenn du den Sleep Timer nutzt und möchtest, dass RollerSkater die Wiedergabe auf die Minute genau beendet.</string>

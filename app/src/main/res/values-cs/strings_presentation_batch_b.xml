@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="presentation_batch_b_accounts_linked_services">Propojené služby</string>
-    <string name="presentation_batch_b_accounts_status_connected">Připojeno</string>
-    <string name="presentation_batch_b_accounts_open_service">Otevřít službu</string>
-    <string name="presentation_batch_b_accounts_logging_out">Odhlašování…</string>
-    <string name="presentation_batch_b_accounts_no_linked_title">Zatím nejsou propojené žádné účty</string>
-    <string name="presentation_batch_b_accounts_no_linked_body">Připojte poskytovatele a spravujte ho odsud.</string>
-    <string name="presentation_batch_b_accounts_connect_service">Připojit %1$s</string>
     <string name="presentation_batch_b_sort_songs">Seřadit skladby</string>
     <string name="presentation_batch_b_more_options">Další možnosti</string>
     <string name="presentation_batch_b_play_it">Přehrát</string>
@@ -19,7 +12,6 @@
     <string name="presentation_batch_b_playlist_empty_title">Tento playlist je prázdný.</string>
     <string name="presentation_batch_b_playlist_empty_folder_body">V této složce nejsou žádné skladby.</string>
     <string name="presentation_batch_b_playlist_empty_add_hint">Začněte klepnutím na „Přidat skladby“.</string>
-    <string name="presentation_batch_b_playlist_empty_smart_body">Tomuto pravidlu zatím neodpovídá žádná skladba.</string>
     <string name="presentation_batch_b_playlist_options_title">Možnosti playlistu</string>
     <string name="presentation_batch_b_edit_playlist">Upravit playlist</string>
     <string name="presentation_batch_b_delete_playlist">Smazat playlist</string>
@@ -29,7 +21,6 @@
     <string name="presentation_batch_b_delete_playlist_confirm_body">Opravdu chcete smazat tento playlist?</string>
     <string name="presentation_batch_b_rename_playlist_dialog_title">Přejmenovat playlist</string>
     <string name="presentation_batch_b_new_name">Nový název</string>
-    <string name="presentation_batch_b_daily_mix_title">Denní mix</string>
     <string name="presentation_batch_b_quick_fill_select_songs">Vybrat skladby</string>
     <string name="presentation_batch_b_quick_fill_choose_genre">Vybrat žánr</string>
     <string name="presentation_batch_b_search_songs_label">Hledat skladby</string>

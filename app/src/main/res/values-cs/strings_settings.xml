@@ -9,7 +9,6 @@
     <string name="setcat_m3u_sync_now_subtitle">Importuje a exportuje změny bez přepsání položek, u kterých vznikl konflikt</string>
     <string name="setcat_m3u_sync_result">Změny: %1$d · konflikty: %2$d · nevyřešené položky: %3$d</string>
     <string name="settings_top_bar_title">Nastavení</string>
-    <string name="settings_accounts_row_title">Účty</string>
     <string name="settings_search_hint">Hledat v nastavení</string>
     <string name="settings_search_no_results">Pro „%1$s“ se nenašly žádné výsledky</string>
     <string name="settings_search_section_top_matches">Nejlepší shody</string>
@@ -67,10 +66,6 @@
     <string name="setcat_external_lyrics_subtitle">Povolí vyhledávání a ruční stahování z lrclib.net, pokud chybí místní text skladby.</string>
     <string name="setcat_external_artist_images_title">Fotky interpretů z Deezeru</string>
     <string name="setcat_external_artist_images_subtitle">Povolí stahování chybějících fotek interpretů z Deezeru a jejich ukládání do mezipaměti.</string>
-    <string name="setcat_smart_mix_history_title">Historie chytrých mixů</string>
-    <string name="setcat_smart_mix_history_subtitle">Nedávné požadavky a záznamy, díky nimž se nové mixy neopakují.</string>
-    <string name="setcat_smart_mix_history_action">Vymazat historii</string>
-    <string name="setcat_smart_mix_history_cleared">Historie chytrých mixů byla vymazána</string>
     <string name="setcat_lyrics_management">Správa textů skladeb</string>
     <string name="setcat_lyrics_source_priority_label">Pořadí zdrojů textů</string>
     <string name="setcat_lyrics_source_priority_desc">Vyberte zdroj, který se má při hledání textu skladby zkusit jako první.</string>
@@ -228,8 +223,6 @@
     <string name="setcat_test_setup_title">Otestovat úvodní nastavení</string>
     <string name="setcat_test_setup_subtitle">Otevře průvodce úvodním nastavením pro účely testování.</string>
     <string name="setcat_maintenance">Údržba</string>
-    <string name="setcat_force_daily_mix_title">Vynutit vytvoření nového denního mixu</string>
-    <string name="setcat_force_daily_mix_subtitle">Okamžitě vytvoří nový playlist pro denní mix.</string>
     <string name="setcat_force_stats_title">Vynutit přepočet statistik</string>
     <string name="setcat_force_stats_subtitle">Vymaže mezipaměť a přepočítá statistiky přehrávání.</string>
     <string name="setcat_force_palette_title">Vynutit obnovu palety alba</string>
@@ -283,13 +276,9 @@
     <string name="rebuild">Sestavit znovu</string>
     <string name="sync_indicator_rebuilding">Obnovování databáze</string>
     <string name="toast_rebuilding_database">Obnovování databáze…</string>
-    <string name="dialog_regenerate_daily_mix_title">Vytvořit nový denní mix?</string>
-    <string name="dialog_regenerate_daily_mix_body">Aktuální mix se nahradí novým mixem podle toho, co jste v poslední době poslouchali.</string>
-    <string name="toast_daily_mix_regeneration_started">Spuštěno vytváření nového denního mixu</string>
     <string name="dialog_regenerate_stats_title">Přepočítat statistiky?</string>
     <string name="dialog_regenerate_stats_body">Vymaže se mezipaměť statistik a spustí se nový výpočet podle historie přehrávání v databázi.</string>
     <string name="toast_stats_regeneration_started">Spuštěn přepočet statistik</string>
-    <string name="setcat_regenerate_daily_mix_action">Vytvořit nový denní mix</string>
     <string name="setcat_regenerate_stats_action">Přepočítat statistiky</string>
     <string name="setcat_force_palette_empty">Nenašly se žádné skladby s obalem alba.</string>
     <string name="setcat_force_palette_subtitle">Vytvořte znovu všechny varianty palet uložené v mezipaměti, nebo vyberte jen jednu k obnovení.</string>
@@ -368,4 +357,5 @@
     <string name="updates_notification_text">RollerSkater %1$s je připraven k instalaci.</string>
     <string name="updates_notification_confirm_title">Dokončete aktualizaci RollerSkater</string>
     <string name="updates_notification_confirm_text">Klepnutím potvrďte instalaci.</string>
+    <string name="setcat_gain_mode_album">Album</string>
 </resources>

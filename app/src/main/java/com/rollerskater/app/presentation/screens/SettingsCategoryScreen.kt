@@ -17,9 +17,6 @@ import android.os.Environment
 import android.os.SystemClock
 import android.text.format.Formatter
 import android.widget.Toast
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.isGranted
-import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
@@ -202,8 +199,7 @@ import kotlinx.collections.immutable.toImmutableList
 @androidx.annotation.OptIn(UnstableApi::class)
 @OptIn(
     ExperimentalMaterial3Api::class,
-    ExperimentalMaterial3ExpressiveApi::class,
-    ExperimentalPermissionsApi::class
+    ExperimentalMaterial3ExpressiveApi::class
 )
 @Composable
 fun SettingsCategoryScreen(
@@ -270,23 +266,30 @@ fun SettingsCategoryScreen(
     val folderArtPermissions = remember {
         com.rollerskater.app.utils.folderArtworkPermissions(Build.VERSION.SDK_INT)
     }
-    val imagesPermissionState = rememberMultiplePermissionsState(folderArtPermissions) { grants ->
-        if (grants[folderArtPermissions.first()] == true) {
+    var hasImagesPermission by remember {
+        mutableStateOf(
+            androidx.core.content.ContextCompat.checkSelfPermission(
+                context,
+                folderArtPermissions.first()
+            ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+        )
+    }
+    val imagesPermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { grants ->
+        val granted = grants[folderArtPermissions.first()] == true
+        hasImagesPermission = granted
+        if (granted) {
             enableFolderAlbumArt()
         } else {
             Toast.makeText(context, folderArtPermissionMessage, Toast.LENGTH_LONG).show()
         }
     }
-    // Shown as off when the permission is gone even though the preference is still true: the
-    // feature genuinely is not working in that state, and tapping it re-requests access.
-    val hasImagesPermission = imagesPermissionState.permissions.any {
-        it.permission == folderArtPermissions.first() && it.status.isGranted
-    }
     val onFolderAlbumArtToggled: (Boolean) -> Unit = { enabled ->
         when {
             !enabled -> settingsViewModel.setUseFolderAlbumArt(false)
             hasImagesPermission -> enableFolderAlbumArt()
-            else -> imagesPermissionState.launchMultiplePermissionRequest()
+            else -> imagesPermissionLauncher.launch(folderArtPermissions.toTypedArray())
         }
     }
 
