@@ -38,7 +38,14 @@ class MediaStoreObserver @Inject constructor(
     private var isRegistered: Boolean = false
 
     init {
-        ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+        val attachObserver = Runnable {
+            ProcessLifecycleOwner.get().lifecycle.addObserver(this)
+        }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            attachObserver.run()
+        } else {
+            Handler(Looper.getMainLooper()).post(attachObserver)
+        }
     }
 
     fun register() {

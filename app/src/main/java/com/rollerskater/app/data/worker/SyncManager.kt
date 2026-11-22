@@ -1,6 +1,8 @@
 package com.rollerskater.app.data.worker
 
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkInfo
@@ -443,7 +445,7 @@ class SyncManager @Inject constructor(
     }
 
     private fun observeAppForeground() {
-        ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
+        val observer = object : DefaultLifecycleObserver {
             override fun onStart(owner: LifecycleOwner) {
                 sharingScope.launch(foregroundCheckDispatcher) {
                     val changedWhileAway = mediaStoreGenerationsChanged(
@@ -467,7 +469,16 @@ class SyncManager @Inject constructor(
                         readExternalMediaStoreGenerations(context).takeIf { it.isNotEmpty() }
                 }
             }
-        })
+        }
+
+        val attachObserver = Runnable {
+            ProcessLifecycleOwner.get().lifecycle.addObserver(observer)
+        }
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            attachObserver.run()
+        } else {
+            Handler(Looper.getMainLooper()).post(attachObserver)
+        }
     }
 
     /**

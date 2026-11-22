@@ -167,7 +167,6 @@ import com.rollerskater.app.presentation.viewmodel.DirectoryEntry
 import com.rollerskater.app.presentation.viewmodel.SetupEvent
 import com.rollerskater.app.presentation.viewmodel.SetupUiState
 import com.rollerskater.app.presentation.viewmodel.SetupViewModel
-import com.rollerskater.app.ui.theme.ExpTitleTypography
 import com.rollerskater.app.ui.theme.RoundedSans
 import com.rollerskater.app.utils.AppLocaleManager
 import com.rollerskater.app.utils.StorageInfo
@@ -688,14 +687,17 @@ fun WelcomePage() {
                 .padding(horizontal = 8.dp)
                 .padding(top = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(6.dp)
+            verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Text(
-                text = stringResource(R.string.setup_welcome_prefix),
+                text = stringResource(R.string.setup_welcome_prefix).trim(),
                 textAlign = TextAlign.Center,
-                style = ExpTitleTypography.displayLarge.copy(
-                    fontSize = 38.sp,
-                    lineHeight = 1.15.em
+                style = MaterialTheme.typography.headlineLarge.copy(
+                    fontFamily = RoundedSans,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 28.sp,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    lineHeight = 34.sp
                 ),
             )
             Text(
@@ -703,9 +705,11 @@ fun WelcomePage() {
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.displayLarge.copy(
                     fontFamily = RoundedSans,
+                    fontWeight = FontWeight.Bold,
                     fontSize = 42.sp,
                     color = MaterialTheme.colorScheme.primary,
-                    lineHeight = 1.15.em
+                    letterSpacing = (-0.5).sp,
+                    lineHeight = 48.sp
                 ),
             )
         }
