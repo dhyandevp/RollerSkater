@@ -9,6 +9,8 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/dhyandevp/RollerSkater/actions/workflows/ci.yml"><img src="https://github.com/dhyandevp/RollerSkater/actions/workflows/ci.yml/badge.svg" alt="CI Build Status"/></a>
+  <a href="https://github.com/dhyandevp/RollerSkater/releases/latest"><img src="https://img.shields.io/github/v/release/dhyandevp/RollerSkater?color=blue&label=Release" alt="Latest Release"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="GPL-3.0 License"/></a>
   <img src="https://img.shields.io/badge/Platform-Android%2011%2B%20(API%2030%2B)-green.svg" alt="Platform: Android 11+"/>
   <img src="https://img.shields.io/badge/Language-Kotlin%202.x-purple.svg" alt="Language: Kotlin 2.x"/>
@@ -196,9 +198,14 @@ Execute commands from the repository root:
 
 ---
 
-## Contributing
+## Contributing & Community
 
-We welcome community contributions, bug fixes, and improvements! Please review [CONTRIBUTING.md](CONTRIBUTING.md) before submitting pull requests.
+We welcome community contributions, bug fixes, and improvements! Please review our community resources before contributing:
+
+- 📖 [Contributing Guidelines](CONTRIBUTING.md) — Build instructions, architectural patterns, and PR workflow.
+- 🤝 [Code of Conduct](CODE_OF_CONDUCT.md) — Standards for respectful, inclusive community collaboration.
+- 🛡️ [Security Policy](SECURITY.md) — Vulnerability reporting and responsible disclosure policy.
+- 💬 [Discussions](https://github.com/dhyandevp/RollerSkater/discussions) — Ask questions, suggest ideas, and share feedback.
 
 > [!IMPORTANT]
 > RollerSkater is an independent, standalone project. All contributions must maintain repository isolation and adhere strictly to the project guidelines defined in [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).

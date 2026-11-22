@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/dhyandevp/RollerSkater/discussions
+    about: Ask general questions, discuss ideas, or chat with other community members.
+  - name: Contribution Guidelines
+    url: https://github.com/dhyandevp/RollerSkater/blob/main/CONTRIBUTING.md
+    about: Review our coding standards, architecture principles, and setup instructions.

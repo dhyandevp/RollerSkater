@@ -1,0 +1,47 @@
+name: Feature Request
+description: Suggest an enhancement or new feature for RollerSkater
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature!
+        Please keep in mind that **RollerSkater is strictly an offline-first, privacy-focused player**.
+        Features requesting cloud tracking, telemetry, or remote user profiling will not be accepted.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Motivation
+      description: Is your feature request related to a problem or limitation?
+      placeholder: "I'm always frustrated when..."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution or new feature you would like to see implemented.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Describe any alternative solutions or workarounds you have considered.
+    validations:
+      required: false
+  - type: textarea
+    id: ui_ux
+    attributes:
+      label: UI / UX Considerations
+      description: How should this feature look or feel within RollerSkater's Material 3 design?
+    validations:
+      required: false
+  - type: checkboxes
+    id: offline_pledge
+    attributes:
+      label: Project Philosophy Confirmation
+      options:
+        - label: I understand that RollerSkater is 100% offline-first and this feature does not require remote tracking or user telemetry.
+          required: true
