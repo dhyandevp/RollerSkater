@@ -43,7 +43,6 @@ import com.rollerskater.app.data.network.lyrics.LrcLibApiService
 import com.rollerskater.app.data.repository.ArtistImageRepository
 import com.rollerskater.app.data.repository.AudioBookmarkRepository
 import com.rollerskater.app.data.repository.LyricsRepository
-import com.rollerskater.app.data.repository.MediaStoreSongRepository
 import com.rollerskater.app.data.repository.MusicRepository
 import com.rollerskater.app.data.repository.SongRepository
 import com.rollerskater.app.data.repository.TransitionRepository
@@ -253,7 +252,7 @@ object AppModule {
         userPreferencesRepository: UserPreferencesRepository,
         musicDao: MusicDao
     ): SongRepository {
-        return MediaStoreSongRepository(
+        return SongRepository(
             context = context,
             mediaStoreObserver = mediaStoreObserver,
             favoritesDao = favoritesDao,
