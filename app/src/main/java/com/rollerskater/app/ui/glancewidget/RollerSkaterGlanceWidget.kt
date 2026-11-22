@@ -248,6 +248,17 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         }
     }
 
+    private fun GlanceModifier.widgetContainerBackground(
+        backgroundColor: ColorProvider,
+        cornerRadius: Dp
+    ): GlanceModifier {
+        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
+            this.background(ImageProvider(R.drawable.widget_surface_background))
+        } else {
+            this.background(backgroundColor).cornerRadius(cornerRadius)
+        }
+    }
+
     @Composable
     fun VeryThinWidgetLayout(
         modifier: GlanceModifier,
@@ -270,8 +281,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Row(
@@ -347,8 +357,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Row(
@@ -419,8 +428,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Column(
@@ -487,8 +495,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Column(
@@ -559,8 +566,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {
@@ -590,8 +596,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Row(
@@ -643,8 +648,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(12.dp)
         ) {
             Column(
@@ -733,8 +737,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Column(
@@ -828,8 +831,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
     ) {
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Column(modifier = GlanceModifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
@@ -919,8 +921,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         Box(
             modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(bgCornerRadius)
+                .widgetContainerBackground(backgroundColor, bgCornerRadius)
                 .padding(16.dp)
         ) {
             Column(modifier = GlanceModifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {

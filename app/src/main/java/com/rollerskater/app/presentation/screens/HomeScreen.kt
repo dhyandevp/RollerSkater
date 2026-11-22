@@ -88,8 +88,6 @@ import com.rollerskater.app.R
 import com.rollerskater.app.data.model.Song
 import com.rollerskater.app.data.preferences.CollagePattern
 import com.rollerskater.app.presentation.components.AlbumArtCollage
-import com.rollerskater.app.presentation.components.BetaInfoBottomSheet
-import com.rollerskater.app.presentation.components.ChangelogBottomSheet
 import com.rollerskater.app.presentation.components.HomeGradientTopBar
 import com.rollerskater.app.presentation.components.HomeOptionsBottomSheet
 import com.rollerskater.app.presentation.components.MiniPlayerHeight
@@ -261,11 +259,8 @@ fun HomeScreen(
     val bottomGradientHeight = resolveMainScreenBottomGradientHeight(navBarCompactMode, useNavigationRail)
 
     var showOptionsBottomSheet by remember { mutableStateOf(false) }
-    var showChangelogBottomSheet by remember { mutableStateOf(false) }
-    var showBetaInfoBottomSheet by remember { mutableStateOf(false) }
     var songForOptions by remember { mutableStateOf<HomeSongOptions?>(null) }
     val sheetState = rememberModalSheetState()
-    val betaSheetState = rememberModalSheetState()
     val scope = rememberCoroutineScope()
     LocalContext.current
 
@@ -348,12 +343,6 @@ fun HomeScreen(
                 HomeGradientTopBar(
                     onNavigationIconClick = {
                         navController.navigateSafely(Screen.Settings.route)
-                    },
-                    onMoreOptionsClick = {
-                        showChangelogBottomSheet = true
-                    },
-                    onBetaClick = {
-                        showBetaInfoBottomSheet = true
                     },
                     onMenuClick = onOpenSidebar,
                     isScrolled = isScrolledPastThreshold.value
@@ -626,22 +615,6 @@ fun HomeScreen(
                     }
                 }
             )
-        }
-    }
-    if (showChangelogBottomSheet) {
-        ModalBottomSheet(
-            onDismissRequest = { showChangelogBottomSheet = false },
-            sheetState = sheetState
-        ) {
-            ChangelogBottomSheet()
-        }
-    }
-    if (showBetaInfoBottomSheet) {
-        ModalBottomSheet(
-            onDismissRequest = { showBetaInfoBottomSheet = false },
-            sheetState = betaSheetState,
-        ) {
-            BetaInfoBottomSheet()
         }
     }
     songForOptions?.let { (song, queueSongs, queueName, playFromLibrary) ->

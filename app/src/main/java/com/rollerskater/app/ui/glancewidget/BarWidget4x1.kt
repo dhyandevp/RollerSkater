@@ -69,7 +69,7 @@ class BarWidget4x1 : GlanceAppWidget() {
         val playButtonCornerRadius = if (isPlaying) 16.dp else 20.dp
         val controlButtonCornerRadius = 16.dp
 
-        val rootBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && playerInfo.themeColors == null) {
+        val rootBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             GlanceModifier.background(ImageProvider(R.drawable.widget_surface_background))
         } else {
             GlanceModifier

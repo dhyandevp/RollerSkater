@@ -25,6 +25,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.rounded.Bluetooth
+import androidx.compose.material.icons.rounded.Cast
 import androidx.compose.material.icons.rounded.Check
 import androidx.compose.material.icons.rounded.Devices
 import androidx.compose.material.icons.rounded.Headphones
@@ -113,6 +114,8 @@ internal fun AudioOutputBottomSheet(
                 outputs = outputs,
                 onSelectOutput = viewModel::selectOutput
             )
+
+            CastToTvRow(onClick = { openCastToTv(context) })
 
             MoreDevicesRow(onClick = { openSystemOutputSwitcher(context) })
 
@@ -227,6 +230,76 @@ private fun MoreDevicesRow(onClick: () -> Unit) {
                 tint = colors.onSurfaceVariant,
                 modifier = Modifier.size(18.dp)
             )
+        }
+    }
+}
+
+@Composable
+private fun CastToTvRow(onClick: () -> Unit) {
+    val colors = MaterialTheme.colorScheme
+    Card(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = colors.surfaceContainer),
+        shape = RoundedCornerShape(24.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(14.dp)
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(40.dp)
+                    .background(colors.primaryContainer, CircleShape),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Cast,
+                    contentDescription = null,
+                    tint = colors.onPrimaryContainer,
+                    modifier = Modifier.size(20.dp)
+                )
+            }
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.player_audio_output_cast_title),
+                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold)
+                )
+                Text(
+                    text = stringResource(R.string.player_audio_output_cast_subtitle),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = colors.onSurfaceVariant,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis
+                )
+            }
+            Icon(
+                imageVector = Icons.AutoMirrored.Rounded.OpenInNew,
+                contentDescription = null,
+                tint = colors.onSurfaceVariant,
+                modifier = Modifier.size(18.dp)
+            )
+        }
+    }
+}
+
+private fun openCastToTv(context: Context) {
+    val castIntents = listOf(
+        Intent("android.settings.CAST_SETTINGS"),
+        Intent("com.android.settings.WIFI_DISPLAY_SETTINGS"),
+        Intent(Settings.ACTION_CAST_SETTINGS),
+        Intent(Settings.ACTION_WIRELESS_SETTINGS)
+    )
+    for (intent in castIntents) {
+        try {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+            return
+        } catch (e: Exception) {
+            Timber.d(e, "Intent failed to open cast settings")
         }
     }
 }

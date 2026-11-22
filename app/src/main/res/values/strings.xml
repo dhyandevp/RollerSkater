@@ -153,6 +153,8 @@
     <string name="player_audio_output_unknown_device">Audio device</string>
     <string name="player_audio_output_more_devices">More devices</string>
     <string name="player_audio_output_more_devices_subtitle">Connect or switch using the system output picker</string>
+    <string name="player_audio_output_cast_title">Cast to TV</string>
+    <string name="player_audio_output_cast_subtitle">Stream to Smart TV, Chromecast, or Wireless Display</string>
     <string name="player_no_songs_to_shuffle">No songs to shuffle.</string>
     <string name="player_queue_name_selected_albums">Selected Albums</string>
     <string name="player_no_playable_songs_in_albums">No playable songs found in selected albums</string>

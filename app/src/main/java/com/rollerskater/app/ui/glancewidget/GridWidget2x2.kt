@@ -71,7 +71,7 @@ class GridWidget2x2 : GlanceAppWidget() {
         val dynamicPlayIconSize = (minSide.value * 0.16f).dp
         val albumArtSize = (minSide.value * 0.40f).dp
 
-        val gridBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && playerInfo.themeColors == null) {
+        val gridBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S) {
             GlanceModifier.background(ImageProvider(R.drawable.widget_surface_background))
         } else {
             GlanceModifier
