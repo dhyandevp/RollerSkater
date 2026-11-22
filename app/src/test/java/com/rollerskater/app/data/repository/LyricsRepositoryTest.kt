@@ -24,11 +24,11 @@ import java.io.File
 import java.nio.file.Files
 import org.junit.jupiter.api.Test
 
-class LyricsRepositoryImplTest {
+class LyricsRepositoryTest {
 
     @Test
     fun getLyrics_returnsSongLyricsBeforeNeedingStorageRead() = runTest {
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = mockk<Context>(relaxed = true),
             lrcLibApiService = mockk<LrcLibApiService>(relaxed = true),
             lyricsDao = mockk<LyricsDao>(relaxed = true),
@@ -63,7 +63,7 @@ class LyricsRepositoryImplTest {
     @Test
     fun getLyrics_apiFirst_usesStoredLyricsBeforeCallingLrcLib() = runTest {
         val apiService = mockk<LrcLibApiService>(relaxed = true)
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = mockk<Context>(relaxed = true),
             lrcLibApiService = apiService,
             lyricsDao = mockk<LyricsDao>(relaxed = true),
@@ -106,7 +106,7 @@ class LyricsRepositoryImplTest {
             isSynced = true,
             source = "manual"
         )
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = mockk<Context>(relaxed = true),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -146,7 +146,7 @@ class LyricsRepositoryImplTest {
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(105L) } returns null
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -182,7 +182,7 @@ class LyricsRepositoryImplTest {
         )
         coEvery { apiService.getLyrics(any(), any(), any(), any()) } returns null
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -215,7 +215,7 @@ class LyricsRepositoryImplTest {
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(originalSongLyrics)
         coEvery { apiService.getLyrics(any(), any(), any(), any()) } returns originalSongLyrics
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -248,7 +248,7 @@ class LyricsRepositoryImplTest {
         coEvery { lyricsDao.getLyrics(103L) } returns null
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(remixLyrics)
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -282,7 +282,7 @@ class LyricsRepositoryImplTest {
         coEvery { lyricsDao.getLyrics(107L) } returns null
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(romanizedLyrics)
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -315,7 +315,7 @@ class LyricsRepositoryImplTest {
         coEvery { lyricsDao.getLyrics(106L) } returns null
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(wordSynced)
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -354,7 +354,7 @@ class LyricsRepositoryImplTest {
         coEvery { lyricsDao.getLyrics(104L) } returns null
         coEvery { apiService.searchLyrics(any(), any(), any(), any()) } returns arrayOf(lyrics)
 
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -386,7 +386,7 @@ class LyricsRepositoryImplTest {
             isSynced = true,
             source = "manual"
         )
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = mockk<LrcLibApiService>(relaxed = true),
             lyricsDao = lyricsDao,
@@ -408,7 +408,7 @@ class LyricsRepositoryImplTest {
         val apiService = mockk<LrcLibApiService>(relaxed = true)
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(132L) } returns null
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -440,7 +440,7 @@ class LyricsRepositoryImplTest {
             isSynced = true,
             source = "manual"
         )
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -500,7 +500,7 @@ class LyricsRepositoryImplTest {
         File(musicDir, "Mua Thu.lrc").writeText("[00:01.00]Anh vẫn nhớ thân em\n[bg:(th�n em)]")
         val lyricsDao = mockk<LyricsDao>(relaxed = true)
         coEvery { lyricsDao.getLyrics(134L) } returns null
-        val repository = LyricsRepositoryImpl(
+        val repository = LyricsRepository(
             context = testContext(),
             lrcLibApiService = mockk<LrcLibApiService>(relaxed = true),
             lyricsDao = lyricsDao,
@@ -536,7 +536,7 @@ class LyricsRepositoryImplTest {
             )
         )
         val song = testSong(id = "107", title = "Bones", artist = "Neon Duo", duration = 180_000L)
-        LyricsRepositoryImpl(
+        LyricsRepository(
             context = testContext(filesDir),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -545,7 +545,7 @@ class LyricsRepositoryImplTest {
         ).fetchFromRemote(song).getOrThrow()
 
         // A fresh repository has no memory cache, so this reads the JSON written above.
-        val cached = LyricsRepositoryImpl(
+        val cached = LyricsRepository(
             context = testContext(filesDir),
             lrcLibApiService = mockk<LrcLibApiService>(relaxed = true),
             lyricsDao = mockk<LyricsDao>(relaxed = true),
@@ -581,7 +581,7 @@ class LyricsRepositoryImplTest {
             )
         )
         val song = testSong(id = "108", title = "Echoes", artist = "Neon Duo", duration = 180_000L)
-        LyricsRepositoryImpl(
+        LyricsRepository(
             context = testContext(filesDir),
             lrcLibApiService = apiService,
             lyricsDao = lyricsDao,
@@ -590,7 +590,7 @@ class LyricsRepositoryImplTest {
         ).fetchFromRemote(song).getOrThrow()
 
         // A fresh repository has no memory cache, so this reads the JSON written above.
-        val cached = LyricsRepositoryImpl(
+        val cached = LyricsRepository(
             context = testContext(filesDir),
             lrcLibApiService = mockk<LrcLibApiService>(relaxed = true),
             lyricsDao = mockk<LyricsDao>(relaxed = true),

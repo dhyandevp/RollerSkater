@@ -43,7 +43,6 @@ import com.rollerskater.app.data.network.lyrics.LrcLibApiService
 import com.rollerskater.app.data.repository.ArtistImageRepository
 import com.rollerskater.app.data.repository.AudioBookmarkRepository
 import com.rollerskater.app.data.repository.LyricsRepository
-import com.rollerskater.app.data.repository.LyricsRepositoryImpl
 import com.rollerskater.app.data.repository.MediaStoreSongRepository
 import com.rollerskater.app.data.repository.MusicRepository
 import com.rollerskater.app.data.repository.MusicRepositoryImpl
@@ -237,7 +236,7 @@ object AppModule {
         okHttpClient: OkHttpClient,
         userPreferencesRepository: UserPreferencesRepository
     ): LyricsRepository {
-        return LyricsRepositoryImpl(
+        return LyricsRepository(
             context = context,
             lrcLibApiService = lrcLibApiService,
             lyricsDao = lyricsDao,
