@@ -124,6 +124,19 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
 
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
+            android.os.StrictMode.setThreadPolicy(
+                android.os.StrictMode.ThreadPolicy.Builder()
+                    .detectCustomSlowCalls()
+                    .penaltyLog()
+                    .build()
+            )
+            android.os.StrictMode.setVmPolicy(
+                android.os.StrictMode.VmPolicy.Builder()
+                    .detectLeakedSqlLiteObjects()
+                    .detectLeakedClosableObjects()
+                    .penaltyLog()
+                    .build()
+            )
         } else {
             Timber.plant(ReleaseTree())
         }

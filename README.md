@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="assets/RollerSkater.svg" alt="RollerSkater Logo" height="180"/>
+  <img src="assets/RollerSkater.svg" alt="RollerSkater Logo" height="160"/>
 </p>
 
 <h1 align="center">RollerSkater</h1>
 
 <p align="center">
-  <strong>A high-performance, offline-first Android music player built with Jetpack Compose, Material 3, and AndroidX Media3.</strong>
+  <strong>An independent, offline-first Android music player built with Jetpack Compose, Material 3, and AndroidX Media3.</strong>
 </p>
 
 <p align="center">
@@ -13,257 +13,450 @@
   <a href="https://github.com/dhyandevp/RollerSkater/releases/latest"><img src="https://img.shields.io/github/v/release/dhyandevp/RollerSkater?color=blue&label=Release" alt="Latest Release"/></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="GPL-3.0 License"/></a>
   <img src="https://img.shields.io/badge/Platform-Android%2011%2B%20(API%2030%2B)-green.svg" alt="Platform: Android 11+"/>
-  <img src="https://img.shields.io/badge/Language-Kotlin%202.x-purple.svg" alt="Language: Kotlin 2.x"/>
-  <img src="https://img.shields.io/badge/UI-Jetpack%20Compose%20%2F%20Material%203-blueviolet.svg" alt="UI: Jetpack Compose / Material 3"/>
+  <img src="https://img.shields.io/badge/Min%20SDK-30-brightgreen.svg" alt="Min SDK: 30"/>
+  <img src="https://img.shields.io/badge/Target%20SDK-37-informational.svg" alt="Target SDK: 37"/>
+  <img src="https://img.shields.io/badge/Kotlin-2.4-purple.svg" alt="Kotlin 2.4"/>
+  <img src="https://img.shields.io/badge/Compose-Material%203-blueviolet.svg" alt="Jetpack Compose Material 3"/>
   <img src="https://img.shields.io/badge/Privacy-100%25%20On--Device-success.svg" alt="Privacy: 100% On-Device"/>
 </p>
 
 ---
 
-## Overview
-
-**RollerSkater** is an independent, local-first Android music player designed for audiophiles and privacy-conscious listeners. Engineered around Android's modern Jetpack Compose toolkit and AndroidX Media3, RollerSkater delivers fluid 60–120 FPS animations, gapless playback, customizable crossfade transitions, embedded & synchronized `.lrc`/`.ttml` lyrics, native tag editing via TagLib, and dynamic Material You personalization—completely free of analytics, telemetry, or remote crash uploaders.
-
----
-
-## Key Features
-
-### 🎧 Precision Audio Engine
-- **DualPlayerEngine**: Dual-player architecture utilizing primary and secondary ExoPlayer instances for seamless gapless playback and crossfades.
-- **Parametric Transitions**: Configurable crossfade durations with smooth mathematical volume curve envelopes.
-- **Audio Offload Support**: Low-power hardware audio offload with automated fallback detection to ensure uninterrupted playback.
-- **Equalizer Integration**: Custom 5-to-10 band equalizer with bass boost, virtualizer, and custom user presets.
-- **Extended Audio Codec Decoding**: FFmpeg software decoding extension (`media3-ffmpeg-decoder`) alongside system decoders for broad audio format coverage (MP3, FLAC, M4A/AAC, OGG, OPUS, WAV).
-
-### 🎨 Modern Material 3 UI & Personalization
-- **Dynamic Theming**: Dynamic color palette extraction from album artwork via Palette API, with full support for system dynamic themes (Material You).
-- **AMOLED True Black**: Deep-black theme mode optimized for OLED and AMOLED displays.
-- **Adaptive Layouts**: Responsive navigation across mobile screens, foldable displays, and tablets using AndroidX Window Adaptive APIs.
-- **Parallax Carousels & Waveforms**: Hardware-accelerated transitions and interactive seekbars.
-
-### 📚 Comprehensive Library & Tag Management
-- **Local Library Organization**: Instant sorting and filtering by Tracks, Albums, Artists, Genres, and Folder hierarchies.
-- **Fast Search**: In-memory and indexed database search with recent query history.
-- **Native Metadata Editing**: Direct file-level tag editing (ID3v1, ID3v2, FLAC Vorbis comments, MP4 tags) backed by native TagLib JNI (`libtaglib.so`).
-- **Flexible Playlists**: Custom playlists, drag-to-reorder queue management, and batch multi-selection tools.
-
-### 🎤 Synchronized Lyrics Engine
-- **Multi-Format Parsing**: Instant support for embedded tag lyrics, external `.lrc` synchronized files, and `.ttml` timed text files.
-- **Word-Level Highlights**: Real-time karaoke-style word highlighting and smooth auto-scrolling with manual time-offset adjustment.
-
-### 🔒 Offline-First Privacy & Local Backup
-- **Zero Telemetry**: Completely devoid of tracking SDKs, Firebase, Crashlytics, and proprietary analytics.
-- **Storage Access Framework (SAF)**: Secure local backups and directory access without requiring broad filesystem permissions.
-- **JSON Backup & Restore**: One-tap export and import of playlists, favorites, equalizer configurations, listening statistics, and preferences.
-
-### 📱 Android System Integration
-- **Glance Home-Screen Widgets**: 4 distinct Material 3 widget layouts (4×1 Bar, 4×2 Controls, 2×2 Album Grid, and Resizable Adaptive Glance) with real-time playback updates, dynamic color palette adaptation, and antialiased rounded bitmap fallbacks on Android 11 (API 30+). See [WIDGET_ARCHITECTURE.md](docs/WIDGET_ARCHITECTURE.md).
-- **MediaSession & Notifications**: Full lockscreen playback controls, fast-forward/rewind actions, and Android Auto support.
-- **Sleep Timer**: System-level sleep timer with gradual volume fade-out.
+## Table of Contents
+- [Screenshots](#screenshots)
+- [Why RollerSkater](#why-rollerskater)
+- [Features](#features)
+- [Supported Formats & Tag Handling](#supported-formats--tag-handling)
+- [Architecture & Design](#architecture--design)
+- [Tech Stack](#tech-stack)
+- [Permissions & Privacy](#permissions--privacy)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Configuration & Settings](#configuration--settings)
+- [Testing & Quality Assurance](#testing--quality-assurance)
+- [Releasing & Distribution](#releasing--distribution)
+- [Roadmap & Known Limitations](#roadmap--known-limitations)
+- [Contributing](#contributing)
+- [Origin & Credits](#origin--credits)
+- [License](#license)
 
 ---
 
-## Architecture at a Glance
+## Screenshots
 
-RollerSkater follows Clean Architecture and Unidirectional Data Flow (UDF) design principles:
+> [!NOTE]
+> Screenshot images can be captured from a connected test device or emulator using the ADB commands below and stored in `assets/screenshots/`.
+
+| Home Screen | Full Player | Library Tabs | Synced Lyrics | Equalizer | Glance Widgets |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| <img src="assets/screenshots/01_home.png" width="160" alt="Home Screen"/> | <img src="assets/screenshots/02_player.png" width="160" alt="Full Player"/> | <img src="assets/screenshots/03_library.png" width="160" alt="Library"/> | <img src="assets/screenshots/04_lyrics.png" width="160" alt="Lyrics"/> | <img src="assets/screenshots/05_equalizer.png" width="160" alt="Equalizer"/> | <img src="assets/screenshots/06_widgets.png" width="160" alt="Widgets"/> |
+
+<details>
+<summary><strong>ADB Commands to Capture Screenshots</strong></summary>
+
+Connect a device with USB debugging enabled and run:
+```bash
+mkdir -p assets/screenshots
+adb exec-out screencap -p > assets/screenshots/01_home.png
+adb exec-out screencap -p > assets/screenshots/02_player.png
+adb exec-out screencap -p > assets/screenshots/03_library.png
+adb exec-out screencap -p > assets/screenshots/04_lyrics.png
+adb exec-out screencap -p > assets/screenshots/05_equalizer.png
+adb exec-out screencap -p > assets/screenshots/06_widgets.png
+```
+</details>
+
+---
+
+## Why RollerSkater
+
+RollerSkater is an independent, local-first Android music player engineered for listeners who value audio quality, privacy, and smooth Material 3 design. Built around AndroidX Media3 and a dual-player audio engine, it plays local audio files with gapless transitions, equal-power crossfading, synchronized karaoke lyrics, and low-latency graphic equalization. 
+
+Unlike streaming applications and cloud-tethered players, RollerSkater operates 100% offline by default without tracking SDKs, Firebase, telemetry, or remote crash reporters. All listening statistics, playlists, favorites, and metadata reside exclusively on the device in local SQLite tables. It embraces modern Android standards with full edge-to-edge rendering, predictive back gestures, and backward-compatible home-screen widgets for Android 11 through Android 15+.
+
+---
+
+## Features
+
+Every feature listed below is verified in the source code:
+
+### 🎵 Playback & Audio Engine
+- **DualPlayerEngine** ([`DualPlayerEngine.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/DualPlayerEngine.kt)): Dual-ExoPlayer architecture (`Player A` master and `Player B` auxiliary) enabling uninterrupted crossfades across mixed sample rates and bit depths without audio dropouts.
+- **Parametric Equal-Power Crossfade** ([`EditTransitionScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/EditTransitionScreen.kt), [`TransitionRepositoryImpl.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/repository/TransitionRepositoryImpl.kt)): Smooth volume interpolation adhering to $\text{Vol}_{\text{in}} = \sin(\frac{\pi}{2}t)$ and $\text{Vol}_{\text{out}} = \cos(\frac{\pi}{2}t)$, maintaining constant acoustic power ($\sin^2 + \cos^2 = 1.0$).
+- **Custom Transition Rules** ([`TransitionDao.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/TransitionDao.kt)): Define track-specific or artist-specific crossfade overrides.
+- **Extended Codec Decoding** ([`AudioDecoderPolicy.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/AudioDecoderPolicy.kt)): FFmpeg software decoding extension (`org.jellyfin.media3:media3-ffmpeg-decoder`) alongside Android platform codecs, enabling direct playback of FLAC (32-bit float PCM direct), ALAC, APE, WMA, AC-3, E-AC-3, DTS, and Opus.
+- **Audio Offload with 1,500ms Fallback** ([`DualPlayerEngine.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/DualPlayerEngine.kt)): Low-power DSP audio offload with an automated stall detector that switches to standard PCM decoding if hardware drivers freeze.
+- **Graphic Equalizer & Reverb** ([`EqualizerScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/EqualizerScreen.kt), [`EqualizerManager.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/equalizer/EqualizerManager.kt)): Hardware-backed 5–10 band equalizer, Bass Boost, Audio Virtualizer, Reverb presets, and custom user curves.
+- **ReplayGain Loudness Normalization** ([`ReplayGainAudioProcessor.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/ReplayGainAudioProcessor.kt)): Automatic volume normalization using embedded track and album gain tags.
+- **Interactive DJ Mashup Deck** ([`MashupScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/MashupScreen.kt)): Real-time dual-deck mixer with crossfader for blending two tracks live.
+- **Drift-Free Sleep Timer** ([`SleepTimerAlarmScheduler.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/SleepTimerAlarmScheduler.kt)): Uses Android `AlarmManager.setExactAndAllowWhileIdle` with gradual volume fade-out to trigger reliably during deep Doze mode.
+
+### 📚 Library & Organization
+- **Unified Media Sections** ([`LibraryScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/LibraryScreen.kt), [`LibraryMediaTabs.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/LibraryMediaTabs.kt)): Seven top-level tabs: **Songs**, **Albums**, **Artists**, **Genres**, **Playlists**, **Folders**, and **Favorites**, backed by AndroidX Paging 3.
+- **Filesystem Folder Navigation** ([`FolderTreeBuilder.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/repository/FolderTreeBuilder.kt)): Direct directory browser honoring `.nomedia` files and custom directory exclusions.
+- **Directory Blacklisting** ([`ExcludedDirectoriesScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/ExcludedDirectoriesScreen.kt)): Exclude ringtones, podcasts, or voice note folders from music queries.
+- **Multi-Artist Delimiter Parsing** ([`DelimiterConfigScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/DelimiterConfigScreen.kt)): Configurable delimiters (`;`, `/`, `&`, `feat.`, `ft.`, `,`) to cleanly split collaborating artists.
+- **Duplicate Song Detection** ([`DuplicateSongsScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/DuplicateSongsScreen.kt)): Detect redundant files across storage by matching duration, metadata, and file size.
+- **Recently Played Ledger** ([`RecentlyPlayedScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/RecentlyPlayedScreen.kt)): On-device playback history.
+
+### 🔍 Search & Discovery
+- **Full-Text SQLite FTS4 Search** ([`SongSearchFtsEntity.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/SongSearchFtsEntity.kt)): Instant search queries with highlighted token matches across titles, artists, and albums using the `unicode61` tokenizer.
+- **Genre Exploration Grid** ([`GenreCategoriesGrid.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/search/components/GenreCategoriesGrid.kt)): Visual discovery grid with dynamic typography.
+- **Persistent Search History** ([`SearchHistoryDao.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/SearchHistoryDao.kt)): Recent queries with single-item and bulk clear options.
+
+### 🏷️ Metadata & Tag Editor
+- **Direct File Tag Editing** ([`SongMetadataEditor.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/media/SongMetadataEditor.kt)): Direct file-level tag manipulation powered by TagLib C++ bindings (`libtaglib.so`), JAudioTagger, and Vorbis-Java. Supports editing Title, Artist, Album Artist, Album, Year, Track, Disc, Genre, Composer, and ReplayGain values.
+- **Technical Audio Inspector** ([`SongInfoBottomSheetViewModel.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/viewmodel/SongInfoBottomSheetViewModel.kt)): Displays bitrate, sample rate, bit depth, codec MIME type, channel configuration, file path, and exact file size.
+- **MusicBrainz Lookup** ([`MusicBrainzRepository.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/musicbrainz/MusicBrainzRepository.kt)): User-initiated metadata matching via `musicbrainz.org` to fetch verified MusicBrainz recording IDs (`mb_recording_id`).
+- **System Ringtone & Alarm Setter** ([`SongInfoBottomSheetViewModel.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/viewmodel/SongInfoBottomSheetViewModel.kt)): Assign any track as system ringtone, alarm, or notification sound via Android's `WRITE_SETTINGS` contract.
+
+### 🎤 Synchronized Lyrics
+- **Multi-Format Lyrics** ([`LyricsRepositoryImpl.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/repository/LyricsRepositoryImpl.kt)): Parses embedded ID3 USLT/SYLT tags, Vorbis comment lyrics, local `.lrc` files, and `.ttml` timed text files.
+- **Word-Level Highlights** ([`FullPlayerContent.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/components/player/FullPlayerContent.kt)): Real-time karaoke word highlighting and auto-scroll synchronization.
+- **Manual Time Offset** ([`LyricsSettingsScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/LyricsSettingsScreen.kt)): Adjust synchronization timing in millisecond increments.
+- **LRCLIB Online Fetching (Opt-In)** ([`LrcLibApiService.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/network/lyrics/LrcLibApiService.kt)): Optional network resolver for missing lyrics from `https://lrclib.net/` (disabled by default; 100% opt-in).
+
+### 📋 Playlists & Audio Bookmarks
+- **Custom Playlists** ([`PlaylistDetailScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/PlaylistDetailScreen.kt)): Create and edit playlists with custom covers and descriptions.
+- **Drag-and-Drop Reordering** ([`PlaylistDetailScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/PlaylistDetailScreen.kt)): Powered by `sh.calvin.reorderable`.
+- **M3U Export & Import** ([`M3uManager.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/playlist/M3uManager.kt)): Export playlists to standard `.m3u` / `.m3u8` files; import existing playlist files with path matching.
+- **Quick Fill Smart Playlists** ([`QuickFillScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/QuickFillScreen.kt)): Build playlists automatically based on rules (most played, release years, or genres).
+- **Audio Bookmarks** ([`AudioBookmarksScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/AudioBookmarksScreen.kt)): Save and resume named timestamps inside long tracks, live sets, or podcasts.
+
+### 📊 Private Stats & Recap
+- **On-Device Analytics** ([`PlaybackStatsRepository.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/stats/PlaybackStatsRepository.kt)): Private listening metrics tracking total hours, completion rates, skip counts, and top tracks.
+- **Listening Recap Cards** ([`presentation/recap/`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/recap/)): Interactive story cards summarizing listening trends.
+- **Card Image Export** ([`RecapSlides.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/recap/RecapSlides.kt)): Export high-resolution recap cards to shareable images via `dev.shreyaspatil:capturable`.
+
+### 🎨 Personalization & System Integration
+- **Material You Dynamic Theming** ([`PaletteStyleSettingsScreen.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/PaletteStyleSettingsScreen.kt)): Dynamic color scheme extraction from album artwork via `androidx.palette`.
+- **OLED Pure Black Mode** ([`UserPreferencesRepository.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/preferences/UserPreferencesRepository.kt)): Pure `#000000` dark theme for AMOLED displays.
+- **Glance Home-Screen Widgets** ([`ui/glancewidget/`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/ui/glancewidget/), [`WIDGET_ARCHITECTURE.md`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/docs/WIDGET_ARCHITECTURE.md)): 4 widget layouts (4×1 Bar, 4×2 Controls, 2×2 Album Grid, Resizable Glance) with real-time playback updates and antialiased corner smoothing fallback on Android 11.
+- **Quick Settings Tiles** ([`ShuffleAllTileService.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/tile/ShuffleAllTileService.kt), [`LastPlaylistTileService.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/tile/LastPlaylistTileService.kt)): Quick Settings tiles for one-tap shuffle or resuming playback.
+- **Backup & Restore** ([`BackupCoordinator.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/backup/BackupCoordinator.kt), [`BACKUP_AND_RESTORE.md`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/docs/BACKUP_AND_RESTORE.md)): Modular on-device JSON export and restore of playlists, favorites, equalizer presets, listening stats, bookmarks, and preferences via Storage Access Framework (SAF).
+
+---
+
+## Supported Formats & Tag Handling
+
+### Audio Decoders
+RollerSkater combines native Android media decoders with the bundled **Jellyfin FFmpeg Audio Extension** (`org.jellyfin.media3:media3-ffmpeg-decoder:1.9.0+1`):
+
+| Category | Formats & Codecs Supported |
+|---|---|
+| **Lossless Audio** | **FLAC** (native + direct 32-bit float PCM decoding via FFmpeg), **ALAC** (Apple Lossless in `.m4a`), **WAV** (PCM 8/16/24/32-bit, IEEE Float), **AIFF**, **APE** (Monkey's Audio). |
+| **Lossy Audio** | **MP3** (MPEG-1/2 Audio Layer III), **AAC** (AAC-LC, HE-AAC v1/v2 in `.m4a`, `.mp4`, `.aac`), **Ogg Vorbis** (`.ogg`), **Opus** (`.opus`), **WMA** (Windows Media Audio 1/2/Pro/Lossless), **AC-3** (Dolby Digital), **E-AC-3**, **TrueHD**, **DTS**, **DTS-HD**. |
+| **Audio Pipelines** | Direct Hi-Res output up to 192kHz / 24-bit PCM, hardware audio offload with automated 1,500ms stall detection fallback, trigonometric equal-power crossfade, gapless switching, and 5.1 surround-to-stereo downmixing. |
+
+### Tag Engines & Metadata Parsing
+Metadata extraction and editing are distributed across three dedicated engines:
+
+1. **Kyant0 TagLib (`io.github.kyant0:taglib:1.0.6`)**: C++ native library (`libtaglib.so`) providing fast parsing of ID3v1, ID3v2.3, ID3v2.4, FLAC Vorbis comments, MP4 tags, and WAV chunks.
+2. **JAudioTagger (`net.jthink:jaudiotagger:3.0.1`)**: Advanced tag writer supporting embedded artwork injection, ReplayGain tags (`REPLAYGAIN_TRACK_GAIN`, `REPLAYGAIN_ALBUM_GAIN`), rating fields, and custom TXXX frames.
+3. **Vorbis-Java Core (`org.gagravarr:vorbis-java-core:0.8`)**: Specialized Opus and Ogg Vorbis comment parsing and writing.
+
+Supported Metadata Fields: Title, Artist, Album Artist, Multiple Artists (with customizable delimiters), Album, Year, Track Number, Disc Number, Genre, Composer, Embedded Synchronized & Plain Lyrics, Embedded Artwork, and MusicBrainz IDs (`mb_recording_id`, `mb_release_id`, `mb_artist_id`).
+
+---
+
+## Architecture & Design
+
+For deeper technical specifications, sequence diagrams, and concurrency policies, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ```mermaid
 flowchart TD
-    subgraph UI ["Presentation Layer (Jetpack Compose)"]
+    subgraph UI ["Presentation Layer (Jetpack Compose & M3)"]
         Activity["MainActivity"]
         Screens["Screens & BottomSheets\n(HomeScreen, PlayerSheet, Library, Lyrics)"]
-        VM["ViewModels & StateHolders\n(PlayerViewModel, LibraryStateHolder, etc.)"]
+        VM["ViewModels & StateHolders\n(PlayerViewModel, SetupViewModel, etc.)"]
     end
 
-    subgraph Service ["Audio Service Layer (Media3)"]
-        MusicService["MusicService\n(MediaSessionService)"]
-        DualEngine["DualPlayerEngine\n(ExoPlayer A + ExoPlayer B)"]
-        EqSink["EqualizerAudioSink & AudioOffload"]
+    subgraph Service ["Service & Audio Layer (AndroidX Media3)"]
+        MusicService["MusicService\n(MediaSessionService / Foreground)"]
+        DualPlayer["DualPlayerEngine\n(Master Player A + Auxiliary Player B)"]
+        AudioSink["EqualizerAudioSink & AudioOffload\n(Surround Downmix & ReplayGain)"]
     end
 
     subgraph Data ["Data & Storage Layer"]
-        Repo["MusicRepository & PreferencesRepositories"]
-        RoomDB["Room Database\n(RollerSkaterDatabase v7)"]
-        DataStore["Jetpack DataStore Preferences"]
-        MediaStore["Android MediaStore & SAF"]
-        TagLib["Native TagLib (libtaglib.so)"]
+        MusicRepo["MusicRepositoryImpl\n(MediaStore + Room Orchestration)"]
+        PreferencesRepo["UserPreferencesRepository\n(Jetpack DataStore)"]
+        RoomDB["RollerSkaterDatabase (v7)\n(Room + FTS4 Search + Triggers)"]
+        MediaStore["Android MediaStore\n(Audio & Album Art Queries)"]
+        TagEngines["Metadata Engines\n(Native TagLib .so + JAudioTagger + Vorbis)"]
     end
 
+    Activity --> Screens
     Screens --> VM
-    VM --> Repo
-    VM -.->|"MediaController"| MusicService
-    MusicService --> DualEngine
-    DualEngine --> EqSink
-    Repo --> RoomDB
-    Repo --> DataStore
-    Repo --> MediaStore
-    Repo --> TagLib
+    VM --> MusicRepo
+    VM --> PreferencesRepo
+    VM -.->|"MediaController IPC"| MusicService
+    MusicService --> DualPlayer
+    DualPlayer --> AudioSink
+    MusicRepo --> RoomDB
+    MusicRepo --> MediaStore
+    MusicRepo --> TagEngines
+    PreferencesRepo --> RoomDB
 ```
 
-For an in-depth breakdown of architectural patterns, threading models, and engine state machines, refer to [ARCHITECTURE.md](ARCHITECTURE.md).
+### Package Map
+
+| Package | Purpose | Key Classes |
+|---|---|---|
+| `com.rollerskater.app.data.database` | Room persistence, DAOs, FTS, and migration strategies | [`RollerSkaterDatabase`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/RollerSkaterDatabase.kt), [`MusicDao`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/MusicDao.kt), [`Migrations`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/Migrations.kt) |
+| `com.rollerskater.app.data.repository` | Domain repositories bridging database, preferences, and MediaStore | [`MusicRepositoryImpl`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/repository/MusicRepositoryImpl.kt), [`ArtistImageRepository`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/repository/ArtistImageRepository.kt) |
+| `com.rollerskater.app.data.service` | AndroidX Media3 playback service and notification manager | [`MusicService`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/MusicService.kt), [`MusicNotificationProvider`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/MusicNotificationProvider.kt) |
+| `com.rollerskater.app.data.service.player` | DualPlayer audio engine, decoders, offload, and sinks | [`DualPlayerEngine`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/DualPlayerEngine.kt), [`AudioDecoderPolicy`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/service/player/AudioDecoderPolicy.kt) |
+| `com.rollerskater.app.data.media` | Audio metadata reading, tag editing, and artwork decoding | [`AudioMetadataReader`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/media/AudioMetadataReader.kt), [`SongMetadataEditor`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/media/SongMetadataEditor.kt) |
+| `com.rollerskater.app.data.backup` | Modular on-device JSON backup and restoration protocols | [`BackupCoordinator`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/backup/BackupCoordinator.kt), [`PlaylistsModuleHandler`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/backup/module/PlaylistsModuleHandler.kt) |
+| `com.rollerskater.app.presentation.screens` | Top-level Jetpack Compose screens and navigation destinations | [`HomeScreen`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/HomeScreen.kt), [`LibraryScreen`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/LibraryScreen.kt), [`EqualizerScreen`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/screens/EqualizerScreen.kt) |
+| `com.rollerskater.app.presentation.components` | Reusable Compose UI elements, player sheets, and widgets | [`UnifiedPlayerSheetV2`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/presentation/components/UnifiedPlayerSheetV2.kt) |
+| `com.rollerskater.app.ui.glancewidget` | AndroidX Glance home-screen app widgets and API 30 adapters | [`RollerSkaterGlanceWidget`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/ui/glancewidget/RollerSkaterGlanceWidget.kt), [`WidgetUtils`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/ui/glancewidget/WidgetUtils.kt) |
+| `com.rollerskater.app.di` | Dependency injection modules managed via Dagger Hilt | [`AppModule`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/di/AppModule.kt), [`NetworkModule`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/di/NetworkModule.kt) |
+
+### Database Schema Summary (Version 7)
+Managed by Room in [`RollerSkaterDatabase`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/RollerSkaterDatabase.kt):
+- **Current Version**: `7` (Version 7 dropped legacy cloud streaming and remote caching tables for a strictly offline layout).
+- **Core Tables**: `songs`, `albums`, `artists`, `song_artist_cross_ref`, `playlists`, `playlist_songs`, `favorites`, `lyrics`, `listening_stats`, `album_art_themes`, `search_history`, `transition_rules`, `audio_bookmarks`, `listenbrainz_pending_listens`.
+- **Search Virtual Table**: `songs_fts` using SQLite FTS4 with `unicode61` tokenizer. Automated triggers (`trg_songs_fts_insert`, `trg_songs_fts_update`, `trg_songs_fts_delete`) keep search indexes synchronized without manual re-indexing.
+- **Favorites Triggers**: `trg_favorites_insert_sync_song`, `trg_favorites_update_sync_song`, `trg_favorites_delete_sync_song` maintain atomic synchronization between the `favorites` table and `songs.is_favorite`.
+- **Migrations**: Fully defined in [`Migrations.kt`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/database/Migrations.kt) covering `MIGRATION_1_2` through `MIGRATION_6_7`. Schema exports are versioned in `app/schemas/`.
 
 ---
 
-## Directory Structure
+## Tech Stack
 
-```text
-rollerskater/
-├── app/
-│   ├── schemas/              # Exported Room database schema history (v1 through v7)
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── assets/       # Fonts, license notices, bundled assets
-│   │   │   ├── java/com/rollerskater/app/
-│   │   │   │   ├── data/     # Database entities, DAOs, repositories, DataStore preferences
-│   │   │   │   ├── di/       # Dagger Hilt dependency injection modules
-│   │   │   │   ├── presentation/ # Jetpack Compose UI (screens, sheets, components, viewmodels)
-│   │   │   │   ├── service/  # Media3 playback service (MusicService, notification, audio engine)
-│   │   │   │   ├── ui/       # Material 3 theme definitions, typography, Glance widgets
-│   │   │   │   └── utils/    # TagLib wrappers, lyric parsers, artwork caching utilities
-│   │   │   └── res/          # Android drawables, localized strings, XML resources
-│   │   └── test/             # Comprehensive JUnit 5 unit test suites
-│   └── build.gradle.kts      # Application build configuration
-├── baselineprofile/          # Macrobenchmark & Baseline Profile generators
-├── docs/                     # Detailed architectural, audio engine, and release documentation
-├── gradle/                   # Gradle wrapper and version catalog (libs.versions.toml)
-├── NOTICE.md                 # GPL-3.0 attribution and modification notice
-├── THIRD_PARTY_NOTICES.md    # Third-party dependency licenses and font notices
-├── PRIVACY.md                # Local-first privacy policy
-├── CONTRIBUTING.md           # Guidelines for contributors and coding standards
-├── ARCHITECTURE.md           # Complete architectural manual
-└── README.md                 # Project documentation
-```
+All dependencies are pinned and verified against [`gradle/libs.versions.toml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/gradle/libs.versions.toml):
 
----
-
-## Documentation Index
-
-For in-depth guides and architectural references:
-
-| Document | Topic |
-|---|---|
-| 📖 [**COMPILATION_AND_DEVELOPMENT.md**](docs/COMPILATION_AND_DEVELOPMENT.md) | **Step-by-step Android Studio setup, APK compilation, device debugging, and GitHub push workflow** |
-| 🏗️ [**ARCHITECTURE.md**](ARCHITECTURE.md) | System architecture, unidirectional data flow (UDF), and layer boundaries |
-| 🎛️ [**WIDGET_ARCHITECTURE.md**](docs/WIDGET_ARCHITECTURE.md) | Glance widget design, 4 widget configurations, and Android 11 antialiased rounded fallback |
-| 🎵 [**AUDIO_ENGINE.md**](docs/AUDIO_ENGINE.md) | DualPlayerEngine state machine, parametric crossfades, and gapless playback |
-| 🗄️ [**DATABASE_SCHEMA.md**](docs/DATABASE_SCHEMA.md) | Room database entity relationships, DAO queries, and version migration history |
-| 💾 [**BACKUP_AND_RESTORE.md**](docs/BACKUP_AND_RESTORE.md) | SAF integration and JSON backup/restore schema |
-| 🚀 [**RELEASE.md**](docs/RELEASE.md) | Release engineering, APK signing, and automated CI pipelines |
-| 🤝 [**CONTRIBUTING.md**](CONTRIBUTING.md) | Contribution guidelines, code standards, and PR workflows |
-| 🛡️ [**PRIVACY.md**](PRIVACY.md) | Offline-first, zero-telemetry privacy policy |
+| Library / Tool | Version | Purpose in RollerSkater |
+|---|---|---|
+| **Kotlin** | `2.4.10` | Core programming language with coroutines, Flow, and serialization |
+| **Android Gradle Plugin (AGP)** | `9.3.1` | Build orchestration and compilation pipeline |
+| **Compose BOM** | `2026.09.00` | Jetpack Compose runtime, foundation, and animation |
+| **Material 3** | `1.5.0-beta02` | Material 3 components, color roles, and dynamic typography |
+| **Compose Material 3 Adaptive** | `1.0.0` | Responsive layouts for tablets, foldables, and landscape screens |
+| **AndroidX Media3** | `1.10.1` | Core media playback engine, ExoPlayer, and MediaSessionService |
+| **Jellyfin Media3 FFmpeg Decoder** | `1.9.0+1` | Extended audio codec decoding (`libffmpegJNI.so`, GPL-3.0) |
+| **Room** | `2.8.4` | SQLite object mapping, Paging 3 source, and FTS4 virtual table queries |
+| **Paging 3** | `3.5.0` | Virtualized list paging for large libraries (10,000+ tracks) |
+| **Dagger Hilt** | `2.60.1` | Dependency injection across Activities, Services, and ViewModels |
+| **WorkManager** | `2.11.2` | Scheduled background synchronization tasks |
+| **Jetpack DataStore** | `1.2.1` | Asynchronous key-value preferences storage |
+| **Coil** | `2.7.0` | Asynchronous image loading and album art memory caching |
+| **Palette** | `1.0.0` | Dynamic color extraction from artwork for Material You theming |
+| **Kyant0 TagLib** | `1.0.6` | Native C++ metadata extraction (`libtaglib.so`) |
+| **JAudioTagger** | `3.0.1` | Comprehensive tag writing, ReplayGain, and custom metadata |
+| **Vorbis-Java Core** | `0.8` | Opus and Ogg Vorbis comment parsing and writing |
+| **AndroidX Glance** | `1.3.0-alpha02` | Jetpack Compose-based home-screen app widgets |
+| **Reorderables** | `3.1.0` | Drag-and-drop playlist and queue reordering |
+| **Capturable** | `3.0.1` | Bitmap capture for listening recap story cards |
+| **Wavy Slider** | `2.2.0` | Animated waveform seekbar in the full-screen player |
+| **Timber** | `5.0.1` | Structured logging with StrictMode integration in debug builds |
+| **LeakCanary** | `2.14` | Memory leak detection in debug builds |
 
 ---
 
-## Building from Source
+## Permissions & Privacy
 
-For a complete walkthrough on configuring Android Studio, SDK components, and device debugging, see [**COMPILATION_AND_DEVELOPMENT.md**](docs/COMPILATION_AND_DEVELOPMENT.md).
+For the comprehensive data safety policy, see [PRIVACY.md](PRIVACY.md).
 
-### Quick Compilation Commands
+### Manifest Permissions
 
-Execute commands from the repository root:
+Every permission declared in [`AndroidManifest.xml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/AndroidManifest.xml) is verified below:
 
+| Permission | Declared In | Used In Code | Justification & Purpose |
+|---|---|---|---|
+| `INTERNET` | `AndroidManifest.xml:5` | `LrcLibApiService.kt`, `DeezerApiService.kt`, `MusicBrainzApiService.kt`, `AppReleaseSource.kt` | Required for optional online features: fetching missing lyrics, artist portraits, MusicBrainz tags, and update checks. |
+| `ACCESS_LOCAL_NETWORK` | `AndroidManifest.xml:6` | *(None)* | Unused in code (relic of removed local streaming servers). Flagged for removal. |
+| `ACCESS_NETWORK_STATE` | `AndroidManifest.xml:7` | `ConnectivityStateHolder.kt`, `UpdateCheckWorker.kt` | Monitors network connectivity so background workers run only when connected. |
+| `ACCESS_WIFI_STATE` | `AndroidManifest.xml:8` | `ConnectivityStateHolder.kt` | Observes Wi-Fi radio status for playback routing. |
+| `BLUETOOTH` | `AndroidManifest.xml:9` | `ConnectivityStateHolder.kt` | Legacy Bluetooth status check on Android 11 (`maxSdkVersion="30"`). |
+| `BLUETOOTH_CONNECT` | `AndroidManifest.xml:10` | `ConnectivityStateHolder.kt` | Android 12+ permission to query connected Bluetooth audio devices and battery status. |
+| `BLUETOOTH_SCAN` | `AndroidManifest.xml:11` | `ConnectivityStateHolder.kt` | Discovers nearby Bluetooth audio devices with `neverForLocation` flag. |
+| `READ_MEDIA_AUDIO` | `AndroidManifest.xml:14` | `MediaStoreSongRepository.kt`, `SetupScreen.kt` | Android 13+ primary permission to index local audio tracks from MediaStore. |
+| `READ_MEDIA_IMAGES` | `AndroidManifest.xml:17` | `FolderArtistArtUtils.kt`, `SetupScreen.kt` | Optional permission requested only when user enables reading folder covers (`cover.jpg`). |
+| `READ_MEDIA_VISUAL_USER_SELECTED` | `AndroidManifest.xml:19` | `SetupScreen.kt` | Android 14+ permission for partial user selection handling in system photo picker. |
+| `READ_EXTERNAL_STORAGE` | `AndroidManifest.xml:20` | `MediaStoreSongRepository.kt` | Storage read permission for Android 11–12 (`maxSdkVersion="32"`). |
+| `WAKE_LOCK` | `AndroidManifest.xml:22` | `DualPlayerEngine.kt`, `MusicService.kt` | Prevents CPU sleep during active audio decoding and gapless track transitions. |
+| `MODIFY_AUDIO_SETTINGS` | `AndroidManifest.xml:24` | `DualPlayerEngine.kt`, `EqualizerManager.kt` | Configures system equalizer bands, audio effects, and USB DAC bit-perfect output mode. |
+| `FOREGROUND_SERVICE` | `AndroidManifest.xml:25` | `MusicService.kt`, `UpdateDownloadService.kt` | Required on Android 9+ for foreground playback services. |
+| `FOREGROUND_SERVICE_MEDIA_PLAYBACK` | `AndroidManifest.xml:28` | `MusicService.kt` | Android 14+ specific foreground service type for media playback. |
+| `FOREGROUND_SERVICE_DATA_SYNC` | `AndroidManifest.xml:26` | `UpdateDownloadService.kt`, WorkManager | Android 14+ foreground service type for file downloads and WorkManager background sync. |
+| `POST_NOTIFICATIONS` | `AndroidManifest.xml:27` | `MusicNotificationProvider.kt`, `SetupScreen.kt` | Android 13+ permission for lockscreen and notification shade playback controls. |
+| `WRITE_SETTINGS` | `AndroidManifest.xml:30` | `SongInfoBottomSheetViewModel.kt` | Allows setting any track as system ringtone, alarm, or notification sound. |
+| `ACCESS_FINE_LOCATION` | `AndroidManifest.xml:32` | `ConnectivityStateHolder.kt:429` | Declared with `maxSdkVersion="30"`. Used solely on Android 11 to read Wi-Fi SSID name. Flagged as unnecessary for offline playback. |
+| `SCHEDULE_EXACT_ALARM` | `AndroidManifest.xml:34` | `AlarmManagerSleepTimerScheduler.kt` | Schedules exact alarm for the Sleep Timer during Doze mode. Inexact fallback is implemented. |
+| `REQUEST_INSTALL_PACKAGES` | `AndroidManifest.xml:37` | `AppUpdateManager.kt`, `UpdateInstallReceiver.kt` | In-app APK updater for F-Droid / GitHub builds (prohibited on Google Play). |
+| `REQUEST_DELETE_PACKAGES` | `AndroidManifest.xml:38` | `AppUpdateManager.kt` | Prompts uninstallation when switching between F-Droid and GitHub release signatures. |
+| `REQUEST_IGNORE_BATTERY_OPTIMIZATIONS` | `AndroidManifest.xml:39` | `SetupScreen.kt` | Prompts user to exempt RollerSkater from aggressive OEM battery killers. |
+
+### Privacy Audit: What Leaves the Device
+
+RollerSkater makes **0 background network calls by default**. There are **no tracking SDKs, no telemetry, and no advertising modules**.
+
+When optional online features are enabled by the user, the exact network endpoints contacted are:
+- **`https://api.deezer.com/search/artist`**: Fetches artist portrait artwork. **100% Opt-In** (`externalArtistImagesEnabled` defaults to `false`).
+- **`https://lrclib.net/api/`**: Fetches missing synchronized (.lrc) or plain text lyrics. **100% Opt-In** (`externalLyricsEnabled` defaults to `false`).
+- **`https://musicbrainz.org/ws/2/`**: User-initiated metadata matching when tapping "Search MusicBrainz" in the track info sheet. **100% Opt-In**.
+- **`https://f-droid.org/api/v1/` & `https://api.github.com/`**: In-app update checks and downloads. **Opt-In** in Update settings.
+
+---
+
+## Getting Started
+
+For detailed environment troubleshooting and Android Studio configuration, see [docs/BUILDING.md](docs/BUILDING.md).
+
+### Prerequisites
+- **Java Development Kit**: JDK 21 (Eclipse Temurin 21 recommended).
+- **Android SDK**: Compile SDK `37`, Target SDK `37`, Minimum SDK `30` (Android 11+).
+- **Android Studio**: Ladybug (2024.2.1+) or newer.
+
+### Clone and Build
 ```bash
-# 1. Compile Kotlin debug sources
+# Clone the repository
+git clone https://github.com/dhyandevp/RollerSkater.git
+cd RollerSkater
+
+# 1. Compile Kotlin debug sources (fast check)
 ./gradlew :app:compileDebugKotlin
 
-# 2. Assemble Debug APK (outputs to app/build/outputs/apk/debug/)
+# 2. Assemble Debug APK
 ./gradlew :app:assembleDebug
+# Output APK: app/build/outputs/apk/debug/app-debug.apk
 
-# 3. Assemble Release APK (unsigned verification build)
+# 3. Assemble Release APKs with ABI splits (arm64-v8a, armeabi-v7a)
+./gradlew :app:assembleRelease -Prollerskater.enableAbiSplits=true
+
+# 4. Assemble unsigned Release APK
 ./gradlew :app:assembleRelease -Prollerskater.disableReleaseSigning=true
 
-# 4. Run Unit Test Suite
-./gradlew :app:testDebugUnitTest --max-workers=2
+# 5. Run all unit tests
+./gradlew :app:testDebugUnitTest
 
-# 5. Run Android Lint Checks
-./gradlew lint
+# 6. Run Android Lint
+./gradlew :app:lintDebug
 ```
 
 ---
 
-## Tech Stack & Dependencies
+## Project Structure
 
-| Category | Libraries / Components |
-|---|---|
-| **Language & Concurrency** | Kotlin 2.x, Kotlin Coroutines, Kotlin Flow |
-| **UI Framework** | Jetpack Compose, Material 3, Material Icons Extended |
-| **Audio Engine** | AndroidX Media3 / ExoPlayer, `DualPlayerEngine`, `media3-ffmpeg-decoder` |
-| **Dependency Injection** | Dagger Hilt |
-| **Persistence** | AndroidX Room (SQLite), Jetpack DataStore (Preferences) |
-| **Pagination** | AndroidX Paging 3 |
-| **Image Loading** | Coil 3 with custom memory cache decoders |
-| **Native Metadata** | Kyant0 TagLib (`libtaglib.so`) |
-| **Home Widgets** | AndroidX Glance (Compose for App Widgets) |
-| **Testing** | JUnit 5 (Jupiter), MockK, Google Truth, Kotlinx Coroutines Test |
+Annotated tree to depth 3:
+
+```
+rollerskater/
+├── app/
+│   ├── schemas/                          # Room database schema export files (v1 through v7)
+│   ├── src/
+│   │   ├── androidTest/                  # Instrumented Room database and Service tests (33 files)
+│   │   ├── main/
+│   │   │   ├── assets/                   # Bundled fonts (Google Sans Flex, Roboto Flex) & licenses
+│   │   │   ├── java/com/rollerskater/app/
+│   │   │   │   ├── data/                 # Database, Room DAOs, DataStore, Repositories, Media, Service
+│   │   │   │   ├── di/                   # Hilt DI modules (AppModule, BackupModule, NetworkModule)
+│   │   │   │   ├── presentation/         # Jetpack Compose UI (Screens, Sheets, Components, ViewModels)
+│   │   │   │   ├── ui/                   # Material 3 Theme, Typography, Glance app widgets
+│   │   │   │   └── utils/                # Audio metadata, artwork caching, lyrics parsers
+│   │   │   └── res/                      # Android resources, XML drawables, colors, 18 locale folders
+│   │   └── test/                         # JVM unit tests (197 files)
+│   ├── build.gradle.kts                  # App module build definition (compileSdk 37, JVM 21)
+│   └── proguard-rules.pro                # R8 keep rules for Media3, FFmpeg, TagLib, and Room
+├── assets/                               # Vector assets (RollerSkater.svg) and store graphics
+├── baselineprofile/                      # Macrobenchmarks & Baseline Profile generators (4 files)
+├── docs/                                 # Technical documentation
+│   ├── ARCHITECTURE.md                   # Deep architecture with sequence diagrams
+│   ├── AUDIO_ENGINE.md                   # DualPlayerEngine and crossfade mathematics
+│   ├── BACKUP_AND_RESTORE.md             # On-device JSON backup and restore specifications
+│   ├── BUILDING.md                       # Compilation manual and build troubleshooting
+│   ├── DATABASE_SCHEMA.md                # Room database schema, tables, and migrations
+│   ├── DEPENDENCY_LICENSES.md            # Detailed third-party dependency license audit
+│   ├── FEATURES.md                       # Comprehensive feature catalog with code references
+│   ├── RELEASE.md                        # Release engineering checklist and signing instructions
+│   └── WIDGET_ARCHITECTURE.md            # Glance widget design & Android 11 compatibility
+├── gradle/                               # Wrapper binaries and version catalogs (libs.versions.toml)
+├── NOTICE.md                             # GPL-3.0 attribution and modification notice
+├── THIRD_PARTY_NOTICES.md                # Third-party library and asset licenses
+├── PRIVACY.md                            # Comprehensive on-device privacy policy
+├── LICENSE                               # GNU General Public License v3.0 text
+└── README.md                             # Main project documentation
+```
 
 ---
 
-## Contributing & Community
+## Configuration & Settings
 
-We welcome community contributions, bug fixes, and improvements! Please review our community resources before contributing:
-
-- 📖 [Contributing Guidelines](CONTRIBUTING.md) — Build instructions, architectural patterns, and PR workflow.
-- 🤝 [Code of Conduct](CODE_OF_CONDUCT.md) — Standards for respectful, inclusive community collaboration.
-- 🛡️ [Security Policy](SECURITY.md) — Vulnerability reporting and responsible disclosure policy.
-- 💬 [Discussions](https://github.com/dhyandevp/RollerSkater/discussions) — Ask questions, suggest ideas, and share feedback.
-
-> [!IMPORTANT]
-> RollerSkater is an independent, standalone project. All contributions must maintain repository isolation and adhere strictly to the project guidelines defined in [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Settings Storage**: Preferences are stored asynchronously using **Jetpack DataStore** across specialized repositories:
+  - [`UserPreferencesRepository`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/preferences/UserPreferencesRepository.kt): Theming, library sorting, lyrics display, artist image toggles.
+  - [`EqualizerPreferencesRepository`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/preferences/EqualizerPreferencesRepository.kt): Band levels, bass boost, virtualizer, and custom EQ presets.
+  - [`PlaylistPreferencesRepository`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/main/java/com/rollerskater/app/data/preferences/PlaylistPreferencesRepository.kt): Playlist view styles and sorting criteria.
+- **Backup & Restore Format**: Serialized as reviewable JSON archives or zipped `.rsk` containers via Storage Access Framework (SAF). Includes playlists, favorites, custom equalizer curves, listening statistics, and app preferences.
 
 ---
 
-## Project Origin & Credits
+## Testing & Quality Assurance
 
-### Origin and credits
+### Test Suite Summary
+- **197 Unit Test Classes** in [`app/src/test/`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/test/): Comprehensive unit tests covering ViewModels, StateHolders, Repositories, Database DAOs, Room Migrations (`MIGRATION_1_2` through `MIGRATION_6_7`), Backup/Restore serializers, AudioMetadata tag parsers, and Widget caches.
+- **33 Instrumented Test Classes** in [`app/src/androidTest/`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/app/src/androidTest/): Instrumented Room database tests and Android service lifecycles.
+- **4 Macrobenchmark & Baseline Profile Classes** in [`baselineprofile/src/`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/baselineprofile/src/): Measures cold startup, library scrolling, and player animations on connected devices.
 
-RollerSkater is a fork of [PixelPlayerOSS](https://github.com/PixelPlayerHQ/PixelPlayerOSS) by its original authors, and builds on its codebase, player architecture and Material 3 / Material You design approach.
+### CI Workflows
 
-- **Upstream Repository**: [PixelPlayerHQ/PixelPlayerOSS](https://github.com/PixelPlayerHQ/PixelPlayerOSS)
-- **Upstream License**: [GNU General Public License v3.0 (GPL-3.0)](https://github.com/PixelPlayerHQ/PixelPlayerOSS/blob/main/LICENSE)
-- **Fork Point**: Forked from `eed81d9` (2026-11-21)
+Continuous Integration runs via GitHub Actions defined in `.github/workflows/`:
 
-#### Upstream Authors & Contributors
-We gratefully acknowledge the creators and contributors of the upstream codebase:
-- **Project Creator**: Theo Vilardo
-- **Maintainer**: lostf1sh
-- **Contributors** (from upstream git history, `LICENSE`, and [PIXELPLAYER_CONTRIBUTORS.txt](app/src/main/assets/licenses/PIXELPLAYER_CONTRIBUTORS.txt)):
-  Theo Vilardo, lostf1sh, Dhruv Varia, serein-213, adlifarizi, rebornloki-dev, Amonoman, Dae Euhwa, BeanVortex, Colby Cabrera, VoidX3D, Ayaan Hussain, imoyy, starry-shivam, Sjoerd Vermeulen, Clyde Ho, Claudio Gratton, Mazen Natour, Dexter Reed, Kainoa Kanter, Ravishanker, Silke pilon, lijinkang, raplivx, Luis Vervaet, Sincere-Bhattarai, faraz152, mirkiv, AJ, Héctor Luis, Jakob Moen Bekken, Jared Stemper, Jean-Baptiste, Linus, OpenSource Guy, Rahul Sharma, Rishit, Ryan, T. Stark, Zeus-990, chen, danZiKr1, jair1c, ori, and Неважно.
-
-#### Predecessor Project Attribution
-PixelPlayerOSS itself builds upon the earlier open-source PixelPlayer project, whose components contributed prior to the repository transition remain licensed under the MIT License. RollerSkater preserves all historical notices, copyright records, and attribution for both projects in [NOTICE.md](NOTICE.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [app/src/main/assets/licenses/](app/src/main/assets/licenses/).
-
-### What is the same, what changed
-
-The following table summarizes the relationship between upstream PixelPlayerOSS and RollerSkater, based on the actual codebase diff against the fork commit (`eed81d9`):
-
-| Area | Origin | RollerSkater |
+| Workflow File | Trigger | Purpose & Jobs |
 |---|---|---|
-| Core player, queue, library | PixelPlayerOSS | Kept, then optimized (cold startup speedup, artificial delays eliminated, media queries cached, fast library scanning) |
-| Material 3 UI patterns, theming | PixelPlayerOSS | Kept, restyled with the green palette (Deep Emerald accents, dark/light theme refinements, AMOLED mode preserved) |
-| Name, package id, icon, splash | n/a | New (RollerSkater, `com.rollerskater.app`, custom vector icon, new splash screen) |
-| Cloud streaming features | PixelPlayerOSS | Removed (Navidrome, Subsonic, Jellyfin, Telegram streaming, and remote credential handlers completely removed for 100% offline playback) |
-| AI & recommendation features | PixelPlayerOSS | Removed (Daily Mix, Smart Mix, and offline NLP playlist generator concept tables removed) |
-| App widgets | PixelPlayerOSS | Enhanced (4 Glance widget layouts with Android 11 API 30 compatibility, antialiased corner smoothing fallback, and memory-cached album art bitmaps) |
-| Performance & startup | PixelPlayerOSS | Optimized (startup benchmarks, eliminated coroutine sleep delays, optimized Compose recompositions and state flows) |
-| Privacy & telemetry | PixelPlayerOSS | Kept (strict offline-first architecture; zero analytics, crash uploaders, or tracking SDKs) |
-
-### Using the design
-
-- **Derived UI & Motion Design**: The screen layouts (PlayerSheet, Library tabs, Queue sheet, Lyrics display, Settings, Equalizer), Material 3 design patterns, UI components, and motion/transition curves are derived from PixelPlayerOSS. As these components originate from a GPL-3.0 project, their design structures and code implementations are covered by the **GNU General Public License v3.0 (GPL-3.0)**. Anyone reusing, adapting, or distributing them must preserve the same license, copyright notices, and copyleft conditions.
-- **Original Branding & Assets**: The RollerSkater name, custom green color palette and theme styling, store assets, and the original logo/icon artwork (`assets/RollerSkater.svg`) are original to RollerSkater.
-- **Logo & Artwork License**: The RollerSkater logo and icon artwork are licensed under the **Creative Commons Attribution-ShareAlike 4.0 International ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))** license (they are not covered by the GPL-3.0 software license).
-
-### Not affiliated
-
-RollerSkater is an independent project and is not affiliated with, sponsored or endorsed by the PixelPlayer / PixelPlayerOSS project or its authors.
-
-RollerSkater does not use the PixelPlayer name, logo, or screenshots as its branding. The PixelPlayerOSS name is referenced strictly to provide accurate credit and design-origin attribution under open-source copyleft requirements.
+| [`ci.yml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/.github/workflows/ci.yml) | Push & PR to `main` | Compiles Kotlin debug sources, runs all unit tests (`testDebugUnitTest`), and runs Android Lint (`lintDebug`). |
+| [`pr-build.yml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/.github/workflows/pr-build.yml) | Pull Requests | Generates test release APKs with ABI splits, verifies binaries with `aapt2` and `apksigner`, and uploads artifacts. |
+| [`release.yml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/.github/workflows/release.yml) | Tag push (`v*.*.*`) | Assembles signed release split APKs, computes SHA-256 checksums, and publishes official GitHub Release. |
+| [`alpha-release.yml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/.github/workflows/alpha-release.yml) | Alpha tags | Builds alpha prerelease APKs and archives R8 obfuscation mappings for crash retracing. |
+| [`nightly-apk.yml`](file:///home/dhyandevp/Documents/orca/project-file/PixelPlayer/rollerskater/.github/workflows/nightly-apk.yml) | Scheduled nightly | Builds nightly APK builds and preserves 30-day workflow artifacts. |
 
 ---
 
-## License & Attribution
+## Releasing & Distribution
 
-RollerSkater is free software licensed under the **GNU General Public License v3.0**. See the [LICENSE](LICENSE) file for terms and conditions.
+Summary of release engineering standards from [docs/RELEASE.md](docs/RELEASE.md):
+- **Versioning**: Single source of truth in `gradle.properties` (`APP_VERSION_NAME=1.0.0`, `APP_VERSION_CODE=1`).
+- **Signing**: Driven by an untracked `keystore.properties` file specifying `storeFile`, `storePassword`, `keyAlias`, and `keyPassword`. Builds default to unsigned if properties are absent.
+- **Distribution Channels**:
+  - **GitHub Releases**: Signed split APKs (`arm64-v8a`, `armeabi-v7a`) with published SHA-256 checksums.
+  - **F-Droid**: Built from tag source using reproducible build environments with release signing disabled (`-Prollerskater.disableReleaseSigning=true`).
+  - **Google Play**: Published as an Android App Bundle (`bundleRelease`) via Play App Signing.
 
-In accordance with GPL-3.0 Section 5, this project preserves historical copyright and license notices of predecessor open-source components. For detailed legal notices and third-party library attributions, see [NOTICE.md](NOTICE.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+---
 
+## Roadmap & Known Limitations
+
+1. **Audio Offload Firmware Quirks**: Certain Android device firmware implementations exhibit Audio HAL stall bugs where the DSP fails to advance audio timestamps; RollerSkater detects this after 1,500ms and gracefully falls back to standard PCM decoding.
+2. **In-App Updater on Google Play**: The in-app updater (`data/update/`) and its associated `REQUEST_INSTALL_PACKAGES` permission are intended for F-Droid and GitHub Releases; Google Play policies prohibit apps from self-updating APKs.
+3. **Exact Alarms for Sleep Timer**: `SCHEDULE_EXACT_ALARM` ensures drift-free sleep timer execution on Android 12+ during deep Doze mode; for platforms that restrict exact alarms, an inexact alarm fallback is automatically used.
+4. **ListenBrainz Scrobbling UI**: Backend queuing and worker logic are implemented in `data/listenbrainz/`, but the preferences UI screen is currently unlinked in settings.
+
+---
+
+## Contributing
+
+RollerSkater welcomes bug reports, translations, and clean code contributions that align with our offline-first architecture. Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) before submitting a pull request.
+
+---
+
+## Origin & Credits
+
+RollerSkater is an independent, rebranded GPL-3.0 fork of **PixelPlayerOSS** ([`https://github.com/PixelPlayerHQ/PixelPlayerOSS`](https://github.com/PixelPlayerHQ/PixelPlayerOSS)).
+
+- **Original Authors & Maintainers**: Created by Theo Vilardo and maintained by lostf1sh and open-source contributors.
+- **Historical Notice**: Historical MIT-era notices from early predecessor contributions are preserved intact in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) and [`app/src/main/assets/licenses/`](app/src/main/assets/licenses/).
+- **Modifications**: Forked in November 2026 by Dhyandev. Rebranded as RollerSkater (`com.rollerskater.app`), completely removed all cloud and remote streaming backends (Navidrome, Subsonic, Jellyfin, Telegram) in favor of a strictly offline player, re-engineered AndroidX Glance home-screen widgets for Android 11+ compatibility, updated dependencies, and optimized cold startup rendering.
+- **Disclaimer**: RollerSkater is an independent project and is **not affiliated with, endorsed by, or sponsored by** the original PixelPlayer project, PixelPlayerHQ, or its maintainers.
+- **Third-Party Libraries**: All third-party libraries and their licenses are documented in [`docs/DEPENDENCY_LICENSES.md`](docs/DEPENDENCY_LICENSES.md).
+
+---
+
+## License
+
+RollerSkater is free software licensed under the **GNU General Public License v3.0 or later** ([GPL-3.0-or-later](LICENSE)).
+
+Under GPL-3.0 Section 5:
+- You are free to run, study, modify, and redistribute this software.
+- If you distribute modified versions or binary builds of RollerSkater, you **must make the complete corresponding source code available under the GPL-3.0**.
+- You must preserve all copyright notices, modification records ([`NOTICE.md`](NOTICE.md)), and license files intact.

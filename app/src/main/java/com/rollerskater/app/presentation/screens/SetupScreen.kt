@@ -2225,7 +2225,11 @@ private fun SetupRestoreDialog(
                         verticalArrangement = Arrangement.spacedBy(10.dp),
                         contentPadding = PaddingValues(bottom = 12.dp)
                     ) {
-                        items(availableModules) { section ->
+                        items(
+                            items = availableModules,
+                            key = { it.name },
+                            contentType = { "setup_restore_section" }
+                        ) { section ->
                             val detail = plan.moduleDetails[section]
                             val selected = section in plan.selectedModules
                             SetupRestoreSectionRow(

@@ -18,12 +18,6 @@
 -keep class androidx.media3.decoder.ffmpeg.** { *; }
 -keep class androidx.media3.exoplayer.ffmpeg.** { *; }
 
--keep class androidx.media3.decoder.midi.** { *; }
--keep class com.jsyn.** { *; }
--keep class com.softsynth.** { *; }
--dontwarn com.jsyn.**
--dontwarn com.softsynth.**
-
 -keepclassmembers class com.rollerskater.app.data.model.** { *; }
 
 -keep class com.google.gson.reflect.TypeToken { *; }
@@ -39,13 +33,10 @@
 -keep class com.rollerskater.app.data.database.TransitionRuleEntity { *; }
 -keep class com.rollerskater.app.data.database.AudioBookmarkEntity { *; }
 
--keep class io.ktor.server.engine.** { *; }
--keep class io.ktor.server.cio.** { *; }
--dontwarn io.ktor.**
 -dontwarn kotlinx.coroutines.**
 -dontwarn org.slf4j.**
 -dontwarn java.lang.management.**
--dontwarn reactor.blockhound.**
+
 
 -keep class com.atilika.kuromoji.** { *; }
 -keepnames class com.atilika.kuromoji.** { *; }

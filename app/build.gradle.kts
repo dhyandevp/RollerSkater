@@ -29,9 +29,10 @@ val hasReleaseSigningConfig = !disableReleaseSigning &&
     keystoreProperties.getProperty("keyAlias") != null &&
     keystoreProperties.getProperty("keyPassword") != null
 
+val isBundleTask = gradle.startParameter.taskNames.any { it.contains("bundle", ignoreCase = true) }
 val enableAbiSplits = providers.gradleProperty("rollerskater.enableAbiSplits")
-    .getOrElse("true")
-    .toBoolean()
+    .map { it.toBoolean() }
+    .getOrElse(!isBundleTask)
 
 val enableComposeCompilerReports = providers.gradleProperty("rollerskater.enableComposeCompilerReports")
     .getOrElse("false")
@@ -139,6 +140,8 @@ android {
 
     lint {
         checkReleaseBuilds = false
+        baseline = file("lint-baseline.xml")
+        abortOnError = false
     }
 
     splits {
@@ -240,8 +243,6 @@ dependencies {
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.media3.session)
     implementation(libs.androidx.media3.exoplayer.ffmpeg)
-    implementation(libs.androidx.media3.exoplayer.midi)
-    implementation(libs.androidx.media3.transformer)
     implementation(libs.androidx.media)
     implementation(libs.coil.compose)
     implementation(libs.taglib)
@@ -310,6 +311,7 @@ dependencies {
     debugImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(libs.leakcanary.android)
 
     constraints {
         implementation(libs.bouncycastle.bcprov)

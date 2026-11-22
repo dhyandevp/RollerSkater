@@ -48,7 +48,7 @@ keyAlias=...
 keyPassword=...
 ```
 
-`storeFile` is optional when the release keystore is available as `vz-pixelplay.jks` at the repository root. `storePassword`, `keyAlias`, and `keyPassword` are required for signing. If signing properties or the keystore file are missing, release builds are unsigned. CI workflows create temporary CI signing keys for artifacts; those are not official release keys.
+`storeFile` is optional when the release keystore is available as `rollerskater.jks` at the repository root. `storePassword`, `keyAlias`, and `keyPassword` are required for signing. If signing properties or the keystore file are missing, release builds are unsigned. CI workflows create temporary CI signing keys for artifacts; those are not official release keys.
 
 For F-Droid-compatible unsigned verification builds, pass `-Prollerskater.disableReleaseSigning=true` even when local signing files exist.
 

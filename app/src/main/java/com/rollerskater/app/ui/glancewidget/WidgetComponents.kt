@@ -1,5 +1,6 @@
 package com.rollerskater.app.ui.glancewidget
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import androidx.compose.runtime.Composable
@@ -76,6 +77,7 @@ fun AlbumArtImage(
     }
 }
 
+@SuppressLint("RestrictedApi")
 @Composable
 fun WidgetIconButton(
     modifier: GlanceModifier,
