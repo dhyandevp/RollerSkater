@@ -3,8 +3,10 @@ package com.rollerskater.app.ui.glancewidget
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -23,6 +25,7 @@ import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.action.actionRunCallback
+import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
@@ -119,6 +122,7 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
 
         val baseModifier = GlanceModifier
             .fillMaxSize()
+            .appWidgetBackground()
             .clickable(actionStartActivity<MainActivity>())
 
         Box(
@@ -1067,157 +1071,48 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         modifier: GlanceModifier = GlanceModifier,
         cornerRadius: Dp = 16.dp
     ) {
-        val TAG_AAIG = "AlbumArtImageGlance"
-        Timber.tag(TAG_AAIG)
-            .d("Init. bitmapData is null: ${bitmapData == null}. Requested Dp size: $size")
-        if (bitmapData != null) Timber.tag(TAG_AAIG).d("bitmapData size: ${bitmapData.size} bytes")
+        val widgetDpSize = LocalSize.current
+        val density = context.resources.displayMetrics.density
+        val resolvedSize = size ?: minOf(widgetDpSize.width, widgetDpSize.height)
+        val resolvedSizeDp = if (resolvedSize == Dp.Unspecified || resolvedSize <= 0.dp) 64.dp else resolvedSize
+        val targetSizePx = (resolvedSizeDp.value * density).toInt().coerceAtLeast(32)
+        val cornerRadiusPx = cornerRadius.value * density
+
+        val bitmap = AlbumArtBitmapCache.getRoundedAlbumArt(
+            context = context,
+            data = bitmapData,
+            uri = albumArtUri,
+            sizePx = targetSizePx,
+            cornerRadiusPx = cornerRadiusPx
+        )
+
+        val imageProvider = bitmap?.let { ImageProvider(it) } ?: run {
+            val bgArgb = GlanceTheme.colors.surfaceVariant.getColor(context).toArgb()
+            val iconArgb = GlanceTheme.colors.onSurfaceVariant.getColor(context).toArgb()
+            val placeholderBitmap = AlbumArtBitmapCache.getPlaceholderBitmap(
+                context = context,
+                sizePx = targetSizePx,
+                cornerRadiusPx = cornerRadiusPx,
+                backgroundColorArgb = bgArgb,
+                iconColorArgb = iconArgb
+            )
+            ImageProvider(placeholderBitmap)
+        }
 
         val sizingModifier = if (size != null) modifier.size(size) else modifier
-        val widgetDpSize = LocalSize.current
-
-        val imageProvider = bitmapData?.let { data ->
-            val cacheKey = AlbumArtBitmapCache.getKey(data)
-            var bitmap = AlbumArtBitmapCache.getBitmap(cacheKey)
-
-            if (bitmap != null) {
-                Timber.tag(TAG_AAIG).d("Bitmap cache HIT for key: $cacheKey. Using cached bitmap.")
-            } else {
-                Timber.tag(TAG_AAIG).d("Bitmap cache MISS for key: $cacheKey. Decoding new bitmap.")
-                try {
-                    val options = BitmapFactory.Options().apply { inJustDecodeBounds = true }
-                    BitmapFactory.decodeByteArray(data, 0, data.size, options)
-                    Timber.tag(TAG_AAIG)
-                        .d("Initial bounds: ${options.outWidth}x${options.outHeight}")
-
-                    val imageHeight = options.outHeight
-                    val imageWidth = options.outWidth
-                    var inSampleSize = 1
-
-                    val targetWidthPx: Int
-                    val targetHeightPx: Int
-                    with(context.resources.displayMetrics) {
-                        if (size != null) {
-                            val targetSizePx = (size.value * density).toInt()
-                            targetWidthPx = targetSizePx
-                            targetHeightPx = targetSizePx
-                            Timber.tag(TAG_AAIG).d("Target Px size for Dp $size: $targetSizePx")
-                        } else {
-                            targetWidthPx = (widgetDpSize.width.value * density).toInt()
-                            targetHeightPx = (widgetDpSize.height.value * density).toInt()
-                            Timber.tag(TAG_AAIG).d("Target Px size from widget DpSize ${widgetDpSize}: ${targetWidthPx}x${targetHeightPx}")
-                        }
-                    }
-
-                    if (imageHeight > targetHeightPx || imageWidth > targetWidthPx) {
-                        val halfHeight: Int = imageHeight / 2
-                        val halfWidth: Int = imageWidth / 2
-                        while (halfHeight / inSampleSize >= targetHeightPx && halfWidth / inSampleSize >= targetWidthPx) {
-                            inSampleSize *= 2
-                        }
-                    }
-                    Timber.tag(TAG_AAIG).d("Calculated inSampleSize: $inSampleSize")
-
-                    options.inSampleSize = inSampleSize
-                    options.inJustDecodeBounds = false
-                    val sampledBitmap = BitmapFactory.decodeByteArray(data, 0, data.size, options)
-
-                    if (sampledBitmap == null) {
-                        Timber.tag(TAG_AAIG)
-                            .e("BitmapFactory.decodeByteArray returned null after sampling.")
-                        return@let null
-                    }
-                    Timber.tag(TAG_AAIG)
-                        .d("Sampled bitmap size: ${sampledBitmap.width}x${sampledBitmap.height}")
-
-                    bitmap = sampledBitmap
-
-                    Timber.tag(TAG_AAIG)
-                        .d("Final bitmap size: ${bitmap.width}x${bitmap.height}. Putting into cache with key: $cacheKey")
-                    bitmap.let { AlbumArtBitmapCache.putBitmap(cacheKey, it) }
-
-                } catch (e: Exception) {
-                    Timber.tag(TAG_AAIG).e(e, "Error decoding or scaling bitmap: ${e.message}")
-                    bitmap = null
-                }
-            }
-            bitmap?.let { ImageProvider(it) }
-        } ?: albumArtUri?.let { rawUri ->
-            val cacheKey = "uri:$rawUri"
-            var bitmap = AlbumArtBitmapCache.getBitmap(cacheKey)
-            if (bitmap == null) {
-                bitmap = decodeAlbumArtFromUri(
-                    context = context,
-                    rawUri = rawUri,
-                    requestedSize = size,
-                    widgetDpSize = widgetDpSize
-                )
-                bitmap?.let { AlbumArtBitmapCache.putBitmap(cacheKey, it) }
-            }
-            bitmap?.let { ImageProvider(it) }
-        }
 
         Box(
             modifier = sizingModifier
         ) {
-            if (imageProvider != null) {
-                Image(
-                    provider = imageProvider,
-                    contentDescription = context.getString(R.string.widget_album_art),
-                    modifier = GlanceModifier.fillMaxSize().cornerRadius(cornerRadius),
-                    contentScale = ContentScale.Crop
-                )
-            } else {
-                val placeholderBaseSize = size ?: minOf(widgetDpSize.width, widgetDpSize.height)
-                val resolvedPlaceholderBaseSize = when {
-                    placeholderBaseSize == Dp.Unspecified || placeholderBaseSize <= 0.dp -> 72.dp
-                    else -> placeholderBaseSize
-                }
-
-                val placeholderSize = resolvedPlaceholderBaseSize
-                    .times(0.65f)
-                    .coerceIn(36.dp, 96.dp)
-
-                Box(
-                    modifier = GlanceModifier
-                        .fillMaxSize()
-                        .cornerRadius(cornerRadius)
-                        .background(GlanceTheme.colors.surfaceVariant),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Image(
-                        provider = ImageProvider(R.drawable.ic_music_placeholder),
-                        contentDescription = context.getString(R.string.widget_album_art_placeholder),
-                        modifier = GlanceModifier.size(placeholderSize),
-                        contentScale = ContentScale.Fit,
-                        colorFilter = ColorFilter.tint(GlanceTheme.colors.onSurfaceVariant)
-                    )
-                }
-            }
+            Image(
+                provider = imageProvider,
+                contentDescription = context.getString(R.string.widget_album_art),
+                modifier = GlanceModifier
+                    .fillMaxSize()
+                    .cornerRadius(cornerRadius),
+                contentScale = ContentScale.Crop
+            )
         }
-    }
-
-    private fun decodeAlbumArtFromUri(
-        context: Context,
-        rawUri: String,
-        requestedSize: Dp?,
-        widgetDpSize: DpSize
-    ): Bitmap? {
-        val (targetWidthPx, targetHeightPx) = with(context.resources.displayMetrics) {
-            if (requestedSize != null) {
-                val target = (requestedSize.value * density).toInt().coerceAtLeast(1)
-                target to target
-            } else {
-                val width = (widgetDpSize.width.value * density).toInt().coerceAtLeast(1)
-                val height = (widgetDpSize.height.value * density).toInt().coerceAtLeast(1)
-                width to height
-            }
-        }
-        return decodeWidgetAlbumArtBitmap(
-            context = context,
-            rawUri = rawUri,
-            targetWidthPx = targetWidthPx,
-            targetHeightPx = targetHeightPx,
-        )
     }
 
     @Composable
@@ -1227,76 +1122,53 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         iconColor: ColorProvider = GlanceTheme.colors.onSurfaceVariant,
         backgroundColor: ColorProvider = GlanceTheme.colors.surfaceVariant,
         iconSize: Dp = 24.dp,
+        buttonSize: Dp = 48.dp,
         cornerRadius: Dp = 0.dp
     ) {
         val context = LocalContext.current
         val params = actionParametersOf(PlayerActions.key to PlayerActions.PLAY_PAUSE)
-        Box(
-            modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(cornerRadius)
-                .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                provider = ImageProvider(if (isPlaying) R.drawable.rounded_pause_24 else R.drawable.rounded_play_arrow_24),
-                contentDescription = context.getString(if (isPlaying) R.string.cd_pause else R.string.cd_play),
-                modifier = GlanceModifier.size(iconSize),
-                colorFilter = ColorFilter.tint(iconColor)
+        val resId = if (isPlaying) R.drawable.rounded_pause_24 else R.drawable.rounded_play_arrow_24
+        val contentDesc = context.getString(if (isPlaying) R.string.cd_pause else R.string.cd_play)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && cornerRadius > 0.dp) {
+            val density = context.resources.displayMetrics.density
+            val buttonSizePx = (buttonSize.value * density).toInt().coerceAtLeast(24)
+            val iconSizePx = (iconSize.value * density).toInt().coerceAtLeast(12)
+            val cornerRadiusPx = cornerRadius.value * density
+            val bgArgb = backgroundColor.getColor(context).toArgb()
+            val iconArgb = iconColor.getColor(context).toArgb()
+
+            val bitmap = AlbumArtBitmapCache.getButtonBitmap(
+                context = context,
+                resId = resId,
+                sizePx = buttonSizePx,
+                iconSizePx = iconSizePx,
+                cornerRadiusPx = cornerRadiusPx,
+                backgroundColorArgb = bgArgb,
+                iconColorArgb = iconArgb
             )
-        }
-    }
 
-    @Composable
-    fun NextButtonDGlance(
-        modifier: GlanceModifier = GlanceModifier,
-        width: Dp? = null,
-        height: Dp? = null,
-        backgroundColor: ColorProvider = GlanceTheme.colors.surfaceVariant,
-        iconProvider: ImageProvider = ImageProvider(R.drawable.rounded_skip_next_24),
-        iconSize: Dp = 24.dp,
-        iconColor: ColorProvider = GlanceTheme.colors.onSurfaceVariant,
-        topLeftCorner: Dp = 8.dp,
-        topRightCorner: Dp = 8.dp,
-        bottomLeftCorner: Dp = 8.dp,
-        bottomRightCorner: Dp = 8.dp,
-    ) {
-        val context = LocalContext.current
-        val bgColor = backgroundColor.getColor(context)
-        val params = actionParametersOf(PlayerActions.key to PlayerActions.NEXT)
-
-        val sizeModifier = modifier.then(
-            when {
-                width != null && height != null -> GlanceModifier.size(width, height)
-                width != null -> GlanceModifier.width(width)
-                height != null -> GlanceModifier.height(height)
-                else -> GlanceModifier
+            Image(
+                provider = ImageProvider(bitmap),
+                contentDescription = contentDesc,
+                modifier = modifier.clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentScale = ContentScale.Fit
+            )
+        } else {
+            Box(
+                modifier = modifier
+                    .background(backgroundColor)
+                    .cornerRadius(cornerRadius)
+                    .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    provider = ImageProvider(resId),
+                    contentDescription = contentDesc,
+                    modifier = GlanceModifier.size(iconSize),
+                    colorFilter = ColorFilter.tint(iconColor)
+                )
             }
-        )
-
-        val backgroundBitmap = createScalableBackgroundBitmap(
-            context = context,
-            color = bgColor,
-            topLeft = topLeftCorner,
-            topRight = topRightCorner,
-            bottomLeft = bottomLeftCorner,
-            bottomRight = bottomRightCorner,
-            width = width,
-            height = height
-        )
-
-        Box(
-            modifier = sizeModifier
-                .background(ImageProvider(backgroundBitmap))
-                .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                provider = iconProvider,
-                contentDescription = context.getString(R.string.next_track),
-                modifier = GlanceModifier.size(iconSize),
-                colorFilter = ColorFilter.tint(iconColor)
-            )
         }
     }
 
@@ -1306,23 +1178,53 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         iconColor: ColorProvider = GlanceTheme.colors.onSurfaceVariant,
         backgroundColor: ColorProvider = GlanceTheme.colors.surfaceVariant,
         iconSize: Dp = 24.dp,
+        buttonSize: Dp = 48.dp,
         cornerRadius: Dp = 8.dp
     ) {
         val context = LocalContext.current
         val params = actionParametersOf(PlayerActions.key to PlayerActions.NEXT)
-        Box(
-            modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(cornerRadius)
-                .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                provider = ImageProvider(R.drawable.rounded_skip_next_24),
-                contentDescription = context.getString(R.string.next_track),
-                modifier = GlanceModifier.size(iconSize),
-                colorFilter = ColorFilter.tint(iconColor)
+        val resId = R.drawable.rounded_skip_next_24
+        val contentDesc = context.getString(R.string.next_track)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && cornerRadius > 0.dp) {
+            val density = context.resources.displayMetrics.density
+            val buttonSizePx = (buttonSize.value * density).toInt().coerceAtLeast(24)
+            val iconSizePx = (iconSize.value * density).toInt().coerceAtLeast(12)
+            val cornerRadiusPx = cornerRadius.value * density
+            val bgArgb = backgroundColor.getColor(context).toArgb()
+            val iconArgb = iconColor.getColor(context).toArgb()
+
+            val bitmap = AlbumArtBitmapCache.getButtonBitmap(
+                context = context,
+                resId = resId,
+                sizePx = buttonSizePx,
+                iconSizePx = iconSizePx,
+                cornerRadiusPx = cornerRadiusPx,
+                backgroundColorArgb = bgArgb,
+                iconColorArgb = iconArgb
             )
+
+            Image(
+                provider = ImageProvider(bitmap),
+                contentDescription = contentDesc,
+                modifier = modifier.clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentScale = ContentScale.Fit
+            )
+        } else {
+            Box(
+                modifier = modifier
+                    .background(backgroundColor)
+                    .cornerRadius(cornerRadius)
+                    .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    provider = ImageProvider(resId),
+                    contentDescription = contentDesc,
+                    modifier = GlanceModifier.size(iconSize),
+                    colorFilter = ColorFilter.tint(iconColor)
+                )
+            }
         }
     }
 
@@ -1332,23 +1234,53 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         iconColor: ColorProvider = GlanceTheme.colors.onSurfaceVariant,
         backgroundColor: ColorProvider = GlanceTheme.colors.surfaceVariant,
         iconSize: Dp = 24.dp,
+        buttonSize: Dp = 48.dp,
         cornerRadius: Dp = 8.dp
     ) {
         val context = LocalContext.current
         val params = actionParametersOf(PlayerActions.key to PlayerActions.PREVIOUS)
-        Box(
-            modifier = modifier
-                .background(backgroundColor)
-                .cornerRadius(cornerRadius)
-                .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
-            contentAlignment = Alignment.Center
-        ) {
-            Image(
-                provider = ImageProvider(R.drawable.rounded_skip_previous_24),
-                contentDescription = context.getString(R.string.previous_track),
-                modifier = GlanceModifier.size(iconSize),
-                colorFilter = ColorFilter.tint(iconColor)
+        val resId = R.drawable.rounded_skip_previous_24
+        val contentDesc = context.getString(R.string.previous_track)
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && cornerRadius > 0.dp) {
+            val density = context.resources.displayMetrics.density
+            val buttonSizePx = (buttonSize.value * density).toInt().coerceAtLeast(24)
+            val iconSizePx = (iconSize.value * density).toInt().coerceAtLeast(12)
+            val cornerRadiusPx = cornerRadius.value * density
+            val bgArgb = backgroundColor.getColor(context).toArgb()
+            val iconArgb = iconColor.getColor(context).toArgb()
+
+            val bitmap = AlbumArtBitmapCache.getButtonBitmap(
+                context = context,
+                resId = resId,
+                sizePx = buttonSizePx,
+                iconSizePx = iconSizePx,
+                cornerRadiusPx = cornerRadiusPx,
+                backgroundColorArgb = bgArgb,
+                iconColorArgb = iconArgb
             )
+
+            Image(
+                provider = ImageProvider(bitmap),
+                contentDescription = contentDesc,
+                modifier = modifier.clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentScale = ContentScale.Fit
+            )
+        } else {
+            Box(
+                modifier = modifier
+                    .background(backgroundColor)
+                    .cornerRadius(cornerRadius)
+                    .clickable(actionRunCallback<PlayerControlActionCallback>(params)),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    provider = ImageProvider(resId),
+                    contentDescription = contentDesc,
+                    modifier = GlanceModifier.size(iconSize),
+                    colorFilter = ColorFilter.tint(iconColor)
+                )
+            }
         }
     }
 
@@ -1358,13 +1290,32 @@ class RollerSkaterGlanceWidget : GlanceAppWidget() {
         size: Dp,
         cornerRadius: Dp
     ) {
-        Box(
-            modifier = modifier
-                .size(size)
-                .background(GlanceTheme.colors.surfaceVariant)
-                .cornerRadius(cornerRadius)
-        ) {
-
+        val context = LocalContext.current
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && cornerRadius > 0.dp) {
+            val density = context.resources.displayMetrics.density
+            val sizePx = (size.value * density).toInt().coerceAtLeast(24)
+            val cornerRadiusPx = cornerRadius.value * density
+            val bgArgb = GlanceTheme.colors.surfaceVariant.getColor(context).toArgb()
+            val placeholder = AlbumArtBitmapCache.getPlaceholderBitmap(
+                context = context,
+                sizePx = sizePx,
+                cornerRadiusPx = cornerRadiusPx,
+                backgroundColorArgb = bgArgb,
+                iconColorArgb = 0
+            )
+            Image(
+                provider = ImageProvider(placeholder),
+                contentDescription = null,
+                modifier = modifier.size(size),
+                contentScale = ContentScale.Fit
+            )
+        } else {
+            Box(
+                modifier = modifier
+                    .size(size)
+                    .background(GlanceTheme.colors.surfaceVariant)
+                    .cornerRadius(cornerRadius)
+            ) {}
         }
     }
 }

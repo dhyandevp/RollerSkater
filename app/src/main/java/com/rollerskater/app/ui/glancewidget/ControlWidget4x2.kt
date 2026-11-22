@@ -1,16 +1,19 @@
 package com.rollerskater.app.ui.glancewidget
 
 import android.content.Context
+import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
+import androidx.glance.ImageProvider
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
+import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
@@ -69,10 +72,19 @@ class ControlWidget4x2 : GlanceAppWidget() {
         val playButtonCornerRadius = if (isPlaying) 16.dp else 20.dp
         val controlButtonCornerRadius = 16.dp
 
-        Box(
-            modifier = GlanceModifier
+        val rootBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && playerInfo.themeColors == null) {
+            GlanceModifier.background(ImageProvider(R.drawable.widget_surface_background))
+        } else {
+            GlanceModifier
                 .background(colors.surface)
                 .cornerRadius(widgetCornerRadius)
+        }
+
+        Box(
+            modifier = GlanceModifier
+                .fillMaxSize()
+                .appWidgetBackground()
+                .then(rootBackgroundModifier)
                 .padding(16.dp)
                 .clickable(actionStartActivity<MainActivity>())
         ) {

@@ -1,17 +1,20 @@
 package com.rollerskater.app.ui.glancewidget
 
 import android.content.Context
+import android.os.Build
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
+import androidx.glance.ImageProvider
 import androidx.glance.LocalSize
 import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
+import androidx.glance.appwidget.appWidgetBackground
 import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.provideContent
 import androidx.glance.background
@@ -29,6 +32,7 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import com.rollerskater.app.MainActivity
+import com.rollerskater.app.R
 import com.rollerskater.app.data.model.PlayerInfo
 
 class GridWidget2x2 : GlanceAppWidget() {
@@ -62,20 +66,30 @@ class GridWidget2x2 : GlanceAppWidget() {
         val size = LocalSize.current
         val minSide = min(size.width, size.height)
         
+        val buttonItemSize = (minSide.value * 0.40f).dp
         val dynamicIconSize = (minSide.value * 0.14f).dp
         val dynamicPlayIconSize = (minSide.value * 0.16f).dp
         val albumArtSize = (minSide.value * 0.40f).dp
 
+        val gridBackgroundModifier = if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S && playerInfo.themeColors == null) {
+            GlanceModifier.background(ImageProvider(R.drawable.widget_surface_background))
+        } else {
+            GlanceModifier
+                .background(colors.surface)
+                .cornerRadius(widgetCornerRadius)
+        }
+
         Box(
             modifier = GlanceModifier
+                .fillMaxSize()
+                .appWidgetBackground()
                 .clickable(actionStartActivity<MainActivity>()),
             contentAlignment = Alignment.Center,
         ) {
             Box(
                 modifier = GlanceModifier
                     .size(minSide)
-                    .background(colors.surface)
-                    .cornerRadius(widgetCornerRadius)
+                    .then(gridBackgroundModifier)
                     .padding(16.dp)
             ) {
                 Column(
@@ -107,6 +121,7 @@ class GridWidget2x2 : GlanceAppWidget() {
                             backgroundColor = colors.playPauseBackground,
                             iconColor = colors.playPauseIcon,
                             cornerRadius = itemCornerRadius,
+                            buttonSize = buttonItemSize,
                             iconSize = dynamicPlayIconSize
                         )
                     }
@@ -125,6 +140,7 @@ class GridWidget2x2 : GlanceAppWidget() {
                             backgroundColor = colors.prevNextBackground,
                             iconColor = colors.prevNextIcon,
                             cornerRadius = itemCornerRadius,
+                            buttonSize = buttonItemSize,
                             iconSize = dynamicIconSize
                         )
 
@@ -137,6 +153,7 @@ class GridWidget2x2 : GlanceAppWidget() {
                             backgroundColor = colors.prevNextBackground,
                             iconColor = colors.prevNextIcon,
                             cornerRadius = itemCornerRadius,
+                            buttonSize = buttonItemSize,
                             iconSize = dynamicIconSize
                         )
                     }

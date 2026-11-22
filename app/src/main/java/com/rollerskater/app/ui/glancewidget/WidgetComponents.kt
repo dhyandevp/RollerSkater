@@ -1,17 +1,18 @@
 package com.rollerskater.app.ui.glancewidget
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.os.Build
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.glance.AndroidResourceImageProvider
 import androidx.glance.ColorFilter
-import androidx.glance.LocalContext
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
 import androidx.glance.action.Action
 import androidx.glance.action.actionParametersOf
 import androidx.glance.action.clickable
@@ -25,7 +26,6 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.size
 import androidx.glance.unit.ColorProvider
 import com.rollerskater.app.R
-import timber.log.Timber
 
 @Composable
 fun AlbumArtImage(
@@ -36,103 +36,44 @@ fun AlbumArtImage(
     context: Context,
     cornerRadius: Dp
 ) {
-    val imageProvider = bitmapData?.let { data ->
-        val cacheKey = AlbumArtBitmapCache.getKey(data)
-        var bitmap = AlbumArtBitmapCache.getBitmap(cacheKey)
+    val density = context.resources.displayMetrics.density
+    val targetSizePx = (size.value * density).toInt().coerceAtLeast(32)
+    val cornerRadiusPx = cornerRadius.value * density
 
-        if (bitmap == null) {
-            try {
-                val options = BitmapFactory.Options().apply {
-                    inJustDecodeBounds = true
-                }
-                BitmapFactory.decodeByteArray(data, 0, data.size, options)
+    val bitmap = AlbumArtBitmapCache.getRoundedAlbumArt(
+        context = context,
+        data = bitmapData,
+        uri = albumArtUri,
+        sizePx = targetSizePx,
+        cornerRadiusPx = cornerRadiusPx
+    )
 
-                var inSampleSize = 1
-                val targetSizePx = (size.value * context.resources.displayMetrics.density).toInt()
-
-                if (options.outHeight > targetSizePx || options.outWidth > targetSizePx) {
-                    val halfHeight = options.outHeight / 2
-                    val halfWidth = options.outWidth / 2
-                    while (halfHeight / inSampleSize >= targetSizePx &&
-                        halfWidth / inSampleSize >= targetSizePx
-                    ) {
-                        inSampleSize *= 2
-                    }
-                }
-
-                options.inSampleSize = inSampleSize
-                options.inJustDecodeBounds = false
-                bitmap = BitmapFactory.decodeByteArray(data, 0, data.size, options)
-
-                bitmap?.let { AlbumArtBitmapCache.putBitmap(cacheKey, it) }
-            } catch (e: Exception) {
-                Timber.tag("WidgetImage").e(e, "Error decoding bitmap")
-                bitmap = null
-            }
-        }
-        bitmap?.let { ImageProvider(it) }
-    } ?: albumArtUri?.let { rawUri ->
-        val cacheKey = "uri:$rawUri"
-        var bitmap = AlbumArtBitmapCache.getBitmap(cacheKey)
-        if (bitmap == null) {
-            bitmap = decodeAlbumArtFromUri(
-                context = context,
-                rawUri = rawUri,
-                requestedSize = size
-            )
-            bitmap?.let { AlbumArtBitmapCache.putBitmap(cacheKey, it) }
-        }
-        bitmap?.let { ImageProvider(it) }
+    val imageProvider = bitmap?.let { ImageProvider(it) } ?: run {
+        val bgArgb = GlanceTheme.colors.surfaceVariant.getColor(context).toArgb()
+        val iconArgb = GlanceTheme.colors.onSurfaceVariant.getColor(context).toArgb()
+        val placeholderBitmap = AlbumArtBitmapCache.getPlaceholderBitmap(
+            context = context,
+            sizePx = targetSizePx,
+            cornerRadiusPx = cornerRadiusPx,
+            backgroundColorArgb = bgArgb,
+            iconColorArgb = iconArgb
+        )
+        ImageProvider(placeholderBitmap)
     }
 
     val cdAlbumArt = context.getString(R.string.widget_album_art)
-    val cdPlaceholder = context.getString(R.string.widget_album_art_placeholder)
     Box(
         modifier = modifier
     ) {
-        if (imageProvider != null) {
-            Image(
-                provider = imageProvider,
-                contentDescription = cdAlbumArt,
-                modifier = GlanceModifier
-                    .fillMaxSize()
-                    .cornerRadius(cornerRadius),
-                contentScale = ContentScale.Crop
-            )
-        } else {
-            Box(
-                modifier = GlanceModifier
-                    .fillMaxSize()
-                    .cornerRadius(cornerRadius)
-                    .background(GlanceTheme.colors.surfaceVariant),
-                contentAlignment = Alignment.Center
-            ) {
-                Image(
-                    provider = ImageProvider(R.drawable.ic_music_placeholder),
-                    contentDescription = cdPlaceholder,
-                    modifier = GlanceModifier.size(size * 0.6f),
-                    contentScale = ContentScale.Fit,
-                    colorFilter = ColorFilter.tint(GlanceTheme.colors.onSurfaceVariant)
-                )
-            }
-        }
+        Image(
+            provider = imageProvider,
+            contentDescription = cdAlbumArt,
+            modifier = GlanceModifier
+                .fillMaxSize()
+                .cornerRadius(cornerRadius),
+            contentScale = ContentScale.Crop
+        )
     }
-}
-
-private fun decodeAlbumArtFromUri(
-    context: Context,
-    rawUri: String,
-    requestedSize: Dp,
-): Bitmap? {
-    val targetPx = (requestedSize.value * context.resources.displayMetrics.density)
-        .toInt()
-        .coerceAtLeast(64)
-    return decodeWidgetAlbumArtBitmap(
-        context = context,
-        rawUri = rawUri,
-        targetWidthPx = targetPx,
-        targetHeightPx = targetPx,
-    )
 }
 
 @Composable
@@ -144,21 +85,52 @@ fun WidgetIconButton(
     imageProvider: ImageProvider,
     contentDescription: String,
     iconSize: Dp = 20.dp,
+    buttonSize: Dp = 40.dp,
     cornerRadius: Dp
 ) {
-    Box(
-        modifier = modifier
-            .background(backgroundColor)
-            .cornerRadius(cornerRadius)
-            .clickable(action),
-        contentAlignment = Alignment.Center
+    val context = LocalContext.current
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S &&
+        cornerRadius > 0.dp &&
+        imageProvider is AndroidResourceImageProvider
     ) {
-        Image(
-            provider = imageProvider,
-            contentDescription = contentDescription,
-            modifier = GlanceModifier.size(iconSize),
-            colorFilter = ColorFilter.tint(iconColor)
+        val density = context.resources.displayMetrics.density
+        val buttonSizePx = (buttonSize.value * density).toInt().coerceAtLeast(24)
+        val iconSizePx = (iconSize.value * density).toInt().coerceAtLeast(12)
+        val cornerRadiusPx = cornerRadius.value * density
+        val bgArgb = backgroundColor.getColor(context).toArgb()
+        val iconArgb = iconColor.getColor(context).toArgb()
+
+        val buttonBitmap = AlbumArtBitmapCache.getButtonBitmap(
+            context = context,
+            resId = imageProvider.resId,
+            sizePx = buttonSizePx,
+            iconSizePx = iconSizePx,
+            cornerRadiusPx = cornerRadiusPx,
+            backgroundColorArgb = bgArgb,
+            iconColorArgb = iconArgb
         )
+
+        Image(
+            provider = ImageProvider(buttonBitmap),
+            contentDescription = contentDescription,
+            modifier = modifier.clickable(action),
+            contentScale = ContentScale.Fit
+        )
+    } else {
+        Box(
+            modifier = modifier
+                .background(backgroundColor)
+                .cornerRadius(cornerRadius)
+                .clickable(action),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                provider = imageProvider,
+                contentDescription = contentDescription,
+                modifier = GlanceModifier.size(iconSize),
+                colorFilter = ColorFilter.tint(iconColor)
+            )
+        }
     }
 }
 
@@ -168,6 +140,7 @@ fun PreviousButton(
     backgroundColor: ColorProvider,
     iconColor: ColorProvider,
     cornerRadius: Dp,
+    buttonSize: Dp = 40.dp,
     iconSize: Dp = 20.dp
 ) {
     val context = LocalContext.current
@@ -180,6 +153,7 @@ fun PreviousButton(
         imageProvider = ImageProvider(R.drawable.rounded_skip_previous_filled_24),
         contentDescription = context.getString(R.string.previous_track),
         iconSize = iconSize,
+        buttonSize = buttonSize,
         cornerRadius = cornerRadius
     )
 }
@@ -190,6 +164,7 @@ fun NextButton(
     backgroundColor: ColorProvider,
     iconColor: ColorProvider,
     cornerRadius: Dp,
+    buttonSize: Dp = 40.dp,
     iconSize: Dp = 20.dp
 ) {
     val context = LocalContext.current
@@ -202,6 +177,7 @@ fun NextButton(
         imageProvider = ImageProvider(R.drawable.rounded_skip_next_filled_24),
         contentDescription = context.getString(R.string.next_track),
         iconSize = iconSize,
+        buttonSize = buttonSize,
         cornerRadius = cornerRadius
     )
 }
@@ -213,6 +189,7 @@ fun PlayPauseButton(
     backgroundColor: ColorProvider,
     iconColor: ColorProvider,
     cornerRadius: Dp,
+    buttonSize: Dp = 40.dp,
     iconSize: Dp = 22.dp
 ) {
     val context = LocalContext.current
@@ -230,6 +207,7 @@ fun PlayPauseButton(
             if (isPlaying) R.string.cd_pause else R.string.cd_play
         ),
         iconSize = iconSize,
+        buttonSize = buttonSize,
         cornerRadius = cornerRadius
     )
 }
@@ -239,7 +217,9 @@ fun ShuffleButton(
     modifier: GlanceModifier,
     backgroundColor: ColorProvider,
     iconColor: ColorProvider,
-    cornerRadius: Dp
+    cornerRadius: Dp,
+    buttonSize: Dp = 40.dp,
+    iconSize: Dp = 20.dp
 ) {
     val context = LocalContext.current
     val params = actionParametersOf(PlayerActions.key to PlayerActions.SHUFFLE)
@@ -250,6 +230,8 @@ fun ShuffleButton(
         iconColor = iconColor,
         imageProvider = ImageProvider(R.drawable.rounded_shuffle_24),
         contentDescription = context.getString(R.string.shortcut_shuffle_short),
+        iconSize = iconSize,
+        buttonSize = buttonSize,
         cornerRadius = cornerRadius
     )
 }
@@ -260,7 +242,9 @@ fun RepeatButton(
     backgroundColor: ColorProvider,
     iconRes: Int,
     iconColor: ColorProvider,
-    cornerRadius: Dp
+    cornerRadius: Dp,
+    buttonSize: Dp = 40.dp,
+    iconSize: Dp = 20.dp
 ) {
     val context = LocalContext.current
     val params = actionParametersOf(PlayerActions.key to PlayerActions.REPEAT)
@@ -271,6 +255,9 @@ fun RepeatButton(
         iconColor = iconColor,
         imageProvider = ImageProvider(iconRes),
         contentDescription = context.getString(R.string.cd_repeat),
+        iconSize = iconSize,
+        buttonSize = buttonSize,
         cornerRadius = cornerRadius
     )
 }
+

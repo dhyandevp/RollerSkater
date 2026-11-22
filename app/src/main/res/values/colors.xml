@@ -3,6 +3,9 @@
 
     <color name="rollerskater_widget_background_color">#FF2C1D4D</color>
 
+    <color name="widget_surface_background_color">#F2EFF4</color>
+    <color name="widget_button_secondary_color">#1F000000</color>
+
     <color name="pixel_play_purple_dark">#19191B</color>
     <color name="light_background">#EDEDED</color>
 </resources>
