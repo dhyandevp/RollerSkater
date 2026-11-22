@@ -212,8 +212,58 @@ We welcome community contributions, bug fixes, and improvements! Please review o
 
 ---
 
+## Project Origin & Credits
+
+### Origin and credits
+
+RollerSkater is a fork of [PixelPlayerOSS](https://github.com/PixelPlayerHQ/PixelPlayerOSS) by its original authors, and builds on its codebase, player architecture and Material 3 / Material You design approach.
+
+- **Upstream Repository**: [PixelPlayerHQ/PixelPlayerOSS](https://github.com/PixelPlayerHQ/PixelPlayerOSS)
+- **Upstream License**: [GNU General Public License v3.0 (GPL-3.0)](https://github.com/PixelPlayerHQ/PixelPlayerOSS/blob/main/LICENSE)
+- **Fork Point**: Forked from `eed81d9` (2026-11-21)
+
+#### Upstream Authors & Contributors
+We gratefully acknowledge the creators and contributors of the upstream codebase:
+- **Project Creator**: Theo Vilardo
+- **Maintainer**: lostf1sh
+- **Contributors** (from upstream git history, `LICENSE`, and [PIXELPLAYER_CONTRIBUTORS.txt](app/src/main/assets/licenses/PIXELPLAYER_CONTRIBUTORS.txt)):
+  Theo Vilardo, lostf1sh, Dhruv Varia, serein-213, adlifarizi, rebornloki-dev, Amonoman, Dae Euhwa, BeanVortex, Colby Cabrera, VoidX3D, Ayaan Hussain, imoyy, starry-shivam, Sjoerd Vermeulen, Clyde Ho, Claudio Gratton, Mazen Natour, Dexter Reed, Kainoa Kanter, Ravishanker, Silke pilon, lijinkang, raplivx, Luis Vervaet, Sincere-Bhattarai, faraz152, mirkiv, AJ, Héctor Luis, Jakob Moen Bekken, Jared Stemper, Jean-Baptiste, Linus, OpenSource Guy, Rahul Sharma, Rishit, Ryan, T. Stark, Zeus-990, chen, danZiKr1, jair1c, ori, and Неважно.
+
+#### Predecessor Project Attribution
+PixelPlayerOSS itself builds upon the earlier open-source PixelPlayer project, whose components contributed prior to the repository transition remain licensed under the MIT License. RollerSkater preserves all historical notices, copyright records, and attribution for both projects in [NOTICE.md](NOTICE.md), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), and [app/src/main/assets/licenses/](app/src/main/assets/licenses/).
+
+### What is the same, what changed
+
+The following table summarizes the relationship between upstream PixelPlayerOSS and RollerSkater, based on the actual codebase diff against the fork commit (`eed81d9`):
+
+| Area | Origin | RollerSkater |
+|---|---|---|
+| Core player, queue, library | PixelPlayerOSS | Kept, then optimized (cold startup speedup, artificial delays eliminated, media queries cached, fast library scanning) |
+| Material 3 UI patterns, theming | PixelPlayerOSS | Kept, restyled with the green palette (Deep Emerald accents, dark/light theme refinements, AMOLED mode preserved) |
+| Name, package id, icon, splash | n/a | New (RollerSkater, `com.rollerskater.app`, custom vector icon, new splash screen) |
+| Cloud streaming features | PixelPlayerOSS | Removed (Navidrome, Subsonic, Jellyfin, Telegram streaming, and remote credential handlers completely removed for 100% offline playback) |
+| AI & recommendation features | PixelPlayerOSS | Removed (Daily Mix, Smart Mix, and offline NLP playlist generator concept tables removed) |
+| App widgets | PixelPlayerOSS | Enhanced (4 Glance widget layouts with Android 11 API 30 compatibility, antialiased corner smoothing fallback, and memory-cached album art bitmaps) |
+| Performance & startup | PixelPlayerOSS | Optimized (startup benchmarks, eliminated coroutine sleep delays, optimized Compose recompositions and state flows) |
+| Privacy & telemetry | PixelPlayerOSS | Kept (strict offline-first architecture; zero analytics, crash uploaders, or tracking SDKs) |
+
+### Using the design
+
+- **Derived UI & Motion Design**: The screen layouts (PlayerSheet, Library tabs, Queue sheet, Lyrics display, Settings, Equalizer), Material 3 design patterns, UI components, and motion/transition curves are derived from PixelPlayerOSS. As these components originate from a GPL-3.0 project, their design structures and code implementations are covered by the **GNU General Public License v3.0 (GPL-3.0)**. Anyone reusing, adapting, or distributing them must preserve the same license, copyright notices, and copyleft conditions.
+- **Original Branding & Assets**: The RollerSkater name, custom green color palette and theme styling, store assets, and the original logo/icon artwork (`assets/RollerSkater.svg`) are original to RollerSkater.
+- **Logo & Artwork License**: The RollerSkater logo and icon artwork are licensed under the **Creative Commons Attribution-ShareAlike 4.0 International ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))** license (they are not covered by the GPL-3.0 software license).
+
+### Not affiliated
+
+RollerSkater is an independent project and is not affiliated with, sponsored or endorsed by the PixelPlayer / PixelPlayerOSS project or its authors.
+
+RollerSkater does not use the PixelPlayer name, logo, or screenshots as its branding. The PixelPlayerOSS name is referenced strictly to provide accurate credit and design-origin attribution under open-source copyleft requirements.
+
+---
+
 ## License & Attribution
 
 RollerSkater is free software licensed under the **GNU General Public License v3.0**. See the [LICENSE](LICENSE) file for terms and conditions.
 
 In accordance with GPL-3.0 Section 5, this project preserves historical copyright and license notices of predecessor open-source components. For detailed legal notices and third-party library attributions, see [NOTICE.md](NOTICE.md) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+

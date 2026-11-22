@@ -1,6 +1,15 @@
 # Third-Party Notices
 
-PixelPlayerOSS is licensed under the GNU General Public License v3.0 (GPL-3.0). The app also includes third-party libraries and font assets. This file records source and license evidence useful for app-store and F-Droid review.
+RollerSkater is licensed under the GNU General Public License v3.0 (GPL-3.0) and is a modified fork of PixelPlayerOSS. The app also includes third-party libraries and font assets. This file records source and license evidence useful for app-store and F-Droid review.
+
+## Upstream Project & Predecessors
+
+| Component | Upstream / Source | Copyright | License |
+| --- | --- | --- | --- |
+| PixelPlayerOSS | `https://github.com/PixelPlayerHQ/PixelPlayerOSS` | Theo Vilardo · maintained by lostf1sh | GPL-3.0 |
+| PixelPlayer Contributors | Historical MIT-era open-source contributions | Theo Vilardo & open-source contributors | MIT License |
+
+Portions of the software were originally contributed to the public PixelPlayer repository under the MIT License. Those contributions remain licensed under the MIT License, and their notices are preserved in `app/src/main/assets/licenses/PIXELPLAYER_CONTRIBUTORS.txt`.
 
 ## Bundled Font Assets
 

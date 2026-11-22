@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-PixelPlayerOSS is licensed under the GNU General Public License v3.0 (GPL-3.0) and includes third-party open-source components.
+RollerSkater is licensed under the GNU General Public License v3.0 (GPL-3.0) and is a modified fork of PixelPlayerOSS (also licensed under GPL-3.0). The app includes third-party open-source components.
 
 Portions of this software were originally contributed to the public PixelPlayer repository under the MIT License. Those contributions remain licensed under the MIT License, and their notice is preserved as required.
 
