@@ -58,7 +58,7 @@ javax-inject = "1"
 
 # Annotations procesing
 ksp = "2.3.10"
-workRuntimeKtx = "2.11.2"
+workRuntimeKtx = "2.12.0"
 composeTesting = "1.0.0-alpha03"
 timber = "5.0.1"
 mockk = "1.14.11"
