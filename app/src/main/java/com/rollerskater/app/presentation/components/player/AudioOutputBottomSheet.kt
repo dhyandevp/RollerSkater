@@ -289,7 +289,9 @@ private fun CastToTvRow(onClick: () -> Unit) {
 private fun openCastToTv(context: Context) {
     val castIntents = listOf(
         Intent("android.settings.CAST_SETTINGS"),
+        Intent("android.settings.WIFI_DISPLAY_SETTINGS"),
         Intent("com.android.settings.WIFI_DISPLAY_SETTINGS"),
+        Intent("com.samsung.wfd.LAUNCH_WFD_PICKER_DLG"),
         Intent(Settings.ACTION_CAST_SETTINGS),
         Intent(Settings.ACTION_WIRELESS_SETTINGS)
     )
