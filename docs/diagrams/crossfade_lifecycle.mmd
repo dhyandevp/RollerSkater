@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant PlayerA as Player A (Master)
+    participant DualEngine as DualPlayerEngine
+    participant PlayerB as Player B (Auxiliary)
+    participant Session as MediaSession
+    participant Sink as AudioSink (Equalizer / Offload)
+
+    Note over PlayerA,PlayerB: Normal Playback: Player A volume = 1.0f, Player B idle
+    PlayerA->>DualEngine: Position reaches TrackDuration - CrossfadeDuration
+    DualEngine->>PlayerB: prepare(NextMediaItem) & play()
+    Note over DualEngine: Crossfade begins: duration = T
+    loop Every 20ms during transition (normalized time t = elapsed / T)
+        DualEngine->>PlayerA: setVolume(cos(π/2 * t))
+        DualEngine->>PlayerB: setVolume(sin(π/2 * t))
+        DualEngine->>Sink: Constant Power: sin²(t) + cos²(t) = 1.0f
+    end
+    Note over DualEngine: Transition completes (t = 1.0f)
+    DualEngine->>PlayerA: adoptMediaItemAndPosition(PlayerB.mediaItem, PlayerB.position)
+    DualEngine->>PlayerA: setVolume(1.0f)
+    DualEngine->>PlayerB: pause() & resetToIdle()
+    DualEngine->>Session: Retain seamless playback state without session re-creation

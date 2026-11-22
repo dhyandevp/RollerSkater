@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Compute PR version
         id: version
@@ -41,13 +41,13 @@ jobs:
           echo "short-sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "21"
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v6.2.0
+        uses: gradle/actions/setup-gradle@v4
 
       # The shared CI keystore lives in the CI_KEYSTORE_B64 + CI_KEYSTORE_PASSWORD
       # repo secrets so every workflow signs with the same stable key and builds
@@ -93,7 +93,7 @@ jobs:
 
       - name: Upload PR APK artifacts
         id: upload
-        uses: actions/upload-artifact@v7.0.1
+        uses: actions/upload-artifact@v4
         with:
           name: RollerSkater-pr-${{ steps.version.outputs.short-sha }}
           path: pr-apks/*.apk

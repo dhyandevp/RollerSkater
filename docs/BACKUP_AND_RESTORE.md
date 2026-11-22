@@ -63,7 +63,7 @@ A typical backup manifest adheres to the following structure:
 
 ## 4. Restoration & Collision Resolution
 
-During the restore workflow (`BackupCoordinator`):
+During the restore workflow (`BackupManager`):
 1. **Validation**: The manifest schema version is verified before reading data.
 2. **Missing Media Matching**: If an audio file's MediaStore ID changed (e.g., following a device migration or SD card transfer), the restoration engine performs fuzzy matching based on file relative paths, titles, and artists to re-associate playlist tracks.
 3. **Collision Strategy**:

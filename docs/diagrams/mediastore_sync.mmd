@@ -1,0 +1,24 @@
+sequenceDiagram
+    autonumber
+    participant Worker as SyncWorker / MusicRepository
+    participant MediaStore as Android MediaStore (Cursor)
+    participant Excluded as ExcludedDirectoriesRepository
+    participant TagLib as Kyant0 TagLib (.so)
+    participant Room as Room SQLite DB (v8)
+    participant FTS as songs_fts (FTS4 Table)
+    participant UI as Compose UI (Paging 3)
+
+    Worker->>MediaStore: query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI)
+    MediaStore-->>Worker: Cursor (id, path, date_modified, duration, mime_type)
+    Worker->>Excluded: Filter blacklisted folders and .nomedia files
+    Worker->>Room: Compare date_modified with existing SongEntities
+    alt Track is New or File Modified
+        Worker->>TagLib: Extract tags (ID3v2, Vorbis Comments, MP4 Atoms)
+        TagLib-->>Worker: AudioMetadata (Title, Artist, Album, ReplayGain, MBIDs)
+        Worker->>Worker: Parse multi-artist delimiters (;, /, &, feat., ft.)
+    end
+    Worker->>Room: Bulk Insert/Update SongEntities (In SQLite Transaction)
+    Room->>FTS: Triggers fire (trg_songs_fts_insert / trg_songs_fts_update)
+    FTS-->>Room: Synchronize unicode61 virtual search tokens
+    Room-->>UI: Room PagingSource invalidates & emits PagingData
+    UI-->>UI: Re-render list with stable keys (song.id)

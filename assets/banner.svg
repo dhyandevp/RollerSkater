@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A0D0A" />
+      <stop offset="50%" stop-color="#140A07" />
+      <stop offset="100%" stop-color="#0D0604" />
+    </linearGradient>
+
+    <!-- Tomato Brand Gradient -->
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A66" />
+      <stop offset="100%" stop-color="#D93A1F" />
+    </linearGradient>
+
+    <!-- Dish Recessed Gradient -->
+    <linearGradient id="dishGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B82A12" />
+      <stop offset="100%" stop-color="#FF7B58" />
+    </linearGradient>
+
+    <!-- Peach Accent Gradient -->
+    <linearGradient id="peachGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFEFE4" />
+      <stop offset="100%" stop-color="#FFD0B8" />
+    </linearGradient>
+
+    <!-- Card Background Gradient -->
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#261612" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#1A0C08" stop-opacity="0.85" />
+    </linearGradient>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="40" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <style>
+    .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 54px; fill: #FFFFFF; letter-spacing: -1px; }
+    .subtitle { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 20px; fill: #FFB399; letter-spacing: 0.2px; }
+    .badge-text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 13px; fill: #FFEFE4; }
+    .card-title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 16px; fill: #FFF0EB; }
+    .card-desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 400; font-size: 13px; fill: #CFAAA0; line-height: 1.4; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="420" rx="20" fill="url(#bgGrad)" stroke="#3D1C14" stroke-width="2" />
+
+  <!-- Ambient Glow Behind Logo -->
+  <circle cx="150" cy="150" r="130" fill="#FF5722" opacity="0.15" filter="url(#softGlow)" />
+  <circle cx="1050" cy="200" r="160" fill="#D93A1F" opacity="0.10" filter="url(#softGlow)" />
+
+  <!-- RollerSkater Logo Vector (Scale ~1.8x, offset to x=70, y=70) -->
+  <g transform="translate(65, 55) scale(1.65)">
+    <!-- Shadow -->
+    <path d="M31,83 a23,3.4 0 1,0 46,0 a23,3.4 0 1,0 -46,0 Z" fill="#7A1E0A" opacity="0.35"/>
+    <path d="M38,83 a16,2.2 0 1,0 32,0 a16,2.2 0 1,0 -32,0 Z" fill="#7A1E0A" opacity="0.45"/>
+    <!-- 9-Lobe Scalloped Wheel -->
+    <path d="M82.89,50.00 L82.78,51.01 L82.46,51.99 L81.96,52.94 L81.32,53.84 L80.59,54.69 L79.84,55.49 L79.12,56.26 L78.48,57.02 L77.97,57.79 L77.60,58.59 L77.37,59.44 L77.27,60.36 L77.27,61.35 L77.32,62.40 L77.38,63.50 L77.39,64.62 L77.31,65.72 L77.08,66.77 L76.69,67.73 L76.13,68.57 L75.40,69.27 L74.52,69.82 L73.53,70.22 L72.46,70.50 L71.36,70.68 L70.26,70.82 L69.22,70.94 L68.24,71.12 L67.36,71.37 L66.56,71.75 L65.83,72.25 L65.17,72.89 L64.53,73.65 L63.90,74.49 L63.23,75.37 L62.52,76.23 L61.75,77.02 L60.90,77.68 L59.99,78.17 L59.02,78.45 L58.01,78.52 L56.98,78.37 L55.96,78.04 L54.96,77.57 L54.00,77.00 L53.08,76.40 L52.19,75.83 L51.34,75.33 L50.49,74.96 L49.64,74.73 L48.76,74.65 L47.84,74.71 L46.86,74.89 L45.84,75.12 L44.77,75.37 L43.67,75.58 L42.57,75.68 L41.49,75.64 L40.48,75.43 L39.56,75.02 L38.74,74.42 L38.05,73.65 L37.48,72.74 L37.02,71.74 L36.64,70.68 L36.32,69.63 L36.02,68.62 L35.68,67.69 L35.27,66.86 L34.76,66.14 L34.14,65.52 L33.39,64.97 L32.54,64.48 L31.60,64.00 L30.62,63.50 L29.64,62.95 L28.73,62.32 L27.94,61.60 L27.30,60.79 L26.85,59.88 L26.61,58.90 L26.58,57.86 L26.72,56.80 L27.02,55.74 L27.41,54.69 L27.84,53.68 L28.25,52.71 L28.59,51.78 L28.81,50.88 L28.89,50.00 L28.81,49.12 L28.59,48.22 L28.25,47.29 L27.84,46.32 L27.41,45.31 L27.02,44.26 L26.72,43.20 L26.58,42.14 L26.61,41.10 L26.85,40.12 L27.30,39.21 L27.94,38.40 L28.73,37.68 L29.64,37.05 L30.62,36.50 L31.60,36.00 L32.54,35.52 L33.39,35.03 L34.14,34.48 L34.76,33.86 L35.27,33.14 L35.68,32.31 L36.02,31.38 L36.32,30.37 L36.64,29.32 L37.02,28.26 L37.48,27.26 L38.05,26.35 L38.74,25.58 L39.55,24.98 L40.48,24.57 L41.49,24.36 L42.57,24.32 L43.67,24.42 L44.77,24.63 L45.84,24.88 L46.86,25.11 L47.84,25.29 L48.76,25.35 L49.64,25.27 L50.49,25.04 L51.34,24.67 L52.19,24.17 L53.08,23.60 L54.00,23.00 L54.96,22.43 L55.96,21.96 L56.98,21.63 L58.01,21.48 L59.02,21.55 L59.99,21.83 L60.90,22.32 L61.75,22.98 L62.52,23.77 L63.23,24.63 L63.90,25.51 L64.53,26.35 L65.17,27.11 L65.83,27.75 L66.56,28.25 L67.36,28.63 L68.24,28.88 L69.22,29.06 L70.26,29.18 L71.36,29.32 L72.46,29.50 L73.53,29.78 L74.52,30.18 L75.40,30.73 L76.13,31.43 L76.69,32.27 L77.08,33.23 L77.31,34.28 L77.39,35.38 L77.38,36.50 L77.32,37.60 L77.27,38.65 L77.27,39.64 L77.37,40.56 L77.60,41.41 L77.97,42.21 L78.48,42.98 L79.12,43.74 L79.84,44.51 L80.59,45.31 L81.32,46.16 L81.96,47.06 L82.46,48.01 L82.78,48.99 Z" fill="url(#brandGrad)"/>
+    <!-- Center Recessed Dish -->
+    <path d="M36.5,50 a17.5,17.5 0 1,0 35.0,0 a17.5,17.5 0 1,0 -35.0,0 Z" fill="url(#dishGrad)"/>
+    <path d="M35,36 a8,3.6 0 1,0 16,0 a8,3.6 0 1,0 -16,0 Z" fill="#FFFFFF" opacity="0.30"/>
+    <!-- Play Triangle -->
+    <path d="M50,43.5 L50,56.5 L61.5,50 Z" fill="#7A1E0A" opacity="0.28" transform="translate(1.1 1.6)" stroke="#7A1E0A" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M50,43.5 L50,56.5 L61.5,50 Z" fill="#FFF6EF" stroke="#FFF6EF" stroke-width="3" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Typography Header -->
+  <g transform="translate(285, 95)">
+    <text class="title" x="0" y="0">RollerSkater</text>
+    <text class="subtitle" x="0" y="38">Independent, Offline-First Android Music Player</text>
+    
+    <!-- Badges Row -->
+    <g transform="translate(0, 64)">
+      <!-- Badge 1 -->
+      <rect x="0" y="0" width="128" height="26" rx="13" fill="#381E16" stroke="#5E2C1E" stroke-width="1"/>
+      <text class="badge-text" x="64" y="17" text-anchor="middle">Material 3 UI</text>
+
+      <!-- Badge 2 -->
+      <rect x="136" y="0" width="138" height="26" rx="13" fill="#381E16" stroke="#5E2C1E" stroke-width="1"/>
+      <text class="badge-text" x="205" y="17" text-anchor="middle">DualPlayerEngine</text>
+
+      <!-- Badge 3 -->
+      <rect x="282" y="0" width="124" height="26" rx="13" fill="#381E16" stroke="#5E2C1E" stroke-width="1"/>
+      <text class="badge-text" x="344" y="17" text-anchor="middle">100% On-Device</text>
+
+      <!-- Badge 4 -->
+      <rect x="414" y="0" width="136" height="26" rx="13" fill="#381E16" stroke="#5E2C1E" stroke-width="1"/>
+      <text class="badge-text" x="482" y="17" text-anchor="middle">AndroidX Media3</text>
+
+      <!-- Badge 5 -->
+      <rect x="558" y="0" width="112" height="26" rx="13" fill="#381E16" stroke="#5E2C1E" stroke-width="1"/>
+      <text class="badge-text" x="614" y="17" text-anchor="middle">GPL-3.0</text>
+    </g>
+  </g>
+
+  <!-- Feature Cards Row -->
+  <g transform="translate(60, 240)">
+    <!-- Card 1: DualPlayerEngine -->
+    <g transform="translate(0, 0)" filter="url(#cardShadow)">
+      <rect width="255" height="140" rx="16" fill="url(#cardGrad)" stroke="#4A2218" stroke-width="1.5" />
+      <circle cx="36" cy="36" r="16" fill="#3D1A12" />
+      <text x="36" y="42" font-size="18" text-anchor="middle">🎵</text>
+      <text class="card-title" x="64" y="41">DualPlayerEngine</text>
+      <text class="card-desc" x="20" y="80">
+        <tspan x="20" dy="0">Sample-exact gapless playback &amp;</tspan>
+        <tspan x="20" dy="20">equal-power crossfade (sin² + cos²)</tspan>
+        <tspan x="20" dy="20">with zero audio dropouts.</tspan>
+      </text>
+    </g>
+
+    <!-- Card 2: 100% Offline & Private -->
+    <g transform="translate(275, 0)" filter="url(#cardShadow)">
+      <rect width="255" height="140" rx="16" fill="url(#cardGrad)" stroke="#4A2218" stroke-width="1.5" />
+      <circle cx="36" cy="36" r="16" fill="#3D1A12" />
+      <text x="36" y="42" font-size="18" text-anchor="middle">🛡️</text>
+      <text class="card-title" x="64" y="41">100% On-Device</text>
+      <text class="card-desc" x="20" y="80">
+        <tspan x="20" dy="0">Zero telemetry, zero crash uploaders,</tspan>
+        <tspan x="20" dy="20">and no ads. All stats and playlists</tspan>
+        <tspan x="20" dy="20">stay strictly on your phone.</tspan>
+      </text>
+    </g>
+
+    <!-- Card 3: Extended Codecs & Hi-Res -->
+    <g transform="translate(550, 0)" filter="url(#cardShadow)">
+      <rect width="255" height="140" rx="16" fill="url(#cardGrad)" stroke="#4A2218" stroke-width="1.5" />
+      <circle cx="36" cy="36" r="16" fill="#3D1A12" />
+      <text x="36" y="42" font-size="18" text-anchor="middle">🎚️</text>
+      <text class="card-title" x="64" y="41">Hi-Res &amp; FFmpeg</text>
+      <text class="card-desc" x="20" y="80">
+        <tspan x="20" dy="0">FLAC (32-bit float PCM), ALAC,</tspan>
+        <tspan x="20" dy="20">APE, Opus, WMA, 10-band EQ,</tspan>
+        <tspan x="20" dy="20">and ReplayGain normalization.</tspan>
+      </text>
+    </g>
+
+    <!-- Card 4: Modern Compose & Glance -->
+    <g transform="translate(825, 0)" filter="url(#cardShadow)">
+      <rect width="255" height="140" rx="16" fill="url(#cardGrad)" stroke="#4A2218" stroke-width="1.5" />
+      <circle cx="36" cy="36" r="16" fill="#3D1A12" />
+      <text x="36" y="42" font-size="18" text-anchor="middle">✨</text>
+      <text class="card-title" x="64" y="41">Material 3 &amp; Widgets</text>
+      <text class="card-desc" x="20" y="80">
+        <tspan x="20" dy="0">Predictive Back, AMOLED Black,</tspan>
+        <tspan x="20" dy="20">karaoke synced lyrics, and Glance</tspan>
+        <tspan x="20" dy="20">home-screen app widgets.</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

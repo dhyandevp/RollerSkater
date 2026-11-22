@@ -32,7 +32,7 @@ flowchart TD
         PrefRepo["UserPreferencesRepository (DataStore)"]
         EqualizerRepo["EqualizerPreferencesRepository (DataStore)"]
         StatsRepo["PlaybackStatsRepository"]
-        RoomDB["RollerSkaterDatabase (v7)"]
+        RoomDB["RollerSkaterDatabase (v8)"]
         DAOs["MusicDao, FavoritesDao, LyricsDao, etc."]
     end
 
@@ -87,7 +87,7 @@ sequenceDiagram
     App->>App: Prewarm Coil ImageLoader
     OS->>Activity: onCreate()
     Activity->>Hilt: Inject ViewModels & Repositories
-    Hilt->>DB: Open/Migrate RollerSkaterDatabase (v7)
+    Hilt->>DB: Open/Migrate RollerSkaterDatabase (v8)
     Activity->>UI: setContent { RollerSkaterTheme { AppNavHost } }
     UI->>Repo: Observe songs & playlists Flow
     Repo->>DB: Query cached local tracks
@@ -203,7 +203,7 @@ sequenceDiagram
     autonumber
     actor User
     participant Setup as SetupScreen / Settings
-    participant Coord as BackupCoordinator
+    participant Coord as BackupManager
     participant SAF as Storage Access Framework
     participant Modules as BackupModuleHandlers
     participant Room as RollerSkaterDatabase

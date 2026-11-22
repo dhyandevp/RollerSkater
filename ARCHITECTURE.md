@@ -34,14 +34,14 @@ graph TB
     subgraph DomainData ["Data & Repository Layer"]
         MRepo["MusicRepository\n(Room DAOs + MediaStore Source)"]
         PrefRepo["Preferences Repositories\n(User, Equalizer, Theme DataStore)"]
-        Room["Room SQLite Database\n(RollerSkaterDatabase v7)"]
-        DataStore["Jetpack DataStore (Protobuf / Preferences)"]
+        Room["Room SQLite Database\n(RollerSkaterDatabase v8)"]
+        DataStore["Jetpack DataStore (Preferences DataStore)"]
     end
 
     subgraph NativeUtil ["Native & Infrastructure Layer"]
         TagLib["Kyant0 TagLib JNI (libtaglib.so)"]
         FFmpeg["FFmpeg Software Decoder (media3-ffmpeg-decoder)"]
-        Coil["Coil 3 Artwork Loader & Cache"]
+        Coil["Coil Artwork Loader & Memory Cache"]
     end
 
     UI --> PVM
@@ -116,7 +116,7 @@ To achieve rock-solid 60–120 FPS rendering across budget and flagship hardware
 
 ### Room Database (`RollerSkaterDatabase`)
 Persistence is managed by Room with exported schemas tracked under `app/schemas/`:
-- **Current Version**: `7`
+- **Current Version**: `8`
 - **Primary Entities**:
   - `SongEntity`: Cached track metadata (ID, title, artist, album, duration, path, genre, bit rate, sample rate, date added).
   - `PlaylistEntity` & `PlaylistSongEntity`: User playlists, descriptions, and track sequence indices.

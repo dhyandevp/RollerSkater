@@ -100,6 +100,6 @@ $ANDROID_HOME/cmdline-tools/latest/bin/retrace RollerSkater-<X.Y.Z>-alpha.<N>-ma
 Before submitting a tagged release to F-Droid-compatible app stores:
 
 1. Update `fastlane/metadata/android/en-US/changelogs/<versionCode>.txt`.
-2. Verify the unsigned universal release build from [FDROID.md](FDROID.md).
+2. Verify the unsigned universal release build from [deployment.md](deployment.md).
 3. Check `PRIVACY.md` still matches the optional network services present in the app.
 4. Create source archives from git, not from the working tree, so ignored local artifacts are excluded.

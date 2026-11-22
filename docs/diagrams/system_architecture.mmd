@@ -1,0 +1,48 @@
+flowchart TD
+    subgraph UI ["Presentation Layer (Jetpack Compose & M3)"]
+        Activity["MainActivity / ExternalPlayerActivity"]
+        Screens["Compose Screens\n(Home, Library, Equalizer, Settings, Lyrics)"]
+        PlayerSheet["UnifiedPlayerSheetV2\n(Mini Player & Expanded Player)"]
+        ViewModels["Hilt ViewModels\n(PlayerViewModel, SetupViewModel, etc.)"]
+        Holders["Granular State Holders\n(PlaybackStateHolder, QueueStateHolder, SearchStateHolder)"]
+    end
+
+    subgraph AudioService ["Audio & Playback Service (AndroidX Media3)"]
+        MusicService["MusicService\n(MediaSessionService / Foreground)"]
+        DualEngine["DualPlayerEngine\n(Master Player A + Auxiliary Player B)"]
+        Decoders["AudioDecoderPolicy\n(Platform Codecs + FFmpeg Software Decoder)"]
+        Sinks["AudioSink & AudioOffload\n(Surround Downmix & ReplayGain)"]
+    end
+
+    subgraph Data ["Data & Persistence Layer"]
+        MusicRepo["MusicRepository\n(MediaStore + Room Orchestration)"]
+        DataStore["UserPreferencesRepository\n(Jetpack DataStore)"]
+        EQRepo["EqualizerPreferencesRepository\n(Jetpack DataStore)"]
+        RoomDB[("RollerSkaterDatabase (v8)\nRoom + SQLite FTS4 + Triggers")]
+        DAOs["MusicDao, FavoritesDao, LyricsDao,\nListeningStatsDao, TransitionDao, BookmarksDao"]
+    end
+
+    subgraph NativeInfra ["Native & Media Utilities"]
+        TagLib["Kyant0 TagLib JNI (libtaglib.so)"]
+        JAudioTagger["JAudioTagger Engine"]
+        VorbisJava["Vorbis-Java Core (Opus/Ogg)"]
+        Coil["Coil 3 Artwork Loader & LRU Cache"]
+    end
+
+    Activity --> Screens
+    Screens --> PlayerSheet
+    Screens --> ViewModels
+    ViewModels --> Holders
+    Holders --> MusicRepo
+    Holders --> DataStore
+    Holders --> EQRepo
+    ViewModels -.->|"MediaController IPC"| MusicService
+    MusicService --> DualEngine
+    DualEngine --> Decoders
+    DualEngine --> Sinks
+    MusicRepo --> RoomDB
+    RoomDB --> DAOs
+    MusicRepo --> TagLib
+    MusicRepo --> JAudioTagger
+    MusicRepo --> VorbisJava
+    Screens --> Coil

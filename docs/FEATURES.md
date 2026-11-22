@@ -9,12 +9,12 @@ This document catalogs every user-facing feature in **RollerSkater** (`com.rolle
 | Feature | Primary Code Location | Description |
 |---|---|---|
 | **Dual-Player Engine** | `data/service/player/DualPlayerEngine.kt` | Orchestrates two independent ExoPlayer instances (`Player A` master and `Player B` auxiliary) to allow simultaneous decoding and gapless transitions across differing sample rates and formats without audio dropouts. |
-| **Parametric Crossfading** | `presentation/screens/EditTransitionScreen.kt`<br>`data/repository/TransitionRepositoryImpl.kt` | Configurable crossfade duration (0.0s to 15.0s) utilizing an equal-power trigonometric curve ($\text{Vol}_{\text{in}} = \sin(\frac{\pi}{2}t)$, $\text{Vol}_{\text{out}} = \cos(\frac{\pi}{2}t)$) to maintain constant sound energy. |
+| **Parametric Crossfading** | `presentation/screens/EditTransitionScreen.kt`<br>`data/repository/TransitionRepository.kt` | Configurable crossfade duration (0.0s to 15.0s) utilizing an equal-power trigonometric curve ($\text{Vol}_{\text{in}} = \sin(\frac{\pi}{2}t)$, $\text{Vol}_{\text{out}} = \cos(\frac{\pi}{2}t)$) to maintain constant sound energy. |
 | **Custom Transition Rules** | `data/database/TransitionRuleEntity.kt`<br>`data/database/TransitionDao.kt` | Define specific transition rules between distinct tracks, artists, or albums that override the global crossfade setting. |
 | **Extended Codec Support** | `data/service/player/AudioDecoderPolicy.kt` | FFmpeg audio decoder extension (`org.jellyfin.media3:media3-ffmpeg-decoder`) alongside Android platform decoders. Direct decoding for FLAC (32-bit float PCM direct), ALAC, APE, WMA, AC-3, E-AC-3, DTS, DTS-HD, and Opus. |
 | **Audio Offload & Fallback** | `data/service/player/DualPlayerEngine.kt` | Low-power DSP audio offload for battery preservation during screen-off listening. Features an automated 1,500ms stall detector that gracefully falls back to PCM rendering if device HAL drivers freeze. |
 | **Graphic Equalizer** | `presentation/screens/EqualizerScreen.kt`<br>`data/equalizer/EqualizerManager.kt` | Hardware-backed graphic equalizer (5 to 10 bands depending on device HAL), Bass Boost, Audio Virtualizer, Reverb presets, and custom user-defined EQ curves. |
-| **ReplayGain & Volume Normalization** | `data/service/player/ReplayGainAudioProcessor.kt` | Parses track and album ReplayGain tags (`REPLAYGAIN_TRACK_GAIN`, `REPLAYGAIN_ALBUM_GAIN`) to prevent sudden volume spikes between tracks. |
+| **ReplayGain & Volume Normalization** | `data/service/ReplayGainProcessor.kt` | Parses track and album ReplayGain tags (`REPLAYGAIN_TRACK_GAIN`, `REPLAYGAIN_ALBUM_GAIN`) to prevent sudden volume spikes between tracks. |
 | **Surround Downmixing** | `data/service/player/SurroundDownmixProcessor.kt` | Downmixes 5.1 multi-channel audio tracks into balanced stereo audio for headphones. |
 | **Interactive DJ Mashup Deck** | `presentation/screens/MashupScreen.kt` | Dual-deck interactive crossfader and BPM-style tempo mixer for blending two tracks live. |
 | **Sleep Timer** | `data/service/SleepTimerAlarmScheduler.kt`<br>`data/service/SleepTimerReceiver.kt` | System-level timer with gradual volume fade-out. Employs `AlarmManager.setExactAndAllowWhileIdle` to fire reliably even when device is in deep Doze mode. |
@@ -62,7 +62,7 @@ This document catalogs every user-facing feature in **RollerSkater** (`com.rolle
 
 | Feature | Primary Code Location | Description |
 |---|---|---|
-| **Embedded & External Lyrics** | `data/repository/LyricsRepositoryImpl.kt` | Reads embedded ID3 USLT/SYLT tags, Vorbis comment lyrics, local `.lrc` files, and `.ttml` timed text files. |
+| **Embedded & External Lyrics** | `data/repository/LyricsRepository.kt` | Reads embedded ID3 USLT/SYLT tags, Vorbis comment lyrics, local `.lrc` files, and `.ttml` timed text files. |
 | **Word-Level Highlights** | `presentation/screens/LyricsSettingsScreen.kt`<br>`presentation/components/player/FullPlayerContent.kt` | Karaoke-style word-by-word active highlighting with fluid auto-scroll synchronization. |
 | **Manual Timing Offset** | `presentation/components/player/FullPlayerContent.kt` | Millisecond-level manual timing offset adjustment (+/- buttons) to perfectly align lyrics with audio. |
 | **Online LRCLIB Sync (Opt-In)** | `data/network/lyrics/LrcLibApiService.kt` | Optional network provider fetching missing lyrics from `https://lrclib.net/` (disabled by default; 100% opt-in). |
@@ -85,7 +85,7 @@ This document catalogs every user-facing feature in **RollerSkater** (`com.rolle
 | Feature | Primary Code Location | Description |
 |---|---|---|
 | **Timestamp Bookmarking** | `data/database/AudioBookmarkEntity.kt`<br>`presentation/screens/AudioBookmarksScreen.kt` | Save precise timestamp markers inside long audio files (DJ sets, live recordings, podcasts, audiobooks) with custom labels. |
-| **Bookmark Jump & Resume** | `data/repository/AudioBookmarkRepositoryImpl.kt` | One-tap resumption directly from the Audio Bookmarks library screen. |
+| **Bookmark Jump & Resume** | `data/repository/AudioBookmarkRepository.kt` | One-tap resumption directly from the Audio Bookmarks library screen. |
 
 ---
 
@@ -106,7 +106,7 @@ This document catalogs every user-facing feature in **RollerSkater** (`com.rolle
 | **Material You Dynamic Theming** | `presentation/screens/PaletteStyleSettingsScreen.kt`<br>`ui/theme/Theme.kt` | Extracts color palettes dynamically from album art via `androidx.palette` to style UI components. |
 | **OLED Pure Black Mode** | `data/preferences/UserPreferencesRepository.kt` | Pure `#000000` AMOLED theme maximizing contrast and power efficiency. |
 | **Navigation Bar Customization** | `presentation/screens/NavBarCornerRadiusScreen.kt` | Adjust bottom navigation bar rounding and pill corner radius. |
-| **Wavy Seekbar** | `app/build.gradle.kts` (`ir.mahozad.multiplatform:wavy-slider`) | Animated wavy progress seekbar on the full-screen player. |
+| **Wavy Arc Seekbar** | `presentation/components/WavyArcSlider.kt` | In-house custom animated wavy arc seekbar on the full-screen player with haptic feedback steps. |
 
 ---
 
@@ -125,5 +125,5 @@ This document catalogs every user-facing feature in **RollerSkater** (`com.rolle
 
 | Feature | Primary Code Location | Description |
 |---|---|---|
-| **JSON Export & Restore** | `data/backup/BackupCoordinator.kt`<br>`docs/BACKUP_AND_RESTORE.md` | Modular on-device backup of playlists, favorites, equalizer presets, listening stats, bookmarks, and preferences via Storage Access Framework (SAF). |
-| **Fuzzy Relinking** | `data/backup/BackupCoordinator.kt` | Automatically relinks playlist tracks if file IDs changed following an SD card replacement or device transfer. |
+| **JSON Export & Restore** | `data/backup/BackupManager.kt`<br>`docs/BACKUP_AND_RESTORE.md` | Modular on-device backup of playlists, favorites, equalizer presets, listening stats, bookmarks, and preferences via Storage Access Framework (SAF). |
+| **Fuzzy Relinking** | `data/backup/BackupManager.kt` | Automatically relinks playlist tracks if file IDs changed following an SD card replacement or device transfer. |

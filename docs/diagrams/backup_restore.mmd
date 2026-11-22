@@ -1,0 +1,33 @@
+sequenceDiagram
+    autonumber
+    actor User
+    participant Setup as SetupScreen / Settings
+    participant Manager as BackupManager
+    participant SAF as Storage Access Framework (SAF)
+    participant Handlers as BackupModuleHandlers
+    participant Room as RollerSkaterDatabase (v8)
+
+    alt Export Flow
+        User->>Setup: Tap "Create Backup"
+        Setup->>SAF: ACTION_CREATE_DOCUMENT (.json / .rsk)
+        SAF-->>Setup: Output Document Uri
+        Setup->>Manager: createBackup(uri)
+        Manager->>Handlers: Collect Playlists, Favorites, EQ, Stats, Bookmarks, Prefs
+        Handlers->>Room: Query entities
+        Room-->>Handlers: Entities
+        Handlers-->>Manager: JSON DTOs
+        Manager->>SAF: Serialize formatted JSON archive
+        Manager-->>User: Backup Export Completed
+    else Restore Flow
+        User->>Setup: Select Backup File (SAF Document Uri)
+        Setup->>Manager: inspectBackup(uri)
+        Manager-->>Setup: BackupManifest (version, date, available modules)
+        Setup->>User: Display module selection checklist
+        User->>Setup: Confirm selection
+        Setup->>Manager: restoreSelectedModules(plan)
+        Manager->>Handlers: Deserialize and validate payload
+        Handlers->>Room: Fuzzy match MediaStore IDs by relative path & title
+        Handlers->>Room: Non-destructive merge / insert into Room tables
+        Room-->>Setup: Restore Complete
+        Setup-->>User: Success Notification
+    end
