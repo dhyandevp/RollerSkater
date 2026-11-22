@@ -63,8 +63,10 @@ Before publishing any build to distribution channels, ensure every quality gate 
 All official release artifacts must match the following SHA-256 checksums:
 
 ```
-c7952834173dc59b546af4b1e5da1f147ad4ca14d051f4eb63bc5b6fccf1a830  app/build/outputs/apk/release/app-release.apk
-5f4510250ec620d81dbad70f62138e8a131642e70a34094282611a00688f4a27  app/build/outputs/bundle/release/app-release.aab
+f3507ea981f0cfbfa658bd9673acc4cf52e6bc4d48664db600a468d030a3e03e  RollerSkater-v1.0.0-arm64-v8a.apk
+d703f765194628f0c9d012771b21b442ab215c081c64a9ea4bd9cfed01dd51b8  RollerSkater-v1.0.0-armeabi-v7a.apk
+907084e3d33a0ab67246517488e6a940110e771201d2ef67ed529c1e8d600e2d  RollerSkater-v1.0.0-universal.apk
+5f4510250ec620d81dbad70f62138e8a131642e70a34094282611a00688f4a27  RollerSkater-v1.0.0.aab
 ```
 
 ### Verification Command
@@ -73,8 +75,10 @@ To verify the integrity of downloaded release artifacts:
 
 ```bash
 sha256sum -c <<EOF
-c7952834173dc59b546af4b1e5da1f147ad4ca14d051f4eb63bc5b6fccf1a830  app-release.apk
-5f4510250ec620d81dbad70f62138e8a131642e70a34094282611a00688f4a27  app-release.aab
+f3507ea981f0cfbfa658bd9673acc4cf52e6bc4d48664db600a468d030a3e03e  RollerSkater-v1.0.0-arm64-v8a.apk
+d703f765194628f0c9d012771b21b442ab215c081c64a9ea4bd9cfed01dd51b8  RollerSkater-v1.0.0-armeabi-v7a.apk
+907084e3d33a0ab67246517488e6a940110e771201d2ef67ed529c1e8d600e2d  RollerSkater-v1.0.0-universal.apk
+5f4510250ec620d81dbad70f62138e8a131642e70a34094282611a00688f4a27  RollerSkater-v1.0.0.aab
 EOF
 ```
 
