@@ -49,6 +49,32 @@ class PlaylistMigrationTest {
         }
     }
 
+    @Test
+    @Throws(IOException::class)
+    fun migrationFromSixToSevenDropsLegacyTables() {
+        migrationHelper.createDatabase(DATABASE_NAME, 6).close()
+
+        migrationHelper.runMigrationsAndValidate(
+            name = DATABASE_NAME,
+            version = 7,
+            validateDroppedTables = true,
+            MIGRATION_6_7,
+        ).close()
+    }
+
+    @Test
+    @Throws(IOException::class)
+    fun migrationFromSevenToEightDropsListenBrainz() {
+        migrationHelper.createDatabase(DATABASE_NAME, 7).close()
+
+        migrationHelper.runMigrationsAndValidate(
+            name = DATABASE_NAME,
+            version = 8,
+            validateDroppedTables = true,
+            MIGRATION_7_8,
+        ).close()
+    }
+
     private fun SupportSQLiteDatabase.playlistSongIds(playlistId: String): List<String> {
         return query(
             "SELECT song_id FROM playlist_songs WHERE playlist_id = ? ORDER BY sort_order",

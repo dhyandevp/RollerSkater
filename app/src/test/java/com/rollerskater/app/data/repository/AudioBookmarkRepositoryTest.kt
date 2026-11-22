@@ -19,10 +19,10 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class AudioBookmarkRepositoryImplTest {
+class AudioBookmarkRepositoryTest {
     private val musicDao = mockk<MusicDao>()
     private val bookmarkDao = mockk<AudioBookmarkDao>(relaxed = true)
-    private val repository = AudioBookmarkRepositoryImpl(bookmarkDao, BackupSongResolver(musicDao))
+    private val repository = AudioBookmarkRepository(bookmarkDao, BackupSongResolver(musicDao))
 
     // A non-local content uri keeps the stored artwork uri as-is through toSong().
     private fun song(id: Long, title: String, artist: String = "Artist", artists: List<String> = emptyList()) =

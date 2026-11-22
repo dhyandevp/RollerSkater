@@ -7,7 +7,7 @@ import com.rollerskater.app.data.database.MusicDao
 import com.rollerskater.app.data.database.SongEntity
 import com.rollerskater.app.data.database.SongSummary
 import com.rollerskater.app.data.database.restoredBookmarkSongId
-import com.rollerskater.app.data.repository.AudioBookmarkRepositoryImpl
+import com.rollerskater.app.data.repository.AudioBookmarkRepository
 import io.mockk.Runs
 import io.mockk.coEvery
 import io.mockk.just
@@ -108,7 +108,7 @@ class AudioBookmarksModuleHandlerTest {
         coEvery { bookmarks.getAllBookmarksOnce() } returns restored
         val relinked = slot<List<AudioBookmarkEntity>>()
         coEvery { bookmarks.insertAll(capture(relinked)) } just Runs
-        AudioBookmarkRepositoryImpl(bookmarks, BackupSongResolver(targetDao)).relinkOrphanedBookmarks()
+        AudioBookmarkRepository(bookmarks, BackupSongResolver(targetDao)).relinkOrphanedBookmarks()
 
         val byTitle = relinked.captured.associateBy { it.title }
         assertEquals("150", byTitle.getValue("Drop").songId)

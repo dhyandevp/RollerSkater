@@ -42,7 +42,6 @@ import com.rollerskater.app.data.network.deezer.DeezerApiService
 import com.rollerskater.app.data.network.lyrics.LrcLibApiService
 import com.rollerskater.app.data.repository.ArtistImageRepository
 import com.rollerskater.app.data.repository.AudioBookmarkRepository
-import com.rollerskater.app.data.repository.AudioBookmarkRepositoryImpl
 import com.rollerskater.app.data.repository.LyricsRepository
 import com.rollerskater.app.data.repository.LyricsRepositoryImpl
 import com.rollerskater.app.data.repository.MediaStoreSongRepository
@@ -50,7 +49,6 @@ import com.rollerskater.app.data.repository.MusicRepository
 import com.rollerskater.app.data.repository.MusicRepositoryImpl
 import com.rollerskater.app.data.repository.SongRepository
 import com.rollerskater.app.data.repository.TransitionRepository
-import com.rollerskater.app.data.repository.TransitionRepositoryImpl
 import com.rollerskater.app.data.repository.FolderTreeBuilder
 import dagger.Module
 import dagger.Provides
@@ -301,22 +299,6 @@ object AppModule {
             folderTreeBuilder = folderTreeBuilder
         )
 
-    }
-
-    @Provides
-    @Singleton
-    fun provideTransitionRepository(
-        transitionRepositoryImpl: TransitionRepositoryImpl
-    ): TransitionRepository {
-        return transitionRepositoryImpl
-    }
-
-    @Provides
-    @Singleton
-    fun provideAudioBookmarkRepository(
-        audioBookmarkRepositoryImpl: AudioBookmarkRepositoryImpl
-    ): AudioBookmarkRepository {
-        return audioBookmarkRepositoryImpl
     }
 
     @Singleton
