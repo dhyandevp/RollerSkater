@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- System splash colours. RollerSkaterSplash starts from these and blends into the app theme. -->
 <resources>
-    <color name="splash_background">#FFFDF7FF</color>
-    <color name="splash_glyph">#FFE53935</color>
+    <color name="splash_background">#FFFFEFE4</color>
+    <color name="splash_glyph">#FFD93A1F</color>
 </resources>

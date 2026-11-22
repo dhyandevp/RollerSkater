@@ -234,6 +234,7 @@ fun RollerSkaterSplash(
 
         val iconSize = glyph.viewport * unit
         val viewportCenter = Offset(glyph.viewport / 2f, glyph.viewport / 2f)
+        val wheelCenter = Offset(54f, 50f)
         val beat = noteBeat.value
         withTransform({
             translate(center.x - iconSize / 2f, center.y - iconSize / 2f)
@@ -241,11 +242,13 @@ fun RollerSkaterSplash(
             scale(glyphScale * emblemScale, glyphScale * emblemScale, pivot = viewportCenter)
         }) {
             val color = glyphColor.copy(alpha = glyphColor.alpha * emblemAlpha)
-            drawPath(glyph.body, color)
             withTransform({
-                translate(0f, -glyph.noteLift * beat)
-                rotate(-12f * beat, pivot = glyph.notePivot)
-                scale(1f + 0.22f * beat, 1f + 0.22f * beat, pivot = glyph.notePivot)
+                rotate(25f * spin.value, pivot = wheelCenter)
+            }) {
+                drawPath(glyph.body, color)
+            }
+            withTransform({
+                scale(1f + 0.16f * beat, 1f + 0.16f * beat, pivot = glyph.notePivot)
             }) {
                 drawPath(glyph.note, color)
             }
@@ -313,8 +316,8 @@ private fun rememberSplashGlyph(): SplashGlyph {
         SplashGlyph(
             body = body.asComposePath(),
             note = note.asComposePath(),
-            notePivot = Offset(noteBounds.centerX(), noteBounds.bottom),
-            noteLift = noteBounds.height() * 0.12f,
+            notePivot = Offset(noteBounds.centerX(), noteBounds.centerY()),
+            noteLift = 0f,
             viewport = vector.viewportWidth,
             extent = maxOf(all.width(), all.height())
         )
