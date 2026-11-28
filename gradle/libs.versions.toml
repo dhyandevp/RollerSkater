@@ -57,7 +57,7 @@ dagger = "2.60.1"
 javax-inject = "1"
 
 # Annotations procesing
-ksp = "2.3.10"
+ksp = "2.3.14"
 workRuntimeKtx = "2.11.2"
 composeTesting = "1.0.0-alpha03"
 timber = "5.0.1"
