@@ -214,7 +214,6 @@
     <string name="tab_songs">LAGU</string>
     <string name="toast_added_to_queue">Ditambahkan ke antrean</string>
     <string name="toast_crash_log_copied">Log crash disalin ke papan klip</string>
-    <string name="toast_grant_all_permissions">Mohon berikan semua izin yang diperlukan.</string>
     <string name="toast_grant_permission_first">Mohon berikan izin yang diperlukan terlebih dahulu.</string>
     <string name="toast_grant_storage_first">Berikan izin penyimpanan terlebih dahulu</string>
     <string name="toast_playing_next">Diputar berikutnya</string>

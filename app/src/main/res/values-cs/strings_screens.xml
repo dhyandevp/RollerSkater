@@ -82,7 +82,6 @@
     <string name="restore_selected">Obnovit vybrané</string>
     <string name="customize_corner_radius">Upravit zaoblení rohů</string>
     <string name="toast_grant_permission_first">Nejprve udělte požadované oprávnění.</string>
-    <string name="toast_grant_all_permissions">Udělte všechna požadovaná oprávnění.</string>
     <string name="toast_grant_storage_first">Nejprve povolte přístup k úložišti</string>
     <string name="cd_expand_menu">Rozbalit nabídku</string>
     <string name="cd_next_step">Další</string>

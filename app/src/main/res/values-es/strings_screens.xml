@@ -214,7 +214,6 @@
     <string name="tab_songs">CANCIONES</string>
     <string name="toast_added_to_queue">Añadida a la cola</string>
     <string name="toast_crash_log_copied">Registro copiado al portapapeles</string>
-    <string name="toast_grant_all_permissions">Concede todos los permisos necesarios.</string>
     <string name="toast_grant_permission_first">Concede primero el permiso necesario.</string>
     <string name="toast_grant_storage_first">Concede primero los permisos de almacenamiento</string>
     <string name="toast_playing_next">Se reproducirá a continuación</string>

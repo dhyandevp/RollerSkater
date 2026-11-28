@@ -101,7 +101,6 @@
     <string name="restore_selected">Restore selected</string>
     <string name="customize_corner_radius">Customize Corner Radius</string>
     <string name="toast_grant_permission_first">Please grant the required permission first.</string>
-    <string name="toast_grant_all_permissions">Please grant all required permissions.</string>
     <string name="toast_grant_storage_first">Grant storage permissions first</string>
 
     <string name="cd_expand_menu">Expand menu</string>

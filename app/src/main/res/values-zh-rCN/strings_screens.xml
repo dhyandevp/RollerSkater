@@ -97,7 +97,6 @@
     <string name="restore_selected">恢复选中项</string>
     <string name="customize_corner_radius">自定义圆角大小</string>
     <string name="toast_grant_permission_first">请先授予所需权限。</string>
-    <string name="toast_grant_all_permissions">请授予全部必要权限。</string>
     <string name="toast_grant_storage_first">请先授予存储权限</string>
 
     <string name="cd_expand_menu">展开菜单</string>

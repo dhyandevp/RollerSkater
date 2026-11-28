@@ -220,7 +220,6 @@
     <string name="tab_songs">ТРЕКИ</string>
     <string name="toast_added_to_queue">Добавлено в очередь</string>
     <string name="toast_crash_log_copied">Журнал сбоя скопирован в буфер обмена</string>
-    <string name="toast_grant_all_permissions">Пожалуйста, предоставьте все необходимые разрешения.</string>
     <string name="toast_grant_permission_first">Сначала предоставьте необходимое разрешение.</string>
     <string name="toast_grant_storage_first">Сначала предоставьте доступ к хранилищу</string>
     <string name="toast_playing_next">Будет воспроизведено следующим</string>

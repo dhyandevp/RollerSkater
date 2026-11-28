@@ -214,7 +214,6 @@
     <string name="tab_songs">BRANI</string>
     <string name="toast_added_to_queue">Aggiunto alla coda</string>
     <string name="toast_crash_log_copied">Log crash copiato negli appunti</string>
-    <string name="toast_grant_all_permissions">Concedi tutti i permessi richiesti.</string>
     <string name="toast_grant_permission_first">Concedi prima il permesso richiesto.</string>
     <string name="toast_grant_storage_first">Concedi prima i permessi di archiviazione</string>
     <string name="toast_playing_next">Riproduzione successiva</string>

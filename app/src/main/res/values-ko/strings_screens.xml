@@ -211,7 +211,6 @@
     <string name="tab_songs">곡</string>
     <string name="toast_added_to_queue">대기열에 추가됨</string>
     <string name="toast_crash_log_copied">크래시 로그가 클립보드에 복사되었습니다</string>
-    <string name="toast_grant_all_permissions">모든 필수 권한을 허용해 주세요.</string>
     <string name="toast_grant_permission_first">먼저 필요한 권한을 허용해 주세요.</string>
     <string name="toast_grant_storage_first">먼저 저장공간 권한을 허용해 주세요</string>
     <string name="toast_playing_next">다음에 재생됨</string>

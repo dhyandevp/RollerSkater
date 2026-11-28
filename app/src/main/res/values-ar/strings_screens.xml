@@ -226,7 +226,6 @@
     <string name="tab_songs">الأغاني</string>
     <string name="toast_added_to_queue">تمت الإضافة إلى قائمة الانتظار</string>
     <string name="toast_crash_log_copied">تم نسخ سجل التعطل إلى الحافظة</string>
-    <string name="toast_grant_all_permissions">يرجى منح جميع الأذونات المطلوبة.</string>
     <string name="toast_grant_permission_first">يرجى منح الإذن المطلوب أولاً.</string>
     <string name="toast_grant_storage_first">يرجى منح أذونات التخزين أولاً</string>
     <string name="toast_playing_next">سيتم التشغيل تالياً</string>

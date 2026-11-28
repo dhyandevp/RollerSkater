@@ -93,7 +93,6 @@
     <string name="restore_selected">Khôi phục mục đã chọn</string>
     <string name="customize_corner_radius">Tùy chỉnh góc bo</string>
     <string name="toast_grant_permission_first">Vui lòng cấp quyền trước</string>
-    <string name="toast_grant_all_permissions">Vui lòng cấp tất cả các quyền cần thiết</string>
     <string name="toast_grant_storage_first">Vui lòng cấp quyền bộ nhớ trước</string>
     <string name="cd_expand_menu">Mở rộng menu</string>
     <string name="cd_next_step">Bước tiếp theo</string>

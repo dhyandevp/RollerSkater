@@ -214,7 +214,6 @@
     <string name="tab_songs">ŞARKILAR</string>
     <string name="toast_added_to_queue">Sıraya eklendi</string>
     <string name="toast_crash_log_copied">Çökme günlüğü panoya kopyalandı</string>
-    <string name="toast_grant_all_permissions">Lütfen gerekli tüm izinleri verin.</string>
     <string name="toast_grant_permission_first">Lütfen önce gerekli izni verin.</string>
     <string name="toast_grant_storage_first">Önce depolama izinlerini verin</string>
     <string name="toast_playing_next">Sırada oynatılacak</string>

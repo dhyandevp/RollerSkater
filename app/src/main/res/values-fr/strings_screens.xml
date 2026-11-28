@@ -214,7 +214,6 @@
     <string name="tab_songs">CHANSONS</string>
 <string name="toast_added_to_queue">"Ajouté à la file d'attente"</string>
 <string name="toast_crash_log_copied">"Journal d'erreur copié dans le presse-papiers"</string>
-    <string name="toast_grant_all_permissions">Veuillez accorder toutes les autorisations requises.</string>
 <string name="toast_grant_permission_first">"Veuillez d'abord accorder l'autorisation requise."</string>
 <string name="toast_grant_storage_first">"Accordez d'abord les autorisations de stockage"</string>
     <string name="toast_playing_next">Passera ensuite</string>

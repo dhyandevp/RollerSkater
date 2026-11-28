@@ -214,7 +214,6 @@
     <string name="tab_songs">SONGS</string>
     <string name="toast_added_to_queue">Zur Queue hinzugefügt</string>
     <string name="toast_crash_log_copied">Absturzprotokoll in die Zwischenablage kopiert</string>
-    <string name="toast_grant_all_permissions">Bitte alle erforderlichen Berechtigungen erteilen.</string>
     <string name="toast_grant_permission_first">Bitte zuerst die erforderliche Berechtigung erteilen.</string>
     <string name="toast_grant_storage_first">Zuerst Speicherberechtigung erteilen</string>
     <string name="toast_playing_next">Wird als nächstes gespielt</string>

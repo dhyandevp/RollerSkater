@@ -214,7 +214,6 @@
     <string name="tab_songs">SANGER</string>
     <string name="toast_added_to_queue">Lagt til i kø</string>
     <string name="toast_crash_log_copied">Krasj-logg kopiert til utklippstavlen</string>
-    <string name="toast_grant_all_permissions">Vennligst gi alle nødvendige tillatelser.</string>
     <string name="toast_grant_permission_first">Vennligst gi nødvendig tillatelse først.</string>
     <string name="toast_grant_storage_first">Gi lagringstilgang først</string>
     <string name="toast_playing_next">Spilles neste</string>
