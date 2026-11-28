@@ -161,9 +161,9 @@ private fun EditMultipleSongsContent(
         cornerRadiusBR = 10.dp, smoothnessAsPercentTR = 60
     )
 
-    if (showCoverArtCropper && pendingCoverArtUri != null) {
+    pendingCoverArtUri?.takeIf { showCoverArtCropper }?.let { coverUri ->
         CoverArtCropperDialog(
-            sourceUri = pendingCoverArtUri!!,
+            sourceUri = coverUri,
             onDismiss = {
                 showCoverArtCropper = false
                 pendingCoverArtUri = null

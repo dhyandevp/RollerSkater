@@ -382,8 +382,9 @@ fun EmbeddedQueuePane(
         }
     }
 
-    val activeSongSource = if (reorderPreviewOrder != null && reorderPreviewBaseQueue != null) {
-        reorderPreviewBaseQueue!!
+    val basePreviewQueue = reorderPreviewBaseQueue
+    val activeSongSource = if (reorderPreviewOrder != null && basePreviewQueue != null) {
+        basePreviewQueue
     } else {
         queue
     }

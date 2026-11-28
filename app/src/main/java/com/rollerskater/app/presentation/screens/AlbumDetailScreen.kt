@@ -187,38 +187,42 @@ fun AlbumDetailScreen(
             label = "fabPadding"
         )
 
+        val currentAlbum = uiState.album
         when {
-            uiState.isLoading && uiState.album == null -> {
+            uiState.isLoading && currentAlbum == null -> {
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                     ContainedLoadingIndicator()
                 }
             }
 
-            uiState.error != null && uiState.album == null -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Column(
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(12.dp)
+            uiState.error != null && currentAlbum == null -> {
+                val error = uiState.error
+                if (error != null) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
                     ) {
-                        Text(
-                            text = uiState.error!!,
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodyLarge
-                        )
-                        FilledTonalButton(onClick = { viewModel.retry() }) {
-                            Text(stringResource(R.string.library_retry))
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Text(
+                                text = error,
+                                color = MaterialTheme.colorScheme.error,
+                                style = MaterialTheme.typography.bodyLarge
+                            )
+                            FilledTonalButton(onClick = { viewModel.retry() }) {
+                                Text(stringResource(R.string.library_retry))
+                            }
                         }
                     }
                 }
             }
 
-            uiState.album != null -> {
-                val album = uiState.album!!
+            currentAlbum != null -> {
+                val album = currentAlbum
                 val songs = uiState.songs
                 val immutableSongs = remember(songs) { songs.toImmutableList() }
                 val songsByDisc = remember(songs) {

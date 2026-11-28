@@ -32,6 +32,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -46,7 +47,7 @@ import javax.inject.Inject
 class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration.Provider {
 
     @Inject
-    lateinit var workerFactory: HiltWorkerFactory
+    lateinit var workerFactory: dagger.Lazy<HiltWorkerFactory>
 
     @Inject
     lateinit var imageLoader: dagger.Lazy<ImageLoader>
@@ -84,7 +85,9 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
     @Inject
     lateinit var songMetadataEditor: dagger.Lazy<SongMetadataEditor>
 
-    private val startupScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val startupScope = CoroutineScope(
+        SupervisorJob() + Dispatchers.IO + CrashHandler.coroutineExceptionHandler("RollerSkaterApplication")
+    )
 
     companion object {
         const val NOTIFICATION_CHANNEL_ID = "rollerskater_music_channel"
@@ -92,13 +95,18 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
 
     private val appLifecycleObserver = object : DefaultLifecycleObserver {
         override fun onStart(owner: LifecycleOwner) {
-            libraryStateHolder.get().restoreAfterTrimIfNeeded()
-            m3uSyncCoordinator.get().onAppForeground()
-            advancedPerformanceDiagnosticsController.get().onAppForeground()
-            // Gives songs cut off by an interrupted tag save (a failed write-back, or the app
-            // being killed mid-write) their edited audio back, and lists the ones the app can no
-            // longer write to so the player can ask the user for access.
-            startupScope.launch { songMetadataEditor.get().resumeInterruptedWriteBacks() }
+            startupScope.launch(Dispatchers.Default) {
+                val holder = libraryStateHolder.get()
+                withContext(Dispatchers.Main) {
+                    holder.restoreAfterTrimIfNeeded()
+                }
+                m3uSyncCoordinator.get().onAppForeground()
+                advancedPerformanceDiagnosticsController.get().onAppForeground()
+                // Gives songs cut off by an interrupted tag save (a failed write-back, or the app
+                // being killed mid-write) their edited audio back, and lists the ones the app can no
+                // longer write to so the player can ask the user for access.
+                songMetadataEditor.get().resumeInterruptedWriteBacks()
+            }
         }
 
         override fun onResume(owner: LifecycleOwner) {
@@ -107,7 +115,9 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
         }
 
         override fun onStop(owner: LifecycleOwner) {
-            advancedPerformanceDiagnosticsController.get().onAppBackground()
+            startupScope.launch(Dispatchers.Default) {
+                advancedPerformanceDiagnosticsController.get().onAppBackground()
+            }
         }
     }
 
@@ -227,7 +237,7 @@ class RollerSkaterApplication : Application(), ImageLoaderFactory, Configuration
 
     override val workManagerConfiguration: Configuration
         get() = Configuration.Builder()
-            .setWorkerFactory(workerFactory)
+            .setWorkerFactory(workerFactory.get())
             .build()
 
 }

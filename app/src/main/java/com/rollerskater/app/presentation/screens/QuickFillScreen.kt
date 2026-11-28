@@ -265,8 +265,9 @@ fun QuickFillContent(
                             step = 1
                         } else {
                             val songsToUpdate = songs.filter { selectedSongIds[it.id] == true }
-                            if (songsToUpdate.isNotEmpty() && selectedGenre != null) {
-                                onApply(songsToUpdate, selectedGenre!!)
+                            val genre = selectedGenre
+                            if (songsToUpdate.isNotEmpty() && genre != null) {
+                                onApply(songsToUpdate, genre)
                             }
                         }
                     },

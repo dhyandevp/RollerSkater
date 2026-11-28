@@ -821,10 +821,11 @@ fun EmbeddedLyricsPane(
         }
     }
 
-    if (showSaveLyricsDialog && lyrics != null && stablePlayerState.currentSong != null) {
+    val currentSong = stablePlayerState.currentSong
+    if (showSaveLyricsDialog && lyrics != null && currentSong != null) {
         val hasSynced = !lyrics.synced.isNullOrEmpty()
         val hasPlain = !lyrics.plain.isNullOrEmpty()
-        val songToSave = stablePlayerState.currentSong!!
+        val songToSave = currentSong
         AlertDialog(
             onDismissRequest = { showSaveLyricsDialog = false },
             title = { Text(stringResource(R.string.save_lyrics_dialog_title)) },

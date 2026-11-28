@@ -32,7 +32,7 @@ val hasReleaseSigningConfig = !disableReleaseSigning &&
 val isBundleTask = gradle.startParameter.taskNames.any { it.contains("bundle", ignoreCase = true) }
 val enableAbiSplits = providers.gradleProperty("rollerskater.enableAbiSplits")
     .map { it.toBoolean() }
-    .getOrElse(!isBundleTask)
+    .getOrElse(false)
 
 val enableComposeCompilerReports = providers.gradleProperty("rollerskater.enableComposeCompilerReports")
     .getOrElse("false")
@@ -85,6 +85,10 @@ android {
         versionName = (project.findProperty("APP_VERSION_NAME") as? String) ?: "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters.addAll(listOf("arm64-v8a", "armeabi-v7a", "x86_64", "x86"))
+        }
     }
 
     signingConfigs {
@@ -141,6 +145,7 @@ android {
     lint {
         checkReleaseBuilds = false
         abortOnError = false
+        checkTestSources = false
     }
 
     splits {

@@ -20,16 +20,23 @@ object AppLocaleManager {
     /** The application context whose resources [keepApplicationLocale] already watches. */
     private var keptApplicationContext = WeakReference<Context>(null)
 
-    fun currentLanguageTag(context: Context): String =
-        AppLanguage.normalize(
+    /** Cached language tag so MainActivity.attachBaseContext does not hit disk under StrictMode. */
+    @Volatile
+    private var cachedLanguageTag: String? = null
+
+    fun currentLanguageTag(context: Context): String {
+        cachedLanguageTag?.let { return it }
+        return AppLanguage.normalize(
             context
                 .getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
                 .getString(KEY_LANGUAGE_TAG, AppLanguage.SYSTEM.tag)
                 .orEmpty()
-        )
+        ).also { cachedLanguageTag = it }
+    }
 
     fun applyLanguage(context: Context, languageTag: String) {
         val normalized = AppLanguage.normalize(languageTag)
+        cachedLanguageTag = normalized
         context
             .getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
             .edit()

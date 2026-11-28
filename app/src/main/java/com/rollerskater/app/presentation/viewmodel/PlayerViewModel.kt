@@ -1555,7 +1555,7 @@ class PlayerViewModel @Inject constructor(
             preferredSource
         }
 
-        val resolvedRootPath = if (effectiveSource == FolderSource.SD_CARD) sdPath!! else internalPath
+        val resolvedRootPath = if (effectiveSource == FolderSource.SD_CARD && sdPath != null) sdPath else internalPath
         return FolderSourceState(
             source = effectiveSource,
             rootPath = resolvedRootPath,

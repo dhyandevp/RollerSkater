@@ -112,7 +112,11 @@ class MusicRepository @Inject constructor(
     }
 
     private val directoryScanMutex = Mutex()
-    private val repositoryScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+    private val repositoryScope = CoroutineScope(
+        Dispatchers.IO +
+            SupervisorJob() +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("MusicRepository")
+    )
     private val defaultLibraryPagingConfig = PagingConfig(
         pageSize = 50,
         enablePlaceholders = true,

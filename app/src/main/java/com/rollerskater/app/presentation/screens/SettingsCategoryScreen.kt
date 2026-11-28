@@ -631,17 +631,17 @@ fun SettingsCategoryScreen(
                                     modifier = Modifier.settingHighlight("item_library_m3u_sync", highlightKey),
                                 )
                                 if (m3uSyncState.enabled) {
+                                    val lastReport = m3uSyncState.lastReport
                                     SettingsItem(
                                         title = stringResource(R.string.setcat_m3u_sync_now_title),
                                         subtitle = when {
                                             m3uSyncState.error != null -> m3uSyncState.error.orEmpty()
-                                            m3uSyncState.lastReport != null -> {
-                                                val report = m3uSyncState.lastReport!!
+                                            lastReport != null -> {
                                                 stringResource(
                                                     R.string.setcat_m3u_sync_result,
-                                                    report.changed,
-                                                    report.conflicts.size,
-                                                    report.unresolvedEntries,
+                                                    lastReport.changed,
+                                                    lastReport.conflicts.size,
+                                                    lastReport.unresolvedEntries,
                                                 )
                                             }
                                             else -> stringResource(R.string.setcat_m3u_sync_now_subtitle)
@@ -1683,7 +1683,8 @@ fun SettingsCategoryScreen(
 
     if (showImportFlow) {
         val restorePlan = uiState.restorePlan
-        if (restorePlan != null && importFileUri != null) {
+        val pendingImportUri = importFileUri
+        if (restorePlan != null && pendingImportUri != null) {
             ImportModuleSelectionDialog(
                 plan = restorePlan,
                 inProgress = uiState.isDataTransferInProgress,
@@ -1698,7 +1699,7 @@ fun SettingsCategoryScreen(
                 },
                 onSelectionChanged = { settingsViewModel.updateRestorePlanSelection(it) },
                 onConfirm = {
-                    settingsViewModel.restoreFromPlan(importFileUri!!)
+                    settingsViewModel.restoreFromPlan(pendingImportUri)
                     showImportFlow = false
                     importFileUri = null
                 }

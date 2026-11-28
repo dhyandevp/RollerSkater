@@ -836,10 +836,11 @@ private fun ContributorAvatar(
         color = containerColor,
         tonalElevation = 2.dp,
     ) {
+        val avatarBitmap = cachedBitmap
         when {
-            cachedBitmap != null -> {
+            avatarBitmap != null -> {
                 Image(
-                    bitmap = cachedBitmap!!,
+                    bitmap = avatarBitmap,
                     contentDescription = stringResource(R.string.cd_contributor_avatar, name),
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop,

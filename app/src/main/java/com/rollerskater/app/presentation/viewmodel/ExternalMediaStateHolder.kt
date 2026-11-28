@@ -63,9 +63,11 @@ class ExternalMediaStateHolder @Inject constructor(
         if (bucketId != null) {
             selection = "${MediaStore.Audio.Media.BUCKET_ID} = ?"
             selectionArgs = arrayOf(bucketId.toString())
-        } else {
+        } else if (!relativePath.isNullOrEmpty()) {
             selection = "${MediaStore.Audio.Media.RELATIVE_PATH} = ?"
-            selectionArgs = arrayOf(relativePath!!)
+            selectionArgs = arrayOf(relativePath)
+        } else {
+            return@withContext emptyList()
         }
 
         val resolver = context.contentResolver

@@ -47,6 +47,49 @@
 -dontwarn net.sourceforge.pinyin4j.**
 
 -keep class * extends androidx.glance.appwidget.action.ActionCallback { <init>(); }
+-keep class * extends androidx.glance.appwidget.GlanceAppWidget { <init>(); }
+-keep class * extends androidx.glance.appwidget.GlanceAppWidgetReceiver { <init>(); }
+-keep class com.rollerskater.app.ui.glancewidget.** { *; }
+
+# Room Database
+-keep class * extends androidx.room.RoomDatabase
+-keep class com.rollerskater.app.data.database.** { *; }
+-dontwarn androidx.room.paging.**
+
+# Media3 Session & Services
+-keep class androidx.media3.session.** { *; }
+-keep class com.rollerskater.app.data.service.** { *; }
+
+# Native methods (JNI)
+-keepclasseswithmembernames,includedescriptorclasses class * {
+    native <methods>;
+}
+
+# Image loading (Coil)
+-keep class coil.** { *; }
+-dontwarn coil.**
+-keep class coil3.** { *; }
+-dontwarn coil3.**
+
+# Vorbis-Java
+-keep class org.gagravarr.** { *; }
+-dontwarn org.gagravarr.**
+
+# Kotlinx Serialization
+-dontnote kotlinx.serialization.SerializationKt
+-keepclassmembers class * {
+    @kotlinx.serialization.Serializable <fields>;
+}
+-keepclassmembers class * {
+    @kotlinx.serialization.SerialName <fields>;
+}
+-keepclassmembers class * {
+    companion object;
+}
+-keepclassmembers class * extends kotlinx.serialization.KSerializer {
+    <fields>;
+    <methods>;
+}
 
 -assumenosideeffects class timber.log.Timber {
     public static void v(...);

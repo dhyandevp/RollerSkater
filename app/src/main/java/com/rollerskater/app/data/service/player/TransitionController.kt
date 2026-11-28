@@ -48,7 +48,11 @@ class TransitionController @Inject constructor(
     private val userPreferencesRepository: UserPreferencesRepository,
     private val trackBpmRepository: TrackBpmRepository,
 ) {
-    private var scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    private var scope = CoroutineScope(
+        Dispatchers.Main +
+            SupervisorJob() +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("TransitionController")
+    )
     private var transitionListener: Player.Listener? = null
     private var transitionSchedulerJob: Job? = null
     private var currentObservedPlayer: Player? = null
@@ -86,10 +90,14 @@ class TransitionController @Inject constructor(
         Timber.tag("TransitionDebug").d("Initializing TransitionController...")
 
         if (scope.coroutineContext[Job]?.isActive != true) {
-            scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+            scope = CoroutineScope(
+                Dispatchers.Main +
+                    SupervisorJob() +
+                    com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("TransitionController")
+            )
         }
 
-        transitionListener = object : Player.Listener {
+        val listener = object : Player.Listener {
             override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
                 Timber.tag("TransitionDebug").d("onMediaItemTransition: %s (reason=%d)", mediaItem?.mediaId, reason)
                 engine.setPauseAtEndOfMediaItems(shouldPause = false)
@@ -142,9 +150,10 @@ class TransitionController @Inject constructor(
                 engine.masterPlayer.currentMediaItem?.let { scheduleTransitionFor(it) }
             }
         }
+        transitionListener = listener
 
         currentObservedPlayer = engine.masterPlayer
-        currentObservedPlayer?.addListener(transitionListener!!)
+        currentObservedPlayer?.addListener(listener)
         engine.addPlayerSwapListener(swapListener)
 
         // A sleep timer that stops at the end of the track must not crossfade into the next

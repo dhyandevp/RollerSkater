@@ -92,6 +92,7 @@ import androidx.compose.material3.ToggleFloatingActionButtonDefaults
 import androidx.compose.material3.animateFloatingActionButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.remember
@@ -216,7 +217,11 @@ fun AudioBookmarksScreen(
         )
         val statusBarTopInset = WindowInsets.statusBars.asPaddingValues().calculateTopPadding()
         val topBarHeight = statusBarTopInset + 78.dp
-        val isListScrolled = listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > 0
+        val isListScrolled by remember(listState) {
+            derivedStateOf {
+                listState.firstVisibleItemIndex > 0 || listState.firstVisibleItemScrollOffset > 0
+            }
+        }
         val topBarSurfaceFraction by animateFloatAsState(
             targetValue = if (isListScrolled || query.isNotBlank()) 1f else 0f,
             animationSpec = motionScheme.fastEffectsSpec(),

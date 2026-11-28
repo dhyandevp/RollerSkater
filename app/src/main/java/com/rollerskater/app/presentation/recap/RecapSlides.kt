@@ -750,7 +750,7 @@ private fun GenresSlide(
 ) {
     val locale = LocalConfiguration.current.locales[0]
     val percent = remember(locale) { NumberFormat.getPercentInstance(locale) }
-    val leader = slide.genres.first()
+    val leader = slide.genres.firstOrNull() ?: return
     val maxShare = leader.share.coerceAtLeast(0.0001f)
     val rankShapes = listOf(
         MaterialShapes.Cookie9Sided.toShape(),
@@ -929,7 +929,7 @@ private fun AlbumsSlide(
     contentPadding: PaddingValues,
     scrollState: ScrollState
 ) {
-    val leader = slide.albums.first()
+    val leader = slide.albums.firstOrNull() ?: return
     val fanned = slide.albums.take(3)
     RecapSlideColumn(contentPadding = contentPadding, scrollState = scrollState) {
         RecapKicker(
@@ -1024,7 +1024,7 @@ private fun ArtistsSlide(
     contentPadding: PaddingValues,
     scrollState: ScrollState
 ) {
-    val leader = slide.artists.first()
+    val leader = slide.artists.firstOrNull() ?: return
     val spin = rememberSpin(active = isActive, periodMillis = 30_000)
     RecapSlideColumn(contentPadding = contentPadding, scrollState = scrollState) {
         RecapKicker(
@@ -1117,7 +1117,7 @@ private fun SongsSlide(
     contentPadding: PaddingValues,
     scrollState: ScrollState
 ) {
-    val leader = slide.songs.first()
+    val leader = slide.songs.firstOrNull() ?: return
     val spin = rememberSpin(active = isActive, periodMillis = 6_000)
     // The disc starts tucked towards the sleeve, which sits on the reading-start side.
     val towardsSleeve = if (LocalLayoutDirection.current == LayoutDirection.Rtl) 1f else -1f

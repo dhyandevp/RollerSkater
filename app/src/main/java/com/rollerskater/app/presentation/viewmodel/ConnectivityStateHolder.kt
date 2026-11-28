@@ -105,7 +105,11 @@ class ConnectivityStateHolder @Inject constructor(
     private var isInitialized = false
     private val owners = OwnerStack<CoroutineScope> { it }
     private val discoveredBluetoothAudioDevices = ConcurrentHashMap<String, BluetoothAudioDeviceState>()
-    private val connectivityIoScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val connectivityIoScope = CoroutineScope(
+        SupervisorJob() +
+            Dispatchers.IO +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("ConnectivityStateHolder")
+    )
     private val audioDevicesRefreshGeneration = AtomicLong(0L)
     private val audioDevicesPublishLock = Any()
     private var updateAudioDevicesJob: Job? = null
@@ -119,18 +123,24 @@ class ConnectivityStateHolder @Inject constructor(
         if (isInitialized) return
         isInitialized = true
 
-        val activeNetwork = connectivityManager.activeNetwork
-        val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
-        updateWifiRadioState()
-        _isWifiEnabled.value = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
-        if (_isWifiEnabled.value) {
-            updateWifiInfo()
-        }
-        
-        _isOnline.value = capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true &&
-                capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        connectivityIoScope.launch {
+            if (!isInitialized) return@launch
+            val activeNetwork = connectivityManager.activeNetwork
+            val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+            updateWifiRadioState()
+            _isWifiEnabled.value = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
+            if (_isWifiEnabled.value) {
+                updateWifiInfo()
+            }
 
-        updateBluetoothEnabledState()
+            _isOnline.value = capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true &&
+                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+
+            updateBluetoothEnabledState()
+            if (isInitialized) {
+                updateAudioDevicesOnIo(audioDevicesRefreshGeneration.incrementAndGet())
+            }
+        }
 
         networkCallback = object : ConnectivityManager.NetworkCallback() {
             private val availableNetworks = mutableSetOf<Network>()
@@ -174,7 +184,9 @@ class ConnectivityStateHolder @Inject constructor(
         val request = NetworkRequest.Builder()
             .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
             .build()
-        connectivityManager.registerNetworkCallback(request, networkCallback!!)
+        networkCallback?.let { callback ->
+            connectivityManager.registerNetworkCallback(request, callback)
+        }
 
         wifiStateReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
@@ -183,7 +195,12 @@ class ConnectivityStateHolder @Inject constructor(
                 }
             }
         }
-        context.registerReceiver(wifiStateReceiver, IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION))
+        ContextCompat.registerReceiver(
+            context,
+            wifiStateReceiver,
+            IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION),
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
 
         bluetoothStateReceiver = object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
@@ -214,14 +231,16 @@ class ConnectivityStateHolder @Inject constructor(
                 }
             }
         }
-        context.registerReceiver(
+        ContextCompat.registerReceiver(
+            context,
             bluetoothStateReceiver,
             IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED).apply {
                 addAction(BluetoothDevice.ACTION_BOND_STATE_CHANGED)
                 addAction(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED)
                 addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED)
                 addAction(BluetoothDevice.ACTION_FOUND)
-            }
+            },
+            ContextCompat.RECEIVER_NOT_EXPORTED
         )
 
         audioDeviceCallback = object : android.media.AudioDeviceCallback() {
@@ -234,7 +253,6 @@ class ConnectivityStateHolder @Inject constructor(
             }
         }
         audioManager.registerAudioDeviceCallback(audioDeviceCallback, null)
-        updateAudioDevices()
     }
 
     private fun updateWifiRadioState() {

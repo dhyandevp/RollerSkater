@@ -1940,11 +1940,8 @@ private fun PlayerProgressBarSection(
 
     val animatedProgressState = remember(smoothProgressState) {
         derivedStateOf {
-            when {
-                sliderDragValue != null -> sliderDragValue!!
-                targetSeekFraction >= 0f -> targetSeekFraction
-                else -> smoothProgressState.value
-            }
+            sliderDragValue
+                ?: if (targetSeekFraction >= 0f) targetSeekFraction else smoothProgressState.value
         }
     }
 

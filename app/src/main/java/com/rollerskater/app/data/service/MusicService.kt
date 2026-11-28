@@ -220,7 +220,11 @@ class MusicService : MediaSessionService() {
 
     private var favoriteSongIds = emptySet<String>()
     private var mediaSession: MediaSession? = null
-    private val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private val serviceScope = CoroutineScope(
+        SupervisorJob() +
+            Dispatchers.Main +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("MusicService")
+    )
     private var keepPlayingInBackground = true
     private var isManualShuffleEnabled = false
     private var persistentShuffleEnabled = false
@@ -1165,6 +1169,7 @@ class MusicService : MediaSessionService() {
                 consecutivePlaybackErrors++
                 player.seekToNextMediaItem()
                 player.prepare()
+                player.play()
             } else {
                 consecutivePlaybackErrors = 0
             }

@@ -56,7 +56,8 @@ class MappingPlayer(
     }
 
     override fun getMediaItemAt(index: Int): MediaItem {
-        return mapMediaItem(super.getMediaItemAt(index))!!
+        val original = super.getMediaItemAt(index)
+        return mapMediaItem(original) ?: original
     }
 
     override fun getMediaMetadata(): MediaMetadata {

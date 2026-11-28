@@ -391,7 +391,7 @@ private fun ExpressiveMorphingToggle(
             modifier = Modifier
                 .width(indicatorWidth)
                 .fillMaxSize()
-                .offset(x = indicatorOffset)
+                .offset { androidx.compose.ui.unit.IntOffset(indicatorOffset.roundToPx(), 0) }
                 .clip(CircleShape)
                 .background(MaterialTheme.colorScheme.secondaryContainer)
         )

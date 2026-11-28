@@ -274,12 +274,19 @@ object AudioMetadataReader {
      * metadata is requested. Artwork is decoded only when [readArtwork] is set, so library scans
      * do not allocate multi-megabyte covers for poorly tagged files.
      */
+    private val JAUDIOTAGGER_SUPPORTED_EXTENSIONS = setOf(
+        "mp3", "flac", "ogg", "oga", "m4a", "m4p", "mp4", "wma", "wav", "aif", "aiff", "aifc", "dsf", "rm"
+    )
+
     @VisibleForTesting
     internal fun readWithJAudioTagger(
         file: File,
         readArtwork: Boolean,
         readCustomMetadata: Boolean = false
     ): AudioMetadata? {
+        if (file.extension.lowercase() !in JAUDIOTAGGER_SUPPORTED_EXTENSIONS) {
+            return null
+        }
         return try {
             java.util.logging.Logger.getLogger("org.jaudiotagger").level = java.util.logging.Level.OFF
 

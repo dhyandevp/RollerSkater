@@ -209,7 +209,11 @@ class LyricsRepository @Inject constructor(
         )
     }
 
-    private val repositoryScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val repositoryScope = CoroutineScope(
+        SupervisorJob() +
+            Dispatchers.IO +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("LyricsRepository")
+    )
 
     private val lyricsCache = LruCache<String, Lyrics>(MAX_LYRICS_CACHE_SIZE)
 

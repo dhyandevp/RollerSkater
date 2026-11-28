@@ -151,7 +151,9 @@ class FileExplorerStateHolder(
     }
 
     init {
-        refreshAvailableStorages()
+        scope.launch(Dispatchers.IO) {
+            refreshAvailableStorages()
+        }
 
         combine(
             userPreferencesRepository.allowedDirectoriesFlow,

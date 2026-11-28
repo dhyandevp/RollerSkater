@@ -298,9 +298,11 @@ fun PlaylistDetailScreen(
     )
 
     LaunchedEffect(reorderableState.isAnyItemDragging, isEditablePlaylist) {
-        if (isEditablePlaylist && !reorderableState.isAnyItemDragging && lastMovedFrom != null && lastMovedTo != null) {
+        val from = lastMovedFrom
+        val to = lastMovedTo
+        if (isEditablePlaylist && !reorderableState.isAnyItemDragging && from != null && to != null) {
             currentPlaylist?.let {
-                playlistViewModel.reorderSongsInPlaylist(it.id, lastMovedFrom!!, lastMovedTo!!)
+                playlistViewModel.reorderSongsInPlaylist(it.id, from, to)
             }
             lastMovedFrom = null
             lastMovedTo = null

@@ -233,9 +233,9 @@ private fun EditSongContent(
         }
     }
 
-    if (showCoverArtCropper && pendingCoverArtUri != null) {
+    pendingCoverArtUri?.takeIf { showCoverArtCropper }?.let { coverUri ->
         CoverArtCropperDialog(
-            sourceUri = pendingCoverArtUri!!,
+            sourceUri = coverUri,
             onDismiss = {
                 showCoverArtCropper = false
                 pendingCoverArtUri = null
@@ -1093,14 +1093,16 @@ fun CoverArtCropperDialog(
                                 .background(MaterialTheme.colorScheme.surfaceDim)
                                 .clipToBounds()
                         ) {
+                            val err = loadError
+                            val bmp = loadedBitmap
                             when {
                                 isLoading -> {
                                     LoadingIndicator(modifier = Modifier.align(Alignment.Center))
                                 }
 
-                                loadError != null -> {
+                                err != null -> {
                                     Text(
-                                        text = loadError!!,
+                                        text = err,
                                         style = MaterialTheme.typography.bodyMedium,
                                         modifier = Modifier
                                             .align(Alignment.Center)
@@ -1109,8 +1111,8 @@ fun CoverArtCropperDialog(
                                     )
                                 }
 
-                                 loadedBitmap != null -> {
-                                    val bitmap = loadedBitmap!!
+                                 bmp != null -> {
+                                    val bitmap = bmp
                                     val baseScale = maxOf(containerSize / bitmap.width, containerSize / bitmap.height)
                                     val displayWidth = with(LocalDensity.current) { (bitmap.width * baseScale).toDp() }
                                     val displayHeight = with(LocalDensity.current) { (bitmap.height * baseScale).toDp() }

@@ -100,6 +100,7 @@ class SetupViewModel @Inject constructor(
     val isCurrentDirectoryResolved = fileExplorerStateHolder.isCurrentDirectoryResolved
     private var hasPendingDirectoryRuleChanges = false
     private var latestDirectoryRuleUpdateJob: Job? = null
+    private var isCompletingSetup = false
 
     init {
         viewModelScope.launch {
@@ -191,10 +192,15 @@ class SetupViewModel @Inject constructor(
     }
 
     fun loadMusicDirectories() {
+        val mediaPermission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Manifest.permission.READ_MEDIA_AUDIO
+        } else {
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        }
+        if (ContextCompat.checkSelfPermission(context, mediaPermission) != PackageManager.PERMISSION_GRANTED) {
+            return
+        }
         viewModelScope.launch {
-            if (!userPreferencesRepository.initialSetupDoneFlow.first()) {
-            }
-
             userPreferencesRepository.blockedDirectoriesFlow.first().let { blocked ->
                 _uiState.update { it.copy(blockedDirectories = blocked) }
             }
@@ -287,8 +293,15 @@ class SetupViewModel @Inject constructor(
     }
 
     fun setSetupComplete() {
+        if (isCompletingSetup) return
+        isCompletingSetup = true
         viewModelScope.launch {
-            completeSetup(syncAfter = true)
+            try {
+                completeSetup(syncAfter = true)
+            } catch (e: Exception) {
+                isCompletingSetup = false
+                throw e
+            }
         }
     }
     

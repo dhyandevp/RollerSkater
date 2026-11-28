@@ -592,7 +592,9 @@ internal fun RecapMorphBlob(
     shapes: List<RoundedPolygon> = DefaultBlobShapes,
     periodMillis: Int = 16_000
 ) {
-    val morphs = remember(shapes) { (shapes + shapes.first()).zipWithNext { a, b -> Morph(a, b) } }
+    val firstShape = shapes.firstOrNull() ?: return
+    val morphs = remember(shapes) { (shapes + firstShape).zipWithNext { a, b -> Morph(a, b) } }
+    if (morphs.isEmpty()) return
     val scratch = remember { android.graphics.Path() }
     val spin = rememberSpin(active = active, periodMillis = periodMillis)
     Canvas(modifier = modifier.clearAndSetSemantics { }) {

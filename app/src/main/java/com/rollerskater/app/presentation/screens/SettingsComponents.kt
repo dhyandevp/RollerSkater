@@ -350,7 +350,7 @@ fun OptionSelectionSheet(
                     .heightIn(max = 400.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(options.entries.toList()) { (key, optionLabel) ->
+                items(options.entries.toList(), key = { it.key }) { (key, optionLabel) ->
                     val isSelected = key == selectedKey
                     val isEnabled = key !in disabledOptionKeys
                     val optionDescription = optionDescriptions[key]

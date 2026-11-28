@@ -49,7 +49,8 @@ class EqualizerAudioSink(
     }
 
     override fun handleBuffer(buffer: ByteBuffer, presentationTimeUs: Long, encodedAccessUnitCount: Int): Boolean {
-        val forwarded = if (buffer === pendingInput) pendingForwarded!! else prepare(buffer)
+        val pending = pendingForwarded
+        val forwarded = if (buffer === pendingInput && pending != null) pending else prepare(buffer)
         pendingInput = buffer
         pendingForwarded = forwarded
         if (!super.handleBuffer(forwarded, presentationTimeUs, encodedAccessUnitCount)) return false

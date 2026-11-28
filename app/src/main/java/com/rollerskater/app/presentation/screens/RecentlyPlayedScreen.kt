@@ -275,8 +275,9 @@ fun RecentlyPlayedScreen(
             }
         }
 
-        if (showSongInfoBottomSheet && selectedSongForInfo != null) {
-            val song = selectedSongForInfo!!
+        val songForInfo = selectedSongForInfo
+        if (showSongInfoBottomSheet && songForInfo != null) {
+            val song = songForInfo
             SongInfoBottomSheet(
                 song = song,
                 isFavorite = favoriteSongIds.contains(song.id),
@@ -688,7 +689,7 @@ private fun groupRecentlyPlayedSongs(
         } else {
             groups += TimestampGroup(
                 key = currentBucketKey,
-                label = currentLabel!!,
+                label = currentLabel ?: timeBucket.label,
                 isHourBucket = currentIsHourBucket,
                 songs = bucket
             )

@@ -622,11 +622,15 @@ fun LyricsSheet(
                         FilledTonalButton(
                             onClick = {
                                 showSaveLyricsDialog = false
-                                onSaveLyricsToFile(
-                                    currentSong!!,
-                                    lyrics!!,
-                                    true
-                                )
+                                val song = currentSong
+                                val lyr = lyrics
+                                if (song != null && lyr != null) {
+                                    onSaveLyricsToFile(
+                                        song,
+                                        lyr,
+                                        true
+                                    )
+                                }
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {
@@ -638,11 +642,15 @@ fun LyricsSheet(
                         OutlinedButton(
                             onClick = {
                                 showSaveLyricsDialog = false
-                                onSaveLyricsToFile(
-                                    currentSong!!,
-                                    lyrics!!,
-                                    false
-                                )
+                                val song = currentSong
+                                val lyr = lyrics
+                                if (song != null && lyr != null) {
+                                    onSaveLyricsToFile(
+                                        song,
+                                        lyr,
+                                        false
+                                    )
+                                }
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {

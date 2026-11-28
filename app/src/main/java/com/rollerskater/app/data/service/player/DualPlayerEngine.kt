@@ -272,7 +272,11 @@ class DualPlayerEngine @Inject constructor(
         val queueSize: Int
     )
 
-    private var scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    private var scope = CoroutineScope(
+        Dispatchers.Main +
+            SupervisorJob() +
+            com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("DualPlayerEngine")
+    )
     var audioOutputMode: AudioOutputMode = AudioOutputMode.SYSTEM_DEFAULT
         private set
     private val offloadHealthPrefs by lazy {
@@ -670,7 +674,11 @@ class DualPlayerEngine @Inject constructor(
     fun initialize() {
         if (!isReleased && ::playerA.isInitialized && playerA.applicationLooper.thread.isAlive) return
         if (scope.coroutineContext[Job]?.isActive != true) {
-            scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+            scope = CoroutineScope(
+                Dispatchers.Main +
+                    SupervisorJob() +
+                    com.rollerskater.app.utils.CrashHandler.coroutineExceptionHandler("DualPlayerEngine")
+            )
         }
 
         if (::playerA.isInitialized) {
@@ -912,7 +920,7 @@ class DualPlayerEngine @Inject constructor(
             auxiliaryPlayerPresented = auxiliaryPlayerPresented,
             auxiliaryMediaItemCount = auxiliaryPlayer?.mediaItemCount ?: 0
         )
-        val sourcePlayer = if (useAuxiliaryPlayer) auxiliaryPlayer!! else playerA
+        val sourcePlayer = if (useAuxiliaryPlayer && auxiliaryPlayer != null) auxiliaryPlayer else playerA
         val queueWindow = selectPlayerRebuildQueueWindow(
             useAuxiliaryPlayer = useAuxiliaryPlayer,
             activeWindowStartIndex = activeWindowStartIndex,

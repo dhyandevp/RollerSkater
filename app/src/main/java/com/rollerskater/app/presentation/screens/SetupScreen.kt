@@ -117,7 +117,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.core.app.ActivityCompat
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -232,8 +234,16 @@ fun SetupScreen(
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val scope = rememberCoroutineScope()
     val currentPage = pages[pagerState.currentPage]
-    val isNextButtonEnabled = isPermissionGateSatisfied(context, currentPage, uiState)
-    var previousPageIndex by remember { mutableStateOf(0) }
+    var mediaGateBypassed by rememberSaveable { mutableStateOf(false) }
+    var notificationsGateBypassed by rememberSaveable { mutableStateOf(false) }
+    val isNextButtonEnabled = isPermissionGateSatisfied(
+        context = context,
+        page = currentPage,
+        uiState = uiState,
+        mediaGateBypassed = mediaGateBypassed,
+        notificationsGateBypassed = notificationsGateBypassed
+    )
+    var previousPageIndex by rememberSaveable { mutableStateOf(0) }
     val navigateToPage: (Int) -> Unit = { targetPage ->
         scope.launch {
             val boundedPage = targetPage.coerceIn(0, pages.lastIndex)
@@ -266,6 +276,7 @@ fun SetupScreen(
                         if (targetPageIndex != null) {
                             pagerState.animateScrollToPage(targetPageIndex)
                         } else {
+                            setupViewModel.setSetupComplete()
                             onSetupComplete()
                         }
                     }
@@ -281,7 +292,9 @@ fun SetupScreen(
                 fromPageIndex = previousPageIndex,
                 toPageIndex = pagerState.currentPage,
                 context = context,
-                uiState = uiState
+                uiState = uiState,
+                mediaGateBypassed = mediaGateBypassed,
+                notificationsGateBypassed = notificationsGateBypassed
             )
             if (blockedPageIndex != null) {
                 setupViewModel.checkPermissions(context)
@@ -308,10 +321,17 @@ fun SetupScreen(
                 pagerState = pagerState,
                 animated = (pagerState.currentPage != 0),
                 isNextButtonEnabled = isNextButtonEnabled,
-                isFinishButtonEnabled = uiState.allPermissionsGranted,
+                isFinishButtonEnabled = true,
                 onNextClicked = {
                     val page = pages[pagerState.currentPage]
-                    if (isPermissionGateSatisfied(context, page, uiState)) {
+                    if (isPermissionGateSatisfied(
+                            context = context,
+                            page = page,
+                            uiState = uiState,
+                            mediaGateBypassed = mediaGateBypassed,
+                            notificationsGateBypassed = notificationsGateBypassed
+                        )
+                    ) {
                         navigateToPage(pagerState.currentPage + 1)
                     } else {
                         setupViewModel.checkPermissions(context)
@@ -319,13 +339,8 @@ fun SetupScreen(
                     }
                 },
                 onFinishClicked = {
-                    if (allRequiredPermissionsGrantedNow(context)) {
-                        setupViewModel.setSetupComplete()
-                        onSetupComplete()
-                    } else {
-                        setupViewModel.checkPermissions(context)
-                        Toast.makeText(context, context.getString(R.string.toast_grant_all_permissions), Toast.LENGTH_SHORT).show()
-                    }
+                    setupViewModel.setSetupComplete()
+                    onSetupComplete()
                 }
             )
         }
@@ -360,7 +375,16 @@ fun SetupScreen(
                     SetupPage.Welcome -> WelcomePage()
                     SetupPage.MediaPermission -> MediaPermissionPage(
                         uiState = uiState,
-                        onPermissionStateUpdated = { setupViewModel.checkPermissions(context) }
+                        onPermissionStateUpdated = { granted ->
+                            setupViewModel.checkPermissions(context)
+                            if (!granted) {
+                                mediaGateBypassed = true
+                            }
+                        },
+                        onSkip = {
+                            mediaGateBypassed = true
+                            navigateToPage(pagerState.currentPage + 1)
+                        }
                     )
                     SetupPage.BackupRestore -> BackupRestorePage(
                         uiState = uiState,
@@ -396,7 +420,16 @@ fun SetupScreen(
                     )
                     SetupPage.NotificationsPermission -> NotificationsPermissionPage(
                         uiState = uiState,
-                        onPermissionStateUpdated = { setupViewModel.checkPermissions(context) }
+                        onPermissionStateUpdated = { granted ->
+                            setupViewModel.checkPermissions(context)
+                            if (!granted) {
+                                notificationsGateBypassed = true
+                            }
+                        },
+                        onSkip = {
+                            notificationsGateBypassed = true
+                            navigateToPage(pagerState.currentPage + 1)
+                        }
                     )
                     SetupPage.AlarmsPermission -> AlarmsPermissionPage(
                         uiState = uiState,
@@ -616,25 +649,36 @@ private fun firstBlockedForwardPageIndex(
     fromPageIndex: Int,
     toPageIndex: Int,
     context: Context,
-    uiState: SetupUiState
+    uiState: SetupUiState,
+    mediaGateBypassed: Boolean = false,
+    notificationsGateBypassed: Boolean = false
 ): Int? {
     if (toPageIndex <= fromPageIndex) return null
     return (fromPageIndex until toPageIndex).firstOrNull { pageIndex ->
-        !isPermissionGateSatisfied(context, pages[pageIndex], uiState)
+        !isPermissionGateSatisfied(
+            context = context,
+            page = pages[pageIndex],
+            uiState = uiState,
+            mediaGateBypassed = mediaGateBypassed,
+            notificationsGateBypassed = notificationsGateBypassed
+        )
     }
 }
 
 private fun isPermissionGateSatisfied(
     context: Context,
     page: SetupPage,
-    uiState: SetupUiState
+    uiState: SetupUiState,
+    mediaGateBypassed: Boolean = false,
+    notificationsGateBypassed: Boolean = false
 ): Boolean {
     return when (page) {
         SetupPage.MediaPermission -> {
-            uiState.mediaPermissionGranted || hasMediaPermissionNow(context)
+            mediaGateBypassed || uiState.mediaPermissionGranted || hasMediaPermissionNow(context)
         }
         SetupPage.NotificationsPermission -> {
-            uiState.notificationsPermissionGranted ||
+            notificationsGateBypassed ||
+                uiState.notificationsPermissionGranted ||
                 Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                 ContextCompat.checkSelfPermission(
                     context,
@@ -874,12 +918,22 @@ private fun SetupLanguagePill() {
     }
 }
 
+private fun openAppSettings(context: Context) {
+    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+        data = "package:${context.packageName}".toUri()
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    }
+    runCatching { context.startActivity(intent) }
+}
+
 @Composable
 fun MediaPermissionPage(
     uiState: SetupUiState,
-    onPermissionStateUpdated: () -> Unit
+    onPermissionStateUpdated: (Boolean) -> Unit,
+    onSkip: () -> Unit = {}
 ) {
     val context = LocalContext.current
+    val activity = context as? Activity
     val permissions = remember {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             listOf(Manifest.permission.READ_MEDIA_AUDIO)
@@ -887,10 +941,15 @@ fun MediaPermissionPage(
             listOf(Manifest.permission.READ_EXTERNAL_STORAGE)
         }
     }
+    var permanentlyDenied by rememberSaveable { mutableStateOf(false) }
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestMultiplePermissions()
-    ) {
-        onPermissionStateUpdated()
+    ) { results ->
+        val granted = results.values.isNotEmpty() && results.values.all { it }
+        permanentlyDenied = !granted && activity != null && permissions.none { perm ->
+            ActivityCompat.shouldShowRequestPermissionRationale(activity, perm)
+        }
+        onPermissionStateUpdated(granted)
     }
     val mediaIcons = persistentListOf(
         R.drawable.rounded_music_note_24,
@@ -914,24 +973,39 @@ fun MediaPermissionPage(
         icons = mediaIcons,
         onGrantClicked = {
             if (!isGranted) {
-                launcher.launch(permissions.toTypedArray())
+                if (permanentlyDenied) {
+                    openAppSettings(context)
+                } else {
+                    launcher.launch(permissions.toTypedArray())
+                }
             }
         }
-    )
+    ) {
+        if (!isGranted) {
+            TextButton(onClick = onSkip) {
+                Text(stringResource(R.string.skip_for_now), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+    }
 }
 
 @Composable
 fun NotificationsPermissionPage(
     uiState: SetupUiState,
-    onPermissionStateUpdated: () -> Unit
+    onPermissionStateUpdated: (Boolean) -> Unit,
+    onSkip: () -> Unit = {}
 ) {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
 
     val context = LocalContext.current
+    val activity = context as? Activity
+    var permanentlyDenied by rememberSaveable { mutableStateOf(false) }
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.RequestPermission()
-    ) {
-        onPermissionStateUpdated()
+    ) { granted ->
+        permanentlyDenied = !granted && activity != null &&
+            !ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.POST_NOTIFICATIONS)
+        onPermissionStateUpdated(granted)
     }
     val notificationIcons = persistentListOf(
         R.drawable.rounded_circle_notifications_24,
@@ -953,10 +1027,24 @@ fun NotificationsPermissionPage(
         icons = notificationIcons,
         onGrantClicked = {
             if (!isGranted) {
-                launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                if (permanentlyDenied) {
+                    val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).apply {
+                        putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    runCatching { context.startActivity(intent) }.onFailure { openAppSettings(context) }
+                } else {
+                    launcher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
             }
         }
-    )
+    ) {
+        if (!isGranted) {
+            TextButton(onClick = onSkip) {
+                Text(stringResource(R.string.skip_for_now), maxLines = 1, overflow = TextOverflow.Ellipsis)
+            }
+        }
+    }
 }
 
 @Composable

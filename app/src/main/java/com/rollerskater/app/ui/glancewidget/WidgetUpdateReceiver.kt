@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.glance.appwidget.GlanceAppWidgetManager
+import com.rollerskater.app.utils.CrashHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -17,7 +18,9 @@ class WidgetUpdateReceiver : BroadcastReceiver() {
         if (intent.action != "com.rollerskater.app.ACTION_WIDGET_UPDATE_PLAYBACK_STATE") return
 
         val pendingResult = goAsync()
-        val scope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+        val scope = CoroutineScope(
+            Dispatchers.IO + SupervisorJob() + CrashHandler.coroutineExceptionHandler("WidgetUpdateReceiver")
+        )
         scope.launch {
             try {
                 val glanceAppWidgetManager = GlanceAppWidgetManager(context)

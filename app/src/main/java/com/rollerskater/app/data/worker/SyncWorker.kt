@@ -516,6 +516,8 @@ constructor(
                     }
                     artistImageRepository.clearCache()
                     Result.success(workDataOf(OUTPUT_TOTAL_SONGS to finalTotalSongs))
+                } catch (e: kotlinx.coroutines.CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     Timber.tag(TAG).e(e, "Error during MediaStore synchronization")
                     AdvancedPerformanceDiagnostics.recordEventIfEnabled(

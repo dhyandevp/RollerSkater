@@ -210,20 +210,22 @@ class AudioOutputStateHolder @Inject constructor(
     }
 
     private companion object {
-        val MEDIA_OUTPUT_TYPES = setOf(
-            AudioDeviceInfo.TYPE_BUILTIN_SPEAKER,
-            AudioDeviceInfo.TYPE_WIRED_HEADSET,
-            AudioDeviceInfo.TYPE_WIRED_HEADPHONES,
-            AudioDeviceInfo.TYPE_LINE_ANALOG,
-            AudioDeviceInfo.TYPE_LINE_DIGITAL,
-            AudioDeviceInfo.TYPE_USB_HEADSET,
-            AudioDeviceInfo.TYPE_USB_DEVICE,
-            AudioDeviceInfo.TYPE_USB_ACCESSORY,
-            AudioDeviceInfo.TYPE_DOCK,
-            AudioDeviceInfo.TYPE_BLUETOOTH_A2DP,
-            AudioDeviceInfo.TYPE_BLE_HEADSET,
-            AudioDeviceInfo.TYPE_BLE_SPEAKER,
-            AudioDeviceInfo.TYPE_HEARING_AID,
-        )
+        val MEDIA_OUTPUT_TYPES = buildSet {
+            add(AudioDeviceInfo.TYPE_BUILTIN_SPEAKER)
+            add(AudioDeviceInfo.TYPE_WIRED_HEADSET)
+            add(AudioDeviceInfo.TYPE_WIRED_HEADPHONES)
+            add(AudioDeviceInfo.TYPE_LINE_ANALOG)
+            add(AudioDeviceInfo.TYPE_LINE_DIGITAL)
+            add(AudioDeviceInfo.TYPE_USB_HEADSET)
+            add(AudioDeviceInfo.TYPE_USB_DEVICE)
+            add(AudioDeviceInfo.TYPE_USB_ACCESSORY)
+            add(AudioDeviceInfo.TYPE_DOCK)
+            add(AudioDeviceInfo.TYPE_BLUETOOTH_A2DP)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                add(AudioDeviceInfo.TYPE_BLE_HEADSET)
+                add(AudioDeviceInfo.TYPE_BLE_SPEAKER)
+            }
+            add(AudioDeviceInfo.TYPE_HEARING_AID)
+        }
     }
 }

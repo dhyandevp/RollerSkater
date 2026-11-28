@@ -3,7 +3,6 @@ package com.rollerskater.app
 import com.rollerskater.app.presentation.navigation.navigateSafely
 
 import android.Manifest
-import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
@@ -104,13 +103,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.lerp
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.media3.common.util.UnstableApi
-import androidx.media3.session.MediaController
-import androidx.media3.session.SessionToken
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.google.common.util.concurrent.ListenableFuture
-import com.google.common.util.concurrent.MoreExecutors
 import com.rollerskater.app.data.preferences.AppThemeMode
 import com.rollerskater.app.data.preferences.NavBarStyle
 import com.rollerskater.app.data.preferences.sanitizeNavBarCornerRadius
@@ -119,7 +114,6 @@ import com.rollerskater.app.data.preferences.ThemePreferencesRepository
 import com.rollerskater.app.data.preferences.ThemePreset
 import com.rollerskater.app.data.preferences.InterfaceAppearance
 import com.rollerskater.app.data.preferences.UserPreferencesRepository
-import com.rollerskater.app.data.service.MusicService
 import com.rollerskater.app.data.worker.SyncManager
 import com.rollerskater.app.data.worker.SyncProgress
 import com.rollerskater.app.presentation.components.AllFilesAccessDialog
@@ -199,7 +193,6 @@ class MainActivity : ComponentActivity() {
     private val playerViewModel: PlayerViewModel by viewModels()
     private val mainViewModel: MainViewModel by viewModels()
     private var isUIVisiblyReady = false
-    private var mediaControllerFuture: ListenableFuture<MediaController>? = null
     @Inject
     lateinit var userPreferencesRepository: UserPreferencesRepository
     @Inject
@@ -365,25 +358,41 @@ class MainActivity : ComponentActivity() {
             var crashLogData by remember { mutableStateOf<CrashLogData?>(null) }
             
             val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                listOf(Manifest.permission.READ_MEDIA_AUDIO, Manifest.permission.POST_NOTIFICATIONS)
+                listOf(Manifest.permission.READ_MEDIA_AUDIO)
             } else {
                 listOf(Manifest.permission.READ_EXTERNAL_STORAGE)
             }
-            val permissionsValid = remember(permissions) {
-                permissions.all {
-                    androidx.core.content.ContextCompat.checkSelfPermission(this@MainActivity, it) == android.content.pm.PackageManager.PERMISSION_GRANTED
+            fun hasRequiredMediaPermissions(): Boolean = permissions.all {
+                androidx.core.content.ContextCompat.checkSelfPermission(
+                    this@MainActivity,
+                    it
+                ) == android.content.pm.PackageManager.PERMISSION_GRANTED
+            }
+            var permissionsValid by remember(permissions) {
+                mutableStateOf(hasRequiredMediaPermissions())
+            }
+            val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current
+            androidx.compose.runtime.DisposableEffect(lifecycleOwner, permissions) {
+                val observer = androidx.lifecycle.LifecycleEventObserver { _, event ->
+                    if (event == androidx.lifecycle.Lifecycle.Event.ON_RESUME) {
+                        permissionsValid = hasRequiredMediaPermissions()
+                    }
+                }
+                lifecycleOwner.lifecycle.addObserver(observer)
+                onDispose {
+                    lifecycleOwner.lifecycle.removeObserver(observer)
                 }
             }
-            val showSetupScreen = remember(isSetupComplete, permissionsValid, isBenchmarkMode) {
+            val showSetupScreen = remember(isSetupComplete, isBenchmarkMode) {
                 when {
                     isBenchmarkMode -> false
                     isSetupComplete == null -> null
-                    else -> !isSetupComplete!! || !permissionsValid
+                    else -> isSetupComplete != true
                 }
             }
 
-            LaunchedEffect(showSetupScreen) {
-                if (showSetupScreen == false) {
+            LaunchedEffect(showSetupScreen, permissionsValid) {
+                if (showSetupScreen == false && permissionsValid) {
                      LogUtils.i(this, "Setup complete/skipped and permissions valid. Starting sync.")
                      mainViewModel.startSync()
                 }
@@ -433,6 +442,7 @@ class MainActivity : ComponentActivity() {
                             ) { shouldShowSetup ->
                                 if (shouldShowSetup) {
                                     SetupScreen(onSetupComplete = {
+                                        permissionsValid = hasRequiredMediaPermissions()
                                     })
                                 } else {
                                     MainAppContent(playerViewModel, mainViewModel)
@@ -440,9 +450,10 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        if (showCrashReportDialog && crashLogData != null) {
+                        val currentCrashLog = crashLogData
+                        if (showCrashReportDialog && currentCrashLog != null) {
                             CrashReportDialog(
-                                crashLog = crashLogData!!,
+                                crashLog = currentCrashLog,
                                 onDismiss = {
                                     CrashHandler.clearCrashLog()
                                     crashLogData = null
@@ -1265,22 +1276,11 @@ class MainActivity : ComponentActivity() {
         super.onStart()
         LogUtils.d(this, "onStart")
         playerViewModel.onMainActivityStart()
-
-        if (intent.getBooleanExtra("is_benchmark", false)) {
-        }
-
-        val sessionToken = SessionToken(this, ComponentName(this, MusicService::class.java))
-        mediaControllerFuture = MediaController.Builder(this, sessionToken).buildAsync()
-        mediaControllerFuture?.addListener({
-        }, MoreExecutors.directExecutor())
     }
 
     override fun onStop() {
         super.onStop()
         LogUtils.d(this, "onStop")
-        mediaControllerFuture?.let {
-            MediaController.releaseFuture(it)
-        }
     }
 
     override fun onResume() {
