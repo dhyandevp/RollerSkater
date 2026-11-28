@@ -61,7 +61,7 @@ ksp = "2.3.10"
 workRuntimeKtx = "2.11.2"
 composeTesting = "1.0.0-alpha03"
 timber = "5.0.1"
-mockk = "1.14.11"
+mockk = "1.14.12"
 turbine = "1.2.1"
 truth = "1.4.5"
 
